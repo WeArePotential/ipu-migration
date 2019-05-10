@@ -1,0 +1,3 @@
+services:
+  flickr.block.api:
+    class: Drupal\flickr_block\FlickrAPI

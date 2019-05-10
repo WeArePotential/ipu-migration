@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_user_picture_field --feedback="100 items"
+drush migrate-import upgrade_user_picture_field_instance --feedback="100 items"
+drush migrate-import upgrade_user_picture_entity_display --feedback="100 items"
+drush migrate-import upgrade_user_picture_entity_form_display --feedback="100 items"

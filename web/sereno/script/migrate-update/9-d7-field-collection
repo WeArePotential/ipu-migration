@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_field_collection_event_sub_page --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_document_widget --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_document --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_right_menu --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_section --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_sessions --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_session_type --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_ipu_event_sponsors --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_publication_document --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_related_content --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_related_documents --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_event_sub_page --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_sections --feedback="100 items"
+
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_document_widget --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_document --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_right_menu --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_section --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_sessions --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_session_type --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_sponsors --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_publication_document --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_related_content --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_related_documents --feedback="100 items"
+drush migrate-import upgrade_d7_field_collection_revisions_sections --feedback="100 items"

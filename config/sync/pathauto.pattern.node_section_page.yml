@@ -1,0 +1,21 @@
+uuid: 6b935123-6aea-45ac-8469-1a09f5a3655b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_section_page
+label: 'Content - Section Page'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join-path]/[node:title-field]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      section_page: section_page
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

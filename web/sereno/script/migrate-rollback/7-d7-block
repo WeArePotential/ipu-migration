@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+drush migrate-rollback upgrade_d7_block --feedback="100 items"
+drush migrate-rollback upgrade_d7_custom_block --feedback="100 items"
+drush migrate-rollback upgrade_d7_custom_block_translation --feedback="100 items"
+
+### go10 issues: ###
+
+# rolled back the lot - too many failures:
+# [error]  Did not save to map table due to NULL value for key field language

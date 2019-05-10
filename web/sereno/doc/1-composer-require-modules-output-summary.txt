@@ -1,0 +1,206 @@
+Using version ^1.6 for drupal/address
+  - Installing drupal/coffee (1.0.0-beta2): Downloading (100%)
+  - Installing commerceguys/addressing (v1.0.3): Loading from cache
+  - Installing drupal/address (1.6.0): Loading from cache
+  - Installing drupal/back_to_top (1.0.0): Downloading (100%)
+  - Installing drupal/better_exposed_filters (3.0.0-alpha6): Loading from cache
+Using version ^1.0 for drupal/block_class
+  - Installing drupal/block_class (1.0.0): Downloading (100%)
+Using version ^1.1 for drupal/blockgroup
+  - Installing drupal/blockgroup (1.1.0): Downloading (100%)
+Using version ^2.7 for drupal/chosen
+  - Installing drupal/chosen (2.7.0): Downloading (100%)
+Using version ^1.0@beta for drupal/coffee
+Using version ^3.2 for drupal/ctools
+Using version ^1.0@beta for drupal/custom_add_another
+  - Installing drupal/custom_add_another (1.0.0-beta1): Downloading (connecting.Downloading (100%)
+Using version ^1.0@beta for drupal/date_all_day
+  - Installing drupal/date_all_day (1.0.0-beta1): Downloading (100%)
+Using version ^1.0 for drupal/date_popup
+  - Installing drupal/date_popup (1.0.0): Downloading (100%)
+Using version ^2.0 for drupal/devel
+Using version ^3.3 for drupal/ds
+  - Installing drupal/ds (3.3.0): Downloading (100%)
+
+  Could not find package drupal/ds_extra.
+
+  Did you mean one of these?
+      drupal/field_group
+      drupal/entity_pdf
+      drupal/rocketship_core
+
+
+Using version ^2.0@alpha for drupal/ds_search
+  Problem 1
+    - drupal/ds_search 2.0.0-alpha4 requires drupal/ds 2.0.0-alpha4 -> satisfiable by drupal/ds[2.0.0-alpha4] but these conflict with your requirements or minimum-stability.
+    - drupal/ds_search 2.0.0-alpha9 requires drupal/ds 2.0.0-alpha9 -> satisfiable by drupal/ds[2.0.0-alpha9] but these conflict with your requirements or minimum-stability.
+    - Installation request for drupal/ds_search ^2.0@alpha -> satisfiable by drupal/ds_search[2.0.0-alpha9, 2.0.0-alpha4].
+
+Using version ^2.0@alpha for drupal/ds_ui
+  Problem 1
+    - drupal/ds_ui 2.0.0-alpha4 requires drupal/ds 2.0.0-alpha4 -> satisfiable by drupal/ds[2.0.0-alpha4] but these conflict with your requirements or minimum-stability.
+    - drupal/ds_ui 2.0.0-alpha9 requires drupal/ds 2.0.0-alpha9 -> satisfiable by drupal/ds[2.0.0-alpha9] but these conflict with your requirements or minimum-stability.
+    - Installation request for drupal/ds_ui ^2.0@alpha -> satisfiable by drupal/ds_ui[2.0.0-alpha9, 2.0.0-alpha4].
+Installation failed, reverting ./composer.json to its original content.
+
+Using version ^1.3 for drupal/facets
+  - Installing drupal/facets (1.3.0): Loading from cache
+Using version ^3.8 for drupal/features
+  - Installing drupal/config_update (1.6.0): Loading from cache
+  - Installing drupal/features (3.8.0): Loading from cache
+Using version ^3.0@alpha for drupal/feeds
+  - Installing drupal/feeds (3.0.0-alpha4): Loading from cache
+Using version ^1.0@alpha for drupal/field_collection
+  - Installing drupal/field_collection (1.0.0-alpha1): Downloading (connecting..Downloading (100%)
+Using version ^1.0 for drupal/field_group
+  - Installing drupal/field_group (1.0.0): Loading from cache
+Using version ^2.0@beta for drupal/file_entity
+  - Installing drupal/file_entity (2.0.0-beta6): Loading from cache
+Using version ^1.0@beta for drupal/filefield_paths
+  - Installing drupal/filefield_paths (1.0.0-beta1):Downloading (100%)         )
+Using version ^1.0@alpha for drupal/flickr
+  - Installing drupal/flickr_api (1.2.0): Downloading (100%)
+  - Installing drupal/flickr (1.0.0-alpha2): Downloading (100%)
+Using version ^1.0@alpha for drupal/flickr_block
+  - Installing drupal/flickr_block (1.0.0-alpha2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeC
+Using version ^2.1 for drupal/geocoder
+  - Installing igorw/get-in (v1.0.3): Downloading (100%)
+  - Installing egeloen/http-adapter (0.8.0): Downloading (100%)
+  - Installing willdurand/geocoder (v3.3.2): Downloading (100%)
+  - Installing drupal/geocoder (2.1.0): Downloading (100%)
+
+egeloen/http-adapter suggests installing ext-http (Allows you to use the PECL adapter)
+egeloen/http-adapter suggests installing guzzle/guzzle (Allows you to use the Guzzle 3 adapter)
+egeloen/http-adapter suggests installing kriswallsmith/buzz (Allows you to use the Buzz adapter)
+egeloen/http-adapter suggests installing nategood/httpful (Allows you to use the httpful adapter)
+egeloen/http-adapter suggests installing zendframework/zendframework1 (Allows you to use the Zend 1 adapter)
+egeloen/http-adapter suggests installing zendframework/zend-http (Allows you to use the Zend 2 adapter)
+egeloen/http-adapter suggests installing symfony/stopwatch (Allows you to use the stopwatch http adapter and event subscriber)
+willdurand/geocoder suggests installing ext-geoip (Enabling the geoip extension allows you to use the MaxMindProvider.)
+willdurand/geocoder suggests installing geoip/geoip (If you are going to use the MaxMindBinaryProvider (conflict with geoip extension).)
+willdurand/geocoder suggests installing geoip2/geoip2 (If you are going to use the GeoIP2DatabaseProvider.)
+willdurand/geocoder suggests installing symfony/stopwatch (If you want to use the TimedGeocoder)
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+
+  [InvalidArgumentException]
+  Could not find package drupal/geocoder_map.
+
+  Did you mean one of these?
+      drupal/geocoder
+      drupal/geofield_map
+      drupal/baidu_map
+      drupal/geofield
+      drupal/geolocation
+
+Using version ^1.1 for drupal/geofield
+  - Installing phayes/geophp (1.2): Downloading (100%)
+  - Installing drupal/geofield (1.1.0): Downloading (100%)
+Using version ^1.0@beta for drupal/geophp
+  - Installing drupal/geophp (1.0.0-beta2): Downloading (100%)
+Using version ^3.0 for drupal/google_analytics
+  - Installing drupal/google_analytics (3.0.0): Downloading (100%)
+Using version ^2.0@alpha for drupal/job_scheduler
+  - Installing drupal/job_scheduler (2.0.0-alpha1): Downloading (100%)
+Using version ^1.5 for drupal/languagefield
+  - Installing drupal/languagefield (1.5.0): Downloading (100%)
+Using version ^1.8 for drupal/mailchimp
+  - Installing thinkshout/mailchimp-api-php (2.0.0):Downloading (100%)         )
+  - Installing drupal/mailchimp (1.8.0): Downloading (100%)
+Using version ^1.8 for drupal/mailchimp_campaign
+Using version ^1.8 for drupal/mailchimp_lists
+Using version ^1.8 for drupal/mailchimp_signup
+Using version ^1.0 for drupal/menu_admin_per_menu
+  - Installing drupal/menu_admin_per_menu (1.0.0): Downloading (100%)
+Using version ^1.5 for drupal/menu_block
+  - Installing drupal/menu_block (1.5.0): Downloading (100%)
+Using version ^1.1 for drupal/menu_trail_by_path
+  - Installing drupal/menu_trail_by_path (1.1.0): Downloading (100%)
+
+  [InvalidArgumentException]
+  Could not find package drupal/metatag_opengraph.
+
+  Did you mean this?
+      drupal/opengraph_filter
+
+Using version ^1.8 for drupal/metatag_twitter_cards
+  - Installing drupal/metatag (1.8.0): Loading from cache
+Using version ^1.8 for drupal/metatag_verification
+Using version ^1.8 for drupal/metatag_views
+Using version ^3.1 for drupal/module_filter
+Using version ^2.4 for drupal/override_node_options
+  - Installing drupal/override_node_options (2.4.0):Downloading (100%)         )
+Using version ^1.4 for drupal/pathauto
+Using version ^1.0@alpha for drupal/pathologic
+  - Installing drupal/pathologic (1.0.0-alpha1): Downloading (100%)
+Using version ^1.3 for drupal/redirect
+Using version ^1.1 for drupal/redis
+Using version ^1.0@alpha for drupal/roleassign
+  - Installing drupal/roleassign (1.0.0-alpha2): Downloading (100%)
+Using version ^1.12 for drupal/search_api
+  - Installing drupal/search_api (1.12.0): Loading from cache
+Using version ^1.12 for drupal/search_api_db
+
+  [InvalidArgumentException]
+  Could not find package drupal/search_api_facetapi.
+
+  Did you mean one of these?
+      drupal/search_api_hashtag
+      drupal/facets
+      drupal/domain_integration
+
+Using version ^1.0@alpha for drupal/search_api_page
+  - Installing drupal/search_api_page (1.0.0-alpha12): Downloading (connecting..Downloading (100%)
+Using version ^2.7 for drupal/search_api_solr
+  - Installing solarium/solarium (4.2.0): Downloading (100%)
+  - Installing maennchen/zipstream-php (v0.4.1): Downloading (100%)
+  - Installing drupal/search_api_solr (2.7.0): Downloading (100%)
+
+solarium/solarium suggests installing minimalcode/search (Query builder compatible with Solarium, allows simplified solr-query handling)
+drupal/search_api_solr suggests installing drupal/search_api_autocomplete (Provides auto complete for search boxes.)
+drupal/search_api_solr suggests installing drupal/search_api_location (Provides location searches.)
+
+Using version ^1.0@beta for drupal/search_api_sorts
+  - Installing drupal/search_api_sorts (1.0.0-beta1): Downloading (100%)
+
+  [InvalidArgumentException]
+  Could not find package drupal/search_api_views.
+
+  Did you mean one of these?
+      drupal/search_api_sorts
+      drupal/search_api
+      drupal/search_api_glossary
+      drupal/search_api_location
+      drupal/search_api_date_popup
+
+Using version ^1.0@RC for drupal/site_status_message
+  - Installing drupal/site_status_message (1.0.0-rc1): Downloading (100%)
+Using version ^1.5 for drupal/sitemap
+  - Installing drupal/sitemap (1.5.0): Loading from cache
+Using version ^1.0@alpha for drupal/stage_file_proxy
+Using version ^3.4 for drupal/taxonomy_menu
+  - Installing drupal/taxonomy_menu (3.4.0): Downloading (100%)
+Using version ^1.1 for drupal/text_resize
+  - Installing drupal/text_resize (1.1.0): Downloading (100%)
+Using version ^1.5 for drupal/token
+Using version ^2.1 for drupal/twitter_block
+  - Installing drupal/twitter_block (2.1.0): Downloading (100%)
+  - Installing drupal/viewfield (3.0.0-alpha3): Downloading (100%)
+Using version ^2.5 for drupal/views_bulk_operations
+  - Installing drupal/views_bulk_operations (2.5.0): Loading from cache
+Using version ^5.2 for drupal/webform
+  - Installing drupal/webform (5.2.0): Downloading (100%)
+
+  [InvalidArgumentException]
+  Could not find package drupal/webform_localization.
+
+  Did you mean one of these?
+      drupal/flashpoint
+      drupal/micro_site
+      drupal/ip_geoloc
+      drupal/smart_ip
+      drupal/permissions_by_term
+
+Using version ^1.0@alpha for drupal/xmlsitemap
+  - Installing drupal/xmlsitemap (1.0.0-alpha3): Downloading (100%)

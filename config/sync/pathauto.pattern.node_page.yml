@@ -1,0 +1,21 @@
+uuid: 9c7a9dcc-2696-4a65-a723-d03721b6f62c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_page
+label: 'Content - Page'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join-path]/[node:title-field]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

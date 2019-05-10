@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_taxonomy_vocabulary --feedback="100 items"
+
+drush migrate-import upgrade_d7_taxonomy_term_article --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_country --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_documents --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_event --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_event_sponsor --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_geopolitical_group --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_governing_body --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_ipu_structure --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_publication --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_tags --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_theme --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_vacancy --feedback="100 items"

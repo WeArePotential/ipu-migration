@@ -1,0 +1,22 @@
+#!/bin/bash
+
+drush migrate-rollback upgrade_language --feedback="100 items"
+drush migrate-rollback upgrade_default_language --feedback="100 items"
+drush migrate-rollback upgrade_file_settings --feedback="100 items"
+drush migrate-rollback upgrade_language_prefixes_and_domains --feedback="100 items"
+drush migrate-rollback upgrade_search_page --feedback="100 items"
+drush migrate-rollback upgrade_system_image_gd --feedback="100 items"
+drush migrate-rollback upgrade_system_image --feedback="100 items"
+drush migrate-rollback upgrade_system_logging --feedback="100 items"
+drush migrate-rollback upgrade_system_maintenance --feedback="100 items"
+drush migrate-rollback upgrade_system_rss --feedback="100 items"
+drush migrate-rollback upgrade_system_site --feedback="100 items"
+drush migrate-rollback upgrade_taxonomy_settings --feedback="100 items"
+drush migrate-rollback upgrade_text_settings --feedback="100 items"
+drush migrate-rollback upgrade_update_settings --feedback="100 items"
+drush migrate-rollback upgrade_menu_settings --feedback="100 items"
+
+drush migrate-rollback upgrade_block_content_type --feedback="100 items"
+drush migrate-rollback upgrade_block_content_body_field --feedback="100 items"
+drush migrate-rollback upgrade_block_content_entity_display --feedback="100 items"
+drush migrate-rollback upgrade_block_content_entity_form_display --feedback="100 items"

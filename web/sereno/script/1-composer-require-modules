@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# Rod Tatham, Sereno :: 9 Apr 2019
+
+# commented out lines where modules not available in D8
+
+cd ../../
+composer-1.7.2 require drupal/address
+composer-1.7.2 require drupal/back_to_top
+composer-1.7.2 require drupal/better_exposed_filters
+composer-1.7.2 require drupal/block_class
+composer-1.7.2 require drupal/blockgroup
+composer-1.7.2 require drupal/chosen
+composer-1.7.2 require drupal/coffee
+composer-1.7.2 require drupal/ctools
+composer-1.7.2 require drupal/custom_add_another
+composer-1.7.2 require drupal/date_all_day
+composer-1.7.2 require drupal/date_popup
+composer-1.7.2 require drupal/devel
+composer-1.7.2 require drupal/ds
+#composer-1.7.2 require drupal/ds_extra
+composer-1.7.2 require drupal/ds_search
+composer-1.7.2 require drupal/ds_ui
+composer-1.7.2 require drupal/entityqueue
+composer-1.7.2 require drupal/facets
+composer-1.7.2 require drupal/features
+composer-1.7.2 require drupal/feeds
+composer-1.7.2 require drupal/field_collection
+composer-1.7.2 require drupal/field_group
+composer-1.7.2 require drupal/file_entity
+composer-1.7.2 require drupal/filefield_paths
+composer-1.7.2 require drupal/flickr
+composer-1.7.2 require drupal/flickr_block
+composer-1.7.2 require drupal/geocoder
+#composer-1.7.2 require drupal/geocoder_map
+composer-1.7.2 require drupal/geofield
+composer-1.7.2 require drupal/geophp
+composer-1.7.2 require drupal/google_analytics
+composer-1.7.2 require drupal/job_scheduler
+composer-1.7.2 require drupal/languagefield
+composer-1.7.2 require drupal/mailchimp
+composer-1.7.2 require drupal/mailchimp_campaign
+composer-1.7.2 require drupal/mailchimp_lists
+composer-1.7.2 require drupal/mailchimp_signup
+composer-1.7.2 require drupal/menu_admin_per_menu
+composer-1.7.2 require drupal/menu_block
+composer-1.7.2 require drupal/menu_trail_by_path
+#composer-1.7.2 require drupal/metatag_opengraph
+composer-1.7.2 require drupal/metatag_twitter_cards
+composer-1.7.2 require drupal/metatag_verification
+composer-1.7.2 require drupal/metatag_views
+composer-1.7.2 require drupal/module_filter
+composer-1.7.2 require drupal/override_node_options
+composer-1.7.2 require drupal/pathauto
+composer-1.7.2 require drupal/pathologic
+composer-1.7.2 require drupal/redirect
+composer-1.7.2 require drupal/redis
+composer-1.7.2 require drupal/roleassign
+composer-1.7.2 require drupal/search_api
+composer-1.7.2 require drupal/search_api_db
+#composer-1.7.2 require drupal/search_api_facetapi
+composer-1.7.2 require drupal/search_api_page
+composer-1.7.2 require drupal/search_api_solr
+composer-1.7.2 require drupal/search_api_sorts
+#composer-1.7.2 require drupal/search_api_views
+composer-1.7.2 require drupal/site_status_message
+composer-1.7.2 require drupal/sitemap
+composer-1.7.2 require drupal/stage_file_proxy
+composer-1.7.2 require drupal/taxonomy_menu
+# throws errors - commented out 25/4/2019
+#composer-1.7.2 require drupal/text_resize
+composer-1.7.2 require drupal/token
+composer-1.7.2 require drupal/twitter_block
+composer-1.7.2 require drupal/viewfield
+composer-1.7.2 require drupal/views_bulk_operations
+composer-1.7.2 require drupal/webform
+#composer-1.7.2 require drupal/webform_localization
+composer-1.7.2 require drupal/xmlsitemap
+
+# added prior to migration - 10 Apr 2019
+composer-1.7.2 require drupal/migrate_tools
+composer-1.7.2 require drupal/migrate_upgrade
+
+# added prior to migration - 11 Apr 2019
+#composer-1.7.2 require drupal/migrate_manifest
+
+# added when rebuilding - 25 Apr 2019
+composer-1.7.2 require drupal/colorbox
+composer-1.7.2 require drupal/flickr_colorbox
+composer-1.7.2 require drupal/backup_migrate
+composer-1.7.2 require drupal/shield
+composer-1.7.2 require drupal/paragraphs
+composer-1.7.2 require drupal/entity_reference_revisions
+composer-1.7.2 require drupal/entity_embed
+composer-1.7.2 require drupal/file_browser
+composer-1.7.2 require drupal/convert_media_tags_to_markup
+
+# added for field import - 30 Apr 2019
+composer-1.7.2 require drupal/geolocation

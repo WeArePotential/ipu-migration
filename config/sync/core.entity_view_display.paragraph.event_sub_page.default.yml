@@ -1,0 +1,52 @@
+uuid: dbdd9cfd-c80f-4872-95fb-174dbef7e170
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_sub_page.field_ipu_event_section
+    - field.field.paragraph.event_sub_page.field_order
+    - field.field.paragraph.event_sub_page.field_sub_page_show_print
+    - field.field.paragraph.event_sub_page.field_title
+    - paragraphs.paragraphs_type.event_sub_page
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.event_sub_page.default
+targetEntityType: paragraph
+bundle: event_sub_page
+mode: default
+content:
+  field_ipu_event_section:
+    label: above
+    weight: 1
+    type: entity_reference_revisions_entity_view
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_order:
+    label: above
+    weight: 2
+    type: number_integer
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    region: content
+  field_sub_page_show_print:
+    label: above
+    weight: 3
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_title:
+    label: above
+    weight: 0
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

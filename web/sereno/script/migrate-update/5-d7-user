@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_user_role --feedback="100 items"
+drush migrate-import upgrade_d7_user --feedback="100 items"
+drush migrate-import upgrade_d7_user_flood --feedback="100 items"
+drush migrate-import upgrade_d7_user_mail --feedback="100 items"
+drush migrate-import upgrade_d7_user_mail_translation --feedback="100 items"
+drush migrate-import upgrade_d7_user_settings_translation --feedback="100 items"
+drush migrate-import upgrade_d7_user_entity_translation --feedback="100 items"
+drush migrate-import upgrade_d7_roleassign_settings --feedback="100 items"
+drush migrate-import upgrade_d7_shortcut_set_users --feedback="100 items"
+drush migrate-import upgrade_d7_google_analytics_user_settings --feedback="100 items"

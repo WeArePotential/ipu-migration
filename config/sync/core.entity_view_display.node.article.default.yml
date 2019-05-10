@@ -1,0 +1,126 @@
+uuid: 34e6c7ec-6476-48fc-8567-3d5c5c123d4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_article.default
+    - field.field.node.article.body
+    - field.field.node.article.comment_node_article
+    - field.field.node.article.field_article_type
+    - field.field.node.article.field_caption
+    - field.field.node.article.field_contact_ipu
+    - field.field.node.article.field_country
+    - field.field.node.article.field_image
+    - field.field.node.article.field_ipu_structure
+    - field.field.node.article.field_media_image
+    - field.field.node.article.field_place_of_publication
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_theme
+    - image.style.large
+    - node.type.article
+  module:
+    - comment
+    - field_group
+    - image
+    - link
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_image:
+      children:
+        - field_media_image
+        - field_caption
+      parent_name: ''
+      weight: 6
+      label: image
+      format_settings:
+        formatter: collapsible
+        description: ''
+        show_label: true
+        label_element: h3
+        effect: none
+        speed: fast
+        classes: 'group-image field-group-div'
+        id: ''
+        element: div
+      format_type: html_element
+_core:
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    label: hidden
+    weight: 7
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_node_article:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_caption:
+    label: hidden
+    weight: 22
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_contact_ipu:
+    label: hidden
+    weight: 4
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: -1
+    region: content
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+  field_place_of_publication:
+    label: hidden
+    weight: 3
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_article_type: true
+  field_country: true
+  field_ipu_structure: true
+  field_media_image: true
+  field_theme: true
+  langcode: true

@@ -1,0 +1,126 @@
+./2-enable-initial-modules
+ [success] Successfully enabled: address
+ [success] Successfully enabled: back_to_top
+ [success] Successfully enabled: better_exposed_filters
+ [success] Successfully enabled: block_class
+ [success] Successfully enabled: blockgroup
+The following module(s) will be enabled: chosen, chosen_lib
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: chosen, chosen_lib
+ [success] Successfully enabled: coffee
+ [success] Successfully enabled: ctools
+ [success] Successfully enabled: custom_add_another
+The following module(s) will be enabled: date_all_day, datetime_range
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: date_all_day, datetime_range
+ [success] Successfully enabled: date_popup
+ [success] Successfully enabled: devel
+The following module(s) will be enabled: ds, layout_discovery
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: ds, layout_discovery
+
+In PmCommands.php line 247:
+
+  Unable to install modules ds_search due to missing modules ds_search.
+
+
+pm:enable [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-d|--debug] [-y|--yes] [--no] [--remote-host REMOTE-HOST] [--remote-user REMOTE-USER] [-r|--root ROOT] [-l|--uri URI] [--simulate] [--pipe] [-D|--define DEFINE] [--notify [NOTIFY]] [--xh-link XH-LINK] [--druplicon] [--] <command> [<modules>]...
+
+
+In PmCommands.php line 247:
+
+  Unable to install modules ds_ui due to missing modules ds_ui.
+
+
+pm:enable [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-d|--debug] [-y|--yes] [--no] [--remote-host REMOTE-HOST] [--remote-user REMOTE-USER] [-r|--root ROOT] [-l|--uri URI] [--simulate] [--pipe] [-D|--define DEFINE] [--notify [NOTIFY]] [--xh-link XH-LINK] [--druplicon] [--] <command> [<modules>]...
+
+ [success] Successfully enabled: facets
+The following module(s) will be enabled: features, config_update
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: features, config_update
+ [success] Successfully enabled: feeds
+ [success] Successfully enabled: field_collection
+ [success] Successfully enabled: field_group
+The following module(s) will be enabled: file_entity, token
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: file_entity, token
+ [success] Successfully enabled: filefield_paths
+The following module(s) will be enabled: flickr, flickr_api
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: flickr, flickr_api
+ [success] Successfully enabled: flickr_block
+ [success] Successfully enabled: geocoder
+ [success] Successfully enabled: geofield
+ [success] Successfully enabled: geophp
+ [success] Successfully enabled: google_analytics
+ [notice] Message: Module /Google Analytics/ granted /Opt-in or out of tracking/ permission to
+authenticated users.
+
+ [success] Successfully enabled: job_scheduler
+The following module(s) will be enabled: languagefield, language
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: languagefield, language
+ [success] Successfully enabled: mailchimp
+The following module(s) will be enabled: mailchimp_campaign, mailchimp_lists
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: mailchimp_campaign, mailchimp_lists
+ [notice] Already enabled: mailchimp_lists
+ [success] Successfully enabled: mailchimp_signup
+ [success] Successfully enabled: menu_admin_per_menu
+ [success] Successfully enabled: menu_block
+ [success] Successfully enabled: menu_trail_by_path
+The following module(s) will be enabled: metatag_twitter_cards, metatag
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: metatag_twitter_cards, metatag
+ [success] Successfully enabled: metatag_verification
+ [success] Successfully enabled: metatag_views
+ [success] Successfully enabled: module_filter
+ [success] Successfully enabled: override_node_options
+ [success] Successfully enabled: pathauto
+ [success] Successfully enabled: pathologic
+ [success] Successfully enabled: redirect
+ [success] Successfully enabled: redis
+ [success] Successfully enabled: roleassign
+ [success] Successfully enabled: search_api
+ [success] Successfully enabled: search_api_db
+ [success] Successfully enabled: search_api_page
+ [success] Successfully enabled: search_api_solr
+ [success] Successfully enabled: search_api_sorts
+ [success] Successfully enabled: site_status_message
+ [success] Successfully enabled: sitemap
+ [success] Successfully enabled: stage_file_proxy
+ [success] Successfully enabled: taxonomy_menu
+ [success] Successfully enabled: text_resize
+ [notice] Already enabled: token
+ [success] Successfully enabled: twitter_block
+ [success] Successfully enabled: viewfield
+ [success] Successfully enabled: views_bulk_operations
+ [success] Successfully enabled: webform
+ [success] Successfully enabled: xmlsitemap

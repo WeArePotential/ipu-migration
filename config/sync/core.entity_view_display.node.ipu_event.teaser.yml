@@ -1,0 +1,61 @@
+uuid: 8f27b3f0-b307-49ad-a181-40c327a77bb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ipu_event.field_agenda_order_number
+    - field.field.node.ipu_event.field_do_not_display_as_link
+    - field.field.node.ipu_event.field_document_show_print
+    - field.field.node.ipu_event.field_documents_order_number
+    - field.field.node.ipu_event.field_event_computed_date
+    - field.field.node.ipu_event.field_event_sub_page
+    - field.field.node.ipu_event.field_event_theme
+    - field.field.node.ipu_event.field_event_type
+    - field.field.node.ipu_event.field_hide_documents_menu
+    - field.field.node.ipu_event.field_hide_programs_menu
+    - field.field.node.ipu_event.field_ipu_event_right_menu
+    - field.field.node.ipu_event.field_ipu_event_section
+    - field.field.node.ipu_event.field_ipu_event_session_type
+    - field.field.node.ipu_event.field_ipu_event_sessions
+    - field.field.node.ipu_event.field_ipu_event_sponsors
+    - field.field.node.ipu_event.field_location
+    - field.field.node.ipu_event.field_programme_show_print
+    - field.field.node.ipu_event.field_sponsor
+    - field.field.node.ipu_event.field_summary
+    - field.field.node.ipu_event.field_twitter_order
+    - node.type.ipu_event
+  module:
+    - user
+id: node.ipu_event.teaser
+targetEntityType: node
+bundle: ipu_event
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_agenda_order_number: true
+  field_do_not_display_as_link: true
+  field_document_show_print: true
+  field_documents_order_number: true
+  field_event_computed_date: true
+  field_event_sub_page: true
+  field_event_theme: true
+  field_event_type: true
+  field_hide_documents_menu: true
+  field_hide_programs_menu: true
+  field_ipu_event_right_menu: true
+  field_ipu_event_section: true
+  field_ipu_event_session_type: true
+  field_ipu_event_sessions: true
+  field_ipu_event_sponsors: true
+  field_location: true
+  field_programme_show_print: true
+  field_sponsor: true
+  field_summary: true
+  field_twitter_order: true
+  langcode: true

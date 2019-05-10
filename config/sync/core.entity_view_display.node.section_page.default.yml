@@ -1,0 +1,71 @@
+uuid: 08aa5a16-bfad-46d8-b093-583befecb4cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_section_page.default
+    - field.field.node.section_page.body
+    - field.field.node.section_page.comment_node_section_page
+    - field.field.node.section_page.field_media_image
+    - field.field.node.section_page.field_sections
+    - node.type.section_page
+  module:
+    - comment
+    - entity_reference_revisions
+    - image
+    - text
+    - user
+id: node.section_page.default
+targetEntityType: node
+bundle: section_page
+mode: default
+content:
+  body:
+    label: hidden
+    weight: 0
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_node_section_page:
+    label: hidden
+    type: comment_default
+    weight: 4
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_media_image:
+    type: image
+    weight: 2
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_sections:
+    label: hidden
+    weight: 1
+    type: entity_reference_revisions_entity_view
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+  links:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

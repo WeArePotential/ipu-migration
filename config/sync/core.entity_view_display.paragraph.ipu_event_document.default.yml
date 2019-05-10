@@ -1,0 +1,49 @@
+uuid: 84356a6f-5720-4a85-bdef-f72675ddf6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ipu_event_document.field_event_document
+    - field.field.paragraph.ipu_event_document.field_event_document_description
+    - field.field.paragraph.ipu_event_document.field_event_document_title
+    - field.field.paragraph.ipu_event_document.field_speech
+    - paragraphs.paragraphs_type.ipu_event_document
+  module:
+    - file
+    - options
+id: paragraph.ipu_event_document.default
+targetEntityType: paragraph
+bundle: ipu_event_document
+mode: default
+content:
+  field_event_document:
+    label: above
+    weight: 0
+    type: file_default
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    region: content
+  field_event_document_description:
+    label: above
+    weight: 2
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_event_document_title:
+    label: above
+    weight: 1
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_speech:
+    label: above
+    weight: 3
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

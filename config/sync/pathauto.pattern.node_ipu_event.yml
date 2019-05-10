@@ -1,0 +1,21 @@
+uuid: 9a27fca6-35a4-4e81-a6ba-bb7b6fdb15cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_ipu_event
+label: 'Content - Events'
+type: 'canonical_entities:node'
+pattern: 'event/[node:title-field]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      ipu_event: ipu_event
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

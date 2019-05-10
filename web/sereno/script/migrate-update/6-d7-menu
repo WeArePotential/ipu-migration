@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_menu --feedback="100 items"
+drush migrate-import upgrade_d7_menu_links --feedback="100 items"
+drush migrate-import upgrade_d7_shortcut_set --feedback="100 items"
+drush migrate-import upgrade_d7_shortcut --feedback="100 items"
+
+### go10 issues: ###
+
+# upgrade_d7_menu_links Migration - 161 failed

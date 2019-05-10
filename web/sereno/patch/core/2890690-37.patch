@@ -1,0 +1,1946 @@
+diff --git a/core/modules/aggregator/migrations/d6_aggregator_item.yml b/core/modules/aggregator/migrations/d6_aggregator_item.yml
+index 24663735d4..8c564c2e5a 100644
+--- a/core/modules/aggregator/migrations/d6_aggregator_item.yml
++++ b/core/modules/aggregator/migrations/d6_aggregator_item.yml
+@@ -9,9 +9,15 @@ source:
+ process:
+   iid: iid
+   fid:
+-    plugin: migration_lookup
+-    migration: d6_aggregator_feed
+-    source: fid
++    -
++      plugin: migration_lookup
++      migration: d6_aggregator_feed
++      source: fid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - fid
+   title: title
+   link: link
+   author: author
+diff --git a/core/modules/aggregator/migrations/d7_aggregator_item.yml b/core/modules/aggregator/migrations/d7_aggregator_item.yml
+index 230c3a26ef..3fc6b66d6b 100644
+--- a/core/modules/aggregator/migrations/d7_aggregator_item.yml
++++ b/core/modules/aggregator/migrations/d7_aggregator_item.yml
+@@ -9,9 +9,15 @@ source:
+ process:
+   iid: iid
+   fid:
+-    plugin: migration_lookup
+-    migration: d7_aggregator_feed
+-    source: fid
++    -
++      plugin: migration_lookup
++      migration: d7_aggregator_feed
++      source: fid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - fid
+   title: title
+   link: link
+   author: author
+diff --git a/core/modules/block/src/Plugin/migrate/process/BlockPluginId.php b/core/modules/block/src/Plugin/migrate/process/BlockPluginId.php
+index 08525674e3..64d179c93d 100644
+--- a/core/modules/block/src/Plugin/migrate/process/BlockPluginId.php
++++ b/core/modules/block/src/Plugin/migrate/process/BlockPluginId.php
+@@ -52,6 +52,7 @@ public static function create(ContainerInterface $container, array $configuratio
+         'd6_custom_block',
+         'd7_custom_block',
+       ],
++      'return_associative' => TRUE,
+     ];
+     return new static(
+       $configuration,
+@@ -84,7 +85,7 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+             $block_id = $this->migrationPlugin
+               ->transform($delta, $migrate_executable, $row, $destination_property);
+             if ($block_id) {
+-              return 'block_content:' . $this->blockContentStorage->load($block_id)->uuid();
++              return 'block_content:' . $this->blockContentStorage->load($block_id['id'])->uuid();
+             }
+           }
+           break;
+diff --git a/core/modules/block/src/Plugin/migrate/process/BlockVisibility.php b/core/modules/block/src/Plugin/migrate/process/BlockVisibility.php
+index 271edd48c3..3e2c71e109 100644
+--- a/core/modules/block/src/Plugin/migrate/process/BlockVisibility.php
++++ b/core/modules/block/src/Plugin/migrate/process/BlockVisibility.php
+@@ -64,6 +64,7 @@ public static function create(ContainerInterface $container, array $configuratio
+         'd6_user_role',
+         'd7_user_role',
+       ],
++      'return_associative' => TRUE,
+     ];
+     return new static(
+       $configuration,
+@@ -94,7 +95,7 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+       ];
+ 
+       foreach ($roles as $key => $role_id) {
+-        $roles[$key] = $this->migrationPlugin->transform($role_id, $migrate_executable, $row, $destination_property);
++        $roles[$key] = $this->migrationPlugin->transform($role_id, $migrate_executable, $row, $destination_property)['id'];
+       }
+       $visibility['user_role']['roles'] = array_combine($roles, $roles);
+     }
+diff --git a/core/modules/block_content/migrations/d6_custom_block.yml b/core/modules/block_content/migrations/d6_custom_block.yml
+index 84e2a4942f..508c0e2932 100644
+--- a/core/modules/block_content/migrations/d6_custom_block.yml
++++ b/core/modules/block_content/migrations/d6_custom_block.yml
+@@ -10,9 +10,15 @@ process:
+   id: bid
+   info: info
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+   'body/value': body
+ destination:
+   plugin: entity:block_content
+diff --git a/core/modules/block_content/migrations/d7_custom_block.yml b/core/modules/block_content/migrations/d7_custom_block.yml
+index 16c659f699..7748ab3d02 100644
+--- a/core/modules/block_content/migrations/d7_custom_block.yml
++++ b/core/modules/block_content/migrations/d7_custom_block.yml
+@@ -10,9 +10,15 @@ process:
+   id: bid
+   info: info
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d7_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d7_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+   'body/value': body
+ destination:
+   plugin: entity:block_content
+diff --git a/core/modules/book/migrations/d6_book.yml b/core/modules/book/migrations/d6_book.yml
+index 128dfb9a01..a8e4a70a15 100644
+--- a/core/modules/book/migrations/d6_book.yml
++++ b/core/modules/book/migrations/d6_book.yml
+@@ -16,7 +16,12 @@ process:
+       source: plid
+     -
+       plugin: migration_lookup
++      return_associative: TRUE
+       migration: d6_book
++    -
++      plugin: extract
++      index:
++        - nid
+ destination:
+   plugin: book
+ migration_dependencies:
+diff --git a/core/modules/book/migrations/d7_book.yml b/core/modules/book/migrations/d7_book.yml
+index 30d8c72b57..0616a789a1 100644
+--- a/core/modules/book/migrations/d7_book.yml
++++ b/core/modules/book/migrations/d7_book.yml
+@@ -16,7 +16,12 @@ process:
+       source: plid
+     -
+       plugin: migration_lookup
++      return_associative: TRUE
+       migration: d7_book
++    -
++      plugin: extract
++      index:
++        - nid
+ destination:
+   plugin: book
+ migration_dependencies:
+diff --git a/core/modules/comment/migrations/d6_comment.yml b/core/modules/comment/migrations/d6_comment.yml
+index e6b4e1295f..f01c719149 100644
+--- a/core/modules/comment/migrations/d6_comment.yml
++++ b/core/modules/comment/migrations/d6_comment.yml
+@@ -13,13 +13,15 @@ process:
+   # the cid field to allow incremental migrations.
+   cid: cid
+   pid:
+-    -
+-      plugin: skip_on_empty
+-      method: process
+-      source: pid
+     -
+       plugin: migration_lookup
+       migration: d6_comment
++      source: pid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - cid
+   entity_id:
+     -
+       plugin: migration_lookup
+@@ -36,9 +38,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   langcode: language
+   field_name: '@comment_type'
+   subject: subject
+@@ -53,9 +60,15 @@ process:
+   thread: thread
+   'comment_body/value': comment
+   'comment_body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+ destination:
+   plugin: entity:comment
+ migration_dependencies:
+diff --git a/core/modules/comment/migrations/d6_comment_entity_display.yml b/core/modules/comment/migrations/d6_comment_entity_display.yml
+index 0934078784..c9a039e7a9 100644
+--- a/core/modules/comment/migrations/d6_comment_entity_display.yml
++++ b/core/modules/comment/migrations/d6_comment_entity_display.yml
+@@ -19,9 +19,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   view_mode: 'constants/view_mode'
+   options: 'constants/options'
+   bundle: type
+diff --git a/core/modules/comment/migrations/d6_comment_entity_form_display.yml b/core/modules/comment/migrations/d6_comment_entity_form_display.yml
+index b893906f37..3c151607cb 100644
+--- a/core/modules/comment/migrations/d6_comment_entity_form_display.yml
++++ b/core/modules/comment/migrations/d6_comment_entity_form_display.yml
+@@ -18,9 +18,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   form_mode: 'constants/form_mode'
+   options: 'constants/options'
+   bundle: type
+diff --git a/core/modules/comment/migrations/d6_comment_entity_form_display_subject.yml b/core/modules/comment/migrations/d6_comment_entity_form_display_subject.yml
+index b6acaedb39..99ab674523 100644
+--- a/core/modules/comment/migrations/d6_comment_entity_form_display_subject.yml
++++ b/core/modules/comment/migrations/d6_comment_entity_form_display_subject.yml
+@@ -22,9 +22,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   hidden:
+     plugin: static_map
+     source: comment_subject_field
+diff --git a/core/modules/comment/migrations/d6_comment_field.yml b/core/modules/comment/migrations/d6_comment_field.yml
+index 3d23dd70a2..376ad70b2d 100644
+--- a/core/modules/comment/migrations/d6_comment_field.yml
++++ b/core/modules/comment/migrations/d6_comment_field.yml
+@@ -15,9 +15,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   type: 'constants/type'
+   'settings/comment_type': '@field_name'
+ destination:
+diff --git a/core/modules/comment/migrations/d6_comment_field_instance.yml b/core/modules/comment/migrations/d6_comment_field_instance.yml
+index 3c9bc1a5f7..83bb1a9cc1 100644
+--- a/core/modules/comment/migrations/d6_comment_field_instance.yml
++++ b/core/modules/comment/migrations/d6_comment_field_instance.yml
+@@ -18,9 +18,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d6_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   bundle: type
+   'default_value/0/status':
+     # We're using static_map instead of default_value otherwise if the source
+diff --git a/core/modules/comment/migrations/d7_comment.yml b/core/modules/comment/migrations/d7_comment.yml
+index 3db0890899..c1ed94edfe 100644
+--- a/core/modules/comment/migrations/d7_comment.yml
++++ b/core/modules/comment/migrations/d7_comment.yml
+@@ -21,6 +21,12 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_comment
++      source: pid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - cid
+   entity_id:
+     -
+       plugin: migration_lookup
+@@ -37,9 +43,14 @@ process:
+       plugin: migration_lookup
+       source: node_type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   langcode: language
+   field_name: '@comment_type'
+   subject: subject
+diff --git a/core/modules/comment/migrations/d7_comment_entity_display.yml b/core/modules/comment/migrations/d7_comment_entity_display.yml
+index 4bad6458e6..bf1fbac20c 100644
+--- a/core/modules/comment/migrations/d7_comment_entity_display.yml
++++ b/core/modules/comment/migrations/d7_comment_entity_display.yml
+@@ -19,9 +19,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   view_mode: 'constants/view_mode'
+   options: 'constants/options'
+   bundle: type
+diff --git a/core/modules/comment/migrations/d7_comment_entity_form_display.yml b/core/modules/comment/migrations/d7_comment_entity_form_display.yml
+index 99eb5313e2..6581a0e6bb 100644
+--- a/core/modules/comment/migrations/d7_comment_entity_form_display.yml
++++ b/core/modules/comment/migrations/d7_comment_entity_form_display.yml
+@@ -18,9 +18,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   form_mode: 'constants/form_mode'
+   options: 'constants/options'
+   bundle: type
+diff --git a/core/modules/comment/migrations/d7_comment_entity_form_display_subject.yml b/core/modules/comment/migrations/d7_comment_entity_form_display_subject.yml
+index 703c62e951..58099737e9 100644
+--- a/core/modules/comment/migrations/d7_comment_entity_form_display_subject.yml
++++ b/core/modules/comment/migrations/d7_comment_entity_form_display_subject.yml
+@@ -22,9 +22,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   hidden:
+     plugin: static_map
+     source: comment_subject_field
+diff --git a/core/modules/comment/migrations/d7_comment_field.yml b/core/modules/comment/migrations/d7_comment_field.yml
+index 8dee88c1fc..1ba0346528 100644
+--- a/core/modules/comment/migrations/d7_comment_field.yml
++++ b/core/modules/comment/migrations/d7_comment_field.yml
+@@ -15,9 +15,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   type: 'constants/type'
+   'settings/comment_type': '@field_name'
+ destination:
+diff --git a/core/modules/comment/migrations/d7_comment_field_instance.yml b/core/modules/comment/migrations/d7_comment_field_instance.yml
+index aa558e53e1..920235c923 100644
+--- a/core/modules/comment/migrations/d7_comment_field_instance.yml
++++ b/core/modules/comment/migrations/d7_comment_field_instance.yml
+@@ -18,9 +18,14 @@ process:
+       plugin: migration_lookup
+       source: type
+       migration: d7_comment_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   bundle: type
+   'default_value/0/status':
+     # We're using static_map instead of default_value otherwise if the source
+diff --git a/core/modules/config_translation/migrations/d6_user_profile_field_instance_translation.yml b/core/modules/config_translation/migrations/d6_user_profile_field_instance_translation.yml
+index b8a88f43f6..c9483fcc21 100644
+--- a/core/modules/config_translation/migrations/d6_user_profile_field_instance_translation.yml
++++ b/core/modules/config_translation/migrations/d6_user_profile_field_instance_translation.yml
+@@ -18,13 +18,14 @@ process:
+       plugin: migration_lookup
+       migration: user_profile_field
+       source: fid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 1
++        - field_name
+   property:
+     plugin: static_map
+     source: property
+diff --git a/core/modules/contact/migrations/d6_contact_settings.yml b/core/modules/contact/migrations/d6_contact_settings.yml
+index a91a9fb1bb..7d2c187830 100644
+--- a/core/modules/contact/migrations/d6_contact_settings.yml
++++ b/core/modules/contact/migrations/d6_contact_settings.yml
+@@ -12,9 +12,15 @@ process:
+   user_default_enabled: contact_default_status
+   'flood/limit': contact_hourly_threshold
+   default_form:
+-    plugin: migration_lookup
+-    migration: contact_category
+-    source: default_category
++    -
++      plugin: migration_lookup
++      migration: contact_category
++      source: default_category
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - id
+ destination:
+   plugin: config
+   config_name: contact.settings
+diff --git a/core/modules/contact/migrations/d7_contact_settings.yml b/core/modules/contact/migrations/d7_contact_settings.yml
+index 282064630c..853cbe1a3a 100644
+--- a/core/modules/contact/migrations/d7_contact_settings.yml
++++ b/core/modules/contact/migrations/d7_contact_settings.yml
+@@ -12,9 +12,15 @@ process:
+   user_default_enabled: contact_default_status
+   'flood/limit': contact_threshold_limit
+   default_form:
+-    plugin: migration_lookup
+-    migration: contact_category
+-    source: default_category
++    -
++      plugin: migration_lookup
++      migration: contact_category
++      source: default_category
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - id
+ destination:
+   plugin: config
+   config_name: contact.settings
+diff --git a/core/modules/content_translation/migrations/d6_block_translation.yml b/core/modules/content_translation/migrations/d6_block_translation.yml
+index a27fcfd9e5..ed86b29a9c 100644
+--- a/core/modules/content_translation/migrations/d6_block_translation.yml
++++ b/core/modules/content_translation/migrations/d6_block_translation.yml
+@@ -19,9 +19,14 @@ process:
+       source:
+         - module
+         - delta
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   plugin:
+     -
+       plugin: static_map
+diff --git a/core/modules/content_translation/migrations/d6_custom_block_translation.yml b/core/modules/content_translation/migrations/d6_custom_block_translation.yml
+index a240667b94..7fe330a9f2 100644
+--- a/core/modules/content_translation/migrations/d6_custom_block_translation.yml
++++ b/core/modules/content_translation/migrations/d6_custom_block_translation.yml
+@@ -8,10 +8,15 @@ source:
+   plugin: d6_box_translation
+ process:
+   id:
+-    plugin: migration_lookup
+-    migration: d6_custom_block
+-    source:
+-      - bid
++    -
++      plugin: migration_lookup
++      migration: d6_custom_block
++      source: bid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - id
+   langcode: language
+   info:
+     -
+@@ -34,9 +39,15 @@ process:
+       plugin: callback
+       callable: current
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+ destination:
+   plugin: entity:block_content
+   no_stub: true
+diff --git a/core/modules/content_translation/migrations/d6_menu_links_translation.yml b/core/modules/content_translation/migrations/d6_menu_links_translation.yml
+index 34e4290235..48fb3c6a36 100644
+--- a/core/modules/content_translation/migrations/d6_menu_links_translation.yml
++++ b/core/modules/content_translation/migrations/d6_menu_links_translation.yml
+@@ -35,9 +35,14 @@ process:
+       # The menu migration is in the system module.
+       migration: d6_menu
+       source: menu_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+     -
+       plugin: static_map
+       map:
+diff --git a/core/modules/content_translation/migrations/d6_node_translation.yml b/core/modules/content_translation/migrations/d6_node_translation.yml
+index 38e6870162..649d7550a5 100644
+--- a/core/modules/content_translation/migrations/d6_node_translation.yml
++++ b/core/modules/content_translation/migrations/d6_node_translation.yml
+@@ -27,9 +27,15 @@ process:
+   promote: promote
+   sticky: sticky
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+   'body/value': body
+   'body/summary': teaser
+   revision_uid: revision_uid
+diff --git a/core/modules/content_translation/migrations/node_translation_menu_links.yml b/core/modules/content_translation/migrations/node_translation_menu_links.yml
+index 466ed39931..add22fdc6c 100644
+--- a/core/modules/content_translation/migrations/node_translation_menu_links.yml
++++ b/core/modules/content_translation/migrations/node_translation_menu_links.yml
+@@ -23,9 +23,14 @@ process:
+         - d6_menu
+         - d7_menu
+       source: menu_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+     -
+       plugin: static_map
+       map:
+@@ -64,6 +69,7 @@ process:
+         - d6_node_translation
+         - d7_node_translation
+       no_stub: true
++      return_associative: TRUE
+     -
+       # Skip row if the new node ID is empty.
+       plugin: skip_on_empty
+@@ -74,7 +80,7 @@ process:
+       # which is at index 0.
+       plugin: extract
+       index:
+-        - 0
++        - nid
+   # This will be used in the "link/uri" and "route" processes below.
+   link_path:
+     plugin: concat
+diff --git a/core/modules/content_translation/migrations/statistics_node_translation_counter.yml b/core/modules/content_translation/migrations/statistics_node_translation_counter.yml
+index 0c11cd2114..25b3cf234c 100644
+--- a/core/modules/content_translation/migrations/statistics_node_translation_counter.yml
++++ b/core/modules/content_translation/migrations/statistics_node_translation_counter.yml
+@@ -15,13 +15,14 @@ process:
+         - d6_node_translation
+         - d7_node_translation
+       source: nid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 0
++        - nid
+   totalcount: totalcount
+   daycount: daycount
+   timestamp: timestamp
+diff --git a/core/modules/field/migrations/d6_field_formatter_settings.yml b/core/modules/field/migrations/d6_field_formatter_settings.yml
+index 23ea2bd0e0..7d6ea77d08 100644
+--- a/core/modules/field/migrations/d6_field_formatter_settings.yml
++++ b/core/modules/field/migrations/d6_field_formatter_settings.yml
+@@ -18,37 +18,40 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d6_field
++      return_associative: TRUE
+       source:
+         - field_name
+     -
+       plugin: skip_on_empty
+       method: row
+-    -
+-      plugin: extract
+-      index:
+-        - 1
+   entity_type: 'constants/entity_type'
+   bundle:
+     -
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   view_mode:
+     -
+       plugin: migration_lookup
+       migration: d6_view_modes
+       source:
+         - view_mode
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 1
++        - mode
+     -
+       plugin: static_map
+       bypass: true
+diff --git a/core/modules/field/migrations/d6_field_instance.yml b/core/modules/field/migrations/d6_field_instance.yml
+index 751d425247..d9020651ce 100644
+--- a/core/modules/field/migrations/d6_field_instance.yml
++++ b/core/modules/field/migrations/d6_field_instance.yml
+@@ -17,12 +17,9 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d6_field
++      return_associative: TRUE
+       source:
+         - field_name
+-    -
+-      plugin: extract
+-      index:
+-        - 1
+     -
+       plugin: skip_on_empty
+       method: row
+@@ -33,9 +30,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   label: label
+   description: description
+   required: required
+diff --git a/core/modules/field/migrations/d6_field_instance_widget_settings.yml b/core/modules/field/migrations/d6_field_instance_widget_settings.yml
+index 9faac2f36b..7c30fe74aa 100644
+--- a/core/modules/field/migrations/d6_field_instance_widget_settings.yml
++++ b/core/modules/field/migrations/d6_field_instance_widget_settings.yml
+@@ -19,12 +19,9 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d6_field
++      return_associative: TRUE
+       source:
+         - field_name
+-    -
+-      plugin: extract
+-      index:
+-        - 1
+     -
+       plugin: skip_on_empty
+       method: row
+@@ -33,9 +30,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   form_mode: 'constants/form_mode'
+   field_name: field_name
+   entity_type: 'constants/entity_type'
+diff --git a/core/modules/field/migrations/d7_field_formatter_settings.yml b/core/modules/field/migrations/d7_field_formatter_settings.yml
+index b4580a2356..385ebbba0d 100644
+--- a/core/modules/field/migrations/d7_field_formatter_settings.yml
++++ b/core/modules/field/migrations/d7_field_formatter_settings.yml
+@@ -16,13 +16,10 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_field
++      return_associative: TRUE
+       source:
+         - field_name
+         - entity_type
+-    -
+-      plugin: extract
+-      index:
+-        - 0
+     -
+       plugin: skip_on_empty
+       method: row
+@@ -43,10 +40,11 @@ process:
+       source:
+         - entity_type
+         - view_mode
++      return_associative: TRUE
+     -
+       plugin: extract
+       index:
+-        - 1
++        - mode
+     -
+       plugin: static_map
+       bypass: true
+diff --git a/core/modules/field/migrations/d7_field_instance_widget_settings.yml b/core/modules/field/migrations/d7_field_instance_widget_settings.yml
+index eaa7831d69..bb17654267 100644
+--- a/core/modules/field/migrations/d7_field_instance_widget_settings.yml
++++ b/core/modules/field/migrations/d7_field_instance_widget_settings.yml
+@@ -17,13 +17,10 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_field
++      return_associative: TRUE
+       source:
+         - field_name
+         - entity_type
+-    -
+-      plugin: extract
+-      index:
+-        - 0
+     -
+       plugin: skip_on_empty
+       method: row
+diff --git a/core/modules/file/migrations/d6_upload.yml b/core/modules/file/migrations/d6_upload.yml
+index 1c34e5873c..9a1c32ec46 100644
+--- a/core/modules/file/migrations/d6_upload.yml
++++ b/core/modules/file/migrations/d6_upload.yml
+@@ -18,9 +18,15 @@ process:
+     source: upload
+     process:
+       target_id:
+-        plugin: migration_lookup
+-        migration: d6_file
+-        source: fid
++        -
++          plugin: migration_lookup
++          migration: d6_file
++          source: fid
++          return_associative: TRUE
++        -
++          plugin: extract
++          index:
++            - fid
+       display: list
+       description: description
+ destination:
+diff --git a/core/modules/file/migrations/d6_upload_entity_display.yml b/core/modules/file/migrations/d6_upload_entity_display.yml
+index 945dad58ae..ce224bcb88 100644
+--- a/core/modules/file/migrations/d6_upload_entity_display.yml
++++ b/core/modules/file/migrations/d6_upload_entity_display.yml
+@@ -20,9 +20,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: node_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   view_mode: 'constants/view_mode'
+   field_name: 'constants/name'
+   type: 'constants/type'
+diff --git a/core/modules/file/migrations/d6_upload_entity_form_display.yml b/core/modules/file/migrations/d6_upload_entity_form_display.yml
+index 8e08f3b03c..2790fcf051 100644
+--- a/core/modules/file/migrations/d6_upload_entity_form_display.yml
++++ b/core/modules/file/migrations/d6_upload_entity_form_display.yml
+@@ -21,9 +21,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: node_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   field_name: 'constants/name'
+   form_mode: 'constants/form_mode'
+   type: 'constants/type'
+diff --git a/core/modules/file/migrations/d6_upload_field_instance.yml b/core/modules/file/migrations/d6_upload_field_instance.yml
+index 4a2ba60e47..99b2d4db30 100644
+--- a/core/modules/file/migrations/d6_upload_field_instance.yml
++++ b/core/modules/file/migrations/d6_upload_field_instance.yml
+@@ -17,9 +17,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: node_type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   field_name: 'constants/name'
+   settings: 'constants/settings'
+   'settings/file_extensions': file_extensions
+diff --git a/core/modules/filter/src/Plugin/migrate/process/d6/FilterFormatPermission.php b/core/modules/filter/src/Plugin/migrate/process/d6/FilterFormatPermission.php
+index ae8fb9da64..f9bf4c465b 100644
+--- a/core/modules/filter/src/Plugin/migrate/process/d6/FilterFormatPermission.php
++++ b/core/modules/filter/src/Plugin/migrate/process/d6/FilterFormatPermission.php
+@@ -42,6 +42,7 @@ public function __construct(array $configuration, $plugin_id, $plugin_definition
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration = NULL) {
+     $migration_plugin_configuration = $configuration + [
+       'migration' => 'd6_filter_format',
++      'return_associative' => TRUE,
+     ];
+ 
+     return new static(
+@@ -64,7 +65,7 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+       foreach ($formats as $format) {
+         $new_id = $this->migrationPlugin->transform($format, $migrate_executable, $row, $destination_property);
+         if ($new_id) {
+-          $value[] = 'use text format ' . $new_id;
++          $value[] = 'use text format ' . $new_id['format'];
+         }
+       }
+     }
+diff --git a/core/modules/forum/migrations/d6_forum_settings.yml b/core/modules/forum/migrations/d6_forum_settings.yml
+index 4d4e2d7c2e..dbba54fb7e 100644
+--- a/core/modules/forum/migrations/d6_forum_settings.yml
++++ b/core/modules/forum/migrations/d6_forum_settings.yml
+@@ -20,9 +20,15 @@ process:
+   'topics/page_limit': forum_per_page
+   'topics/order': forum_order
+   vocabulary:
+-    plugin: migration_lookup
+-    migration: d6_taxonomy_vocabulary
+-    source: forum_nav_vocabulary
++    -
++      plugin: migration_lookup
++      migration: d6_taxonomy_vocabulary
++      source: forum_nav_vocabulary
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - vid
+ destination:
+   plugin: config
+   config_name: forum.settings
+diff --git a/core/modules/forum/migrations/d7_forum_settings.yml b/core/modules/forum/migrations/d7_forum_settings.yml
+index 8618b4f477..d20b554aec 100644
+--- a/core/modules/forum/migrations/d7_forum_settings.yml
++++ b/core/modules/forum/migrations/d7_forum_settings.yml
+@@ -20,9 +20,15 @@ process:
+   'topics/page_limit': forum_per_page
+   'topics/order': forum_order
+   vocabulary:
+-    plugin: migration_lookup
+-    migration: d7_taxonomy_vocabulary
+-    source: forum_nav_vocabulary
++    -
++      plugin: migration_lookup
++      migration: d7_taxonomy_vocabulary
++      source: forum_nav_vocabulary
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - vid
+ destination:
+   plugin: config
+   config_name: forum.settings
+diff --git a/core/modules/menu_link_content/migrations/d6_menu_links.yml b/core/modules/menu_link_content/migrations/d6_menu_links.yml
+index 86dfb80573..81515a6f33 100644
+--- a/core/modules/menu_link_content/migrations/d6_menu_links.yml
++++ b/core/modules/menu_link_content/migrations/d6_menu_links.yml
+@@ -16,9 +16,14 @@ process:
+       # The menu migration is in the system module.
+       migration: d6_menu
+       source: menu_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+     -
+       plugin: static_map
+       map:
+diff --git a/core/modules/menu_link_content/migrations/d7_menu_links.yml b/core/modules/menu_link_content/migrations/d7_menu_links.yml
+index a2e4310277..04b5295f66 100644
+--- a/core/modules/menu_link_content/migrations/d7_menu_links.yml
++++ b/core/modules/menu_link_content/migrations/d7_menu_links.yml
+@@ -18,9 +18,14 @@ process:
+       plugin: migration_lookup
+       migration: d7_menu
+       source: menu_name
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - id
+   'link/uri':
+     plugin: link_uri
+     source: link_path
+diff --git a/core/modules/migrate/src/Plugin/migrate/process/MenuLinkParent.php b/core/modules/migrate/src/Plugin/migrate/process/MenuLinkParent.php
+index 2d33e3abe3..62b537d349 100644
+--- a/core/modules/migrate/src/Plugin/migrate/process/MenuLinkParent.php
++++ b/core/modules/migrate/src/Plugin/migrate/process/MenuLinkParent.php
+@@ -52,7 +52,10 @@ public function __construct(array $configuration, $plugin_id, $plugin_definition
+    * {@inheritdoc}
+    */
+   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration = NULL) {
+-    $migration_configuration['migration'][] = $migration->id();
++    $migration_configuration = [
++      'migration' => $migration->id(),
++      'return_associative' => TRUE,
++    ];
+     return new static(
+       $configuration,
+       $plugin_id,
+@@ -78,7 +81,7 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+       $already_migrated_id = $this
+         ->migrationPlugin
+         ->transform($parent_id, $migrate_executable, $row, $destination_property);
+-      if ($already_migrated_id && ($link = $this->menuLinkStorage->load($already_migrated_id))) {
++      if ($already_migrated_id && ($link = $this->menuLinkStorage->load($already_migrated_id['id']))) {
+         return $link->getPluginId();
+       }
+     }
+diff --git a/core/modules/migrate/src/Plugin/migrate/process/MigrationLookup.php b/core/modules/migrate/src/Plugin/migrate/process/MigrationLookup.php
+index 57ba7deeea..cf179bbe68 100644
+--- a/core/modules/migrate/src/Plugin/migrate/process/MigrationLookup.php
++++ b/core/modules/migrate/src/Plugin/migrate/process/MigrationLookup.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\migrate\Plugin\migrate\process;
+ 
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\migrate\MigrateException;
+ use Drupal\migrate\MigrateSkipProcessException;
+ use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
+ use Drupal\migrate\Plugin\MigrateIdMapInterface;
+@@ -30,6 +31,14 @@
+  *   any stub entities.
+  * - no_stub: (optional) Prevents the creation of a stub entity when no
+  *   relationship is found in the migration map.
++ * - return_associative: (bool) Forces the plugin to return destination ids in
++ *   an associative array, keyed as defined by the destination plugin.
++ *   Prior to 8.6 the default behavior was to return a scaler if the destination
++ *   plugin only had one id, and an indexed array if the lookup succeeded
++ *   and there were multiple destination ids.  Beginning in 8.7, this behavior
++ *   is depricated and it is required to specify return_associative:true if
++ *   your lookup returns one of the above scenarios.  Beginning in Drupal 9.0
++ *   this will be the default behavior.
+  *
+  * Examples:
+  *
+@@ -158,6 +167,11 @@ public static function create(ContainerInterface $container, array $configuratio
+    * @throws \Drupal\migrate\MigrateSkipProcessException
+    */
+   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
++    if (isset($this->configuration['return_associative']) && $this->configuration['return_associative'] !== TRUE) {
++      throw new MigrateException("Using a value for return_associative other than true is not supported");
++    }
++
++    $return_associative = isset($this->configuration['return_associative']);
+     $lookup_migrations_ids = $this->configuration['migration'];
+     if (!is_array($lookup_migrations_ids)) {
+       $lookup_migrations_ids = [$lookup_migrations_ids];
+@@ -183,6 +197,13 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+       $source_id_values[$lookup_migration_id] = $value;
+       // Break out of the loop as soon as a destination ID is found.
+       if ($destination_ids = $lookup_migration->getIdMap()->lookupDestinationId($source_id_values[$lookup_migration_id])) {
++        if ($return_associative) {
++          $destination_keys = array_keys($lookup_migration->getDestinationPlugin()->getIds());
++          $destination_ids = array_combine($destination_keys, $destination_ids);
++        }
++        else {
++          $this->triggerNonAssociativeReturnDeprecationError();
++        }
+         break;
+       }
+     }
+@@ -230,10 +251,14 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+ 
+       if ($destination_ids) {
+         $id_map->saveIdMapping($stub_row, $destination_ids, MigrateIdMapInterface::STATUS_NEEDS_UPDATE);
++        if ($return_associative) {
++          $destination_ids = array_combine(array_keys($destination_plugin->getIds()), array_values($destination_ids));
++        }
+       }
+     }
+     if ($destination_ids) {
+-      if (count($destination_ids) == 1) {
++      if (count($destination_ids) == 1  && !$return_associative) {
++        $this->triggerNonAssociativeReturnDeprecationError();
+         return reset($destination_ids);
+       }
+       else {
+@@ -290,4 +315,19 @@ protected function createStubRow(array $values, array $source_ids) {
+     return new Row($values, $source_ids, TRUE);
+   }
+ 
++  /**
++   * Triggers an error when using deprecated configuration.
++   *
++   * @deprecated It is deprecated in Drupal 8.7.0 to return a scalar or indexed
++   * array from the migrate_lookup plugin. use return_associative: true and
++   * process the resulting associative array instead. This will be the default
++   * behavior beginning in Drupal 9.0
++   *
++   * @see https://www.drupal.org/node/2996553
++   */
++  protected function triggerNonAssociativeReturnDeprecationError() {
++    @trigger_error('It is deprecated in Drupal 8.7.0 to return a scalar or indexed array from the migrate_lookup plugin. use return_associative: true and process the resulting associative array instead. This will be the default behavior beginning in Drupal 9.0. See https://www.drupal.org/node/2996553', E_USER_DEPRECATED);
++
++  }
++
+ }
+diff --git a/core/modules/migrate/tests/modules/migrate_external_translated_test/migrations/external_translated_test_node_translation.yml b/core/modules/migrate/tests/modules/migrate_external_translated_test/migrations/external_translated_test_node_translation.yml
+index 0363aa2021..aee0ee9f54 100644
+--- a/core/modules/migrate/tests/modules/migrate_external_translated_test/migrations/external_translated_test_node_translation.yml
++++ b/core/modules/migrate/tests/modules/migrate_external_translated_test/migrations/external_translated_test_node_translation.yml
+@@ -7,9 +7,15 @@ source:
+     type: external_test
+ process:
+   nid:
+-    plugin: migration_lookup
+-    source: name
+-    migration: external_translated_test_node
++    -
++      plugin: migration_lookup
++      source: name
++      migration: external_translated_test_node
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - nid
+   type: constants/type
+   title: title
+   langcode:
+diff --git a/core/modules/migrate/tests/src/Unit/process/MigrationLookupTest.php b/core/modules/migrate/tests/src/Unit/process/MigrationLookupTest.php
+index 65073b72b6..869ba48ebb 100644
+--- a/core/modules/migrate/tests/src/Unit/process/MigrationLookupTest.php
++++ b/core/modules/migrate/tests/src/Unit/process/MigrationLookupTest.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\Tests\migrate\Unit\process;
+ 
+ use Drupal\Core\Entity\EntityStorageInterface;
++use Drupal\migrate\MigrateException;
+ use Drupal\migrate\MigrateSkipProcessException;
+ use Drupal\migrate\Plugin\MigrationInterface;
+ use Drupal\migrate\Plugin\migrate\process\MigrationLookup;
+@@ -11,6 +12,7 @@
+ use Drupal\migrate\Plugin\MigrateSourceInterface;
+ use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
+ use Drupal\migrate\Row;
++use Drupal\Tests\Traits\ExpectDeprecationTrait;
+ use Prophecy\Argument;
+ 
+ /**
+@@ -18,6 +20,7 @@
+  * @group migrate
+  */
+ class MigrationLookupTest extends MigrateProcessTestCase {
++  use ExpectDeprecationTrait;
+ 
+   /**
+    * @covers ::transform
+@@ -50,6 +53,7 @@ public function testTransformWithStubSkipping() {
+ 
+   /**
+    * @covers ::transform
++   * @group legacy
+    */
+   public function testTransformWithStubbing() {
+     $migration_plugin = $this->prophesize(MigrationInterface::class);
+@@ -171,7 +175,7 @@ public function noSkipValidDataProvider() {
+   /**
+    * Tests a successful lookup.
+    *
+-   * @dataProvider successfulLookupDataProvider
++   * This tests lookups in the non-associative deprecated format.
+    *
+    * @param array $source_id_values
+    *   The source id(s) of the migration map.
+@@ -181,8 +185,11 @@ public function noSkipValidDataProvider() {
+    *   The source value(s) for the migration process plugin.
+    * @param string|array $expected_value
+    *   The expected value(s) of the migration process plugin.
++   *
++   * @dataProvider successfulLookupDataProvider
++   * @group legacy
+    */
+-  public function testSuccessfulLookup($source_id_values, $destination_id_values, $source_value, $expected_value) {
++  public function testSuccessfulLookup(array $source_id_values, array $destination_id_values, $source_value, $expected_value) {
+     $migration_plugin = $this->prophesize(MigrationInterface::class);
+     $migration_plugin_manager = $this->prophesize(MigrationPluginManagerInterface::class);
+ 
+@@ -205,12 +212,18 @@ public function testSuccessfulLookup($source_id_values, $destination_id_values,
+ 
+     $migration = new MigrationLookup($configuration, 'migration_lookup', [], $migration_plugin->reveal(), $migration_plugin_manager->reveal());
+     $this->assertSame($expected_value, $migration->transform($source_value, $this->migrateExecutable, $this->row, 'foo'));
++
++    $this->expectDeprecation('It is deprecated in Drupal 8.7.0 to return a scalar or indexed array from the migrate_lookup plugin. use return_associative: true and process the resulting associative array instead. This will be the default behavior beginning in Drupal 9.0. See https://www.drupal.org/node/2996553');
++    $actual_value = $migration->transform($source_value, $this->migrateExecutable, $this->row, 'foo');
++
++    $this->assertSame($expected_value, $actual_value);
+   }
+ 
+   /**
+    * Provides data for the successful lookup test.
+    *
+    * @return array
++   *   The array of test data.
+    */
+   public function successfulLookupDataProvider() {
+     return [
+@@ -272,6 +285,108 @@ public function successfulLookupDataProvider() {
+     ];
+   }
+ 
++  /**
++   * Test lookup return as associative array.
++   *
++   * @param array $source_id_values
++   *   The source id(s) of the migration map.
++   * @param array $destination_id_values
++   *   The destination id(s) of the migration map.
++   * @param string|array $source_value
++   *   The source value(s) for the migration process plugin.
++   * @param string|array $expected_value
++   *   The expected value(s) of the migration process plugin.
++   *
++   * @dataProvider successfulLookupAssocDataProvider
++   */
++  public function testSuccessfulLookupAssoc(array $source_id_values, array $destination_id_values, $source_value, $expected_value) {
++    $migration_plugin = $this->prophesize(MigrationInterface::class);
++    $migration_plugin_manager = $this->prophesize(MigrationPluginManagerInterface::class);
++    $process_plugin_manager = $this->prophesize(MigratePluginManager::class);
++    $destination_plugin = $this->prophesize(MigrateDestinationInterface::class);
++    $destination_keys = ['id1' => [], 'id2' => []];
++
++    $destination_plugin->getIds()->willReturn(array_slice($destination_keys, 0, count($destination_id_values)));
++
++    $configuration = [
++      'migration' => 'foobaz',
++      'return_associative' => TRUE,
++    ];
++    $migration_plugin->id()->willReturn(uniqid());
++
++    $id_map = $this->prophesize(MigrateIdMapInterface::class);
++    $id_map->lookupDestinationId($source_id_values)->willReturn($destination_id_values);
++    $migration_plugin->getIdMap()->willReturn($id_map->reveal());
++    $migration_plugin->getDestinationPlugin()->willReturn($destination_plugin->reveal());
++
++    $migration_plugin_manager->createInstances(['foobaz'])
++      ->willReturn(['foobaz' => $migration_plugin->reveal()]);
++
++    $migrationStorage = $this->prophesize(EntityStorageInterface::class);
++    $migrationStorage
++      ->loadMultiple(['foobaz'])
++      ->willReturn([$migration_plugin->reveal()]);
++
++    $migration = new MigrationLookup($configuration, 'migration_lookup', [], $migration_plugin->reveal(), $migration_plugin_manager->reveal(), $process_plugin_manager->reveal());
++    $actual_value = $migration->transform($source_value, $this->migrateExecutable, $this->row, 'foo');
++    $this->assertSame($expected_value, $actual_value);
++  }
++
++  /**
++   * Provides data for the successful lookup test.
++   *
++   * @return array
++   *   The data.
++   */
++  public function successfulLookupAssocDataProvider() {
++    return [
++      // Test data for scalar to scalar.
++      [
++        // Source ID of the migration map.
++        [1],
++        // Destination ID of the migration map.
++        [3],
++        // Input value for the migration plugin.
++        1,
++        // Expected output value of the migration plugin.
++        ['id1' => 3],
++      ],
++      // Test data for scalar to array.
++      [
++        // Source ID of the migration map.
++        [1],
++        // Destination IDs of the migration map.
++        [3, 'foo'],
++        // Input value for the migration plugin.
++        1,
++        // Expected output values of the migration plugin.
++        ['id1' => 3, 'id2' => 'foo'],
++      ],
++      // Test data for array to scalar.
++      [
++        // Source IDs of the migration map.
++        [1, 3],
++        // Destination ID of the migration map.
++        ['foo'],
++        // Input values for the migration plugin.
++        [1, 3],
++        // Expected output value of the migration plugin.
++        ['id1' => 'foo'],
++      ],
++      // Test data for array to array.
++      [
++        // Source IDs of the migration map.
++        [1, 3],
++        // Destination IDs of the migration map.
++        [3, 'foo'],
++        // Input values for the migration plugin.
++        [1, 3],
++        // Expected output values of the migration plugin.
++        ['id1' => 3, 'id2' => 'foo'],
++      ],
++    ];
++  }
++
+   /**
+    * Tests that a message is successfully created if import fails.
+    */
+@@ -312,6 +427,8 @@ public function testImportException() {
+ 
+   /**
+    * Tests processing multiple source IDs.
++   *
++   * @group legacy
+    */
+   public function testMultipleSourceIds() {
+     $migration_plugin = $this->prophesize(MigrationInterface::class);
+@@ -360,4 +477,22 @@ public function testMultipleSourceIds() {
+     $this->assertEquals(2, $result);
+   }
+ 
++  /**
++   * Tests that an exception is thrown if return_associative is set to false.
++   */
++  public function testUnsupportedConfig() {
++    $migration_plugin = $this->prophesize(MigrationInterface::class);
++    $migration_plugin_manager = $this->prophesize(MigrationPluginManagerInterface::class);
++    $process_plugin_manager = $this->prophesize(MigratePluginManager::class);
++    $configuration = [
++      'migration' => 'foobaz',
++      'return_associative' => FALSE,
++    ];
++
++    $migration_plugin = new MigrationLookup($configuration, 'migration_lookup', [], $migration_plugin->reveal(), $migration_plugin_manager->reveal(), $process_plugin_manager->reveal());
++
++    $this->expectException(MigrateException::class);
++    $migration_plugin->transform(1, $this->migrateExecutable, $this->row, 'foo');
++  }
++
+ }
+diff --git a/core/modules/migrate_drupal/src/Plugin/migrate/field/UserReference.php b/core/modules/migrate_drupal/src/Plugin/migrate/field/UserReference.php
+index 4a60f450de..f9f93d6224 100644
+--- a/core/modules/migrate_drupal/src/Plugin/migrate/field/UserReference.php
++++ b/core/modules/migrate_drupal/src/Plugin/migrate/field/UserReference.php
+@@ -26,9 +26,16 @@ public function defineValueProcessPipeline(MigrationInterface $migration, $field
+       'source' => $field_name,
+       'process' => [
+         'target_id' => [
+-          'plugin' => 'migration_lookup',
+-          'migration' => 'd6_user',
+-          'source' => 'uid',
++          [
++            'plugin' => 'migration_lookup',
++            'migration' => 'd6_user',
++            'source' => 'uid',
++            'return_associative' => TRUE,
++          ],
++          [
++            'plugin' => 'extract',
++            'index' => ['uid']
++          ],
+         ],
+       ],
+     ];
+diff --git a/core/modules/node/migrations/d6_node.yml b/core/modules/node/migrations/d6_node.yml
+index 524448bc38..5d165a5745 100644
+--- a/core/modules/node/migrations/d6_node.yml
++++ b/core/modules/node/migrations/d6_node.yml
+@@ -27,9 +27,15 @@ process:
+   promote: promote
+   sticky: sticky
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+   'body/value': body
+   'body/summary': teaser
+   revision_uid: revision_uid
+diff --git a/core/modules/node/migrations/d6_node_revision.yml b/core/modules/node/migrations/d6_node_revision.yml
+index 732c9abe27..498797ce1f 100644
+--- a/core/modules/node/migrations/d6_node_revision.yml
++++ b/core/modules/node/migrations/d6_node_revision.yml
+@@ -24,9 +24,15 @@ process:
+   promote: promote
+   sticky: sticky
+   'body/format':
+-    plugin: migration_lookup
+-    migration: d6_filter_format
+-    source: format
++    -
++      plugin: migration_lookup
++      migration: d6_filter_format
++      source: format
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - format
+   'body/value': body
+   'body/summary': teaser
+   revision_uid: revision_uid
+diff --git a/core/modules/path/migrations/d6_url_alias.yml b/core/modules/path/migrations/d6_url_alias.yml
+index 6263ae2a02..7ebf088b2c 100644
+--- a/core/modules/path/migrations/d6_url_alias.yml
++++ b/core/modules/path/migrations/d6_url_alias.yml
+@@ -35,5 +35,6 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d6_node_translation
++      return_associative: TRUE
+ destination:
+   plugin: url_alias
+diff --git a/core/modules/path/migrations/d7_url_alias.yml b/core/modules/path/migrations/d7_url_alias.yml
+index a4172dcf26..c601281b6d 100644
+--- a/core/modules/path/migrations/d7_url_alias.yml
++++ b/core/modules/path/migrations/d7_url_alias.yml
+@@ -33,5 +33,6 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_node_translation
++      return_associative: TRUE
+ destination:
+   plugin: url_alias
+diff --git a/core/modules/path/src/Plugin/migrate/destination/UrlAlias.php b/core/modules/path/src/Plugin/migrate/destination/UrlAlias.php
+index a845fb3908..53ebd39c17 100644
+--- a/core/modules/path/src/Plugin/migrate/destination/UrlAlias.php
++++ b/core/modules/path/src/Plugin/migrate/destination/UrlAlias.php
+@@ -69,8 +69,8 @@ public function import(Row $row, array $old_destination_id_values = []) {
+ 
+       // Replace the alias source with the translation source path.
+       $node_translation = $row->getDestinationProperty('node_translation');
+-      $source = '/node/' . $node_translation[0];
+-      $langcode = $node_translation[1];
++      $source = '/node/' . $node_translation['nid'];
++      $langcode = $node_translation['langcode'];
+     }
+ 
+     $path = $this->aliasStorage->save($source, $alias, $langcode, $pid);
+diff --git a/core/modules/shortcut/migrations/d7_shortcut.yml b/core/modules/shortcut/migrations/d7_shortcut.yml
+index f4265a8750..8ce5030e63 100644
+--- a/core/modules/shortcut/migrations/d7_shortcut.yml
++++ b/core/modules/shortcut/migrations/d7_shortcut.yml
+@@ -9,9 +9,15 @@ source:
+     uri_scheme: 'internal:/'
+ process:
+   shortcut_set:
+-     plugin: migration_lookup
+-     migration: d7_shortcut_set
+-     source: menu_name
++    -
++      plugin: migration_lookup
++      migration: d7_shortcut_set
++      source: menu_name
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - id
+   title: link_title
+   weight: weight
+   link:
+diff --git a/core/modules/shortcut/migrations/d7_shortcut_set_users.yml b/core/modules/shortcut/migrations/d7_shortcut_set_users.yml
+index 9797c0a26f..834b3e364e 100644
+--- a/core/modules/shortcut/migrations/d7_shortcut_set_users.yml
++++ b/core/modules/shortcut/migrations/d7_shortcut_set_users.yml
+@@ -14,6 +14,10 @@ process:
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - uid
+   set_name:
+     plugin: migration_lookup
+     migration: d7_shortcut_set
+diff --git a/core/modules/statistics/migrations/statistics_node_counter.yml b/core/modules/statistics/migrations/statistics_node_counter.yml
+index 748a4a83c0..5e5e2251a1 100644
+--- a/core/modules/statistics/migrations/statistics_node_counter.yml
++++ b/core/modules/statistics/migrations/statistics_node_counter.yml
+@@ -12,9 +12,14 @@ process:
+       plugin: migration_lookup
+       migration: [d6_node, d7_node]
+       source: nid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - nid
+   totalcount: totalcount
+   daycount: daycount
+   timestamp: timestamp
+diff --git a/core/modules/taxonomy/migrations/d6_taxonomy_term.yml b/core/modules/taxonomy/migrations/d6_taxonomy_term.yml
+index 497d7e7e8d..1ce2c7cf5b 100644
+--- a/core/modules/taxonomy/migrations/d6_taxonomy_term.yml
++++ b/core/modules/taxonomy/migrations/d6_taxonomy_term.yml
+@@ -11,9 +11,15 @@ process:
+   # the tid field to allow incremental migrations.
+   tid: tid
+   vid:
+-    plugin: migration_lookup
+-    migration: d6_taxonomy_vocabulary
+-    source: vid
++    -
++      plugin: migration_lookup
++      migration: d6_taxonomy_vocabulary
++      source: vid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - vid
+   name: name
+   description: description
+   weight: weight
+@@ -26,6 +32,11 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d6_taxonomy_term
++      return_associative: true
++    -
++      plugin: extract
++      index:
++        - tid
+   parent:
+     plugin: default_value
+     default_value: 0
+diff --git a/core/modules/taxonomy/migrations/d6_term_node.yml b/core/modules/taxonomy/migrations/d6_term_node.yml
+index fdb8cc9a41..7a7642bc43 100644
+--- a/core/modules/taxonomy/migrations/d6_term_node.yml
++++ b/core/modules/taxonomy/migrations/d6_term_node.yml
+@@ -12,9 +12,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node
+       source: nid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - nid
+   type: type
+   # The actual field name is dynamic and will be added by the builder.
+ destination:
+diff --git a/core/modules/taxonomy/migrations/d6_term_node_revision.yml b/core/modules/taxonomy/migrations/d6_term_node_revision.yml
+index 9487984f94..3de5d85137 100644
+--- a/core/modules/taxonomy/migrations/d6_term_node_revision.yml
++++ b/core/modules/taxonomy/migrations/d6_term_node_revision.yml
+@@ -13,9 +13,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_revision
+       source: vid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - vid
+   type: type
+   # The actual field name is dynamic and will be added by the builder.
+ destination:
+diff --git a/core/modules/taxonomy/migrations/d6_vocabulary_entity_display.yml b/core/modules/taxonomy/migrations/d6_vocabulary_entity_display.yml
+index 760b6dde39..dca4115af7 100644
+--- a/core/modules/taxonomy/migrations/d6_vocabulary_entity_display.yml
++++ b/core/modules/taxonomy/migrations/d6_vocabulary_entity_display.yml
+@@ -22,18 +22,25 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   # This value is only used in the 'field_name' process pipeline below.
+   raw_field_name:
+     -
+       plugin: migration_lookup
+       migration: d6_taxonomy_vocabulary
+       source: vid
++      return_associative: TRUE
+     -
+-      plugin: skip_on_empty
+-      method: row
++      plugin: extract
++      index:
++        - vid
+   field_name:
+     # Prepend field_ to avoid conflicts with base fields, and make sure the
+     # result is no longer than 32 characters.
+diff --git a/core/modules/taxonomy/migrations/d6_vocabulary_entity_form_display.yml b/core/modules/taxonomy/migrations/d6_vocabulary_entity_form_display.yml
+index da8cd2704b..5fcf29e17c 100644
+--- a/core/modules/taxonomy/migrations/d6_vocabulary_entity_form_display.yml
++++ b/core/modules/taxonomy/migrations/d6_vocabulary_entity_form_display.yml
+@@ -26,18 +26,28 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   # This value is only used in the 'field_name' process pipeline below.
+   raw_field_name:
+     -
+       plugin: migration_lookup
+       migration: d6_taxonomy_vocabulary
+       source: vid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - vid
+   field_name:
+     # Prepend field_ to avoid conflicts with base fields, and make sure the
+     # result is no longer than 32 characters.
+diff --git a/core/modules/taxonomy/migrations/d6_vocabulary_field.yml b/core/modules/taxonomy/migrations/d6_vocabulary_field.yml
+index 36974e159c..5cdeffc521 100644
+--- a/core/modules/taxonomy/migrations/d6_vocabulary_field.yml
++++ b/core/modules/taxonomy/migrations/d6_vocabulary_field.yml
+@@ -19,9 +19,14 @@ process:
+       plugin: migration_lookup
+       migration: d6_taxonomy_vocabulary
+       source: vid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - vid
+   field_name:
+     # Prepend field_ to avoid conflicts with base fields, and make sure the
+     # result is no longer than 32 characters.
+diff --git a/core/modules/taxonomy/migrations/d6_vocabulary_field_instance.yml b/core/modules/taxonomy/migrations/d6_vocabulary_field_instance.yml
+index 2206cfb57a..46714d91c6 100644
+--- a/core/modules/taxonomy/migrations/d6_vocabulary_field_instance.yml
++++ b/core/modules/taxonomy/migrations/d6_vocabulary_field_instance.yml
+@@ -17,18 +17,28 @@ process:
+       plugin: migration_lookup
+       migration: d6_node_type
+       source: type
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - type
+   # This value is only used in the 'field_name' process pipeline below.
+   raw_field_name:
+     -
+       plugin: migration_lookup
+       migration: d6_taxonomy_vocabulary
+       source: vid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
++    -
++      plugin: extract
++      index:
++        - vid
+   field_name:
+     # Prepend field_ to avoid conflicts with base fields, and make sure the
+     # result is no longer than 32 characters.
+diff --git a/core/modules/taxonomy/migrations/d7_taxonomy_term.yml b/core/modules/taxonomy/migrations/d7_taxonomy_term.yml
+index 1bae2d6e32..7405ac148a 100644
+--- a/core/modules/taxonomy/migrations/d7_taxonomy_term.yml
++++ b/core/modules/taxonomy/migrations/d7_taxonomy_term.yml
+@@ -12,9 +12,15 @@ process:
+   # the tid field to allow incremental migrations.
+   tid: tid
+   vid:
+-    plugin: migration_lookup
+-    migration: d7_taxonomy_vocabulary
+-    source: vid
++    -
++      plugin: migration_lookup
++      migration: d7_taxonomy_vocabulary
++      source: vid
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - vid
+   name: name
+   'description/value': description
+   'description/format': format
+@@ -28,6 +34,11 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_taxonomy_term
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - tid
+   parent:
+     plugin: default_value
+     default_value: 0
+diff --git a/core/modules/taxonomy/tests/modules/taxonomy_term_stub_test/migrations/taxonomy_term_stub_test.yml b/core/modules/taxonomy/tests/modules/taxonomy_term_stub_test/migrations/taxonomy_term_stub_test.yml
+index 4c3cd86710..9d5a3d0b3d 100644
+--- a/core/modules/taxonomy/tests/modules/taxonomy_term_stub_test/migrations/taxonomy_term_stub_test.yml
++++ b/core/modules/taxonomy/tests/modules/taxonomy_term_stub_test/migrations/taxonomy_term_stub_test.yml
+@@ -19,9 +19,15 @@ process:
+   name: name
+   weight: weight
+   parent:
+-    plugin: migration_lookup
+-    migration: taxonomy_term_stub_test
+-    source: parent
++    -
++      plugin: migration_lookup
++      migration: taxonomy_term_stub_test
++      source: parent
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - tid
+ destination:
+   plugin: entity:taxonomy_term
+ migration_dependencies:
+diff --git a/core/modules/text/src/Plugin/migrate/field/d6/TextField.php b/core/modules/text/src/Plugin/migrate/field/d6/TextField.php
+index dba6398a06..74c9f243e9 100644
+--- a/core/modules/text/src/Plugin/migrate/field/d6/TextField.php
++++ b/core/modules/text/src/Plugin/migrate/field/d6/TextField.php
+@@ -86,7 +86,12 @@ public function defineValueProcessPipeline(MigrationInterface $migration, $field
+               'd7_filter_format',
+             ],
+             'source' => 'format',
++            'return_associative' => TRUE,
+           ],
++          [
++            'plugin' => 'extract',
++            'index' => ['format']
++          ]
+         ],
+       ];
+     }
+diff --git a/core/modules/user/migrations/d6_user.yml b/core/modules/user/migrations/d6_user.yml
+index b3d84534d0..d0c172e4d5 100644
+--- a/core/modules/user/migrations/d6_user.yml
++++ b/core/modules/user/migrations/d6_user.yml
+@@ -34,14 +34,29 @@ process:
+     fallback_to_site_default: true
+   init: init
+   roles:
+-    plugin: migration_lookup
+-    migration: d6_user_role
+-    source: roles
++    -
++      plugin: migration_lookup
++      migration: d6_user_role
++      source: roles
++      return_associative: TRUE
++    -
++      plugin: sub_process
++      process:
++        target_id: id
+   user_picture:
+-    plugin: migration_lookup
+-    migration: d6_user_picture_file
+-    source: uid
+-    no_stub: true
++    -
++      plugin: migration_lookup
++      migration: d6_user_picture_file
++      source: uid
++      no_stub: true
++      return_associative: TRUE
++    -
++      plugin: skip_on_empty
++      method: process
++    -
++      plugin: extract
++      index:
++        - fid
+ destination:
+   plugin: entity:user
+   md5_passwords: true
+diff --git a/core/modules/user/migrations/d7_user.yml b/core/modules/user/migrations/d7_user.yml
+index 5adbe05e8a..aeb0378b0e 100644
+--- a/core/modules/user/migrations/d7_user.yml
++++ b/core/modules/user/migrations/d7_user.yml
+@@ -33,9 +33,15 @@ process:
+     fallback_to_site_default: true
+   init: init
+   roles:
+-    plugin: migration_lookup
+-    migration: d7_user_role
+-    source: roles
++    -
++      plugin: migration_lookup
++      migration: d7_user_role
++      source: roles
++      return_associative: TRUE
++    -
++      plugin: sub_process
++      process:
++        target_id: id
+   user_picture:
+     -
+       plugin: default_value
+@@ -44,6 +50,11 @@ process:
+     -
+       plugin: migration_lookup
+       migration: d7_file
++      return_associative: TRUE
++    -
++      plugin: extract
++      index:
++        - fid
+ destination:
+   plugin: entity:user
+ migration_dependencies:
+diff --git a/core/modules/user/migrations/user_profile_entity_display.yml b/core/modules/user/migrations/user_profile_entity_display.yml
+index eafba00475..500ab9f0f6 100644
+--- a/core/modules/user/migrations/user_profile_entity_display.yml
++++ b/core/modules/user/migrations/user_profile_entity_display.yml
+@@ -22,13 +22,14 @@ process:
+       plugin: migration_lookup
+       migration: user_profile_field
+       source: fid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 1
++        - field_name
+   type:
+     plugin: static_map
+     source: type
+diff --git a/core/modules/user/migrations/user_profile_entity_form_display.yml b/core/modules/user/migrations/user_profile_entity_form_display.yml
+index 7416ac87a6..97161371c7 100644
+--- a/core/modules/user/migrations/user_profile_entity_form_display.yml
++++ b/core/modules/user/migrations/user_profile_entity_form_display.yml
+@@ -19,13 +19,14 @@ process:
+       plugin: migration_lookup
+       migration: user_profile_field
+       source: fid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 1
++        - field_name
+   form_mode: 'constants/form_mode'
+   type:
+     plugin: static_map
+diff --git a/core/modules/user/migrations/user_profile_field_instance.yml b/core/modules/user/migrations/user_profile_field_instance.yml
+index b6c706ceb7..bade6af0ed 100644
+--- a/core/modules/user/migrations/user_profile_field_instance.yml
++++ b/core/modules/user/migrations/user_profile_field_instance.yml
+@@ -19,13 +19,14 @@ process:
+       plugin: migration_lookup
+       migration: user_profile_field
+       source: fid
++      return_associative: TRUE
+     -
+       plugin: skip_on_empty
+       method: row
+     -
+       plugin: extract
+       index:
+-        - 1
++        - field_name
+   required: required
+ destination:
+   plugin: entity:field_config

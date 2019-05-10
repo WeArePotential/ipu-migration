@@ -1,0 +1,73 @@
+uuid: 1d273a75-0633-4541-90e5-f2903875f867
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ipu_event_right_menu.field_ipu_event_button
+    - field.field.paragraph.ipu_event_right_menu.field_ipu_event_document_widget
+    - field.field.paragraph.ipu_event_right_menu.field_ipu_event_section_desc
+    - field.field.paragraph.ipu_event_right_menu.field_ipu_event_section_title
+    - field.field.paragraph.ipu_event_right_menu.field_original_fc_id
+    - field.field.paragraph.ipu_event_right_menu.field_raw_fc_field_target_id
+    - paragraphs.paragraphs_type.ipu_event_right_menu
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.ipu_event_right_menu.default
+targetEntityType: paragraph
+bundle: ipu_event_right_menu
+mode: default
+content:
+  field_ipu_event_button:
+    weight: 2
+    type: link_default
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    region: content
+  field_ipu_event_section_desc:
+    weight: 1
+    type: text_textarea
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_ipu_event_section_title:
+    weight: 0
+    type: string_textfield
+    settings:
+      size: 100
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_original_fc_id:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_raw_fc_field_target_id:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_ipu_event_document_widget: true
+  status: true

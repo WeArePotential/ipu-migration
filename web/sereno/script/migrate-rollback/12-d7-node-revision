@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+drush migrate-rollback upgrade_d7_node_revision_article --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_basic_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_committee_member --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_document --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_ipu_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_publication --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_section_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_vacancy --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_webform --feedback="100 items"

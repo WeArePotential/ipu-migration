@@ -1,0 +1,170 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_field --feedback="100 items"
+
+drush migrate-import upgrade_d7_node_type --feedback="100 items"
+drush migrate-import upgrade_d7_node_settings --feedback="100 items"
+drush migrate-import upgrade_d7_language_content_settings --feedback="100 items"
+drush migrate-import upgrade_d7_node_title_label --feedback="100 items"
+
+drush migrate-import upgrade_d7_field_collection_type --feedback="100 items"
+
+# added node stuff here, to meet errors eg:
+# [error]  Attempt to create a field field_document_show_print that does not exist on entity type node.
+
+drush migrate-import upgrade_d7_node_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_webform --feedback="100 items"
+
+drush migrate-import upgrade_d7_field_instance --feedback="100 items"
+drush migrate-import upgrade_d7_field_formatter_settings --feedback="100 items"
+drush migrate-import upgrade_d7_field_instance_widget_settings --feedback="100 items"
+
+drush migrate-import upgrade_d7_field_group --feedback="100 items"
+
+
+### go10 issues: ###
+# drush migrate-import upgrade_d7_field --feedback="100 items"
+#  [notice] Processed 0 items (0 created, 0 updated, 0 failed, 0 ignored) - continuing with 'upgrade_d7_field'
+#  [error]  Attempt to create a field storage field_share with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_sub_content with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_geolocation with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_related_news_and_stories with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_publication_languag with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_section_block with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_section_view with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [error]  Attempt to create a field storage field_event_dates with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [notice] Processed 93 items (85 created, 0 updated, 8 failed, 0 ignored) - continuing with 'upgrade_d7_field'
+#  [error]  Attempt to create a field storage field_end_of_mandate with no type. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  [notice] Processed 14 items (13 created, 0 updated, 1 failed, 0 ignored) - done with 'upgrade_d7_field'
+
+# ANALYSIS
+# field_share is from 'AddThis' module - no equivalent in d8
+# field_sub_content is from 'viewfield' module - alpha only in d8 - already installed, but no migration available
+# field 'geolocation' - now there is a geolocation field module in d8, release candidate, so will install
+# https://www.drupal.org/project/geolocation
+# field_related_news_and_stories is from 'viewfield' module - alpha only in d8 and currently no views there
+# field field_publication_languag is from 'Language Field' module - available in d8 - already installed, but no migration available
+# field field_section_block is from the blockreference module - no activity in d8
+# field_section_view is from 'viewfield' module - alpha only in d8 - already installed, but no migration available
+# field_event_dates is from the  Partial Date module - no d8 activity
+
+# FIELD TYPES CHECKED AND/OR ADDED TO MEET SOME OF THE ABOVE - 30 Apr 2019
+# viewfield (already installed - no migrations in there though)
+# geolocation (fresh install done)
+# languagefield (already installed - no migrations in there though)
+
+# FIELD INSTANCE - FOLLOWING MANUAL IMPORT OF YML FROM GO4 (FOR PARAGRAPHS) + IPU8 (FOR NODES)
+# drush migrate-import upgrade_d7_field_instance --feedback="100 items"
+# [warning] Cannot assign an empty string to a string offset image.module:393
+# [error]  Attempt to create a field field_section_block that does not exist on entity type paragraph. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# [error]  Attempt to create a field field_section_view that does not exist on entity type paragraph. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# [error]  Attempt to create a field field_event_dates that does not exist on entity type node. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# [error]  Attempt to create a field field_end_of_mandate that does not exist on entity type node. (/home/rtatham/Project/go/go10.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# [notice] Processed 90 items (86 created, 0 updated, 4 failed, 0 ignored) - done with 'upgrade_d7_field_instance'
+#
+# In MigrateToolsCommands.php line 770:
+#  upgrade_d7_field_instance Migration - 4 failed.
+
+# drush migrate-import upgrade_d7_field_formatter_settings --feedback="100 items"
+#  [notice] Processed 0 items (0 created, 0 updated, 0 failed, 0 ignored) - continuing with 'upgrade_d7_field_formatter_settings'
+#  [notice] Processed 0 items (0 created, 0 updated, 0 failed, 0 ignored) - continuing with 'upgrade_d7_field_formatter_settings'
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "field_collection_fields" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_plain" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [notice] Processed 48 items (32 created, 0 updated, 7 failed, 9 ignored) - continuing with 'upgrade_d7_field_formatter_settings'
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "field_collection_fields" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "taxonomy_term_reference_plain" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+#  [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "taxonomy_term_reference_plain" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [warning] Illegal string offset 'uuid' image.module:382
+#  [warning] Illegal string offset 'uuid' image.module:384
+#  [warning] Illegal string offset 'uuid' image.module:454
+#  [warning] Illegal string offset 'uuid' image.module:455
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "link_label" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [notice] Processed 100 items (70 created, 0 updated, 22 failed, 8 ignored) - continuing with 'upgrade_d7_field_formatter_settings'
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [notice] Processed 100 items (88 created, 0 updated, 6 failed, 6 ignored) - continuing with 'upgrade_d7_field_formatter_settings'
+#  [notice] Processed 4 items (4 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_formatter_settings'
+
+# drush migrate-import upgrade_d7_field_instance_widget_settings --feedback="100 items"
+#  [notice] Processed 0 items (0 created, 0 updated, 0 failed, 0 ignored) - continuing with 'upgrade_d7_field_instance_widget_settings'
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+#  [notice] Processed 55 items (43 created, 0 updated, 4 failed, 8 ignored) - continuing with 'upgrade_d7_field_instance_widget_settings'
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [error]  The "field_collection_fieldset" plugin does not exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+#  [notice] Processed 90 items (76 created, 0 updated, 10 failed, 4 ignored) - done with 'upgrade_d7_field_instance_widget_settings'

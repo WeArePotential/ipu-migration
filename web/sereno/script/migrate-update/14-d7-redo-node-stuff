@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# 4 May 2019
+# this just used to re-install the nodes - translations weren't working and some paragraphs failed to attach...
+
+drush migrate-rollback upgrade_d7_entity_translation_settings --feedback="100 items"
+
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_article --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_country --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_documents --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_event_sponsor --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_geopolitical_group --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_governing_body --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_ipu_structure --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_publication --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_tags --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_theme --feedback="100 items"
+drush migrate-rollback upgrade_d7_taxonomy_term_entity_translation_vacancy --feedback="100 items"
+
+drush migrate-rollback upgrade_d7_node_section_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_article --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_basic_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_committee_member --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_document --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_ipu_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_publication --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_vacancy --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_webform --feedback="100 items"
+
+drush migrate-rollback upgrade_d7_node_revision_article --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_basic_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_committee_member --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_document --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_ipu_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_publication --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_section_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_vacancy --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_revision_webform --feedback="100 items"
+
+drush migrate-rollback upgrade_d7_node_entity_translation_article --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_basic_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_committee_member --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_document --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_ipu_event --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_publication --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_section_page --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_vacancy --feedback="100 items"
+drush migrate-rollback upgrade_d7_node_entity_translation_webform --feedback="100 items"
+

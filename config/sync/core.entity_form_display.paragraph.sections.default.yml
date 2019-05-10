@@ -1,0 +1,79 @@
+uuid: 70841123-4942-4b0a-b30d-a50ae669ce69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sections.field_section_description
+    - field.field.paragraph.sections.field_section_display_options
+    - field.field.paragraph.sections.field_section_html
+    - field.field.paragraph.sections.field_section_node
+    - field.field.paragraph.sections.field_section_title
+    - field.field.paragraph.sections.field_view
+    - paragraphs.paragraphs_type.sections
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+    - viewfield
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.sections.default
+targetEntityType: paragraph
+bundle: sections
+mode: default
+content:
+  field_section_description:
+    weight: 1
+    type: string_textarea
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_section_display_options:
+    weight: 8
+    type: options_buttons
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_section_html:
+    weight: 7
+    type: text_textarea
+    settings:
+      rows: 20
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_section_node:
+    weight: 6
+    type: entity_reference_autocomplete
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_section_title:
+    weight: 0
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_view:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

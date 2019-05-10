@@ -1,0 +1,582 @@
+#!/bin/bash
+
+# Rod Tatham, Sereno :: 30 Apr 2019
+
+# paragraph migration of config in D8
+
+# 30 Apr 2019 - this was run manually, one by one
+
+# cd ../../web
+#
+# drush migrate-import upgrade_d7_field_collection_type --feedback="100 items"
+# # [notice] Processed 12 items (12 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_type'
+#
+# drush migrate-import upgrade_d7_field --feedback="100 items"
+#  # [error]  Attempt to create a field storage field_share with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_sub_content with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_geolocation with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_related_news_and_stories with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_publication_languag with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_section_block with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_section_view with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_event_dates with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#  # [error]  Attempt to create a field storage field_end_of_mandate with no type. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldStorageConfig.php:258)
+#
+# drush migrate-import upgrade_d7_field_instance --feedback="100 items"
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_share that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Attempt to create a field field_sub_content that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Attempt to create a field field_share that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_geolocation that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_share that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Attempt to create a field field_related_news_and_stories that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_publication_languag that does not exist on entity type paragraph. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_share that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [warning] Illegal string offset 'uuid' image.module:382
+# # [warning] Illegal string offset 'uuid' image.module:393
+# # [warning] Cannot assign an empty string to a string offset image.module:393
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [warning] Illegal string offset 'uuid' image.module:382
+# # [warning] Illegal string offset 'uuid' image.module:393
+# # [warning] Cannot assign an empty string to a string offset image.module:393
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id country. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id country. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_section_block that does not exist on entity type paragraph. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Attempt to create a field field_section_view that does not exist on entity type paragraph. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_event_dates that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id event_sponsor. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Attempt to create a field field_end_of_mandate that does not exist on entity type node. (/home/rtatham/Project/go/go8.biscay.net/web/core/modules/field/src/Entity/FieldConfig.php:315)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [notice] Processed 145 items (57 created, 0 updated, 88 failed, 0 ignored) - done with 'upgrade_d7_field_instance'
+#
+# drush migrate-import upgrade_d7_view_modes --feedback="100 items"
+# # [notice] Processed 10 items (10 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_view_modes'
+#
+# drush migrate-import upgrade_d7_field_formatter_settings --feedback="100 items"
+# # [warning] Illegal string offset 'uuid' image.module:382
+# # [warning] Illegal string offset 'uuid' image.module:384
+# # [warning] Illegal string offset 'uuid' image.module:454
+# # [warning] Illegal string offset 'uuid' image.module:455
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  The "i18n_taxonomy_term_reference_plain" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id forum. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [warning] Illegal string offset 'uuid' image.module:382
+# # [warning] Illegal string offset 'uuid' image.module:384
+# # [warning] Illegal string offset 'uuid' image.module:454
+# # [warning] Illegal string offset 'uuid' image.module:455
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "file_rendered" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id document. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id country. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id country. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id basic_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id section_page. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id vacancy. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id publication. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type taxonomy_vocabulary, entity id event_sponsor. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id committee_member. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  The "i18n_taxonomy_term_reference_link" plugin does not exist. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Component/Plugin/Discovery/DiscoveryTrait.php:52)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [error]  Missing bundle entity, entity type node_type, entity id ipu_event. (/home/rtatham/Project/go/go8.biscay.net/web/core/lib/Drupal/Core/Entity/EntityType.php:910)
+# # [notice] Processed 252 items (73 created, 0 updated, 156 failed, 23 ignored) - done with 'upgrade_d7_field_formatter_settings'
+#
+# drush migrate-import upgrade_d7_field_instance_widget_settings
+# # [notice] Processed 145 items (53 created, 0 updated, 80 failed, 12 ignored) - done with 'upgrade_d7_field_instance_widget_settings'
+# drush migrate-import upgrade_d7_field_collection_event_sub_page
+# # [notice] Processed 120 items (120 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_event_sub_page'
+# drush migrate-import upgrade_d7_field_collection_ipu_event_document_widget --feedback="100 items"
+# # [notice] Processed 269 items (269 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_ipu_event_document_widget'
+# drush migrate-import upgrade_d7_field_collection_ipu_event_document --feedback="100 items"
+# # [notice] Processed 72 items (72 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_ipu_event_document'
+# drush migrate-import upgrade_d7_field_collection_ipu_event_right_menu --feedback="100 items"
+# # [notice] Processed 16 items (16 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_ipu_event_right_menu'
+# drush migrate-import upgrade_d7_field_collection_ipu_event_section --feedback="100 items"
+# # [notice] Processed 86 items (86 created, 0 updated, 0 failed, 0 ignored) - done with 'upgrade_d7_field_collection_ipu_event_section'
+# drush migrate-import upgrade_d7_field_collection_ipu_event_sessions --feedback="100 items"
+# # done
+# drush migrate-import upgrade_d7_field_collection_ipu_event_session_type --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_ipu_event_sponsors --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_publication_document --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_related_content --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_related_documents --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_sections --feedback="100 items"
+#
+#
+# drush migrate-import upgrade_d7_field_collection_revisions_event_sub_page --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_document_widget --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_document --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_right_menu --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_section --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_sessions --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_session_type --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_ipu_event_sponsors --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_publication_document --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_related_content --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_related_documents --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_field_collection_revisions_sections --feedback="100 items"
+#
+# drush migrate-import upgrade_d7_user_role --feedback="100 items"
+#
+# drush migrate-import upgrade_d7_user --feedback="100 items"
+#
+#
+# drush migrate-import upgrade_d7_node_settings --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_node_type --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_node_title_label --feedback="100 items"
+# #
+#
+# drush migrate-import upgrade_d7_node_article --feedback="100 items"
+# #
+# drush migrate-import upgrade_d7_node_basic_page --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_committee_member --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_document --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_event --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_ipu_event --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_page --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_publication --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_section_page --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_vacancy --feedback="100 items"
+#
+drush migrate-import upgrade_d7_node_webform --feedback="100 items"
+#
+
+drush migrate-import upgrade_d7_node_entity_translation_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_webform --feedback="100 items"
+
+drush migrate-import upgrade_d7_node_revision_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_revision_webform --feedback="100 items"
+
+drush migrate-import upgrade_d7_node_translation_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_webform --feedback="100 items"
+
+
+
+##############################################################
+
+migrate_plus.migration_group.default
+migrate_plus.migration_group.migrate_drupal_7
+drush migrate-import upgrade_block_content_body_field
+drush migrate-import upgrade_block_content_entity_display
+drush migrate-import upgrade_block_content_entity_form_display
+drush migrate-import upgrade_block_content_type
+drush migrate-import upgrade_d7_block_translation
+drush migrate-import upgrade_d7_block
+drush migrate-import upgrade_d7_color
+drush migrate-import upgrade_d7_comment_entity_display
+drush migrate-import upgrade_d7_comment_entity_form_display_subject
+drush migrate-import upgrade_d7_comment_entity_form_display
+drush migrate-import upgrade_d7_comment_entity_translation
+drush migrate-import upgrade_d7_comment_field_instance
+drush migrate-import upgrade_d7_comment_field
+drush migrate-import upgrade_d7_comment_type
+drush migrate-import upgrade_d7_custom_block_translation
+drush migrate-import upgrade_d7_custom_block
+drush migrate-import upgrade_d7_dblog_settings
+drush migrate-import upgrade_d7_entity_translation_settings
+
+
+
+drush migrate-import upgrade_d7_field_group
+drush migrate-import upgrade_d7_field_instance_label_description_translation
+
+
+drush migrate-import upgrade_d7_file_private
+drush migrate-import upgrade_d7_file
+drush migrate-import upgrade_d7_filter_format
+drush migrate-import upgrade_d7_filter_settings
+drush migrate-import upgrade_d7_global_theme_settings
+drush migrate-import upgrade_d7_google_analytics_settings
+drush migrate-import upgrade_d7_google_analytics_user_settings
+drush migrate-import upgrade_d7_image_settings
+drush migrate-import upgrade_d7_image_styles
+drush migrate-import upgrade_d7_language_content_settings
+drush migrate-import upgrade_d7_language_negotiation_settings
+drush migrate-import upgrade_d7_language_types
+drush migrate-import upgrade_d7_menu_links
+drush migrate-import upgrade_d7_menu
+drush migrate-import upgrade_d7_node_article
+drush migrate-import upgrade_d7_node_basic_page
+drush migrate-import upgrade_d7_node_committee_member
+drush migrate-import upgrade_d7_node_document
+drush migrate-import upgrade_d7_node_entity_translation_article
+drush migrate-import upgrade_d7_node_entity_translation_basic_page
+drush migrate-import upgrade_d7_node_entity_translation_committee_member
+drush migrate-import upgrade_d7_node_entity_translation_document
+drush migrate-import upgrade_d7_node_entity_translation_event
+drush migrate-import upgrade_d7_node_entity_translation_ipu_event
+drush migrate-import upgrade_d7_node_entity_translation_page
+drush migrate-import upgrade_d7_node_entity_translation_publication
+drush migrate-import upgrade_d7_node_entity_translation_section_page
+drush migrate-import upgrade_d7_node_entity_translation_vacancy
+drush migrate-import upgrade_d7_node_entity_translation_webform
+drush migrate-import upgrade_d7_node_event
+drush migrate-import upgrade_d7_node_ipu_event
+drush migrate-import upgrade_d7_node_page
+drush migrate-import upgrade_d7_node_publication
+drush migrate-import upgrade_d7_node_revision_article
+drush migrate-import upgrade_d7_node_revision_basic_page
+drush migrate-import upgrade_d7_node_revision_committee_member
+drush migrate-import upgrade_d7_node_revision_document
+drush migrate-import upgrade_d7_node_revision_event
+drush migrate-import upgrade_d7_node_revision_ipu_event
+drush migrate-import upgrade_d7_node_revision_page
+drush migrate-import upgrade_d7_node_revision_publication
+drush migrate-import upgrade_d7_node_revision_section_page
+drush migrate-import upgrade_d7_node_revision_vacancy
+drush migrate-import upgrade_d7_node_revision_webform
+drush migrate-import upgrade_d7_node_section_page
+drush migrate-import upgrade_d7_node_settings
+drush migrate-import upgrade_d7_node_title_label
+drush migrate-import upgrade_d7_node_translation_article
+drush migrate-import upgrade_d7_node_translation_basic_page
+drush migrate-import upgrade_d7_node_translation_committee_member
+drush migrate-import upgrade_d7_node_translation_document
+drush migrate-import upgrade_d7_node_translation_event
+drush migrate-import upgrade_d7_node_translation_ipu_event
+drush migrate-import upgrade_d7_node_translation_page
+drush migrate-import upgrade_d7_node_translation_publication
+drush migrate-import upgrade_d7_node_translation_section_page
+drush migrate-import upgrade_d7_node_translation_vacancy
+drush migrate-import upgrade_d7_node_translation_webform
+drush migrate-import upgrade_d7_node_type
+drush migrate-import upgrade_d7_node_vacancy
+drush migrate-import upgrade_d7_node_webform
+drush migrate-import upgrade_d7_pathauto_patterns
+drush migrate-import upgrade_d7_pathauto_settings
+drush migrate-import upgrade_d7_path_redirect
+drush migrate-import upgrade_d7_rdf_mapping
+drush migrate-import upgrade_d7_roleassign_settings
+drush migrate-import upgrade_d7_search_settings
+drush migrate-import upgrade_d7_shortcut_set_users
+drush migrate-import upgrade_d7_shortcut_set
+drush migrate-import upgrade_d7_shortcut
+drush migrate-import upgrade_d7_system_authorize
+drush migrate-import upgrade_d7_system_cron
+drush migrate-import upgrade_d7_system_date
+drush migrate-import upgrade_d7_system_file
+drush migrate-import upgrade_d7_system_mail
+drush migrate-import upgrade_d7_system_maintenance_translation
+drush migrate-import upgrade_d7_system_performance
+drush migrate-import upgrade_d7_system_site_translation
+drush migrate-import upgrade_d7_taxonomy_term_article
+drush migrate-import upgrade_d7_taxonomy_term_country
+drush migrate-import upgrade_d7_taxonomy_term_documents
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_article
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_country
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_documents
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_event_sponsor
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_event
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_geopolitical_group
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_governing_body
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_ipu_structure
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_publication
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_tags
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_theme
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_vacancy
+drush migrate-import upgrade_d7_taxonomy_term_event_sponsor
+drush migrate-import upgrade_d7_taxonomy_term_event
+drush migrate-import upgrade_d7_taxonomy_term_geopolitical_group
+drush migrate-import upgrade_d7_taxonomy_term_governing_body
+drush migrate-import upgrade_d7_taxonomy_term_ipu_structure
+drush migrate-import upgrade_d7_taxonomy_term_publication
+drush migrate-import upgrade_d7_taxonomy_term_tags
+drush migrate-import upgrade_d7_taxonomy_term_theme
+drush migrate-import upgrade_d7_taxonomy_term_vacancy
+drush migrate-import upgrade_d7_taxonomy_vocabulary
+drush migrate-import upgrade_d7_theme_settings
+drush migrate-import upgrade_d7_url_alias
+drush migrate-import upgrade_d7_user_entity_translation
+drush migrate-import upgrade_d7_user_flood
+drush migrate-import upgrade_d7_user_mail_translation
+drush migrate-import upgrade_d7_user_mail
+drush migrate-import upgrade_d7_user_role
+drush migrate-import upgrade_d7_user_settings_translation
+drush migrate-import upgrade_d7_user
+
+drush migrate-import upgrade_default_language
+drush migrate-import upgrade_file_settings
+drush migrate-import upgrade_language_prefixes_and_domains
+drush migrate-import upgrade_language
+drush migrate-import upgrade_locale_settings
+drush migrate-import upgrade_menu_settings
+drush migrate-import upgrade_node_translation_menu_links
+drush migrate-import upgrade_search_page
+drush migrate-import upgrade_system_image_gd
+drush migrate-import upgrade_system_image
+drush migrate-import upgrade_system_logging
+drush migrate-import upgrade_system_maintenance
+drush migrate-import upgrade_system_rss
+drush migrate-import upgrade_system_site
+drush migrate-import upgrade_taxonomy_settings
+drush migrate-import upgrade_text_settings
+drush migrate-import upgrade_update_settings
+drush migrate-import upgrade_user_picture_entity_display
+drush migrate-import upgrade_user_picture_entity_form_display
+drush migrate-import upgrade_user_picture_field_instance
+drush migrate-import upgrade_user_picture_field
+drush migrate-import upgrade_user_profile_entity_display
+drush migrate-import upgrade_user_profile_entity_form_display
+drush migrate-import upgrade_user_profile_field_instance
+drush migrate-import upgrade_user_profile_field

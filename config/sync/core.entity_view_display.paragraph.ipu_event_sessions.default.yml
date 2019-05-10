@@ -1,0 +1,120 @@
+uuid: f159825c-fcce-43da-bd19-4572c0c537e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ipu_event_sessions.field_fc_session_date
+    - field.field.paragraph.ipu_event_sessions.field_fc_session_governing_body
+    - field.field.paragraph.ipu_event_sessions.field_fc_session_room
+    - field.field.paragraph.ipu_event_sessions.field_fc_session_type
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_closed_session
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_custom_label
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_description
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_hide_time
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_session_order
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_session_title
+    - field.field.paragraph.ipu_event_sessions.field_fc_sessions_theme
+    - field.field.paragraph.ipu_event_sessions.field_ipu_event_document_widget
+    - field.field.paragraph.ipu_event_sessions.field_session_ends_date
+    - paragraphs.paragraphs_type.ipu_event_sessions
+  module:
+    - datetime
+    - entity_reference_revisions
+    - options
+id: paragraph.ipu_event_sessions.default
+targetEntityType: paragraph
+bundle: ipu_event_sessions
+mode: default
+content:
+  field_fc_session_date:
+    label: above
+    weight: 5
+    type: datetime_default
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    region: content
+  field_fc_session_room:
+    label: above
+    weight: 2
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_fc_session_type:
+    label: above
+    weight: 1
+    type: entity_reference_label
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_closed_session:
+    label: above
+    weight: 4
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_custom_label:
+    label: above
+    weight: 12
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_description:
+    label: above
+    weight: 9
+    type: basic_string
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_hide_time:
+    label: above
+    weight: 11
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_session_order:
+    label: above
+    weight: 10
+    type: number_integer
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    region: content
+  field_fc_sessions_session_title:
+    label: above
+    weight: 0
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_ipu_event_document_widget:
+    label: above
+    weight: 6
+    type: entity_reference_revisions_entity_view
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_session_ends_date:
+    weight: 13
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  field_fc_session_governing_body: true
+  field_fc_sessions_theme: true

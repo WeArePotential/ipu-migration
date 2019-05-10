@@ -1,0 +1,26 @@
+# Put overrides to your pantheon.upstream.yml file here.
+# For more information, see: https://pantheon.io/docs/pantheon-yml/
+api_version: 1
+web_docroot: true
+
+workflows:
+  sync_code:
+    after:
+      - type: webphp
+        description: Import configuration from .yml files
+        script: private/scripts/import_config/import_config.php
+      - type: webphp
+        description: Enable modules
+        script: private/scripts/enable_modules/enable_modules.php
+      - type: webphp
+        description: Clear cache
+        script: private/scripts/clear_cache/clear_cache.php
+      #- type: webphp
+      #  description: Dump debugging output
+      #  script: private/scripts/debug.php
+
+
+#protected_web_paths:
+# Don't protect the scripts - this is done by Pantheon and would stop webphp from running
+#  - /private
+

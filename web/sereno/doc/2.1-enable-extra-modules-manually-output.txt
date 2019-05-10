@@ -1,0 +1,120 @@
+ ./2.1-enable-extra-modules-manually 
+ [success] Successfully enabled: actions_permissions
+The following module(s) will be enabled: adminimal_admin_toolbar, admin_toolbar
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: adminimal_admin_toolbar, admin_toolbar
+ [success] Successfully enabled: kint
+ [success] Successfully enabled: ds_extras
+ [success] Successfully enabled: entityqueue
+ [success] Successfully enabled: features_ui
+ [success] Successfully enabled: field_group_migrate
+ [success] Successfully enabled: field_layout
+
+In PmCommands.php line 259:
+                                                                               
+  Unable to install modules: module 'flickr_colorbox' is missing its dependen  
+  cy module colorbox.                                                          
+                                                                               
+
+pm:enable [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-d|--debug] [-y|--yes] [--no] [--remote-host REMOTE-HOST] [--remote-user REMOTE-USER] [-r|--root ROOT] [-l|--uri URI] [--simulate] [--pipe] [-D|--define DEFINE] [--notify [NOTIFY]] [--xh-link XH-LINK] [--druplicon] [--] <command> [<modules>]...
+
+ [success] Successfully enabled: flickr_filter
+The following module(s) will be enabled: geocoder_address, geocoder_field
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: geocoder_address, geocoder_field
+ [notice] Already enabled: geocoder_field
+ [success] Successfully enabled: geocoder_geofield
+The following module(s) will be enabled: imagemagick, file_mdm, file_mdm_exif
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes 
+
+ [success] Successfully enabled: imagemagick, file_mdm, file_mdm_exif
+
+In EntityTypeRepository.php line 98:
+                                                                               
+  The Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay class does   
+  not correspond to an entity type.                                            
+                                                                               
+
+pm:enable [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-d|--debug] [-y|--yes] [--no] [--remote-host REMOTE-HOST] [--remote-user REMOTE-USER] [-r|--root ROOT] [-l|--uri URI] [--simulate] [--pipe] [-D|--define DEFINE] [--notify [NOTIFY]] [--xh-link XH-LINK] [--druplicon] [--] <command> [<modules>]...
+
+ [success] Successfully enabled: media
+ [success] Successfully enabled: media_library
+The following module(s) will be enabled: metatag_open_graph_products, metatag_open_graph
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: metatag_open_graph_products, metatag_open_graph
+ [notice] Already enabled: metatag_open_graph_products
+The following module(s) will be enabled: migrate_plus, migrate
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: migrate_plus, migrate
+The following module(s) will be enabled: migrate_drupal_ui, migrate_drupal
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: migrate_drupal_ui, migrate_drupal
+ [notice] Message: The Migrate Drupal UI module has been enabled. Proceed to the upgrade form 
+[1].
+
+[1] http://default/upgrade
+
+ [success] Successfully enabled: migrate_drupal_multilingual
+ [notice] Already enabled: migrate_drupal
+ [success] Successfully enabled: responsive_image
+ [success] Successfully enabled: webform_bootstrap
+ [success] Successfully enabled: webform_image_select
+ [success] Successfully enabled: webform_node
+ [success] Successfully enabled: webform_scheduled_email
+ [success] Successfully enabled: webform_submission_log
+ [success] Successfully enabled: webform_templates
+ [success] Successfully enabled: webform_ui
+
+composer-1.7.2 require drupal/colorbox
+Using version ^1.4 for drupal/colorbox
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/colorbox (1.4.0): Downloading (100%)         
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+rtatham@marcus-aurelius:~/Project/ipu/ipu8.biscay.net/web$ composer-1.7.2 require drupal/flickr_colorbox
+Using version ^1.0@alpha for drupal/flickr_colorbox
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+rtatham@marcus-aurelius:~/Project/ipu/ipu8.biscay.net/web$ drush pm:enable flickr_colorbox
+The following module(s) will be enabled: flickr_colorbox, colorbox
+
+ Do you want to continue? (yes/no) [yes]:
+ > yes
+
+ [success] Successfully enabled: flickr_colorbox, colorbox
+rtatham@marcus-aurelius:~/Project/ipu/ipu8.biscay.net/web$ drush cr
+

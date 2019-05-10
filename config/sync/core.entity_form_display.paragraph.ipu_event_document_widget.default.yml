@@ -1,0 +1,43 @@
+uuid: a14211ea-ab24-41b8-a0ad-8dca00ea8723
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ipu_event_document_widget.field_ipu_event_document
+    - field.field.paragraph.ipu_event_document_widget.field_ipu_event_document_r
+    - field.field.paragraph.ipu_event_document_widget.field_original_fc_id
+    - paragraphs.paragraphs_type.ipu_event_document_widget
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: paragraph.ipu_event_document_widget.default
+targetEntityType: paragraph
+bundle: ipu_event_document_widget
+mode: default
+content:
+  field_ipu_event_document_r:
+    weight: 2
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_original_fc_id:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_ipu_event_document: true
+  status: true

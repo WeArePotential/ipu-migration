@@ -1,0 +1,21 @@
+uuid: 6e92a7c5-1d2d-4edf-ae62-da6355f224bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_event
+label: 'Content - Archive Event'
+type: 'canonical_entities:node'
+pattern: 'events/[node:field-event-type]/[node:created:custom:Y-m]/[node:title-field]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,21 @@
+uuid: b7575a1a-7e33-4807-b408-f997ccc22179
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_article
+label: 'Content - News and Stories'
+type: 'canonical_entities:node'
+pattern: 'news/[node:field-article-type:parent]/[node:field-article-type]/[node:created:custom:Y-m]/[node:title-field]'
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: 0
+relationships: {  }

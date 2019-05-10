@@ -1,0 +1,8 @@
+#!/bin/bash
+
+drush migrate-import upgrade_d7_comment_type --feedback="100 items"
+drush migrate-import upgrade_d7_comment_field --feedback="100 items"
+drush migrate-import upgrade_d7_comment_field_instance --feedback="100 items"
+drush migrate-import upgrade_d7_comment_entity_display --feedback="100 items"
+drush migrate-import upgrade_d7_comment_entity_form_display_subject --feedback="100 items"
+drush migrate-import upgrade_d7_comment_entity_form_display --feedback="100 items"

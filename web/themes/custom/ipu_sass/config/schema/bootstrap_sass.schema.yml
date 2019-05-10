@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Bootstrap SASS Subtheme.
+
+ipu_sass.settings:
+  type: theme_settings
+  label: 'IPU Bootstrap SASS Subtheme settings'

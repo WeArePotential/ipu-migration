@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_pathauto_patterns --feedback="100 items"
+drush migrate-import upgrade_d7_pathauto_settings --feedback="100 items"
+drush migrate-import upgrade_d7_path_redirect --feedback="100 items"
+drush migrate-import upgrade_d7_rdf_mapping --feedback="100 items"
+drush migrate-import upgrade_d7_search_settings --feedback="100 items"
+
+drush migrate-import upgrade_d7_system_authorize --feedback="100 items"
+drush migrate-import upgrade_d7_system_cron --feedback="100 items"
+drush migrate-import upgrade_d7_system_date --feedback="100 items"
+drush migrate-import upgrade_d7_system_file --feedback="100 items"
+drush migrate-import upgrade_d7_system_mail --feedback="100 items"
+drush migrate-import upgrade_d7_system_maintenance_translation --feedback="100 items"
+drush migrate-import upgrade_d7_system_performance --feedback="100 items"
+drush migrate-import upgrade_d7_system_site_translation --feedback="100 items"
+drush migrate-import upgrade_d7_theme_settings --feedback="100 items"
+drush migrate-import upgrade_d7_url_alias --feedback="100 items"
+drush migrate-import upgrade_d7_view_modes --feedback="100 items"
+drush migrate-import upgrade_d7_color --feedback="100 items"
+drush migrate-import upgrade_d7_dblog_settings --feedback="100 items"
+drush migrate-import upgrade_d7_file_private --feedback="100 items"
+drush migrate-import upgrade_d7_file --feedback="100 items"
+drush migrate-import upgrade_d7_filter_format --feedback="100 items"
+drush migrate-import upgrade_d7_filter_settings --feedback="100 items"
+drush migrate-import upgrade_d7_global_theme_settings --feedback="100 items"
+drush migrate-import upgrade_d7_google_analytics_settings --feedback="100 items"
+drush migrate-import upgrade_d7_image_settings --feedback="100 items"
+drush migrate-import upgrade_d7_image_styles --feedback="100 items"
+drush migrate-import upgrade_d7_language_negotiation_settings --feedback="100 items"
+drush migrate-import upgrade_d7_language_types --feedback="100 items"
+
+### go10 issues: ###
+
+# [error]  Missing filter plugin: filter_null.
+# [error]  Missing filter plugin: filter_null.
+# [error]  The configuration property filters.filter_null.settings.local_settings.protocol_style doesn't exist. (/home/rtatham/Project/go/go10.biscay.net/web/core/lib/Drupal/Core/Config/Schema/ArrayElement.php:76)
+# [error]  Missing filter plugin: filter_null.
+# [notice] Processed 7 items (6 created, 0 updated, 1 failed, 0 ignored) - done with 'upgrade_d7_filter_format'
+#
+#   upgrade_d7_image_styles Migration - 3 failed.

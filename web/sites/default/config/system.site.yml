@@ -1,0 +1,14 @@
+uuid: e68855ce-257f-41af-9a61-51f6fc1116ef
+name: 'Inter-Parliamentary Union'
+mail: pmasonhome@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

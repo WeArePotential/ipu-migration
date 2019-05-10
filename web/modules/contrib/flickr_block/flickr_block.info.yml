@@ -1,0 +1,12 @@
+name: Flickr Block
+type: module
+description: Create custom blocks from Flickr photos
+# core: 8.x
+package: Other
+dependencies:
+  - block
+# Information added by Drupal.org packaging script on 2017-11-24
+version: '8.x-1.0-alpha2'
+core: '8.x'
+project: 'flickr_block'
+datestamp: 1511530387

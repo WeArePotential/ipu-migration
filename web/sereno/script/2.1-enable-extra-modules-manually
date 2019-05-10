@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# Rod Tatham, Sereno :: 9 Apr 2019
+
+# part 2 of the set up for data migration. Enabling contrib modules
+# after manual 'by eye' side-by-side site comparison (D7 -v- new D8 one).
+
+
+cd ../../
+drush pm:enable actions_permissions
+drush pm:enable adminimal_admin_toolbar
+drush pm:enable kint
+drush pm:enable ds_extras
+drush pm:enable entityqueue
+drush pm:enable features_ui
+drush pm:enable field_group_migrate
+drush pm:enable field_layout
+drush pm:enable flickr_colorbox
+drush pm:enable flickr_filter
+drush pm:enable geocoder_address
+drush pm:enable geocoder_field
+drush pm:enable geocoder_geofield
+drush pm:enable imagemagick
+# commented out 11 Apr 2019 - was throwing white screens
+#drush pm:enable layout_builder
+drush pm:enable media
+drush pm:enable media_library
+drush pm:enable metatag_open_graph_products
+drush pm:enable metatag_open_graph_products
+drush pm:enable migrate_plus
+drush pm:enable migrate_drupal_ui
+drush pm:enable migrate_drupal_multilingual
+drush pm:enable migrate_drupal
+drush pm:enable responsive_image
+drush pm:enable webform_bootstrap
+drush pm:enable webform_image_select
+drush pm:enable webform_node
+drush pm:enable webform_scheduled_email
+drush pm:enable webform_submission_log
+drush pm:enable webform_templates
+drush pm:enable webform_ui
+
+# added 10 Apr 2019
+drush pm:enable migrate_tools
+drush pm:enable migrate_upgrade
+
+# added 11 Apr 2019
+#drush pm:enable migrate_manifest
+
+# added when rebuilding - 25 Apr 2019
+drush pm:enable colorbox
+drush pm:enable flickr_colorbox
+drush pm:enable backup_migrate
+drush pm:enable shield
+drush pm:enable paragraphs
+drush pm:enable entity_reference_revisions
+drush pm:enable entity_embed
+drush pm:enable file_browser
+drush pm:enable convert_media_tags_to_markup
+drush pm:enable config_translation
+drush pm:enable content_translation
+drush pm:enable locale
+
+# added to help importing field - 30 Apr 2019
+drush pm:enable geolocation

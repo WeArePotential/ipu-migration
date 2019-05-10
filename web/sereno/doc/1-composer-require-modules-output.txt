@@ -1,0 +1,888 @@
+./composer-require-modules
+Using version ^1.6 for drupal/address
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 3 installs, 0 updates, 0 removals
+  - Installing drupal/coffee (1.0.0-beta2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing commerceguys/addressing (v1.0.3): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/address (1.6.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0 for drupal/back_to_top
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/back_to_top (1.0.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.0@alpha for drupal/better_exposed_filters
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/better_exposed_filters (3.0.0-alpha6): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0 for drupal/block_class
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/block_class (1.0.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.1 for drupal/blockgroup
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/blockgroup (1.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.7 for drupal/chosen
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/chosen (2.7.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/coffee
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.2 for drupal/ctools
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/custom_add_another
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/custom_add_another (1.0.0-beta1): Downloading (connecting.Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/date_all_day
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/date_all_day (1.0.0-beta1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0 for drupal/date_popup
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/date_popup (1.0.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.0 for drupal/devel
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.3 for drupal/ds
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/ds (3.3.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/ds_extra.
+
+  Did you mean one of these?
+      drupal/field_group
+      drupal/entity_pdf
+      drupal/rocketship_core
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^2.0@alpha for drupal/ds_search
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - drupal/ds_search 2.0.0-alpha4 requires drupal/ds 2.0.0-alpha4 -> satisfiable by drupal/ds[2.0.0-alpha4] but these conflict with your requirements or minimum-stability.
+    - drupal/ds_search 2.0.0-alpha9 requires drupal/ds 2.0.0-alpha9 -> satisfiable by drupal/ds[2.0.0-alpha9] but these conflict with your requirements or minimum-stability.
+    - Installation request for drupal/ds_search ^2.0@alpha -> satisfiable by drupal/ds_search[2.0.0-alpha9, 2.0.0-alpha4].
+
+
+Installation failed, reverting ./composer.json to its original content.
+Using version ^2.0@alpha for drupal/ds_ui
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - drupal/ds_ui 2.0.0-alpha4 requires drupal/ds 2.0.0-alpha4 -> satisfiable by drupal/ds[2.0.0-alpha4] but these conflict with your requirements or minimum-stability.
+    - drupal/ds_ui 2.0.0-alpha9 requires drupal/ds 2.0.0-alpha9 -> satisfiable by drupal/ds[2.0.0-alpha9] but these conflict with your requirements or minimum-stability.
+    - Installation request for drupal/ds_ui ^2.0@alpha -> satisfiable by drupal/ds_ui[2.0.0-alpha9, 2.0.0-alpha4].
+
+
+Installation failed, reverting ./composer.json to its original content.
+Using version ^1.3 for drupal/facets
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/facets (1.3.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.8 for drupal/features
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing drupal/config_update (1.6.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/features (3.8.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.0@alpha for drupal/feeds
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/feeds (3.0.0-alpha4): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/field_collection
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/field_collection (1.0.0-alpha1): Downloading (connecting..Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0 for drupal/field_group
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/field_group (1.0.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.0@beta for drupal/file_entity
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/file_entity (2.0.0-beta6): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/filefield_paths
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/filefield_paths (1.0.0-beta1):Downloading (100%)         )
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/flickr
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing drupal/flickr_api (1.2.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/flickr (1.0.0-alpha2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/flickr_block
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/flickr_block (1.0.0-alpha2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.1 for drupal/geocoder
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 4 installs, 0 updates, 0 removals
+  - Installing igorw/get-in (v1.0.3): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing egeloen/http-adapter (0.8.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing willdurand/geocoder (v3.3.2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/geocoder (2.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+egeloen/http-adapter suggests installing ext-http (Allows you to use the PECL adapter)
+egeloen/http-adapter suggests installing guzzle/guzzle (Allows you to use the Guzzle 3 adapter)
+egeloen/http-adapter suggests installing kriswallsmith/buzz (Allows you to use the Buzz adapter)
+egeloen/http-adapter suggests installing nategood/httpful (Allows you to use the httpful adapter)
+egeloen/http-adapter suggests installing zendframework/zendframework1 (Allows you to use the Zend 1 adapter)
+egeloen/http-adapter suggests installing zendframework/zend-http (Allows you to use the Zend 2 adapter)
+egeloen/http-adapter suggests installing symfony/stopwatch (Allows you to use the stopwatch http adapter and event subscriber)
+willdurand/geocoder suggests installing ext-geoip (Enabling the geoip extension allows you to use the MaxMindProvider.)
+willdurand/geocoder suggests installing geoip/geoip (If you are going to use the MaxMindBinaryProvider (conflict with geoip extension).)
+willdurand/geocoder suggests installing geoip2/geoip2 (If you are going to use the GeoIP2DatabaseProvider.)
+willdurand/geocoder suggests installing symfony/stopwatch (If you want to use the TimedGeocoder)
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/geocoder_map.
+
+  Did you mean one of these?
+      drupal/geocoder
+      drupal/geofield_map
+      drupal/baidu_map
+      drupal/geofield
+      drupal/geolocation
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^1.1 for drupal/geofield
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing phayes/geophp (1.2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/geofield (1.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/geophp
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/geophp (1.0.0-beta2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.0 for drupal/google_analytics
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/google_analytics (3.0.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.0@alpha for drupal/job_scheduler
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/job_scheduler (2.0.0-alpha1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.5 for drupal/languagefield
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/languagefield (1.5.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/mailchimp
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing thinkshout/mailchimp-api-php (2.0.0):Downloading (100%)         )
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/mailchimp (1.8.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/mailchimp_campaign
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/mailchimp_lists
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/mailchimp_signup
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0 for drupal/menu_admin_per_menu
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/menu_admin_per_menu (1.0.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.5 for drupal/menu_block
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/menu_block (1.5.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.1 for drupal/menu_trail_by_path
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/menu_trail_by_path (1.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/metatag_opengraph.
+
+  Did you mean this?
+      drupal/opengraph_filter
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^1.8 for drupal/metatag_twitter_cards
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing drupal/metatag (1.8.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/metatag_verification
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.8 for drupal/metatag_views
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.1 for drupal/module_filter
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.4 for drupal/override_node_options
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/override_node_options (2.4.0):Downloading (100%)         )
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.4 for drupal/pathauto
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/pathologic
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/pathologic (1.0.0-alpha1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.3 for drupal/redirect
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.1 for drupal/redis
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/roleassign
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/roleassign (1.0.0-alpha2): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.12 for drupal/search_api
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/search_api (1.12.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+drupal/search_api suggests installing drupal/search_api_autocomplete (Allows adding autocomplete suggestions to search fields.)
+drupal/search_api suggests installing drupal/search_api_solr (Adds support for using Apache Solr as a backend.)
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.12 for drupal/search_api_db
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/search_api_facetapi.
+
+  Did you mean one of these?
+      drupal/search_api_hashtag
+      drupal/facets
+      drupal/domain_integration
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^1.0@alpha for drupal/search_api_page
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/search_api_page (1.0.0-alpha12): Downloading (connecting..Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.7 for drupal/search_api_solr
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 3 installs, 0 updates, 0 removals
+  - Installing solarium/solarium (4.2.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing maennchen/zipstream-php (v0.4.1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+  - Installing drupal/search_api_solr (2.7.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+solarium/solarium suggests installing minimalcode/search (Query builder compatible with Solarium, allows simplified solr-query handling)
+drupal/search_api_solr suggests installing drupal/search_api_autocomplete (Provides auto complete for search boxes.)
+drupal/search_api_solr suggests installing drupal/search_api_location (Provides location searches.)
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@beta for drupal/search_api_sorts
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/search_api_sorts (1.0.0-beta1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/search_api_views.
+
+  Did you mean one of these?
+      drupal/search_api_sorts
+      drupal/search_api
+      drupal/search_api_glossary
+      drupal/search_api_location
+      drupal/search_api_date_popup
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^1.0@RC for drupal/site_status_message
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/site_status_message (1.0.0-rc1): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.5 for drupal/sitemap
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/sitemap (1.5.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.0@alpha for drupal/stage_file_proxy
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.4 for drupal/taxonomy_menu
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/taxonomy_menu (3.4.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.1 for drupal/text_resize
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/text_resize (1.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^1.5 for drupal/token
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.1 for drupal/twitter_block
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/twitter_block (2.1.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^3.0@alpha for drupal/viewfield
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/viewfield (3.0.0-alpha3): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^2.5 for drupal/views_bulk_operations
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/views_bulk_operations (2.5.0): Loading from cache
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+Using version ^5.2 for drupal/webform
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/webform (5.2.0): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess
+
+
+  [InvalidArgumentException]
+  Could not find package drupal/webform_localization.
+
+  Did you mean one of these?
+      drupal/flashpoint
+      drupal/micro_site
+      drupal/ip_geoloc
+      drupal/smart_ip
+      drupal/permissions_by_term
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-suggest] [--no-update] [--no-scripts] [--update-no-dev] [--update-with-dependencies] [--update-with-all-dependencies] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--] [<packages>]...
+
+Using version ^1.0@alpha for drupal/xmlsitemap
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing drupal/xmlsitemap (1.0.0-alpha3): Downloading (100%)
+> Drupal\Core\Composer\Composer::vendorTestCodeCleanup
+Package egeloen/http-adapter is abandoned, you should avoid using it. Use php-http/httplug instead.
+Package phpunit/phpunit-mock-objects is abandoned, you should avoid using it. No replacement was suggested.
+Writing lock file
+Generating autoload files
+> Drupal\Core\Composer\Composer::preAutoloadDump
+> Drupal\Core\Composer\Composer::ensureHtaccess

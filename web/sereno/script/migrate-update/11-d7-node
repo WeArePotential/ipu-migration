@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+# drush migrate-import upgrade_d7_node_section_page --feedback="100 items"
+# drush migrate-import upgrade_d7_node_article --feedback="100 items"
+# drush migrate-import upgrade_d7_node_basic_page --feedback="100 items"
+# drush migrate-import upgrade_d7_node_committee_member --feedback="100 items"
+# drush migrate-import upgrade_d7_node_document --feedback="100 items"
+# drush migrate-import upgrade_d7_node_event --feedback="100 items"
+# drush migrate-import upgrade_d7_node_ipu_event --feedback="100 items"
+# drush migrate-import upgrade_d7_node_page --feedback="100 items"
+# drush migrate-import upgrade_d7_node_publication --feedback="100 items"
+# drush migrate-import upgrade_d7_node_vacancy --feedback="100 items"
+# drush migrate-import upgrade_d7_node_webform --feedback="100 items"

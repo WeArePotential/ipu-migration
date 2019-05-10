@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# Rod Tatham, Sereno :: 9 Apr 2019
+
+# part 2 of the set up for data migration. Enabling contrib modules to set
+# up the site.
+
+# After running, updated by commenting out missing modules.
+
+cd ../../
+drush pm:enable address
+drush pm:enable back_to_top
+drush pm:enable better_exposed_filters
+drush pm:enable block_class
+drush pm:enable blockgroup
+drush pm:enable chosen
+drush pm:enable coffee
+drush pm:enable ctools
+drush pm:enable custom_add_another
+drush pm:enable date_all_day
+drush pm:enable date_popup
+drush pm:enable devel
+drush pm:enable ds
+#drush pm:enable ds_search
+#drush pm:enable ds_ui
+drush pm:enable facets
+drush pm:enable features
+drush pm:enable feeds
+drush pm:enable field_collection
+drush pm:enable field_group
+drush pm:enable file_entity
+drush pm:enable filefield_paths
+drush pm:enable flickr
+drush pm:enable flickr_block
+drush pm:enable geocoder
+drush pm:enable geofield
+drush pm:enable geophp
+drush pm:enable google_analytics
+drush pm:enable job_scheduler
+drush pm:enable languagefield
+drush pm:enable mailchimp
+drush pm:enable mailchimp_campaign
+drush pm:enable mailchimp_lists
+drush pm:enable mailchimp_signup
+drush pm:enable menu_admin_per_menu
+drush pm:enable menu_block
+drush pm:enable menu_trail_by_path
+drush pm:enable metatag_twitter_cards
+drush pm:enable metatag_verification
+drush pm:enable metatag_views
+drush pm:enable module_filter
+drush pm:enable override_node_options
+drush pm:enable pathauto
+drush pm:enable pathologic
+drush pm:enable redirect
+drush pm:enable redis
+drush pm:enable roleassign
+drush pm:enable search_api
+drush pm:enable search_api_db
+drush pm:enable search_api_page
+drush pm:enable search_api_solr
+drush pm:enable search_api_sorts
+drush pm:enable site_status_message
+drush pm:enable sitemap
+drush pm:enable stage_file_proxy
+drush pm:enable taxonomy_menu
+# throws errors - commented out 25/4/2019
+#drush pm:enable text_resize
+drush pm:enable token
+drush pm:enable twitter_block
+drush pm:enable viewfield
+drush pm:enable views_bulk_operations
+drush pm:enable webform
+drush pm:enable xmlsitemap

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+drush migrate-import upgrade_d7_entity_translation_settings --feedback="100 items"
+
+drush migrate-import upgrade_d7_node_entity_translation_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_entity_translation_webform --feedback="100 items"
+
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_article --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_country --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_documents --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_event_sponsor --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_event --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_geopolitical_group --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_governing_body --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_ipu_structure --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_publication --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_tags --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_theme --feedback="100 items"
+drush migrate-import upgrade_d7_taxonomy_term_entity_translation_vacancy --feedback="100 items"
+
+drush migrate-import upgrade_d7_node_translation_article --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_basic_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_committee_member --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_document --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_ipu_event --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_publication --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_section_page --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_vacancy --feedback="100 items"
+drush migrate-import upgrade_d7_node_translation_webform --feedback="100 items"
+
+drush migrate-import upgrade_d7_block_translation --feedback="100 items"
+
+drush migrate-import upgrade_locale_settings --feedback="100 items"
+drush migrate-import upgrade_node_translation_menu_links --feedback="100 items"
+drush migrate-import upgrade_d7_field_instance_label_description_translation --feedback="100 items"
+drush migrate-import upgrade_d7_comment_entity_translation --feedback="100 items"

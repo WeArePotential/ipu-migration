@@ -1,0 +1,19 @@
+Modules that are in D7, but missing from D8:
+
+MISSING MODULES		WHY ABSENT?
+addthis_displays	unavailable in D8
+admin_views		now in D8 core
+i18n_block		internationalisation features now in D8
+blockify		unavailable in D8
+ckeditor + submodules	now in D8 core
+dashboard		unavailable in D8
+date_popup_authored	now in D8 core
+date + submodules	partly in D8 core - D7 module(s) not being ported
+entitycache		entity caching supported in D8 core
+multiblock		included in D8 core
+i18n_path		internationalisation features now in D8
+publish_button		unavailable in D8
+search_api_views	included in D8 core
+taxonomy_display	included in D8 core
+themekey		unavailable in D8
+variable		unavailable in D8

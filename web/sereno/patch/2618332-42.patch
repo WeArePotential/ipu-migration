@@ -1,0 +1,406 @@
+diff --git a/core/modules/filter/migration_templates/d6_filter_format.yml b/core/modules/filter/migration_templates/d6_filter_format.yml
+index 6b767f2..a5f4388 100644
+--- a/core/modules/filter/migration_templates/d6_filter_format.yml
++++ b/core/modules/filter/migration_templates/d6_filter_format.yml
+@@ -16,11 +16,16 @@ process:
+     key: '@id'
+     process:
+       id:
+-        plugin: static_map
+-        default_value: filter_null
++        # If the filter ID cannot be mapped, it will be passed through
++        # unchanged because the bypass flag is set. The filter_id plugin
++        # will flatten the input value and default it to filter_null (the
++        # fallback filter plugin ID) if the flattened input value is not
++        # a valid plugin ID.
++        plugin: filter_id
+         source:
+           - module
+           - delta
++        bypass: true
+         map:
+           filter:
+             - filter_html
+diff --git a/core/modules/filter/migration_templates/d7_filter_format.yml b/core/modules/filter/migration_templates/d7_filter_format.yml
+index 2b44a80..c0710b5 100644
+--- a/core/modules/filter/migration_templates/d7_filter_format.yml
++++ b/core/modules/filter/migration_templates/d7_filter_format.yml
+@@ -15,11 +15,16 @@ process:
+     key: '@id'
+     process:
+       id:
+-        plugin: static_map
++        # If the filter ID cannot be mapped, it will pass through unmodified
++        # because the bypass flag is set. When the user actually tries to
++        # view text through an invalid filter plugin, the filter system will
++        # fall back to filter_null and display a helpful error message.
++        plugin: filter_id
+         bypass: true
+         source: name
+-        map:
+-          php_code: filter_null
++        # No need to map anything -- filter plugin IDs haven't changed since
++        # Drupal 7.
++        map: { }
+       settings:
+         plugin: filter_settings
+         source: settings
+diff --git a/core/modules/filter/src/Plugin/migrate/process/FilterID.php b/core/modules/filter/src/Plugin/migrate/process/FilterID.php
+new file mode 100644
+index 0000000..2656986
+--- /dev/null
++++ b/core/modules/filter/src/Plugin/migrate/process/FilterID.php
+@@ -0,0 +1,90 @@
++<?php
++
++namespace Drupal\filter\Plugin\migrate\process;
++
++use Drupal\Component\Plugin\PluginManagerInterface;
++use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\Core\StringTranslation\TranslationInterface;
++use Drupal\migrate\MigrateExecutableInterface;
++use Drupal\migrate\Plugin\migrate\process\StaticMap;
++use Drupal\migrate\Plugin\MigrationInterface;
++use Drupal\migrate\Row;
++use Symfony\Component\DependencyInjection\ContainerInterface;
++
++/**
++ * @MigrateProcessPlugin(
++ *   id = "filter_id"
++ * )
++ */
++class FilterID extends StaticMap implements ContainerFactoryPluginInterface {
++
++  /**
++   * The filter plugin manager.
++   *
++   * @var \Drupal\Component\Plugin\PluginManagerInterface|\Drupal\Component\Plugin\FallbackPluginManagerInterface
++   */
++  protected $filterManager;
++
++  /**
++   * FilterID constructor.
++   *
++   * @param array $configuration
++   *   Plugin configuration.
++   * @param string $plugin_id
++   *   The plugin ID.
++   * @param mixed $plugin_definition
++   *   The plugin definition.
++   * @param \Drupal\Component\Plugin\PluginManagerInterface $filter_manager
++   *   The filter plugin manager.
++   * @param TranslationInterface $translator
++   *   (optional) The string translation service.
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, PluginManagerInterface $filter_manager, TranslationInterface $translator = NULL) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->filterManager = $filter_manager;
++    $this->stringTranslation = $translator;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static(
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('plugin.manager.filter'),
++      $container->get('string_translation')
++    );
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
++    $plugin_id = parent::transform($value, $migrate_executable, $row, $destination_property);
++
++    // If the static map is bypassed on failure, the returned plugin ID will be
++    // an array if $value was. Plugin IDs cannot be arrays, so flatten it before
++    // passing it into the filter manager.
++    if (is_array($plugin_id)) {
++      $plugin_id = implode(':', $plugin_id);
++    }
++
++    if ($this->filterManager->hasDefinition($plugin_id)) {
++      return $plugin_id;
++    }
++    else {
++      $fallback = $this->filterManager->getFallbackPluginId($plugin_id);
++
++      $message = $this->t('Filter @plugin_id could not be mapped to an existing filter plugin; defaulting to @fallback.', [
++        '@plugin_id' => $plugin_id,
++        '@fallback' => $fallback,
++      ]);
++      $migrate_executable->saveMessage((string) $message, MigrationInterface::MESSAGE_WARNING);
++
++      return $fallback;
++    }
++  }
++
++}
+diff --git a/core/modules/filter/tests/src/Kernel/Migrate/d6/MigrateFilterFormatTest.php b/core/modules/filter/tests/src/Kernel/Migrate/d6/MigrateFilterFormatTest.php
+index ed5f0fb..81faf3e 100644
+--- a/core/modules/filter/tests/src/Kernel/Migrate/d6/MigrateFilterFormatTest.php
++++ b/core/modules/filter/tests/src/Kernel/Migrate/d6/MigrateFilterFormatTest.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\Tests\filter\Kernel\Migrate\d6;
+ 
+ use Drupal\filter\Entity\FilterFormat;
++use Drupal\filter\FilterFormatInterface;
+ use Drupal\Tests\migrate_drupal\Kernel\d6\MigrateDrupal6TestBase;
+ 
+ /**
+@@ -39,14 +40,18 @@ public function testFilterFormat() {
+     $this->assertFalse(isset($filters['filter_html_image_secure']));
+ 
+     // Check variables migrated into filter.
+-    $this->assertIdentical('<a href hreflang> <em> <strong> <cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd>', $filters['filter_html']['settings']['allowed_html']);
+-    $this->assertIdentical(TRUE, $filters['filter_html']['settings']['filter_html_help']);
+-    $this->assertIdentical(FALSE, $filters['filter_html']['settings']['filter_html_nofollow']);
+-    $this->assertIdentical(72, $filters['filter_url']['settings']['filter_url_length']);
+-
+-    // Check that the PHP code filter is converted to filter_null.
+-    $filters = FilterFormat::load('php_code')->get('filters');
+-    $this->assertTrue(isset($filters['filter_null']));
++    $this->assertSame('<a href hreflang> <em> <strong> <cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd>', $filters['filter_html']['settings']['allowed_html']);
++    $this->assertSame(TRUE, $filters['filter_html']['settings']['filter_html_help']);
++    $this->assertSame(FALSE, $filters['filter_html']['settings']['filter_html_nofollow']);
++    $this->assertSame(72, $filters['filter_url']['settings']['filter_url_length']);
++
++    // Assert that the php_code format was migrated with filter_null in the
++    // php_code filter's place.
++    $filter_format = FilterFormat::load('php_code');
++    $this->assertInstanceOf(FilterFormatInterface::class, $filter_format);
++    $filters = $filter_format->get('filters');
++    $this->assertArrayHasKey('filter_null', $filters);
++    $this->assertArrayNotHasKey('php_code', $filters);
+   }
+ 
+ }
+diff --git a/core/modules/filter/tests/src/Kernel/Migrate/d7/MigrateFilterFormatTest.php b/core/modules/filter/tests/src/Kernel/Migrate/d7/MigrateFilterFormatTest.php
+index 8eb13b9..e4053ae 100644
+--- a/core/modules/filter/tests/src/Kernel/Migrate/d7/MigrateFilterFormatTest.php
++++ b/core/modules/filter/tests/src/Kernel/Migrate/d7/MigrateFilterFormatTest.php
+@@ -42,13 +42,13 @@ protected function setUp() {
+   protected function assertEntity($id, $label, array $enabled_filters, $weight) {
+     /** @var \Drupal\filter\FilterFormatInterface $entity */
+     $entity = FilterFormat::load($id);
+-    $this->assertTrue($entity instanceof FilterFormatInterface);
+-    $this->assertIdentical($label, $entity->label());
++    $this->assertInstanceOf(FilterFormatInterface::class, $entity);
++    $this->assertSame($label, $entity->label());
+     // get('filters') will return enabled filters only, not all of them.
+-    $this->assertIdentical(array_keys($enabled_filters), array_keys($entity->get('filters')));
+-    $this->assertIdentical($weight, $entity->get('weight'));
++    $this->assertSame(array_keys($enabled_filters), array_keys($entity->get('filters')));
++    $this->assertSame($weight, $entity->get('weight'));
+     foreach ($entity->get('filters') as $filter_id => $filter) {
+-      $this->assertIdentical($filter['weight'], $enabled_filters[$filter_id]);
++      $this->assertSame($filter['weight'], $enabled_filters[$filter_id]);
+     }
+   }
+ 
+@@ -68,15 +68,17 @@ public function testFilterFormat() {
+     // Ensure that filter-specific settings were migrated.
+     /** @var \Drupal\filter\FilterFormatInterface $format */
+     $format = FilterFormat::load('filtered_html');
++    $this->assertInstanceOf(FilterFormatInterface::class, $format);
+     $config = $format->filters('filter_html')->getConfiguration();
+-    $this->assertIdentical('<div> <span> <ul type> <li> <ol start type> <a href hreflang> <img src alt height width>', $config['settings']['allowed_html']);
++    $this->assertSame('<div> <span> <ul type> <li> <ol start type> <a href hreflang> <img src alt height width>', $config['settings']['allowed_html']);
+     $config = $format->filters('filter_url')->getConfiguration();
+-    $this->assertIdentical(128, $config['settings']['filter_url_length']);
++    $this->assertSame(128, $config['settings']['filter_url_length']);
+ 
+     // The php_code format gets migrated, but the php_code filter is changed to
+     // filter_null.
+-    $filters = FilterFormat::load('php_code')->get('filters');
+-    $this->assertTrue(isset($filters['filter_null']));
++    $format = FilterFormat::load('php_code');
++    $this->assertInstanceOf(FilterFormatInterface::class, $format);
++    $this->assertArrayHasKey('filter_null', $format->get('filters'));
+   }
+ 
+ }
+diff --git a/core/modules/filter/tests/src/Kernel/Plugin/migrate/process/FilterIdTest.php b/core/modules/filter/tests/src/Kernel/Plugin/migrate/process/FilterIdTest.php
+new file mode 100644
+index 0000000..39e4037
+--- /dev/null
++++ b/core/modules/filter/tests/src/Kernel/Plugin/migrate/process/FilterIdTest.php
+@@ -0,0 +1,119 @@
++<?php
++
++namespace Drupal\Tests\filter\Kernel\Plugin\migrate\process;
++
++use Drupal\filter\Plugin\migrate\process\FilterID;
++use Drupal\KernelTests\KernelTestBase;
++use Drupal\migrate\MigrateExecutableInterface;
++use Drupal\migrate\Plugin\MigrationInterface;
++use Drupal\migrate\Row;
++
++/**
++ * Unit tests of the filter_id plugin.
++ *
++ * @coversDefaultClass \Drupal\filter\Plugin\migrate\process\FilterID
++ * @group filter
++ */
++class FilterIdTest extends KernelTestBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public static $modules = ['filter'];
++
++  /**
++   * The mocked MigrateExecutable.
++   *
++   * @var MigrateExecutableInterface|\PHPUnit_Framework_MockObject_MockObject
++   */
++  protected $executable;
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function setUp() {
++    parent::setUp();
++    $this->executable = $this->getMock(MigrateExecutableInterface::class);
++  }
++
++  /**
++   * Tests the filter_id plugin.
++   *
++   * @param mixed $value
++   *   The input value to the plugin.
++   * @param string $expected_value
++   *   The output value expected from the plugin.
++   * @param string $invalid_id
++   *   (optional) The invalid plugin ID which is expected to be logged by the
++   *   MigrateExecutable object.
++   *
++   * @dataProvider testProvider
++   *
++   * @covers ::transform
++   */
++  public function test($value, $expected_value, $invalid_id = NULL) {
++    $configuration = [
++      'bypass' => TRUE,
++      'map' => [
++        'foo' => 'filter_html',
++        'baz' => 'php_code',
++      ],
++    ];
++    $plugin = FilterID::create($this->container, $configuration, 'filter_id', []);
++
++    if (isset($invalid_id)) {
++      $this->executable
++        ->expects($this->exactly(1))
++        ->method('saveMessage')
++        ->with(
++          'Filter ' . $invalid_id . ' could not be mapped to an existing filter plugin; defaulting to filter_null.',
++          MigrationInterface::MESSAGE_WARNING
++        );
++    }
++
++    $row = new Row([], []);
++    $output_value = $plugin->transform($value, $this->executable, $row, 'foo');
++
++    $this->assertSame($expected_value, $output_value);
++  }
++
++  /**
++   * The test data provider.
++   *
++   * @return array
++   */
++  public function testProvider() {
++    return [
++      // The filter ID is mapped, and the plugin exists.
++      [
++        'foo',
++        'filter_html',
++      ],
++      // The filter ID isn't mapped, but it's unchanged from the source (i.e.,
++      // it bypasses the static map) and the plugin exists.
++      [
++        'filter_html',
++        'filter_html',
++      ],
++      // The filter ID is mapped, but the plugin does not exist.
++      [
++        'baz',
++        'filter_null',
++        'php_code',
++      ],
++      // The filter ID isn't mapped, but it's unchanged from the source (i.e.,
++      // it bypasses the static map) but the plugin does not exist.
++      [
++        'php_code',
++        'filter_null',
++        'php_code',
++      ],
++      [
++        ['filter', 1],
++        'filter_null',
++        'filter:1',
++      ],
++    ];
++  }
++
++}
+diff --git a/core/modules/user/tests/src/Kernel/Migrate/d6/MigrateUserRoleTest.php b/core/modules/user/tests/src/Kernel/Migrate/d6/MigrateUserRoleTest.php
+index f7613e2..d3f49cc 100644
+--- a/core/modules/user/tests/src/Kernel/Migrate/d6/MigrateUserRoleTest.php
++++ b/core/modules/user/tests/src/Kernel/Migrate/d6/MigrateUserRoleTest.php
+@@ -28,22 +28,22 @@ public function testUserRole() {
+     $id_map = $this->getMigration('d6_user_role')->getIdMap();
+     $rid = 'anonymous';
+     $anonymous = Role::load($rid);
+-    $this->assertIdentical($rid, $anonymous->id());
+-    $this->assertIdentical(array('migrate test anonymous permission', 'use text format filtered_html'), $anonymous->getPermissions());
+-    $this->assertIdentical(array($rid), $id_map->lookupDestinationId(array(1)));
++    $this->assertSame($rid, $anonymous->id());
++    $this->assertSame(array('migrate test anonymous permission', 'use text format filtered_html'), $anonymous->getPermissions());
++    $this->assertSame(array($rid), $id_map->lookupDestinationId(array(1)));
+     $rid = 'authenticated';
+     $authenticated = Role::load($rid);
+-    $this->assertIdentical($rid, $authenticated->id());
+-    $this->assertIdentical(array('migrate test authenticated permission', 'use text format filtered_html'), $authenticated->getPermissions());
+-    $this->assertIdentical(array($rid), $id_map->lookupDestinationId(array(2)));
++    $this->assertSame($rid, $authenticated->id());
++    $this->assertSame(array('migrate test authenticated permission', 'use text format filtered_html'), $authenticated->getPermissions());
++    $this->assertSame(array($rid), $id_map->lookupDestinationId(array(2)));
+     $rid = 'migrate_test_role_1';
+     $migrate_test_role_1 = Role::load($rid);
+-    $this->assertIdentical($rid, $migrate_test_role_1->id());
+-    $this->assertIdentical(array('migrate test role 1 test permission', 'use text format full_html', 'use text format php_code'), $migrate_test_role_1->getPermissions());
+-    $this->assertIdentical(array($rid), $id_map->lookupDestinationId(array(3)));
++    $this->assertSame($rid, $migrate_test_role_1->id());
++    $this->assertSame(array('migrate test role 1 test permission', 'use text format full_html', 'use text format php_code'), $migrate_test_role_1->getPermissions());
++    $this->assertSame(array($rid), $id_map->lookupDestinationId(array(3)));
+     $rid = 'migrate_test_role_2';
+     $migrate_test_role_2 = Role::load($rid);
+-    $this->assertIdentical(array(
++    $this->assertSame(array(
+       'migrate test role 2 test permission',
+       'use PHP for settings',
+       'administer contact forms',
+@@ -61,12 +61,12 @@ public function testUserRole() {
+       'access content overview',
+       'use text format php_code',
+       ), $migrate_test_role_2->getPermissions());
+-    $this->assertIdentical($rid, $migrate_test_role_2->id());
+-    $this->assertIdentical(array($rid), $id_map->lookupDestinationId(array(4)));
++    $this->assertSame($rid, $migrate_test_role_2->id());
++    $this->assertSame(array($rid), $id_map->lookupDestinationId(array(4)));
+     $rid = 'migrate_test_role_3_that_is_long';
+     $migrate_test_role_3 = Role::load($rid);
+-    $this->assertIdentical($rid, $migrate_test_role_3->id());
+-    $this->assertIdentical(array($rid), $id_map->lookupDestinationId(array(5)));
++    $this->assertSame($rid, $migrate_test_role_3->id());
++    $this->assertSame(array($rid), $id_map->lookupDestinationId(array(5)));
+   }
+ 
+ }
