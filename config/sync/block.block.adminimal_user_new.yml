@@ -1,6 +1,6 @@
 uuid: 2fc41ac2-55ce-4e55-9685-a0d3a376b188
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.who_s_new
