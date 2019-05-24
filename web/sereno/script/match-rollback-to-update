@@ -1,7 +1,0 @@
-#!/bin/bash
-
-
-rm migrate-rollback/*
-cp migrate-update/* migrate-rollback/
-find ./migrate-rollback/ -type f -exec sed -i 's/ migrate-import / migrate-rollback /g' {} \;
-chmod +x ./migrate-rollback/*

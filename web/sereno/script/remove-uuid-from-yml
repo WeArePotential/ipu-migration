@@ -1,8 +1,0 @@
-#!/bin/bash
-
-FILES=./import-field-storage-from-go4/*
-for f in $FILES
-do
-  echo "Processing $f file..."
-  sed -i '/^uuid:/d' $f
-done
