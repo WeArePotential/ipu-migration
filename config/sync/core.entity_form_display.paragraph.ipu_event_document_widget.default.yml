@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.ipu_event_document_widget.field_fc_original_event_document
+    - field.field.paragraph.ipu_event_document_widget.field_fc_original_reference
     - field.field.paragraph.ipu_event_document_widget.field_ipu_event_document
     - field.field.paragraph.ipu_event_document_widget.field_ipu_event_document_r
     - field.field.paragraph.ipu_event_document_widget.field_original_fc_id
@@ -19,6 +21,20 @@ targetEntityType: paragraph
 bundle: ipu_event_document_widget
 mode: default
 content:
+  field_fc_original_event_document:
+    weight: 13
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_fc_original_reference:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_ipu_event_document_r:
     weight: 2
     type: options_select

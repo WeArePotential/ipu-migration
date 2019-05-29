@@ -4,9 +4,13 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - title
 third_party_settings:
   menu_ui:
-    parent: 'main-menu:0:'
+    parent: ''
+    available_menus: {  }
+  title:
+    display_configurable_title: true
 _core:
   default_config_hash: AeW1SEDgb1OTQACAWGhzvMknMYAJlcZu0jljfeU3oso
 name: 'News and Stories'

@@ -118,6 +118,7 @@ class ComposerStaticInitDrupal8
         ),
         'L' => 
         array (
+            'League\\Csv\\' => 11,
             'League\\Container\\' => 17,
         ),
         'J' => 
@@ -415,6 +416,10 @@ class ComposerStaticInitDrupal8
         'Mailchimp\\' => 
         array (
             0 => __DIR__ . '/..' . '/thinkshout/mailchimp-api-php/src',
+        ),
+        'League\\Csv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'League\\Container\\' => 
         array (

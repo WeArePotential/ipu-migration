@@ -24,6 +24,7 @@ dependencies:
     - image
     - link
     - text
+    - title
     - user
 third_party_settings:
   field_group:
@@ -117,6 +118,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
 hidden:
   field_article_type: true
   field_country: true

@@ -9,6 +9,9 @@ dependencies:
     - field.field.paragraph.sections.field_section_node
     - field.field.paragraph.sections.field_section_title
     - field.field.paragraph.sections.field_view
+    - field.field.paragraph.sections.field_view_arguments
+    - field.field.paragraph.sections.field_view_display_id
+    - field.field.paragraph.sections.field_view_target_id
     - paragraphs.paragraphs_type.sections
   module:
     - text
@@ -58,6 +61,30 @@ content:
       empty_view_title: hidden
     third_party_settings: {  }
     type: viewfield_default
+    region: content
+  field_view_arguments:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_view_display_id:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_view_target_id:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   field_section_display_options: true

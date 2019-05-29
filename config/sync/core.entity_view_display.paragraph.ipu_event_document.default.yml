@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_event_document
     - field.field.paragraph.ipu_event_document.field_event_document_description
     - field.field.paragraph.ipu_event_document.field_event_document_title
+    - field.field.paragraph.ipu_event_document.field_original_fc_id
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
@@ -38,6 +39,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
+  field_original_fc_id:
+    weight: 4
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_speech:
     label: above

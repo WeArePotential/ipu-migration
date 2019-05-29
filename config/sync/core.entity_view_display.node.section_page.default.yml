@@ -3,18 +3,83 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_section_page.default
     - field.field.node.section_page.body
     - field.field.node.section_page.comment_node_section_page
     - field.field.node.section_page.field_media_image
     - field.field.node.section_page.field_sections
     - node.type.section_page
   module:
-    - comment
+    - ds
     - entity_reference_revisions
     - image
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          left:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      top:
+        - node_title
+      left:
+        - body
+      right:
+        - field_media_image
+      bottom:
+        - field_sections
+        - 'dynamic_block_field:node-section_sub_pages'
+    fields:
+      'dynamic_block_field:node-section_sub_pages':
+        plugin_id: 'dynamic_block_field:node-section_sub_pages'
+        weight: 4
+        label: above
+        formatter: default
+        ft:
+          id: default
+          settings:
+            lb: 'In this section'
+            lb-col: false
+            classes: {  }
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
 id: node.section_page.default
 targetEntityType: node
 bundle: section_page
@@ -22,50 +87,31 @@ mode: default
 content:
   body:
     label: hidden
-    weight: 0
+    weight: 1
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
-  comment_node_section_page:
-    label: hidden
-    type: comment_default
-    weight: 4
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
+    region: left
   field_media_image:
     type: image
     weight: 2
-    region: content
-    label: above
+    region: right
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
   field_sections:
     label: hidden
-    weight: 1
+    weight: 3
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
       link: ''
     third_party_settings: {  }
-    region: content
-  langcode:
-    type: language
-    weight: 3
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
-  links:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+    region: bottom
+hidden:
+  comment_node_section_page: true
+  langcode: true
+  links: true
+  title: true

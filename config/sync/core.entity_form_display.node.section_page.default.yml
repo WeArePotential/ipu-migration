@@ -25,29 +25,34 @@ third_party_settings:
   field_group:
     group_basic_info:
       children:
+        - title
         - body
+        - langcode
       parent_name: ''
       weight: 1
       label: 'Basic information'
       format_settings:
-        label: 'Basic information'
         formatter: open
         required_fields: true
         id: ''
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: content
     group_sections:
-      children: {  }
+      children:
+        - field_sections
       parent_name: group_tabs
       weight: 3
       label: Sections
       format_settings:
-        formatter: closed
         description: ''
-        classes: ''
+        formatter: open
         required_fields: true
+        id: ''
+        classes: ''
       format_type: tab
+      region: content
     group_media:
       children:
         - field_media_image
@@ -55,13 +60,13 @@ third_party_settings:
       weight: 2
       label: Media
       format_settings:
-        label: Media
         formatter: open
         required_fields: true
         id: ''
         classes: node-media
         description: ''
       format_type: fieldset
+      region: content
     group_tabs:
       children:
         - group_sections
@@ -69,18 +74,18 @@ third_party_settings:
       weight: 5
       label: Tabs
       format_settings:
-        label: Tabs
         id: ''
         classes: 'group-tabs field-group-htabs node-tabs'
         direction: horizontal
       format_type: tabs
+      region: content
 id: node.section_page.default
 targetEntityType: node
 bundle: section_page
 mode: default
 content:
   body:
-    weight: 6
+    weight: 1
     type: text_textarea_with_summary
     settings:
       rows: 9
@@ -128,7 +133,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 3
+    weight: 2
     region: content
     settings:
       include_locked: true

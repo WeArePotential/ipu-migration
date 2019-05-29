@@ -23,7 +23,38 @@ foreach ($result as $obj) {
   $tally++;
 
   $node = node_load($nid);
-  $items = field_get_items('node', $node, 'field_related_content');
+
+  //$items = field_get_items('node', $node, 'field_related_content');
+
+  $french_items = field_get_items('node', $node, 'field_related_content', 'fr');
+  if ($french_items) {
+    foreach ($french_items as &$fritem) {
+      $fritem['langcode'] = 'fr';
+    }
+  }
+  $english_items = field_get_items('node', $node, 'field_related_content', 'en');
+  if ($english_items) {
+    foreach ($english_items as &$enitem) {
+      $enitem['langcode'] = 'en';
+    }
+  }
+  $items = array_merge((is_array($english_items) ? $english_items : []), (is_array($french_items) ? $french_items : []));
+
+  $counts[$nid] = [count($english_items), count($french_items)];
+  if (is_array($english_items)) {
+    if (is_array($french_items)) {
+      if (count($english_items) != count($french_items)) {
+        $errors[] = 'Node ' . $nid . ' has asymmetric numbers of FCs';
+      }
+    }
+    else {
+      $errors[] = 'Node ' . $nid . ' only has English FCs';
+    }
+  } else {
+    if (is_array($french_items)) {
+      $errors[] = 'Node ' . $nid . ' only has French FCs';
+    }
+  }
 
   if(empty($items)) {
     continue;
@@ -38,7 +69,10 @@ foreach ($result as $obj) {
     $fc = field_collection_field_get_entity($item); // Do something.
     #debug($fc);
 
-    $output.= "\r" . '  array(' . "\r";
+    $output.= "\r" . '  array(';
+    $output .= "\r" . '    "field_original_fc_id"=>"' . $item['value'] . '", ';
+    $output .= "\r" . '    "field_original_fc_revision_id"=>"' . $item['revision_id'] . '", ';
+    $output .= "\r" . '    "field_original_fc_langcode"=>"' . $item['langcode'] . '", ';
 
 //    if (!empty($fc->field_related_document)) {
 //
@@ -82,6 +116,10 @@ foreach ($result as $obj) {
 }
 
 debug( $output );
+foreach($errors as $error) {
+  drupal_set_message($error);
+}
+
 print "IDs: " . implode("\n\r", $nids);
 print "\r";
 print $tally . ' NODES OF TYPE: ' . strtoupper($node_type);

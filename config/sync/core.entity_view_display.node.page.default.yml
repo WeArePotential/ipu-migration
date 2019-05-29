@@ -3,17 +3,71 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_page.default
     - field.field.node.page.body
     - field.field.node.page.comment_node_page
     - field.field.node.page.field_media_image
     - field.field.node.page.field_sections
     - node.type.page
   module:
-    - comment
+    - ds
     - entity_reference_revisions
+    - responsive_image
     - text
+    - title
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          left:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      top:
+        - node_title
+      left:
+        - body
+        - field_sections
+      right:
+        - field_media_image
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.default
@@ -27,16 +81,16 @@ content:
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
-  comment_node_page:
+    region: left
+  field_media_image:
+    type: responsive_image
+    weight: 3
+    region: right
     label: hidden
-    type: comment_default
-    weight: 20
     settings:
-      view_mode: default
-      pager_id: 0
+      responsive_image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    region: content
   field_sections:
     label: hidden
     weight: 2
@@ -45,10 +99,18 @@ content:
       view_mode: full
       link: ''
     third_party_settings: {  }
-    region: content
-  links:
-    weight: 101
+    region: left
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
     region: content
 hidden:
-  field_media_image: true
+  comment_node_page: true
   langcode: true
+  links: true

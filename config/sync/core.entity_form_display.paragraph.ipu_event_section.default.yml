@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.ipu_event_section.feeds_item
+    - field.field.paragraph.ipu_event_section.field_fc_original_reference
     - field.field.paragraph.ipu_event_section.field_ie_fc_button_links
     - field.field.paragraph.ipu_event_section.field_ie_fc_description
     - field.field.paragraph.ipu_event_section.field_ie_fc_title
@@ -24,6 +26,13 @@ targetEntityType: paragraph
 bundle: ipu_event_section
 mode: default
 content:
+  field_fc_original_reference:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_ie_fc_button_links:
     weight: 3
     type: link_default
@@ -74,4 +83,5 @@ content:
     region: content
 hidden:
   created: true
+  feeds_item: true
   status: true

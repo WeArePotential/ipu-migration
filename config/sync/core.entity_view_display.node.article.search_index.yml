@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_index
     - field.field.node.article.body
+    - field.field.node.article.comment_node_article
     - field.field.node.article.field_article_type
     - field.field.node.article.field_caption
     - field.field.node.article.field_contact_ipu
@@ -65,7 +66,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
 hidden:
+  comment_node_article: true
   field_article_type: true
   field_caption: true
   field_image: true

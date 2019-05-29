@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.ipu_event_sessions.field_fc_original_reference
     - field.field.paragraph.ipu_event_sessions.field_fc_session_date
     - field.field.paragraph.ipu_event_sessions.field_fc_session_governing_body
     - field.field.paragraph.ipu_event_sessions.field_fc_session_room
@@ -26,6 +27,15 @@ targetEntityType: paragraph
 bundle: ipu_event_sessions
 mode: default
 content:
+  field_fc_original_reference:
+    weight: 14
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_fc_session_date:
     label: above
     weight: 5

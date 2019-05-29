@@ -1,9 +1,9 @@
-uuid: 48c9ddf5-c491-4d0c-866d-e88385aae694
+uuid: 501025b4-f89e-4e31-90d5-259a271dd700
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:4e367d52-8e07-4a7c-a770-4417d3b8ba73'
+    - 'block_content:basic:089612b5-c27c-409d-b1e1-8a227e0d98d8'
   module:
     - block_content
   theme:
@@ -11,11 +11,11 @@ dependencies:
 id: crosssitenavigation
 theme: ipu
 region: topbar_left
-weight: -9
+weight: 0
 provider: null
-plugin: 'block_content:4e367d52-8e07-4a7c-a770-4417d3b8ba73'
+plugin: 'block_content:089612b5-c27c-409d-b1e1-8a227e0d98d8'
 settings:
-  id: 'block_content:4e367d52-8e07-4a7c-a770-4417d3b8ba73'
+  id: 'block_content:089612b5-c27c-409d-b1e1-8a227e0d98d8'
   label: 'Cross-site navigation'
   provider: block_content
   label_display: '0'

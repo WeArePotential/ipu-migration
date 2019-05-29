@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_basic_page.default
     - field.field.node.basic_page.body
     - field.field.node.basic_page.comment_node_basic_page
     - field.field.node.basic_page.field_caption
@@ -12,9 +11,10 @@ dependencies:
     - field.field.node.basic_page.field_related_content
     - field.field.node.basic_page.field_related_documents
     - field.field.node.basic_page.field_sections
+    - image.style.max_650x650
     - node.type.basic_page
   module:
-    - comment
+    - ds
     - entity_reference_revisions
     - field_group
     - image
@@ -24,21 +24,80 @@ dependencies:
 third_party_settings:
   field_group:
     group_image:
-      children: {  }
+      children:
+        - field_media_image
+        - field_caption
       parent_name: ''
-      weight: 3
+      weight: 4
       label: image
       format_settings:
-        formatter: collapsible
-        description: ''
-        show_label: true
+        element: div
+        show_label: false
         label_element: h3
+        attributes: ''
         effect: none
         speed: fast
-        classes: 'group-image field-group-div'
         id: ''
-        element: div
+        classes: 'group-image field-group-div'
       format_type: html_element
+      region: hidden
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          left:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      top:
+        - node_title
+      left:
+        - body
+        - field_sections
+      right:
+        - field_contact_ipu
+        - field_media_image
+        - group_image
+        - field_related_content
+        - field_caption
+        - field_related_documents
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
 id: node.basic_page.default
 targetEntityType: node
 bundle: basic_page
@@ -46,30 +105,21 @@ mode: default
 content:
   body:
     label: hidden
-    weight: 4
+    weight: 1
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
-  comment_node_basic_page:
-    label: hidden
-    type: comment_default
-    weight: 9
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
+    region: left
   field_caption:
     label: hidden
-    weight: 2
+    weight: 5
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
+    region: right
   field_contact_ipu:
     label: hidden
-    weight: 0
+    weight: 3
     type: link
     settings:
       trim_length: 80
@@ -78,29 +128,29 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    region: content
+    region: right
   field_media_image:
     type: image
-    weight: 1
-    region: content
-    label: above
+    weight: 4
+    region: right
+    label: hidden
     settings:
-      image_style: ''
+      image_style: max_650x650
       image_link: ''
     third_party_settings: {  }
   field_related_content:
     label: above
-    weight: 6
+    weight: 5
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
       link: ''
     third_party_settings: {  }
-    region: content
+    region: right
   field_related_documents:
     type: entity_reference_revisions_entity_view
-    weight: 8
-    region: content
+    weight: 6
+    region: right
     label: above
     settings:
       view_mode: default
@@ -108,25 +158,15 @@ content:
     third_party_settings: {  }
   field_sections:
     label: hidden
-    weight: 7
+    weight: 2
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
       link: ''
     third_party_settings: {  }
-    region: content
-  langcode:
-    type: language
-    weight: 5
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
-  links:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+    region: left
+hidden:
+  comment_node_basic_page: true
+  langcode: true
+  links: true
+  title: true

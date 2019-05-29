@@ -15,119 +15,139 @@ dependencies:
     - node.type.basic_page
   module:
     - comment
+    - ds
     - entity_browser
     - field_group
     - field_layout
-    - layout_discovery
     - link
     - paragraphs
     - path
     - text
 third_party_settings:
   field_layout:
-    id: layout_onecol
-    settings: {  }
+    id: ds_1col
+    settings:
+      wrappers:
+        ds_content: div
+      outer_wrapper: div
+      attributes: ''
+      link_attribute: ''
+      link_custom: ''
+      classes:
+        layout_class: {  }
   field_group:
     group_related_documents:
-      children: {  }
-      parent_name: group_tabs
-      weight: 5
-      label: 'Related documents'
-      format_settings:
-        formatter: closed
-        description: ''
-        classes: ''
-        required_fields: true
-      format_type: tab
-    group_related_articles:
-      children: {  }
-      parent_name: group_tabs
-      weight: 4
-      label: 'See also'
-      format_settings:
-        formatter: closed
-        description: ''
-        classes: ''
-        required_fields: true
-      format_type: tab
-    group_sections:
-      children: {  }
+      children:
+        - field_related_documents
       parent_name: group_tabs
       weight: 6
-      label: Sections
+      format_type: tab
       format_settings:
+        id: ''
+        classes: ''
         formatter: closed
         description: ''
-        classes: ''
         required_fields: true
+      label: 'Related documents'
+      region: ds_content
+    group_related_articles:
+      children:
+        - field_related_content
+      parent_name: group_tabs
+      weight: 5
+      label: 'See also'
+      format_settings:
+        description: ''
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
       format_type: tab
+      region: ds_content
+    group_sections:
+      children:
+        - field_sections
+      parent_name: group_tabs
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Sections
+      region: ds_content
     group_basic_info:
       children:
+        - langcode
+        - title
         - body
+        - field_contact_ipu
       parent_name: ''
-      weight: 1
+      weight: 0
       label: 'Basic information'
       format_settings:
-        label: 'Basic information'
         formatter: open
         required_fields: true
         id: ''
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: ds_content
     group_media:
       children:
         - field_media_image
         - field_caption
       parent_name: ''
-      weight: 2
+      weight: 1
       label: Media
       format_settings:
-        label: Media
         formatter: open
         required_fields: true
         id: ''
         classes: node-media
         description: ''
       format_type: fieldset
+      region: ds_content
     group_tabs:
       children:
         - group_related_articles
         - group_related_documents
         - group_sections
       parent_name: ''
-      weight: 7
-      label: Tabs
-      format_settings:
-        label: Tabs
-        id: ''
-        classes: node-tabs
-        direction: horizontal
+      weight: 2
       format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+      region: ds_content
 id: node.basic_page.default
 targetEntityType: node
 bundle: basic_page
 mode: default
 content:
   body:
-    weight: 5
+    weight: 9
     type: text_textarea_with_summary
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
-    region: content
+    region: ds_content
   comment_node_basic_page:
     type: comment_default
-    weight: 14
+    weight: 9
     settings: {  }
     third_party_settings: {  }
-    region: content
+    region: ds_content
   created:
     type: datetime_timestamp
-    weight: 10
-    region: content
+    weight: 5
+    region: ds_content
     settings: {  }
     third_party_settings: {  }
   field_caption:
@@ -137,15 +157,15 @@ content:
       rows: 4
       placeholder: ''
     third_party_settings: {  }
-    region: content
+    region: ds_content
   field_contact_ipu:
-    weight: 9
+    weight: 10
     type: link_default
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    region: content
+    region: ds_content
   field_media_image:
     weight: 8
     type: entity_browser_file
@@ -159,11 +179,11 @@ content:
       open: false
       preview_image_style: thumbnail
     third_party_settings: {  }
-    region: content
+    region: ds_content
   field_related_content:
     type: entity_reference_paragraphs
     weight: 3
-    region: content
+    region: ds_content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -175,7 +195,7 @@ content:
   field_related_documents:
     type: entity_reference_paragraphs
     weight: 4
-    region: content
+    region: ds_content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -186,8 +206,8 @@ content:
     third_party_settings: {  }
   field_sections:
     type: entity_reference_paragraphs
-    weight: 5
-    region: content
+    weight: 6
+    region: ds_content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -198,63 +218,63 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 6
-    region: content
+    weight: 7
+    region: ds_content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
-    region: content
+    weight: 10
+    region: ds_content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
-    region: content
+    weight: 7
+    region: ds_content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 17
-    region: content
+    weight: 3
+    region: ds_content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
-    region: content
+    weight: 8
+    region: ds_content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
-    region: content
+    weight: 8
+    region: ds_content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 11
-    region: content
+    weight: 6
+    region: ds_content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: content
+    region: ds_content
     third_party_settings: {  }
   url_redirects:
-    weight: 16
-    region: content
+    weight: 11
+    region: ds_content
     settings: {  }
     third_party_settings: {  }
 hidden: {  }

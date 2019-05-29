@@ -52,7 +52,7 @@ foreach ($result as $obj) {
     }
   } else {
     if (is_array($french_items)) {
-      $errors[] = 'Node ' . $nid . ' only has Fench FCs';
+      $errors[] = 'Node ' . $nid . ' only has French FCs';
     }
   }
 
@@ -80,9 +80,9 @@ foreach ($result as $obj) {
 
 
       $output .= "\r" . '  array(';
-      $output .= "\r" . '    "fc_value"=>"' . $item['value'] . '", ';
-      $output .= "\r" . '    "fc_revision_id"=>"' . $item['revision_id'] . '", ';
-      $output .= "\r" . '    "fc_langcode"=>"' . $item['langcode'] . '", ';
+      $output .= "\r" . '    "field_original_fc_id"=>"' . $item['value'] . '", ';
+      $output .= "\r" . '    "field_original_fc_revision_id"=>"' . $item['revision_id'] . '", ';
+      $output .= "\r" . '    "field_original_fc_langcode"=>"' . $item['langcode'] . '", ';
 
       if (!empty($fc->field_section_title)) {
         foreach ($fc->field_section_title as $contents) {
@@ -190,7 +190,7 @@ foreach ($result as $obj) {
   //}
 }
 
-debug($counts);
+//debug($counts);
 debug($output);
 foreach($errors as $error) {
   drupal_set_message($error);

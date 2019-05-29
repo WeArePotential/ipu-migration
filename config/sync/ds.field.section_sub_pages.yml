@@ -1,6 +1,6 @@
 id: section_sub_pages
 label: 'Section sub-pages'
-ui_limit: section_page|full
+ui_limit: 'section_page|*'
 properties:
   block: 'views_block:sub_content-block_1'
   use_block_title: false

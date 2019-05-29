@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.basic_page.body
+    - field.field.node.basic_page.comment_node_basic_page
     - field.field.node.basic_page.field_caption
     - field.field.node.basic_page.field_contact_ipu
     - field.field.node.basic_page.field_media_image
@@ -14,6 +15,7 @@ dependencies:
     - node.type.basic_page
   module:
     - text
+    - title
     - user
 id: node.basic_page.teaser
 targetEntityType: node
@@ -33,7 +35,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
 hidden:
+  comment_node_basic_page: true
   field_caption: true
   field_contact_ipu: true
   field_media_image: true

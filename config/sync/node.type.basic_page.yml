@@ -4,11 +4,15 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - title
 third_party_settings:
   menu_ui:
     available_menus:
-      - main-menu
-    parent: 'main-menu:0:'
+      - main
+      - mega-menu
+    parent: 'main:'
+  title:
+    display_configurable_title: true
 name: 'Basic Page'
 type: basic_page
 description: ''

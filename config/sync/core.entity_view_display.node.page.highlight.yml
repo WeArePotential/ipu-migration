@@ -1,0 +1,78 @@
+uuid: cf5e9a6e-3b45-4dee-8129-5d28deacff5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.highlight
+    - field.field.node.page.body
+    - field.field.node.page.comment_node_page
+    - field.field.node.page.field_media_image
+    - field.field.node.page.field_sections
+    - image.style.teaser
+    - node.type.page
+  module:
+    - ds
+    - image
+    - text
+    - title
+    - user
+_core:
+  default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
+id: node.page.highlight
+targetEntityType: node
+bundle: page
+mode: highlight
+content:
+  body:
+    label: hidden
+    weight: 2
+    type: text_summary_or_trimmed
+    settings:
+      trim_length: 240
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: content
+  field_media_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: teaser
+      image_link: content
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: 1
+    label: hidden
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: content
+hidden:
+  comment_node_page: true
+  field_sections: true
+  langcode: true
+  links: true

@@ -5,9 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.section_page.body
+    - field.field.node.section_page.comment_node_section_page
+    - field.field.node.section_page.field_media_image
+    - field.field.node.section_page.field_sections
     - node.type.section_page
   module:
     - text
+    - title
     - user
 id: node.section_page.teaser
 targetEntityType: node
@@ -27,5 +31,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
 hidden:
+  comment_node_section_page: true
+  field_media_image: true
+  field_sections: true
   langcode: true

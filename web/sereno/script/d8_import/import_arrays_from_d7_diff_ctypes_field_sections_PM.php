@@ -1,127 +1,124 @@
 <?php
-$d8_nodes[67] = array(
-  array(
-    "field_original_fc_id"=>"85",
-    "field_original_fc_revision_id"=>"73313",
-    "field_original_fc_langcode"=>"en",
-    "field_node"=>"68",
-  ),
-  array(
-    "field_original_fc_id"=>"331",
-    "field_original_fc_revision_id"=>"73314",
-    "field_original_fc_langcode"=>"en",
-    "field_node"=>"69",
-  ),
-  array(
-    "field_original_fc_id"=>"332",
-    "field_original_fc_revision_id"=>"73315",
-    "field_original_fc_langcode"=>"en",
-    "field_node"=>"70",
-  ),
-  array(
-    "field_original_fc_id"=>"85",
-    "field_original_fc_revision_id"=>"73316",
-    "field_original_fc_langcode"=>"fr",
-    "field_node"=>"68",
-  ),
-  array(
-    "field_original_fc_id"=>"331",
-    "field_original_fc_revision_id"=>"73317",
-    "field_original_fc_langcode"=>"fr",
-    "field_node"=>"69",
-  ),
-  array(
-    "field_original_fc_id"=>"332",
-    "field_original_fc_revision_id"=>"73318",
-    "field_original_fc_langcode"=>"fr",
-    "field_node"=>"70",
-  ),
-);
-
-
+$d8_nodes[67] = [
+  [
+    "field_original_fc_id" => "1083",
+    "field_original_fc_revision_id" => "73325",
+    "field_original_fc_langcode" => "en",
+    "field_section_title" => "About IPU",
+    "field_section_display_options" => "2",
+    "field_section_view_vname" => "publications|multiple_ids",
+    "field_section_view_vargs" => "197",
+    "field_section_view_arguments" => "197",
+  ],
+  [
+    "field_original_fc_id" => "1085",
+    "field_original_fc_revision_id" => "73326",
+    "field_original_fc_langcode" => "fr",
+    "field_section_title" => "A propos de l\'UIP",
+    "field_section_display_options" => "2",
+    "field_section_view_vname" => "publications|multiple_ids",
+    "field_section_view_vargs" => "197",
+    "field_section_view_arguments" => "197",
+  ],
+];
 
 use Drupal\paragraphs\Entity\Paragraph;  // Don't forget to use a little Class...
+use Drupal\node\Entity\Node;
 
 $counter = 0;
+$cleardown = FALSE;
 
-foreach ($d8_nodes as $node_id => $new_paragraphs) {
-  //  print "\n $k";
-  //  print "\n";
-  //  debug($v);
+foreach ($d8_nodes as $node_id => $all_new_paragraphs) {
 
-  //$node = entity_load('node', $node_id);
+  //$node = Node::load($node_id);
+  $node = entity_load('node', $node_id);
 
-  /*
-   * foreach($new_paragraphs as $new_paragraph) {
-    $paragraph = Paragraph::create(['type' => 'sections',]);
+  $new_paragraphs = [];
+  $fr_paragraphs = [];
 
-    if (!empty($new_paragraph['field_section_description'])) {
-      $paragraph->set('field_section_description', ['value' => htmlspecialchars_decode($new_paragraph['field_section_description'])]);
+  foreach ($all_new_paragraphs as $paragraph) {
+    if ($paragraph["field_original_fc_langcode"] == "en"){
+      $new_paragraphs[] = $paragraph;
+    } else {
+      $fr_paragraphs[] = $paragraph;
     }
+  }
 
-    if (!empty($new_paragraph['field_section_display_options'])) {
-      $paragraph->set('field_section_display_options', [['value' => htmlspecialchars_decode($new_paragraph['field_section_display_options'])]]);
-    }
+  if ($cleardown == FALSE) {
 
-    if (!empty($new_paragraph['field_section_html'])) {
-      $paragraph->set('field_section_html', ['value' => htmlspecialchars_decode($new_paragraph['field_section_html'])]);
-    }
+    // Add the English one, but add the FR version to the field.
+    foreach ($new_paragraphs as $k=>$new_paragraph) {
 
-    if (!empty($new_paragraph['field_section_node'])) {
-      $paragraph->set('field_section_node', ['target_id' => htmlspecialchars_decode($new_paragraph['field_section_node'])]);
-    }
-
-    if (!empty($new_paragraph['field_section_title'])) {
-      $paragraph->set('field_section_title', ['value' => htmlspecialchars_decode($new_paragraph['field_section_title'])]);
-    }
-
-    if (!empty($new_paragraph['field_section_view_vname'])) {
-
-//    "field_section_view_vname"=>"documents|multiple_ids",
-//    "field_section_view_vargs"=>"49,286",
-
-      // break up the vname into view name and display
-      $ary_view = explode('|',$new_paragraph['field_section_view_vname']);
-      $view_name = $ary_view[0];
-      $view_display = $ary_view[1];
-
-      $paragraph->set('field_view', [
-        'target_id' => $view_name,
-        'display_id' => $view_display,
-        'view_arguments' => $new_paragraph['field_section_view_vargs'],
-      ]);
-
-      // save to the raw text fields, too
-      if (!empty($view_name)) {
-        $paragraph->set('field_view_target_id', ['value' => $view_name]);
+      $paragraph = Paragraph::create(['type' => 'sections',]);
+      if (!empty($new_paragraph['field_section_description'])) {
+        $paragraph->set('field_section_description', ['value' => htmlspecialchars_decode($new_paragraph['field_section_description'])]);
       }
-
-      if (!empty($view_display)) {
-        $paragraph->set('field_view_display_id', ['value' => $view_display]);
+      if (!empty($new_paragraph['field_section_display_options'])) {
+        $paragraph->set('field_section_display_options', [['value' => htmlspecialchars_decode($new_paragraph['field_section_display_options'])]]);
       }
-
-      if (!empty($new_paragraph['field_section_view_vargs'])) {
-        $paragraph->set('field_view_arguments', ['value' => $new_paragraph['field_section_view_vargs']]);
+      if (!empty($new_paragraph['field_section_html'])) {
+        $paragraph->set('field_section_html', ['value' => htmlspecialchars_decode($new_paragraph['field_section_html'])]);
       }
-      #field_view_target_id
-      #field_view_display_id
-      #field_view_arguments
+      if (!empty($new_paragraph['field_section_node'])) {
+        $paragraph->set('field_section_node', ['target_id' => htmlspecialchars_decode($new_paragraph['field_section_node'])]);
+      }
+      if (!empty($new_paragraph['field_section_title'])) {
+        $paragraph->set('field_section_title', ['value' => htmlspecialchars_decode($new_paragraph['field_section_title'])]);
+      }
+      if (!empty($new_paragraph['field_section_view_vname'])) {
+        //    "field_section_view_vname"=>"documents|multiple_ids",
+        //    "field_section_view_vargs"=>"49,286",
+        // break up the vname into view name and display
+        $ary_view = explode('|', $new_paragraph['field_section_view_vname']);
+        $view_name = $ary_view[0];
+        $view_display = $ary_view[1];
+
+        $paragraph->set('field_view', [
+          'target_id' => $view_name,
+          'display_id' => $view_display,
+          'view_arguments' => $new_paragraph['field_section_view_vargs'],
+        ]);
+
+        // save to the raw text fields, too
+        if (!empty($view_name)) {
+          $paragraph->set('field_view_target_id', ['value' => $view_name]);
+        }
+
+        if (!empty($view_display)) {
+          $paragraph->set('field_view_display_id', ['value' => $view_display]);
+        }
+
+        if (!empty($new_paragraph['field_section_view_vargs'])) {
+          $paragraph->set('field_view_arguments', ['value' => $new_paragraph['field_section_view_vargs']]);
+        }
+        #field_view_target_id
+        #field_view_display_id
+        #field_view_arguments
+
+        // Now prcoess translatable fields
+        $translation = $paragraph->addTranslation('fr');
+        $translation->set('field_section_title', ['value' => htmlspecialchars_decode($fr_paragraphs[$k]['field_section_title'])]);
+
+      }
+      //    if ($new_paragraph['field_publication_file']) {
+      //      $file = file_load($new_paragraph['field_publication_file']);
+      //      $paragraph->set('field_publication_file', $file);
+      //    }
 
 
+      $node->field_sections->appendItem($paragraph);
     }
-//    if ($new_paragraph['field_publication_file']) {
-//      $file = file_load($new_paragraph['field_publication_file']);
-//      $paragraph->set('field_publication_file', $file);
-//    }
-
-
-    $node->field_sections->appendItem($paragraph);
-    */
-
-  //$node->set('field_sections', []); // remove all paras from this node
+  }
+  else {
+    if (isset($node->field_sections)) {
+      //print_r($node->field_sections);
+      print(" - Cleared sections \n");
+      $node->set('field_sections', []); // remove all paras from this node
+    }
+  }
   $counter++;
 
-  //$node->save();
+  $node->save();
   print("\n - saved node $node_id \n");
   //print_r($new_paragraph);
 

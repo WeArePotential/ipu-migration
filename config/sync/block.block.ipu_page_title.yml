@@ -1,6 +1,6 @@
 uuid: 9f6a002f-b7b2-4459-b0aa-fdbcb71ad438
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - ipu
