@@ -1,0 +1,34 @@
+$font-family-sans-serif: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+/* Colours */
+$ipu-blue:        #0066a1;
+$ipu-teal:        #00a8b4;
+$ipu-orange:      #e98300;
+$ipu-teal-light:  rgba($ipu-teal, 0.3);
+$ipu-dark-grey:   #333333;
+$ipu-grey:        #747678;
+$ipu-light-grey:  #cccccc;
+
+
+$colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+                (
+                        "ipu-blue":       $ipu-blue,
+                        "ipu-teal":       $ipu-teal,
+                        "ipu-orange":     $ipu-orange,
+                        "ipu-teal-light": $ipu-teal-light,
+                        "ipu-dark-grey":  $ipu-dark-grey,
+                        "ipu-grey":       $ipu-grey,
+                        "ipu-light-grey": $ipu-light-grey,
+                ),
+                $colors
+);
+
+$primary:       $ipu-blue;
+
+$input-btn-padding-y:         .125rem !default;
+$input-btn-padding-x:         .125rem !default;

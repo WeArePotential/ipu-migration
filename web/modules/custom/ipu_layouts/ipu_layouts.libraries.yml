@@ -1,0 +1,6 @@
+ipu_layouts-country-page:
+  version: 1.x
+  css:
+    theme:
+      css/country-page.css: {}
+

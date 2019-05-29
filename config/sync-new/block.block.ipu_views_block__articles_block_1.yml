@@ -1,0 +1,30 @@
+uuid: 7b476c9d-67d1-4edd-bc6c-c67dbff81013
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - system
+    - views
+  theme:
+    - ipu
+id: ipu_views_block__articles_block_1
+theme: ipu
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:articles-block_1'
+settings:
+  id: 'views_block:articles-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

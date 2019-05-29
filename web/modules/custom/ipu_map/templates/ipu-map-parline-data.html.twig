@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Default theme implementation
+ *
+ * Available variables:
+ *
+ * @see template_preprocess_ipu_map()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="ipu-map-parline-data">
+    <ul class=".list-inline" style="padding: 0;">
+        <li class="list-inline-item">{{ population_in_millions }} million people</li>
+        <li class="list-inline-item">{{ members_per_country }} MPs</li>
+        <li class="list-inline-item">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})
+        </li>
+        <li class="list-inline-item">{{ membership_status }}</li>
+
+    </ul>
+</div>
+
+<div class="ipu-map-parline-data"><h2>Data points:</h2>
+    <ul class=".list-inline" style="padding: 0;">
+        {% for chamber in chambers %}
+            <li class="list-inline-item"><strong>{{ chamber.parliament_house }} chamber: </strong></li>
+            <li class="list-inline-item">{{ chamber.current_women_percent }}% are women</li>
+            <li class="list-inline-item">{{ chamber.total_younger_45_percentage }}% of MPs are under 45</li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,28 @@
+uuid: 3b67fa9f-0bda-46f2-b89f-bee94b72030d
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - ipu
+id: languageswitcher
+theme: ipu
+region: topbar_left
+weight: 0
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  provider: language
+  label_display: '0'
+visibility:
+  language:
+    id: language
+    langcodes:
+      en: en
+      fr: fr
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_content'

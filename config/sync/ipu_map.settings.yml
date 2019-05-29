@@ -1,0 +1,6 @@
+ipu_map:
+  vocabulary_id: 0
+_core:
+  default_config_hash: 6yW9OhCR38tVYFp-2KlFHlHiW2y_GxnyRI1UCCkYosk
+vocabulary_id: country
+ipu_map_parliaments_page: /ipu_map

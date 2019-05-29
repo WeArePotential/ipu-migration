@@ -1,0 +1,123 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_help().
+ */
+function ipu_map_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ipu_map':
+      $link =  Link::fromTextAndUrl('ipu_map', Url::fromUri('internal:/ipu_map'));
+      return t('
+        <h2>IPU Map.</h2>
+        <h3>Instructions</h3>
+        <p>Creates a demo page for administrators at @s</p>
+        ', array('@s'=> new FormattableMarkup($link->toString(), [])));
+  }
+}
+
+function ipu_map_get_countries() {
+  $config = \Drupal::config('ipu_map.settings');
+  $vid = $config->get('vocabulary_id');
+  $language_id =  \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $vocab = \Drupal\taxonomy\Entity\Vocabulary::load($vid);
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
+    'vid' => $vid,
+    'langcode' => $language_id
+  ]);
+  return $terms;
+}
+
+function ipu_map_get_parline_data($isocode, $membership_status) {
+
+  $parline_url = 'https://data.ipu.org/api/node.json?type=country&field_country_data=' . $isocode;
+  $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
+  \Drupal::messenger()
+    ->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  curl_setopt($ch, CURLOPT_URL, $parline_url);
+  $result = curl_exec($ch);
+
+  $decoded = json_decode($result);
+  $element = [];
+  $chamber_nids = [];
+  foreach ($decoded->list as $chamber) {
+    // TODO Multilingual
+    // TODO Add fields from https://data.ipu.org/node/53/basic-information/contact-details?chamber_id=13379
+    if ($chamber->language == 'en') {
+      //print '<pre>'.print_r($chamber,TRUE).'</pre>';
+      // Some fields are common across languages...as they are non-lang specific.
+      $element['#population_in_millions'] = number_format(round($chamber->field_population_in_thousands / 1000, 4), 2, '.', '');
+      $element['#members_per_country'] = $chamber->members_per_country;
+      // Some have multiple values and so are passed as an arrey
+      $element['#structure_of_parliament'] = $chamber->field_structure_of_parliament;
+      $element['#parliamentary_name'][] = $chamber->parliamentary_name;
+      $chamber_nids[] = $chamber->nid;
+    }
+  }
+
+  // Now get the data from the chamber. We only need one language version
+  // of these, as they are the same figures in both.
+  $element['#chambers'] = [];
+
+  foreach ($chamber_nids as $chamber_nid) {
+    $chamber_url = 'https://data.ipu.org/api/node.json?type=chamber&field_country=' . $chamber_nid;
+    curl_setopt($ch, CURLOPT_URL, $chamber_url);
+    $result = curl_exec($ch);
+    $decoded = json_decode($result);
+    foreach ($decoded->list as $chamber) {
+      $element['#chambers'][] = array(
+        'current_women_percent' =>$chamber->current_women_percent,
+        'total_younger_45_percentage' => $chamber->total_younger_45_percentage,
+        'struct_parl_status' => $chamber->field_struct_parl_status->id,
+        'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? 'Upper' : 'Lower'),
+        );
+    }
+  }
+  curl_close($ch);
+
+  $element['#theme'] = 'ipu-map-parline-data';
+  $element['#membership_status'] = ($membership_status ? 'IPU member' : 'Non-IPU member');
+  $element['#parliamentary_name'] = array_unique($element['#parliamentary_name']);
+
+  return $element;
+}
+
+function ipu_map_get_data() {
+  // Get list of countries as JSON or XML.
+  // This comes from a view
+  $url = 'data/countries.json';
+  $url = 'data/countries.xml';
+}
+
+/* Get a flag image url from ISO code */
+function ipu_map_get_flag($isocode) {
+  $geonames_url = 'https://img.geonames.org/flags/x/' . trim(strtolower($isocode)) . '.gif';
+  return $geonames_url;
+
+}
+
+function ipu_map_theme($existing, $type, $theme, $path) {
+  return array(
+    'ipu-map-parline-data' => array(
+      'template' => 'ipu-map-parline-data',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'population_in_millions' => '',
+        'parliamentary_name' => '',
+        'members_per_country' => '',
+        'structure_of_parliament' => '',
+        'membership_status' => '',
+        'chambers' => '',
+      ),
+    ),
+  );
+}

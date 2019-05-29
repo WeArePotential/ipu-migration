@@ -1,0 +1,270 @@
+body {
+  background-color: theme-color("grey-100");
+}
+
+h1,
+.basic-page__node-title h2,
+.page__node-title h2,
+.section-page__node-title h2 {
+  color: color("ipu-dark-grey");
+  font-size: 2.5rem;
+  line-height: 1.25em;
+  font-weight: 400;
+  padding-bottom: 4px;
+  border-bottom: 4px solid color("ipu-teal");
+}
+
+h2, .sections__field-section-title {
+  color: color("ipu-teal");
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  font-weight: 300;
+}
+
+
+.page__footer {
+  background-color: theme-color("secondary");
+}
+
+#topbar {
+  background-color: theme-color("secondary");
+  padding: 4px;
+  font-size: 0.8rem;
+  ul {
+    margin-bottom: 0;
+  }
+  ul.nav {
+    text-align: right;
+    :first-child {
+      flex: 1;
+    }
+  }
+  a {
+    color: theme-color("light");
+    padding: $navbar-nav-link-padding-x;
+    &:hover {
+      color: color("orange") !important;
+      text-decoration: none;
+    }
+    &.active {
+      background-color: color("white");
+      color: color("ipu-grey");
+    }
+    &.nav-link {
+      color: theme-color("light");
+      padding: 0 $navbar-nav-link-padding-x;
+      &:hover {
+        color: color("orange") !important;
+      }
+      &::before {
+        font-size: 1rem;
+        display: block;
+      }
+      span {
+        display: none;
+      }
+    }
+    &.follow-facebook::before {
+      @include icon-brand("facebook");
+    }
+    &.follow-twitter::before {
+      @include icon-brand("twitter");
+    }
+  }
+}
+#branding img.logo {
+  height: 90px;
+  width: auto;
+  padding: $navbar-padding-x $navbar-padding-y;
+}
+#branding .block--ipu-search {
+  display: inline-block;
+}
+.example-download::after {
+  font-family: "Font Awesome 5 Free", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  content: "\F093" !important;
+}
+
+#main-nav {
+  background-color: color("white");
+  border-width: 1px 0 4px 0;
+  border-top-color: color("ipu-light-grey");
+  border-bottom-color: color("ipu-blue");
+  border-style: solid;
+  .navbar-nav {
+    flex-direction: row;
+  }
+  .ultimenu {
+    min-height: auto;
+    padding: 0;
+    /* Expand menu so it's twice as wide as parent (which is col-6)*/
+    z-index: 5000;
+    .ultimenu__flyout {
+      background-color: #fff;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+      z-index: 2102;
+      margin-right: -50%;
+      width: 200%;
+      .region-inner {
+        padding: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        & > .block {
+        }
+      }
+    }
+  }
+  .nav-item, .ultimenu__item {
+    border-width: 0 0 0 1px;
+    border-color: color("ipu-light-grey");
+    border-style: solid;
+    border-right-width: 0;
+    display: inline-block;
+    .nav-link, .ultimenu__link {
+      padding: 0.25rem .75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.075em;
+      color: color("ipu-grey");
+      font-weight: 300;
+      font-size: 0.8rem;
+      &:hover {
+        background-color: color("ipu-teal");
+        color: color("white");
+      }
+      &.is-active {
+        background-color: color("ipu-teal-light");
+        &:hover {
+          background-color: color("ipu-teal");
+          color: color("white");
+        }
+      }
+
+    }
+    &:last-child {
+      border-right-width: 1px;
+    }
+  }
+  #main-nav-right .navbar-nav {
+    display: inline-block;
+  }
+}
+main, ol.breadcrumb {
+  background-color: gray("100");
+}
+.cta-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  &::after {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    content: "\F093" !important;
+  }
+}
+
+main {
+  font-size: 0.85rem;
+}
+.views-bootstrap-sub-content-block-1 {
+  .row {
+    .col-4 {
+      .sub-content {
+        background-color: #f99;
+        max-width: 25%;
+        h2 {
+          color: color("ipu-teal");
+          margin-top: 2px;
+          margin-bottom: 5px;
+          font-size: 1rem;
+          line-height: 1.1em;
+          font-weight: 500;;
+        }
+      }
+    }
+  }
+}
+
+.block--views-block--theme-list-block-1,
+.block--views-block--theme-list-block-1-2 {
+  .views-field-description__value {
+    font-size: 0.75rem;
+    line-height: 1em;
+    font-weight: 300;
+  }
+  .col {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+.term-icon a {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  &:hover {
+    color: color("ipu-orange");
+    text-decoration: none;
+  }
+}
+
+.term-icon a::before {
+  content: '';
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  float: left;
+  margin-right: 0.4rem;
+  background: url('../img/theme_icons/gender%20equality.svg');
+}
+.term-icon-88 a::before {
+  background: url('../img/theme_icons/gender%20equality.svg');
+}
+.term-icon-139 a::before {
+  background: url('../img/theme_icons/peace%20building.svg');
+}
+.term-icon-82 a::before {
+  background: url('../img/theme_icons/human%20rights.svg');
+}
+.term-icon-198 a::before {
+  background: url('../img/theme_icons/global%20development.svg');
+}
+.term-icon-231 a::before {
+  background: url('../img/theme_icons/parliamentary%20dialogue.svg');
+}
+.term-icon-139 a::before {
+  background: url('../img/theme_icons/peace%20building.svg');
+}
+.term-icon-19 a::before {
+  background: url('../img/theme_icons/strong%20parliaments.svg');
+}
+.term-icon-117 a::before {
+  background: url('../img/theme_icons/youth.svg');
+}
+
+
+/* Mega menu Parliaments dropdown */
+.ipu-map-country-select-form .form-item-isocode {
+  float: left;
+}
+.ipu-map-country-select-form .button {
+  text-transform: uppercase;
+  margin: 0px 4px;
+}
+
+
+
