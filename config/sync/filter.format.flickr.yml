@@ -6,7 +6,7 @@ dependencies:
     - flickr_filter
 name: Flickr
 format: flickr
-weight: 0
+weight: -6
 filters:
   flickr_filter:
     id: flickr_filter

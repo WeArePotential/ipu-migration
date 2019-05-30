@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.taxonomy_term.country.field_ipu_member
     - field.field.taxonomy_term.country.field_iso_code
+    - field.field.taxonomy_term.country.field_iso_code_for_parliament
+    - field.field.taxonomy_term.country.field_principles_signatory
     - taxonomy.vocabulary.country
   module:
     - options
@@ -35,6 +37,24 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
+  field_iso_code_for_parliament:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_principles_signatory:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
 hidden:
   langcode: true

@@ -18,8 +18,8 @@ entity_type: paragraph
 bundle: sections
 label: 'Display options'
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value:
   -
     value: 2

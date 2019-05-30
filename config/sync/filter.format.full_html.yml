@@ -13,7 +13,7 @@ _core:
   default_config_hash: hewPmBgni9jlDK_IjLxUx1HsTbinK-hdl0lOwjbteIY
 name: 'Full HTML'
 format: full_html
-weight: 1
+weight: -10
 filters:
   filter_align:
     id: filter_align
@@ -91,6 +91,7 @@ filters:
     status: true
     weight: -41
     settings:
+      flickr_filter_imagesize: '200'
       flickr_filter_default_size: 'n'
       flickr_filter_caption: '1'
   filter_mailchimp_campaign:

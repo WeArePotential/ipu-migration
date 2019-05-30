@@ -33,6 +33,7 @@ dependencies:
     - entity_reference_revisions
     - options
     - text
+    - title
     - user
 id: node.ipu_event.default
 targetEntityType: node
@@ -180,6 +181,16 @@ content:
   links:
     weight: 100
     settings: {  }
+    third_party_settings: {  }
+    region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
     region: content
 hidden:

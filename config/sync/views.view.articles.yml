@@ -477,7 +477,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -486,9 +485,31 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_article_type'
         - 'config:field.storage.node.field_image'
-  block_1:
+  block_2:
     display_plugin: block
-    id: block_1
+    id: block_2
+    display_title: 'latest4[#news+#pr]'
+    position: 1
+    display_options:
+      display_extenders:
+        metatag_display_extender: {  }
+      display_description: '#news OR #press release'
+      block_description: 'latest4[#news+#pr]'
+      rendering_language: '***LANGUAGE_language_content***'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_article_type'
+        - 'config:field.storage.node.field_image'
+  latest_4_news_pr:
+    display_plugin: block
+    id: latest_4_news_pr
     display_title: 'latest4[#news+#pr]'
     position: 1
     display_options:

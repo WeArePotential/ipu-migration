@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 name: 'Migrate example format'
 format: migrate_example
-weight: 20
+weight: -3
 filters:
   filter_html_escape:
     id: filter_html_escape

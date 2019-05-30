@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.ipu_event.comment_node_ipu_event
     - field.field.node.ipu_event.field_agenda_order_number
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
@@ -26,6 +27,7 @@ dependencies:
     - field.field.node.ipu_event.field_twitter_order
     - node.type.ipu_event
   module:
+    - title
     - user
 id: node.ipu_event.teaser
 targetEntityType: node
@@ -37,7 +39,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
 hidden:
+  comment_node_ipu_event: true
   field_agenda_order_number: true
   field_do_not_display_as_link: true
   field_document_show_print: true
