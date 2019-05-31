@@ -15619,3 +15619,33 @@ main {
   text-transform: uppercase;
   margin: 0px 4px;
 }
+
+/* Subpages section on section pages */
+.section-page-subpages-section {
+  background-color: #eeeeee;
+  padding: 20px 0;
+  margin: 10px -15px 0 -15px;
+  /* Push to edge of container-fluid without row */
+}
+.section-page-subpages-section .section-page__dynamic-block-fieldnode-section-sub-pages > .field__label {
+  color: #00a8b4;
+  font-size: 1.6rem;
+  line-height: 1.6em;
+  font-weight: 500;
+  border-bottom: 2px solid #00a8b4;
+  margin-bottom: 4px;
+}
+.section-page-subpages-section .section-page__dynamic-block-fieldnode-section-sub-pages #views-bootstrap-sub-content-block-1 .highlight {
+  background-color: #fff;
+  padding: 4px;
+  height: 100%;
+}
+.section-page-subpages-section .section-page__dynamic-block-fieldnode-section-sub-pages #views-bootstrap-sub-content-block-1 .highlight h2 a {
+  font-size: 1rem;
+  line-height: 1.1em;
+  font-weight: 500;
+  color: #00a8b4;
+}
+.section-page-subpages-section .section-page__dynamic-block-fieldnode-section-sub-pages #views-bootstrap-sub-content-block-1 .row {
+  margin: 10px 0;
+}

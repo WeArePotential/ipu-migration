@@ -266,5 +266,38 @@ main {
   margin: 0px 4px;
 }
 
+/* Subpages section on section pages */
+.section-page-subpages-section {
+  background-color: color("ipu-very-light-grey");
+  padding: 20px 0;
+  margin: 10px -15px 0 -15px; /* Push to edge of container-fluid without row */
+  .section-page__dynamic-block-fieldnode-section-sub-pages {
+    & > .field__label {
+      color: color("ipu-teal");
+      font-size: 1.6rem;
+      line-height: 1.6em;
+      font-weight: 500;
+      border-bottom: 2px solid color("ipu-teal");
+      margin-bottom: 4px;
+    }
+    #views-bootstrap-sub-content-block-1 {
+      .highlight {
+        background-color: color("white");
+        padding: 4px;
+        height: 100%;
+        h2 a {
+          font-size: 1rem;
+          line-height: 1.1em;
+          font-weight: 500;
+          color: color("ipu-teal");
+        }
+      }
+      .row {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
 
 

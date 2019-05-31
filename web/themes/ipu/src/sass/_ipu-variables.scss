@@ -11,7 +11,8 @@ $ipu-teal-light:  rgba($ipu-teal, 0.3);
 $ipu-dark-grey:   #333333;
 $ipu-grey:        #747678;
 $ipu-light-grey:  #cccccc;
-
+$ipu-very-light-grey:  #eeeeee;
+$ipu-white:       #ffffff;
 
 $colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -24,6 +25,8 @@ $colors: map-merge(
                         "ipu-dark-grey":  $ipu-dark-grey,
                         "ipu-grey":       $ipu-grey,
                         "ipu-light-grey": $ipu-light-grey,
+                        "ipu-very-light-grey": $ipu-very-light-grey,
+                        "ipu-white": $ipu-white,
                 ),
                 $colors
 );

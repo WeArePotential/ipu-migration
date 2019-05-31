@@ -18,7 +18,7 @@ dependencies:
     - ds
     - field_group
     - image
-    - text
+    - smart_trim
     - title
     - user
 third_party_settings:
@@ -47,9 +47,20 @@ content:
   body:
     label: hidden
     weight: 2
-    type: text_trimmed
+    type: smart_trim
     settings:
-      trim_length: 240
+      trim_length: 40
+      trim_type: words
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_link: true
+      more_text: more...
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
     third_party_settings:
       ds:
         ft:
