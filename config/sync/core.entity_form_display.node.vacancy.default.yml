@@ -45,6 +45,7 @@ third_party_settings:
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: content
     group_taxonomy:
       children:
         - field_vacancy_type
@@ -59,6 +60,7 @@ third_party_settings:
         classes: node-taxonomy
         description: ''
       format_type: fieldset
+      region: content
     group_details:
       children:
         - field_deadline
@@ -76,6 +78,7 @@ third_party_settings:
         classes: node-media
         description: ''
       format_type: fieldset
+      region: content
 id: node.vacancy.default
 targetEntityType: node
 bundle: vacancy

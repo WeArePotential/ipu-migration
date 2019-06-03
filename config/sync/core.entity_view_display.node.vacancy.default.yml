@@ -47,6 +47,7 @@ third_party_settings:
         attributes: ''
         required_fields: 1
       format_type: html-element
+      region: content
 id: node.vacancy.default
 targetEntityType: node
 bundle: vacancy
@@ -115,6 +116,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   field_media_image: true
   field_vacancy_type: true

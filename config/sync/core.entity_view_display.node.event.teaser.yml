@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
+    - field.field.node.event.comment_node_event
     - field.field.node.event.field_country
     - field.field.node.event.field_document
     - field.field.node.event.field_event_date
@@ -41,6 +42,7 @@ third_party_settings:
         speed: fast
         element: div
       format_type: html_element
+      region: content
 id: node.event.teaser
 targetEntityType: node
 bundle: event
@@ -67,8 +69,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   body: true
+  comment_node_event: true
   field_country: true
   field_document: true
   field_event_type: true

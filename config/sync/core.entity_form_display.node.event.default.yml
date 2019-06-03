@@ -49,6 +49,7 @@ third_party_settings:
         classes: 'group-taxonomy field-group-fieldset node-taxonomy'
         description: ''
       format_type: fieldset
+      region: content
     group_basic_info:
       children:
         - field_event_url
@@ -64,6 +65,7 @@ third_party_settings:
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: content
     group_tabs:
       children:
         - group_related_documents
@@ -76,6 +78,7 @@ third_party_settings:
         classes: 'group-tabs field-group-htabs node-tabs'
         direction: horizontal
       format_type: tabs
+      region: content
     group_related_documents:
       children: {  }
       parent_name: group_tabs
@@ -87,6 +90,7 @@ third_party_settings:
         classes: 'group-related-documents field-group-htab'
         required_fields: true
       format_type: tab
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event
