@@ -177,7 +177,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -241,7 +241,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: text_summary_or_trimmed
-          settings: {  }
+          settings:
+            trim_length: 600
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -508,6 +509,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -530,6 +532,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -557,6 +560,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -579,6 +583,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -601,6 +606,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
@@ -689,6 +695,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

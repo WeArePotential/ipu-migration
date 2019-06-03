@@ -8,12 +8,13 @@ dependencies:
     - field.field.node.section_page.comment_node_section_page
     - field.field.node.section_page.field_media_image
     - field.field.node.section_page.field_sections
+    - field.field.node.section_page.field_theme
     - image.style.teaser
     - node.type.section_page
   module:
     - ds
     - image
-    - text
+    - smart_trim
     - title
     - user
 id: node.section_page.highlight
@@ -24,9 +25,20 @@ content:
   body:
     label: hidden
     weight: 2
-    type: text_trimmed
+    type: smart_trim
     settings:
-      trim_length: 200
+      trim_length: 240
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
     third_party_settings:
       ds:
         ft:
@@ -65,5 +77,6 @@ content:
 hidden:
   comment_node_section_page: true
   field_sections: true
+  field_theme: true
   langcode: true
   links: true
