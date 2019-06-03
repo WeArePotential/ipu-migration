@@ -12,7 +12,8 @@ if (defined('PANTHEON_ENVIRONMENT')) {
         case 'test':
             $config_directory = 'sites/default/config';
         case 'dev':
-            $config_directory = 'sites/default/config_dev';
+            //$config_directory = 'sites/default/config_dev';
+            $config_directory = 'config/sync';
     }
 } else {
     $config_directory = 'sites/default/config_dev';
