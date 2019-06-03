@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.browse_files
     - field.field.node.page.body
     - field.field.node.page.comment_node_page
     - field.field.node.page.field_media_image
@@ -10,10 +11,11 @@ dependencies:
     - node.type.page
   module:
     - comment
+    - entity_browser
     - field_group
     - field_layout
-    - file
     - layout_discovery
+    - paragraphs
     - path
     - text
 third_party_settings:
@@ -23,20 +25,19 @@ third_party_settings:
   field_group:
     group_basic_info:
       children:
-        - title_field
+        - title
         - body
-        - language
       parent_name: ''
       weight: 0
       label: 'Basic information'
       format_settings:
-        label: 'Basic information'
         formatter: open
         required_fields: true
         id: ''
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: content
     group_sections:
       children:
         - field_sections
@@ -44,12 +45,12 @@ third_party_settings:
       weight: 3
       label: Sections
       format_settings:
-        label: Sections
         formatter: closed
         required_fields: true
         classes: ''
         description: ''
       format_type: tab
+      region: content
     group_media:
       children:
         - field_media_image
@@ -57,13 +58,13 @@ third_party_settings:
       weight: 1
       label: Media
       format_settings:
-        label: Media
         formatter: open
         required_fields: true
         id: ''
         classes: node-media
         description: ''
       format_type: fieldset
+      region: content
     group_tabs:
       children:
         - group_sections
@@ -71,12 +72,12 @@ third_party_settings:
       weight: 2
       label: Tabs
       format_settings:
-        label: Tabs
         formatter: ''
         id: ''
         classes: node-tabs
         direction: horizontal
       format_type: tabs
+      region: content
 _core:
   default_config_hash: sb0qCkzU_8mNq29NehYAU8jCBXWPLeX0UN8sYFVGVcw
 id: node.page.default
@@ -85,7 +86,7 @@ bundle: page
 mode: default
 content:
   body:
-    weight: 8
+    weight: -4
     type: text_textarea_with_summary
     settings:
       rows: 9
@@ -107,11 +108,30 @@ content:
     third_party_settings: {  }
   field_media_image:
     weight: 7
-    type: file_generic
+    type: entity_browser_file
     settings:
-      progress_indicator: throbber
+      entity_browser: browse_files
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      view_mode: default
+      field_widget_replace: false
+      open: false
+      preview_image_style: thumbnail
     third_party_settings: {  }
     region: content
+  field_sections:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -156,9 +176,9 @@ content:
     third_party_settings: {  }
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -170,8 +190,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden:
-  field_sections: true
+hidden: {  }

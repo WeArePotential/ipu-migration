@@ -19,9 +19,9 @@ dependencies:
     - node.type.article
   module:
     - comment
+    - entity_browser
     - field_group
     - field_layout
-    - file
     - image
     - layout_discovery
     - link
@@ -35,20 +35,20 @@ third_party_settings:
     group_taxonomy:
       children:
         - field_article_type
+        - field_theme
         - field_country
         - field_ipu_structure
-        - field_theme
       parent_name: ''
       weight: 1
       label: Taxonomy
       format_settings:
-        label: Taxonomy
         formatter: open
         required_fields: true
         id: ''
         classes: node-taxonomy
         description: ''
       format_type: fieldset
+      region: content
     group_media:
       children:
         - field_media_image
@@ -57,30 +57,29 @@ third_party_settings:
       weight: 2
       label: Media
       format_settings:
-        label: Media
         formatter: open
         required_fields: true
         id: ''
         classes: node-media
         description: ''
       format_type: fieldset
+      region: content
     group_basic_info:
       children:
+        - title
         - body
-        - title_field
         - field_place_of_publication
-        - language
       parent_name: ''
       weight: 0
       label: 'Basic information'
       format_settings:
-        label: 'Basic information'
         formatter: open
         required_fields: true
         id: ''
         classes: node-basic
         description: ''
       format_type: fieldset
+      region: content
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -89,7 +88,7 @@ bundle: article
 mode: default
 content:
   body:
-    weight: 5
+    weight: 1
     type: text_textarea_with_summary
     settings:
       rows: 9
@@ -153,13 +152,20 @@ content:
     region: content
   field_media_image:
     weight: 26
-    type: file_generic
+    type: entity_browser_file
     settings:
-      progress_indicator: throbber
+      entity_browser: null
+      open: false
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
     third_party_settings: {  }
     region: content
   field_place_of_publication:
-    weight: 4
+    weight: 2
     type: string_textfield
     settings:
       size: 60
@@ -225,9 +231,9 @@ content:
     third_party_settings: {  }
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -239,7 +245,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

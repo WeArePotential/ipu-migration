@@ -101,6 +101,11 @@ h2, .sections__field-section-title {
   .navbar-nav {
     flex-direction: row;
   }
+  .dropdown-menu {
+    padding: 0.25rem 0;
+    margin: 0;
+    border-radius: 1px;
+  }
   .ultimenu {
     min-height: auto;
     padding: 0;
@@ -128,7 +133,14 @@ h2, .sections__field-section-title {
     border-style: solid;
     border-right-width: 0;
     display: inline-block;
-    .nav-link, .ultimenu__link {
+    &.active .nav-link {
+      background-color: color("ipu-teal-light");
+      &:hover {
+        background-color: color("ipu-teal");
+        color: color("white");
+      }
+    }
+    .nav-link, .ultimenu__link, .dropdown-item {
       padding: 0.25rem .75rem;
       text-transform: uppercase;
       letter-spacing: 0.075em;

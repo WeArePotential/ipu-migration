@@ -44,7 +44,7 @@ drush pm:enable mailchimp_lists
 drush pm:enable mailchimp_signup
 drush pm:enable menu_admin_per_menu
 drush pm:enable menu_block
-drush pm:enable menu_trail_by_path
+#drush pm:enable menu_trail_by_path
 drush pm:enable metatag_twitter_cards
 drush pm:enable metatag_verification
 drush pm:enable metatag_views

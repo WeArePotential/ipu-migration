@@ -32,7 +32,6 @@
         "drupal/migrate_manifest": "^1.8",
         "drupal/address": "^1.6",
         "drupal/back_to_top": "^1.0",
-        "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/block_class": "^1.0",
         "drupal/blockgroup": "^1.1",
         "drupal/chosen": "^2.7",
@@ -63,7 +62,6 @@
         "drupal/mailchimp_signup": "^1.8",
         "drupal/menu_admin_per_menu": "^1.0",
         "drupal/menu_block": "^1.5",
-        "drupal/menu_trail_by_path": "^1.1",
         "drupal/metatag_twitter_cards": "^1.8",
         "drupal/metatag_verification": "^1.8",
         "drupal/metatag_views": "^1.8",
@@ -109,7 +107,10 @@
         "drupal/views_data_export": "^1.0@beta",
         "drupal/views_menu_children_filter": "^1.0@beta",
         "drupal/views_fieldsets": "^3.3",
-        "drupal/menu_link_attributes": "^1.0"
+        "drupal/menu_link_attributes": "^1.0",
+        "drupal/smart_trim": "^1.1",
+        "drupal/better_exposed_filters": "^3.0@alpha",
+        "drupal/context_active_trail": "^1.0@RC"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

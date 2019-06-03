@@ -1,13 +1,23 @@
 import 'popper.js';
 import 'bootstrap';
 
-(function () {
+(function ($, Drupal) {
 
   'use strict';
 
-  Drupal.behaviors.helloWorld = {
+  Drupal.behaviors.override_dropdown = {
     attach: function (context) {
-      console.log('Hello World');
+      /*
+      * Only go to the link when dropdown is already open (if the dropdown is a link)
+      */
+      $('.dropdown > a').click(function(){
+        if ($(this).data("click-once") != 'true') {
+          $(this).data("click-once", true);
+        } else {
+          $(this).data("click-once", false);
+          location.href = $(this).href;
+        }
+      });
     }
   };
 

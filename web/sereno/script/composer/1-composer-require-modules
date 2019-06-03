@@ -44,7 +44,7 @@ composer-1.7.2 require drupal/mailchimp_lists
 composer-1.7.2 require drupal/mailchimp_signup
 composer-1.7.2 require drupal/menu_admin_per_menu
 composer-1.7.2 require drupal/menu_block
-composer-1.7.2 require drupal/menu_trail_by_path
+#composer-1.7.2 require drupal/menu_trail_by_path
 #composer-1.7.2 require drupal/metatag_opengraph
 composer-1.7.2 require drupal/metatag_twitter_cards
 composer-1.7.2 require drupal/metatag_verification

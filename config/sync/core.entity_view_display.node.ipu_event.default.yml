@@ -31,7 +31,6 @@ dependencies:
     - comment
     - datetime
     - entity_reference_revisions
-    - options
     - text
     - title
     - user
@@ -60,8 +59,11 @@ content:
   field_document_show_print:
     label: above
     weight: 21
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_documents_order_number:
@@ -93,15 +95,21 @@ content:
   field_hide_documents_menu:
     label: above
     weight: 18
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_hide_programs_menu:
     label: above
     weight: 17
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_ipu_event_right_menu:
@@ -159,8 +167,11 @@ content:
   field_programme_show_print:
     label: above
     weight: 22
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_summary:
@@ -180,9 +191,9 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   title:
     type: linked_and_wrapped
     settings:
