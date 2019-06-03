@@ -13,6 +13,7 @@ dependencies:
   module:
     - field_layout
     - layout_discovery
+    - paragraphs
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -22,29 +23,27 @@ targetEntityType: paragraph
 bundle: event_sub_page
 mode: default
 content:
-  field_fc_original_reference:
-    weight: 12
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
+  field_ipu_event_section:
+    type: entity_reference_paragraphs
+    weight: 1
     region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
   field_order:
-    weight: 3
+    weight: 2
     type: number
     settings:
       placeholder: ''
     third_party_settings: {  }
-    region: content
-  field_original_fc_id:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   field_sub_page_show_print:
-    weight: 4
+    weight: 3
     type: boolean_checkbox
     settings:
       display_label: true
@@ -59,11 +58,12 @@ content:
     third_party_settings: {  }
     region: content
   translation:
-    weight: 10
+    weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
-  field_ipu_event_section: true
+  field_fc_original_reference: true
+  field_original_fc_id: true
   status: true

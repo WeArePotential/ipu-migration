@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\StringTranslation;
+
+
+
+function ipu_tweaks_page_attachments(array &$attachments) {
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  //if ($theme == 'adminimal_theme' || $theme == 'adminimal') {
+    $attachments['#attached']['library'][] = 'ipu_tweaks/extra-admin';
+  //}
+}

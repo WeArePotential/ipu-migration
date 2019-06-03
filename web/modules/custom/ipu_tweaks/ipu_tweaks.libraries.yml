@@ -1,0 +1,5 @@
+extra-admin:
+  version: 1.x
+  css:
+    theme:
+      css/extra_admin.css: {}

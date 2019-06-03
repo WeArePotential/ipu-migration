@@ -1,8 +1,10 @@
-uuid: 0d9f29fa-de2a-4263-9484-e5d63e015471
+uuid: 0b2a603d-98a0-4389-b884-984b938dd8c2
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_publication.default
+    - core.entity_view_mode.node.highlight
     - field.field.node.publication.body
     - field.field.node.publication.comment_node_publication
     - field.field.node.publication.field_contact_ipu
@@ -14,9 +16,9 @@ dependencies:
     - field.field.node.publication.field_publication_format
     - field.field.node.publication.field_publication_type
     - field.field.node.publication.field_theme
-    - image.style.large
     - node.type.publication
   module:
+    - comment
     - datetime
     - ds
     - entity_reference_revisions
@@ -31,12 +33,12 @@ third_party_settings:
     group_download:
       children: {  }
       parent_name: ''
-      weight: 22
+      weight: 5
       label: 'Download free copy'
       format_settings:
         formatter: collapsible
         description: ''
-        show_label: true
+        show_label: 1
         label_element: h3
         effect: none
         speed: fast
@@ -45,8 +47,7 @@ third_party_settings:
         element: div
         attributes: ''
         required_fields: true
-        label_element_classes: ''
-      format_type: html_element
+      format_type: tab
       region: hidden
   ds:
     layout:
@@ -87,48 +88,44 @@ third_party_settings:
             add_region_classes: 1
             attributes: ''
     regions:
-      left:
-        - node_title
-        - field_media_image
-        - field_publication_date
+      top:
+        - field_contact_ipu
         - body
-      right:
-        - field_publication_type
+        - field_publication_date
         - field_publication_document
         - field_publication_format
         - langcode
-        - field_contact_ipu
-    fields:
-      node_title:
-        plugin_id: node_title
-        weight: 0
-        label: hidden
-        formatter: default
-        settings:
-          wrapper: h2
-          class: ''
-          link: false
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-id: node.publication.default
+        - field_ipu_structure
+        - field_media_image
+        - field_country
+        - field_publication_type
+        - field_theme
+        - comment_node_publication
+        - links
+id: node.publication.highlight
 targetEntityType: node
 bundle: publication
-mode: default
+mode: highlight
 content:
   body:
     label: hidden
-    weight: 3
+    weight: 1
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: left
+    region: top
+  comment_node_publication:
+    label: hidden
+    type: comment_default
+    weight: 12
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: top
   field_contact_ipu:
     label: hidden
-    weight: 8
+    weight: 0
     type: link
     settings:
       trim_length: 80
@@ -137,76 +134,93 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    region: right
+    region: top
+  field_country:
+    type: entity_reference_label
+    weight: 9
+    region: top
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ipu_structure:
+    type: entity_reference_label
+    weight: 7
+    region: top
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_media_image:
     type: image
-    weight: 1
-    region: left
-    label: hidden
+    weight: 8
+    region: top
+    label: above
     settings:
-      image_style: large
+      image_style: ''
       image_link: ''
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
+    third_party_settings: {  }
   field_publication_date:
-    label: hidden
+    label: inline
     weight: 2
     type: datetime_default
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    region: left
+    region: top
   field_publication_document:
     type: entity_reference_revisions_entity_view
-    weight: 5
-    region: right
-    label: inline
+    weight: 3
+    region: top
+    label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   field_publication_format:
     label: inline
-    weight: 6
+    weight: 4
     type: list_default
     settings: {  }
     third_party_settings: {  }
-    region: right
+    region: top
   field_publication_type:
     type: entity_reference_label
-    weight: 4
-    region: right
-    label: inline
+    weight: 10
+    region: top
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_theme:
+    type: entity_reference_label
+    weight: 11
+    region: top
+    label: above
     settings:
       link: true
     third_party_settings: {  }
   langcode:
     type: language
-    weight: 7
-    region: right
-    label: inline
+    weight: 6
+    region: top
+    label: above
     settings:
       link_to_entity: false
       native_language: false
     third_party_settings: {  }
+  links:
+    weight: 13
+    region: top
+    settings: {  }
+    third_party_settings: {  }
   title:
     label: hidden
     type: string
-    weight: 56
+    weight: 17
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden:
-  comment_node_publication: true
-  field_country: true
-  field_ipu_structure: true
-  field_theme: true
-  links: true
+hidden: {  }

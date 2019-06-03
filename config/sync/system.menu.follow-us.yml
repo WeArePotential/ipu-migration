@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: follow-us
 label: 'Follow us'
-description: ''
+description: 'The list of social media accounts for visitors to follow. Displayed on top bar'
 locked: false

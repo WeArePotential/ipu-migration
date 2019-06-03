@@ -89,7 +89,6 @@ permissions:
   - 'administer media oembed'
   - 'administer menu'
   - 'administer menu views'
-  - 'administer menu_trail_by_path'
   - 'administer meta tags'
   - 'administer module filter'
   - 'administer module missing message fixer'

@@ -15661,3 +15661,11 @@ main {
 .section-page-subpages-section .section-page__dynamic-block-fieldnode-section-sub-pages #views-bootstrap-sub-content-block-1 .row {
   margin: 10px 0;
 }
+
+.paragraph--type--sections {
+  margin-top: 10px;
+}
+.paragraph--type--sections .sections__field-section-title {
+  border-bottom: 2px solid #00a8b4;
+  margin-bottom: 4px;
+}

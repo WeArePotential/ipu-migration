@@ -45,13 +45,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-  field_original_fc_id:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_speech:
     weight: 2
     type: boolean_checkbox
@@ -60,10 +53,11 @@ content:
     third_party_settings: {  }
     region: content
   translation:
-    weight: 10
+    weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
+  field_original_fc_id: true
   status: true

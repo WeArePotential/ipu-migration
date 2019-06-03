@@ -32,13 +32,6 @@ targetEntityType: paragraph
 bundle: ipu_event_sessions
 mode: default
 content:
-  field_fc_original_reference:
-    weight: 13
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_fc_session_date:
     weight: 7
     type: datetime_default
@@ -46,13 +39,13 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_session_governing_body:
-    weight: 3
+    weight: 4
     type: options_select
     settings: {  }
     third_party_settings: {  }
     region: content
   field_fc_session_room:
-    weight: 4
+    weight: 5
     type: string_textfield
     settings:
       size: 60
@@ -66,14 +59,14 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_closed_session:
-    weight: 5
+    weight: 6
     type: boolean_checkbox
     settings:
       display_label: true
     third_party_settings: {  }
     region: content
   field_fc_sessions_custom_label:
-    weight: 11
+    weight: 13
     type: string_textfield
     settings:
       size: 60
@@ -81,7 +74,7 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_description:
-    weight: 1
+    weight: 2
     type: string_textarea
     settings:
       rows: 5
@@ -89,14 +82,14 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_hide_time:
-    weight: 10
+    weight: 11
     type: boolean_checkbox
     settings:
       display_label: true
     third_party_settings: {  }
     region: content
   field_fc_sessions_session_order:
-    weight: 9
+    weight: 10
     type: number
     settings:
       placeholder: ''
@@ -111,13 +104,13 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_theme:
-    weight: 2
+    weight: 3
     type: options_select
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ipu_event_document_widget:
-    weight: 8
+    weight: 9
     type: entity_reference_paragraphs
     settings:
       title: Paragraph
@@ -129,16 +122,17 @@ content:
     third_party_settings: {  }
     region: content
   field_session_ends_date:
-    weight: 12
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   translation:
-    weight: 10
+    weight: 12
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
+  field_fc_original_reference: true
   status: true

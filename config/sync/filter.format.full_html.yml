@@ -91,7 +91,6 @@ filters:
     status: true
     weight: -41
     settings:
-      flickr_filter_imagesize: '200'
       flickr_filter_default_size: 'n'
       flickr_filter_caption: '1'
   filter_mailchimp_campaign:

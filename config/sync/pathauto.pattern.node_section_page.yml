@@ -7,15 +7,16 @@ dependencies:
 id: node_section_page
 label: 'Content - Section Page'
 type: 'canonical_entities:node'
-pattern: '[node:menu-link:parents:join-path]/[node:title-field]'
+pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  -
+  9eb486aa-91e3-422a-a90f-6c775b70270f:
     id: node_type
     bundles:
       section_page: section_page
     negate: false
     context_mapping:
       node: node
+    uuid: 9eb486aa-91e3-422a-a90f-6c775b70270f
 selection_logic: and
-weight: 0
+weight: -3
 relationships: {  }

@@ -1,0 +1,8 @@
+/* Style overrides for the Adminimal theme, to help with editors pages */
+.field-multiple-table .field-multiple-table {
+  background-color: #f9f9f9;
+}
+
+.cke_editable {
+  padding: 4px;
+}

@@ -26,6 +26,9 @@ module:
   config_translation: 0
   config_update: 0
   contact: 0
+  context: 0
+  context_active_trail: 0
+  context_ui: 0
   contextual: 0
   convert_media_tags_to_markup: 0
   csv_serialization: 0
@@ -88,6 +91,7 @@ module:
   inline_entity_form: 0
   ipu_layouts: 0
   ipu_map: 0
+  ipu_tweaks: 0
   job_scheduler: 0
   language: 0
   languagefield: 0
@@ -102,7 +106,6 @@ module:
   media_library: 0
   menu_block: 0
   menu_link_attributes: 0
-  menu_trail_by_path: 0
   menu_ui: 0
   metatag: 0
   metatag_open_graph: 0

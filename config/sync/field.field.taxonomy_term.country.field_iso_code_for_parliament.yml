@@ -16,7 +16,7 @@ field_name: field_iso_code_for_parliament
 entity_type: taxonomy_term
 bundle: country
 label: 'ISO code for parliament'
-description: 'If the country should link to a parliament other than the ISO code used on the map, please enter it here. E.g. Taiwan will link to China.'
+description: 'If the country should link to a parliament other than it''s ISO code used on the map, please enter it here. E.g. Taiwan should link to China.'
 required: false
 translatable: false
 default_value: {  }

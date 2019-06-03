@@ -14,6 +14,7 @@ dependencies:
     - field.field.paragraph.sections.field_view_target_id
     - paragraphs.paragraphs_type.sections
   module:
+    - field_group
     - field_layout
     - layout_discovery
     - text
@@ -22,6 +23,30 @@ third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
+  field_group:
+    group_view:
+      children:
+        - field_view
+        - field_view_target_id
+        - field_view_display_id
+        - field_view_arguments
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        description: 'Embedded lists of content'
+        required_fields: true
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        effect: none
+        speed: fast
+        attributes: ''
+      label: View
+      region: content
 id: paragraph.sections.default
 targetEntityType: paragraph
 bundle: sections
@@ -36,13 +61,13 @@ content:
     third_party_settings: {  }
     region: content
   field_section_display_options:
-    weight: 8
+    weight: 5
     type: options_buttons
     settings: {  }
     third_party_settings: {  }
     region: content
   field_section_html:
-    weight: 7
+    weight: 4
     type: text_textarea
     settings:
       rows: 20
@@ -50,7 +75,7 @@ content:
     third_party_settings: {  }
     region: content
   field_section_node:
-    weight: 6
+    weight: 3
     type: entity_reference_autocomplete
     settings:
       match_operator: CONTAINS
@@ -67,13 +92,13 @@ content:
     third_party_settings: {  }
     region: content
   field_view:
-    weight: 11
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: viewfield_select
     region: content
   field_view_arguments:
-    weight: 14
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -81,7 +106,7 @@ content:
     type: string_textfield
     region: content
   field_view_display_id:
-    weight: 13
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -89,7 +114,7 @@ content:
     type: string_textfield
     region: content
   field_view_target_id:
-    weight: 12
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -97,10 +122,10 @@ content:
     type: string_textfield
     region: content
   translation:
-    weight: 10
+    weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   status: true

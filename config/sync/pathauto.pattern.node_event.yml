@@ -7,15 +7,16 @@ dependencies:
 id: node_event
 label: 'Content - Archive Event'
 type: 'canonical_entities:node'
-pattern: 'events/[node:field-event-type]/[node:created:custom:Y-m]/[node:title-field]'
+pattern: 'events/[node:field_event_type]/[node:created:custom:Y-m]/[node:title]'
 selection_criteria:
-  -
+  34fb3ad2-35e2-4f96-9965-49de1f334032:
     id: node_type
     bundles:
       event: event
     negate: false
     context_mapping:
       node: node
+    uuid: 34fb3ad2-35e2-4f96-9965-49de1f334032
 selection_logic: and
-weight: 0
+weight: -10
 relationships: {  }

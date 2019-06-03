@@ -2,10 +2,6 @@ uuid: 3f971c08-2e9b-4fa3-85ef-89e66291edb5
 langcode: en
 status: false
 dependencies:
-  config:
-    - views.view.articles
-  module:
-    - views
   theme:
     - ipu
 id: views_block__articles_block_1
