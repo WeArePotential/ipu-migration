@@ -110,7 +110,8 @@
         "drupal/smart_trim": "^1.1",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/context_active_trail": "^1.0@RC",
-        "drupal/admin_toolbar": "^1.26"
+        "drupal/admin_toolbar": "^1.26",
+        "drupal/lang_dropdown": "^2.0@beta"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

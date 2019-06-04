@@ -796,8 +796,8 @@ display:
         title: 'Upcoming events'
         description: ''
         expanded: false
-        parent: ''
-        weight: -49
+        parent: 'menu_link_content:3310ff71-4264-4d76-818f-13e0826d43d1'
+        weight: -76
         context: '0'
         menu_name: mega-menu
         enabled: false

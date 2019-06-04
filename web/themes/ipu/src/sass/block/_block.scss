@@ -28,7 +28,7 @@ h2, .sections__field-section-title {
 
 #topbar {
   background-color: theme-color("secondary");
-  padding: 4px;
+  padding: 0 0 4px 0;
   font-size: 0.8rem;
   ul {
     margin-bottom: 0;
@@ -69,6 +69,27 @@ h2, .sections__field-section-title {
     }
     &.follow-twitter::before {
       @include icon-brand("twitter");
+    }
+  }
+
+  .col-6.text-left .region-inner {
+    display: flex;
+    justify-content: flex-start;
+    a {
+      padding: 0.25em;
+      display: block;
+    }
+  }
+  ul.cross-site-navigation {
+    white-space: nowrap;
+  }
+  /* Language switcher */
+  .block--languagedropdownswitchercontent {
+    display: inline-block;
+    margin-left: 10px;
+    .lang-dropdown-select-element {
+      font-size: 0.85rem;
+      border-radius: 0;
     }
   }
 }
@@ -317,4 +338,6 @@ main {
     margin: 10px 0 6px 0;
   }
 }
+
+
 

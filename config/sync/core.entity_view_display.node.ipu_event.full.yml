@@ -32,8 +32,6 @@ dependencies:
     - ds
     - entity_reference_revisions
     - smart_trim
-    - taxonomy
-    - title
     - user
 third_party_settings:
   ds:
@@ -76,19 +74,17 @@ third_party_settings:
             attributes: ''
     regions:
       top:
-        - title
         - node_title
-        - langcode
-        - field_do_not_display_as_link
-        - field_event_theme
-        - field_event_type
+        - field_event_computed_date
         - field_location
+        - field_event_type
         - field_ipu_event_session_type
         - field_ipu_event_sessions
+        - field_do_not_display_as_link
+        - field_event_theme
         - field_ipu_event_right_menu
         - field_documents_order_number
         - field_agenda_order_number
-        - field_event_computed_date
         - field_hide_programs_menu
         - field_hide_documents_menu
         - field_twitter_order
@@ -104,7 +100,7 @@ third_party_settings:
     fields:
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 0
         label: hidden
         formatter: default
 id: node.ipu_event.full
@@ -113,8 +109,8 @@ bundle: ipu_event
 mode: full
 content:
   field_agenda_order_number:
-    label: above
-    weight: 11
+    label: inline
+    weight: 10
     type: string
     settings:
       link_to_entity: false
@@ -122,7 +118,7 @@ content:
     region: top
   field_do_not_display_as_link:
     type: boolean
-    weight: 3
+    weight: 6
     region: top
     label: inline
     settings:
@@ -132,7 +128,7 @@ content:
     third_party_settings: {  }
   field_document_show_print:
     label: inline
-    weight: 16
+    weight: 14
     type: boolean
     settings:
       format: default
@@ -141,8 +137,8 @@ content:
     third_party_settings: {  }
     region: top
   field_documents_order_number:
-    label: above
-    weight: 10
+    label: inline
+    weight: 9
     type: string
     settings:
       link_to_entity: false
@@ -150,7 +146,7 @@ content:
     region: top
   field_event_computed_date:
     label: above
-    weight: 12
+    weight: 1
     type: datetime_default
     settings:
       format_type: medium
@@ -159,7 +155,7 @@ content:
     region: top
   field_event_sub_page:
     label: hidden
-    weight: 19
+    weight: 17
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -167,22 +163,24 @@ content:
     third_party_settings: {  }
     region: left
   field_event_theme:
-    type: entity_reference_rss_category
-    weight: 4
+    type: entity_reference_label
+    weight: 7
     region: top
     label: inline
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
   field_event_type:
-    type: entity_reference_rss_category
-    weight: 5
+    type: entity_reference_label
+    weight: 3
     region: top
     label: inline
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
   field_hide_documents_menu:
     label: above
-    weight: 14
+    weight: 12
     type: boolean
     settings:
       format: default
@@ -192,7 +190,7 @@ content:
     region: top
   field_hide_programs_menu:
     label: above
-    weight: 13
+    weight: 11
     type: boolean
     settings:
       format: default
@@ -202,7 +200,7 @@ content:
     region: top
   field_ipu_event_right_menu:
     label: above
-    weight: 9
+    weight: 8
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -211,7 +209,7 @@ content:
     region: top
   field_ipu_event_section:
     label: above
-    weight: 21
+    weight: 19
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -219,8 +217,8 @@ content:
     third_party_settings: {  }
     region: right
   field_ipu_event_session_type:
-    label: above
-    weight: 7
+    label: inline
+    weight: 4
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -229,7 +227,7 @@ content:
     region: top
   field_ipu_event_sessions:
     label: inline
-    weight: 8
+    weight: 5
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -238,7 +236,7 @@ content:
     region: top
   field_ipu_event_sponsors:
     label: inline
-    weight: 20
+    weight: 18
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -247,14 +245,14 @@ content:
     region: right
   field_location:
     label: inline
-    weight: 6
+    weight: 2
     type: address_default
     settings: {  }
     third_party_settings: {  }
     region: top
   field_programme_show_print:
     label: inline
-    weight: 17
+    weight: 15
     type: boolean
     settings:
       format: default
@@ -264,7 +262,7 @@ content:
     region: top
   field_sponsor:
     type: entity_reference_entity_view
-    weight: 22
+    weight: 20
     region: right
     label: inline
     settings:
@@ -273,7 +271,7 @@ content:
     third_party_settings: {  }
   field_summary:
     type: smart_trim
-    weight: 18
+    weight: 16
     region: left
     label: hidden
     settings:
@@ -290,31 +288,14 @@ content:
     third_party_settings: {  }
   field_twitter_order:
     label: above
-    weight: 15
+    weight: 13
     type: string
     settings:
       link_to_entity: false
     third_party_settings: {  }
     region: top
-  langcode:
-    type: language
-    weight: 2
-    region: top
-    label: inline
-    settings:
-      link_to_entity: false
-      native_language: false
-    third_party_settings: {  }
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h1
-      linked: false
-      classes: ''
-    weight: 0
-    label: above
-    third_party_settings: {  }
-    region: top
 hidden:
   comment_node_ipu_event: true
+  langcode: true
   links: true
+  title: true

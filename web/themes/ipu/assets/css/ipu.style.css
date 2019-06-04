@@ -15364,8 +15364,9 @@ h2, .sections__field-section-title {
 
 #topbar {
   background-color: #6c757d;
-  padding: 4px;
+  padding: 0 0 4px 0;
   font-size: 0.8rem;
+  /* Language switcher */
 }
 #topbar ul {
   margin-bottom: 0;
@@ -15421,6 +15422,25 @@ h2, .sections__field-section-title {
   font-weight: normal;
   line-height: 1;
   font-family: "Font Awesome 5 Brands";
+}
+#topbar .col-6.text-left .region-inner {
+  display: flex;
+  justify-content: flex-start;
+}
+#topbar .col-6.text-left .region-inner a {
+  padding: 0.25em;
+  display: block;
+}
+#topbar ul.cross-site-navigation {
+  white-space: nowrap;
+}
+#topbar .block--languagedropdownswitchercontent {
+  display: inline-block;
+  margin-left: 10px;
+}
+#topbar .block--languagedropdownswitchercontent .lang-dropdown-select-element {
+  font-size: 0.85rem;
+  border-radius: 0;
 }
 
 #branding img.logo {

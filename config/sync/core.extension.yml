@@ -95,6 +95,7 @@ module:
   ipu_map: 0
   ipu_tweaks: 0
   job_scheduler: 0
+  lang_dropdown: 0
   language: 0
   languagefield: 0
   layout_discovery: 0

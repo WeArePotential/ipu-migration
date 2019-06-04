@@ -20,17 +20,8 @@ targetEntityType: paragraph
 bundle: ipu_event_section
 mode: default
 content:
-  field_fc_original_reference:
-    weight: 5
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_ie_fc_button_links:
-    label: above
+    label: hidden
     weight: 2
     type: link
     settings:
@@ -42,14 +33,14 @@ content:
     third_party_settings: {  }
     region: content
   field_ie_fc_description:
-    label: above
+    label: hidden
     weight: 1
     type: text_default
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ie_fc_title:
-    label: above
+    label: hidden
     weight: 0
     type: string
     settings:
@@ -65,14 +56,7 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_original_fc_id:
-    weight: 4
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
 hidden:
   feeds_item: true
+  field_fc_original_reference: true
+  field_original_fc_id: true
