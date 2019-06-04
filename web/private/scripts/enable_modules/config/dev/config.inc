@@ -5,7 +5,7 @@
  *
  */  
 
-$config = array(
+/*$config = array(
     'admin_toolbar',
     'admin_toolbar_tools',
     'admin_toolbar_content_languages',
@@ -23,4 +23,4 @@ $config = array(
     'stage_file_proxy',
     'token',
     'update'
- );
+ );*/
