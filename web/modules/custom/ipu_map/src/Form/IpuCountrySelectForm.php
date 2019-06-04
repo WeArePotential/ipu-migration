@@ -21,14 +21,20 @@ class IpuCountrySelectForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $options = ['XX'=>t('All parliaments')];
     $country_terms = ipu_map_get_countries();
-    $i=0;
+    $i = 0;
+    $language =  \Drupal::languageManager()->getCurrentLanguage()->getId();
     foreach ($country_terms as $country_term) {
       //if ($i++ <2) print_r($country_term->get('field_iso_code')->getValue());
       if ($country_term->hasField('field_iso_code')) {
         if (!$country_term->get('field_iso_code')->isEmpty()) {
           $iso_code = $country_term->get('field_iso_code')
             ->getValue()[0]['value'];
-          $options[$iso_code] = $country_term->getName();
+          if ($language != 'en') {
+            $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($country_term, $language);
+            $options[$iso_code] = $translated_term->getName();
+          } else {
+            $options[$iso_code] = $country_term->getName();
+          }
         } else {
           // TODO: Decide what to do with countries which have no ISO code
           // $options[$i++] = $country_term->getName();

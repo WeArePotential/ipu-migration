@@ -4,7 +4,7 @@ ipu_map.content:
     _controller: '\Drupal\ipu_map\Controller\IpuMapController::content'
     _title: 'IPU Map demo page'
   requirements:
-    _permission: 'administer content'
+    _permission: 'access content'
 
 ipu_map.admin_form:
   path: '/admin/config/system/ipu_map'

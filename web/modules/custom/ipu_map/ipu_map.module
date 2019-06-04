@@ -24,12 +24,20 @@ function ipu_map_help($route_name, RouteMatchInterface $route_match) {
 function ipu_map_get_countries() {
   $config = \Drupal::config('ipu_map.settings');
   $vid = $config->get('vocabulary_id');
-  $language_id =  \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $language_id =  \Drupal::languageManager()->getCurrentLanguage('language_content')->getId();
+  $default_language_id = \Drupal::languageManager()->getDefaultLanguage()->getId();
   $vocab = \Drupal\taxonomy\Entity\Vocabulary::load($vid);
   $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
     'vid' => $vid,
-    'langcode' => $language_id
+    //'langcode' => $language_id, // This doesn't work for some reason
   ]);
+  if ($language_id != $default_language_id) {
+    foreach ($terms as &$term) {
+      if ($term->hasTranslation($language_id) ) {
+        $term = $term->getTranslation($language_id);
+      }
+    }
+  }
   return $terms;
 }
 
