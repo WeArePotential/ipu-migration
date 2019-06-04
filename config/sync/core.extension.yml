@@ -58,8 +58,6 @@ module:
   features: 0
   features_ui: 0
   feeds: 0
-  feeds_para_mapper: 0
-  feeds_tamper: 0
   field: 0
   field_collection: 0
   field_group: 0
@@ -151,7 +149,6 @@ module:
   smart_trim: 0
   stage_file_proxy: 0
   system: 0
-  tamper: 0
   taxonomy: 0
   taxonomy_manager: 0
   taxonomy_menu: 0
