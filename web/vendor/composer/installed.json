@@ -7949,18 +7949,12 @@
     },
     {
         "name": "drupal/radix",
-        "version": "4.3.0",
-        "version_normalized": "4.3.0.0",
+        "version": "dev-4.x",
+        "version_normalized": "dev-4.x",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/radix.git",
-            "reference": "8.x-4.3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/radix-8.x-4.3.zip",
-            "reference": "8.x-4.3",
-            "shasum": "7a649fb858548aa2831496e236af5cb145a21f9f"
+            "reference": "e1548d327215c0d23906954c8fc2510010cf6298"
         },
         "require": {
             "drupal/components": "^1.0",
@@ -7972,15 +7966,15 @@
                 "dev-4.x": "4.x-dev"
             },
             "drupal": {
-                "version": "8.x-4.3",
-                "datestamp": "1557122307",
+                "version": "8.x-4.3+0-dev",
+                "datestamp": "1556995385",
                 "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
+                    "status": "not-covered",
+                    "message": "Dev releases are not covered by Drupal security advisories."
                 }
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "notification-url": "https://packages.drupal.org/8/downloads",
         "license": [
             "GPL-2.0+"

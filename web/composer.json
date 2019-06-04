@@ -103,7 +103,7 @@
         "drupal/ultimenu": "^2.0",
         "drupal/csv_serialization": "^1.4",
         "drupal/views_bootstrap": "^4.1",
-        "drupal/radix": "^4.3",
+        "drupal/radix": "4.x-dev",
         "drupal/views_data_export": "^1.0@beta",
         "drupal/views_menu_children_filter": "^1.0@beta",
         "drupal/views_fieldsets": "^3.3",
