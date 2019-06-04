@@ -12,23 +12,13 @@ dependencies:
     - paragraphs.paragraphs_type.event_sub_page
   module:
     - entity_reference_revisions
-    - options
 id: paragraph.event_sub_page.default
 targetEntityType: paragraph
 bundle: event_sub_page
 mode: default
 content:
-  field_fc_original_reference:
-    weight: 5
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_ipu_event_section:
-    label: above
+    label: hidden
     weight: 1
     type: entity_reference_revisions_entity_view
     settings:
@@ -36,37 +26,16 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_order:
-    label: above
-    weight: 2
-    type: number_integer
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    region: content
-  field_original_fc_id:
-    weight: 4
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_sub_page_show_print:
-    label: above
-    weight: 3
-    type: list_default
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_title:
-    label: above
+    label: hidden
     weight: 0
     type: string
     settings:
       link_to_entity: false
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  field_fc_original_reference: true
+  field_order: true
+  field_original_fc_id: true
+  field_sub_page_show_print: true
