@@ -34,6 +34,7 @@ if ( isset($_ENV['PANTHEON_ENVIRONMENT']) ) {
 } else {
     $config['config_split.config_split.config_dev']['status'] = TRUE;
 }
+$config['config_split.config_split.config_dev']['status'] = FALSE;
 
 $settings['hash_salt'] = '2vJjs9vhxIaCGZu8QEqDeKpdc53kEMojdReSKTNs0ttIp7IRAlpcTZgr1B1OPxDLdtbZHDcKSE';
 
