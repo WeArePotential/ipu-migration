@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98319aa217f834739a3979e8e7c0e636",
+    "content-hash": "75269811910e5d8ac3a6575c0951348e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4730,119 +4730,6 @@
             }
         },
         {
-            "name": "drupal/feeds_para_mapper",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/feeds_para_mapper.git",
-                "reference": "5ca6dd0ce5672b42997168139e3e77f629f49196"
-            },
-            "require": {
-                "drupal/core": "~8",
-                "drupal/feeds": "~3.0",
-                "drupal/paragraphs": "~1.5"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1557643985",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "hussein-elhussein",
-                    "homepage": "https://www.drupal.org/user/3522231"
-                }
-            ],
-            "description": "Allows mapping to Paragraphs fields.",
-            "homepage": "https://www.drupal.org/project/feeds_para_mapper",
-            "support": {
-                "source": "https://git.drupalcode.org/project/feeds_para_mapper"
-            },
-            "time": "2019-05-12T07:34:30+00:00"
-        },
-        {
-            "name": "drupal/feeds_tamper",
-            "version": "dev-2.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/feeds_tamper.git",
-                "reference": "17a01118e9025127000d3b5798fb23738341742d"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/feeds": "~3.0",
-                "drupal/tamper": "~1.0"
-            },
-            "require-dev": {
-                "drupal/feeds": "3.x-dev"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.x-dev",
-                    "datestamp": "1545321780",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Bobík",
-                    "homepage": "https://www.drupal.org/user/123612"
-                },
-                {
-                    "name": "MegaChriz",
-                    "homepage": "https://www.drupal.org/user/654114"
-                },
-                {
-                    "name": "franz",
-                    "homepage": "https://www.drupal.org/user/581844"
-                },
-                {
-                    "name": "mausolos",
-                    "homepage": "https://www.drupal.org/user/642118"
-                },
-                {
-                    "name": "twistor",
-                    "homepage": "https://www.drupal.org/user/473738"
-                }
-            ],
-            "description": "Modify feeds data before it gets saved.",
-            "homepage": "http://drupal.org/project/feeds_tamper",
-            "keywords": [
-                "Drupal",
-                "feeds",
-                "tamper"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/feeds_tamper",
-                "issues": "http://drupal.org/project/issues/feeds_tamper"
-            },
-            "time": "2018-12-20T15:58:54+00:00"
-        },
-        {
             "name": "drupal/field_collection",
             "version": "1.0.0-alpha1",
             "source": {
@@ -8334,61 +8221,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/stage_file_proxy"
             }
-        },
-        {
-            "name": "drupal/tamper",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/tamper.git",
-                "reference": "333bb7611f69342315d52cabcb904e28f52ababb"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1552441088",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "MegaChriz",
-                    "homepage": "https://www.drupal.org/user/654114"
-                },
-                {
-                    "name": "ericgsmith",
-                    "homepage": "https://www.drupal.org/user/1649952"
-                },
-                {
-                    "name": "twistor",
-                    "homepage": "https://www.drupal.org/user/473738"
-                }
-            ],
-            "description": "Generic plugin to modify data.",
-            "homepage": "https://www.drupal.org/project/tamper",
-            "keywords": [
-                "Drupal",
-                "tamper"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/tamper",
-                "issues": "http://drupal.org/project/issues/tamper"
-            },
-            "time": "2019-03-13T01:36:47+00:00"
         },
         {
             "name": "drupal/taxonomy_manager",
@@ -15188,10 +15020,7 @@
         "drupal/entity_embed": 10,
         "drupal/convert_media_tags_to_markup": 10,
         "drupal/inline_entity_form": 5,
-        "drupal/feeds_tamper": 20,
-        "drupal/feeds_para_mapper": 20,
         "drupal/taxonomy_manager": 15,
-        "drupal/tamper": 20,
         "drupal/radix": 20,
         "drupal/views_data_export": 10,
         "drupal/views_menu_children_filter": 10,
