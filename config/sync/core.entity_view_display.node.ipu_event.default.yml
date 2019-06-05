@@ -32,7 +32,6 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - text
-    - title
     - user
 id: node.ipu_event.default
 targetEntityType: node
@@ -194,16 +193,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h1
-      linked: false
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
 hidden:
   field_do_not_display_as_link: true
   field_event_theme: true

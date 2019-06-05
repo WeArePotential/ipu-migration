@@ -74,10 +74,10 @@ third_party_settings:
             attributes: ''
     regions:
       top:
+        - field_event_type
         - node_title
         - field_event_computed_date
         - field_location
-        - field_event_type
         - field_ipu_event_session_type
         - field_ipu_event_sessions
         - field_do_not_display_as_link
@@ -100,7 +100,7 @@ third_party_settings:
     fields:
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
 id: node.ipu_event.full
@@ -145,8 +145,8 @@ content:
     third_party_settings: {  }
     region: top
   field_event_computed_date:
-    label: above
-    weight: 1
+    label: inline
+    weight: 2
     type: datetime_default
     settings:
       format_type: medium
@@ -172,7 +172,7 @@ content:
     third_party_settings: {  }
   field_event_type:
     type: entity_reference_label
-    weight: 3
+    weight: 0
     region: top
     label: inline
     settings:
@@ -245,7 +245,7 @@ content:
     region: right
   field_location:
     label: inline
-    weight: 2
+    weight: 3
     type: address_default
     settings: {  }
     third_party_settings: {  }
@@ -298,4 +298,3 @@ hidden:
   comment_node_ipu_event: true
   langcode: true
   links: true
-  title: true

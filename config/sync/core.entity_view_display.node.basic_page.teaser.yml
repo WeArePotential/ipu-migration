@@ -12,11 +12,55 @@ dependencies:
     - field.field.node.basic_page.field_related_content
     - field.field.node.basic_page.field_related_documents
     - field.field.node.basic_page.field_sections
+    - image.style.teaser
     - node.type.basic_page
   module:
-    - text
-    - title
+    - ds
+    - image
+    - smart_trim
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - node_title
+        - field_media_image
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 id: node.basic_page.teaser
 targetEntityType: node
 bundle: basic_page
@@ -25,32 +69,51 @@ content:
   body:
     label: hidden
     weight: 2
-    type: text_summary_or_trimmed
+    type: smart_trim
     settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  title:
-    type: linked_and_wrapped
+      trim_length: 40
+      trim_type: words
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_link: true
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_media_image:
+    type: image
+    weight: 1
+    region: main
+    label: hidden
     settings:
-      tag: h2
-      linked: true
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
+      image_style: teaser
+      image_link: content
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   comment_node_basic_page: true
   field_caption: true
   field_contact_ipu: true
-  field_media_image: true
   field_related_content: true
   field_related_documents: true
   field_sections: true
   langcode: true
+  links: true

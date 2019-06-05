@@ -13,7 +13,6 @@ dependencies:
     - entity_reference_revisions
     - responsive_image
     - text
-    - title
     - user
 third_party_settings:
   ds:
@@ -100,16 +99,6 @@ content:
       link: ''
     third_party_settings: {  }
     region: left
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h1
-      linked: false
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
 hidden:
   comment_node_page: true
   langcode: true

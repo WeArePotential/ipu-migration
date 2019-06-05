@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.section_page.field_media_image
     - field.field.node.section_page.field_sections
     - field.field.node.section_page.field_theme
+    - image.style.large
     - node.type.section_page
   module:
     - ds
@@ -57,6 +58,7 @@ third_party_settings:
     regions:
       top:
         - node_title
+        - field_theme
       left:
         - body
       right:
@@ -99,9 +101,16 @@ content:
     region: right
     label: hidden
     settings:
-      image_style: ''
+      image_style: large
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_sections:
     label: hidden
     weight: 3
@@ -118,9 +127,8 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
+    region: top
 hidden:
   comment_node_section_page: true
   langcode: true
   links: true
-  title: true

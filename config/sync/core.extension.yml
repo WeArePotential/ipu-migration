@@ -122,6 +122,7 @@ module:
   migrate_tools: 0
   migrate_upgrade: 0
   module_filter: 0
+  module_missing_message_fixer: 0
   node: 0
   options: 0
   override_node_options: 0

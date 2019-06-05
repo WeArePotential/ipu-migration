@@ -14,8 +14,49 @@ dependencies:
     - ds
     - image
     - text
-    - title
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          main:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      main:
+        - node_title
+        - field_media_image
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.highlight
@@ -37,11 +78,11 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    region: content
+    region: main
   field_media_image:
     type: image
-    weight: 0
-    region: content
+    weight: 1
+    region: main
     label: hidden
     settings:
       image_style: teaser
@@ -54,23 +95,6 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h2
-      linked: true
-      classes: ''
-    weight: 1
-    label: hidden
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    region: content
 hidden:
   comment_node_page: true
   field_sections: true

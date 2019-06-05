@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_article.default
     - field.field.node.article.body
     - field.field.node.article.comment_node_article
     - field.field.node.article.field_article_type
@@ -19,14 +18,77 @@ dependencies:
     - image.style.large
     - node.type.article
   module:
-    - comment
+    - ds
     - field_group
     - image
     - link
+    - responsive_image
     - text
-    - title
     - user
 third_party_settings:
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        layout:
+          wrapper: div
+          classes:
+            row: row
+          add_layout_class: 1
+          attributes: ''
+        regions:
+          top:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+          left:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          right:
+            wrapper: div
+            classes:
+              col-sm-6: col-sm-6
+            add_region_classes: 1
+            attributes: ''
+          bottom:
+            wrapper: div
+            classes:
+              col-sm-12: col-sm-12
+            add_region_classes: 1
+            attributes: ''
+    regions:
+      top:
+        - field_article_type
+        - node_title
+        - node_post_date
+      left:
+        - field_image
+        - body
+      right:
+        - field_media_image
+        - field_caption
+        - field_contact_ipu
+        - group_image
+        - field_country
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 2
+        label: hidden
+        formatter: ds_post_date_long
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
   field_group:
     group_image:
       children:
@@ -34,19 +96,19 @@ third_party_settings:
         - field_caption
       parent_name: ''
       weight: 6
-      label: image
+      format_type: html_element
       format_settings:
-        formatter: collapsible
-        description: ''
-        show_label: true
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
         label_element: h3
+        label_element_classes: ''
+        attributes: ''
         effect: none
         speed: fast
-        classes: 'group-image field-group-div'
-        id: ''
-        element: div
-      format_type: html_element
-      region: content
+      label: image
+      region: hidden
 _core:
   default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
 id: node.article.default
@@ -56,30 +118,29 @@ mode: default
 content:
   body:
     label: hidden
-    weight: 7
+    weight: 4
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
-  comment_node_article:
+    region: left
+  field_article_type:
+    type: entity_reference_label
+    weight: 0
+    region: top
     label: hidden
-    type: comment_default
-    weight: 20
     settings:
-      view_mode: default
-      pager_id: 0
+      link: true
     third_party_settings: {  }
-    region: content
   field_caption:
     label: hidden
-    weight: 22
+    weight: 5
     type: text_default
     settings: {  }
     third_party_settings: {  }
-    region: content
+    region: right
   field_contact_ipu:
     label: hidden
-    weight: 4
+    weight: 5
     type: link
     settings:
       trim_length: 80
@@ -88,51 +149,38 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    region: content
+    region: right
+  field_country:
+    type: entity_reference_label
+    weight: 7
+    region: right
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_image:
     type: image
-    weight: -1
-    region: content
+    weight: 3
+    region: left
     settings:
       image_style: large
       image_link: ''
     third_party_settings: {  }
     label: hidden
-  field_place_of_publication:
+  field_media_image:
+    type: responsive_image
+    weight: 4
+    region: right
     label: hidden
-    weight: 3
-    type: string
     settings:
-      link_to_entity: false
+      responsive_image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    region: content
-  field_tags:
-    type: entity_reference_label
-    weight: 10
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h1
-      linked: false
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
 hidden:
-  field_article_type: true
-  field_country: true
+  comment_node_article: true
   field_ipu_structure: true
-  field_media_image: true
+  field_place_of_publication: true
+  field_tags: true
   field_theme: true
   langcode: true
+  links: true

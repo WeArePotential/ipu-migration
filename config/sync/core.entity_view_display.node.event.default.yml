@@ -20,11 +20,45 @@ dependencies:
     - address
     - comment
     - datetime
+    - ds
     - file_entity
     - image
     - link
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: bs_2col_stacked
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes: {  }
+        wrappers:
+          top: div
+          left: div
+          right: div
+          bottom: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      top:
+        - field_document
+        - field_location
+        - field_event_date
+        - body
+        - field_event_type
+        - field_event_url
+        - field_media_image
+        - comment_node_event
+        - langcode
+        - field_country
+        - field_ipu_structure
+        - field_theme
+        - links
 id: node.event.default
 targetEntityType: node
 bundle: event
