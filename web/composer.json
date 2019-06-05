@@ -90,7 +90,6 @@
         "drupal/paragraphs": "^1.8",
         "drupal/geolocation": "^1.11",
         "drupal/inline_entity_form": "^1.0@RC",
-        "drupal/devel_php": "^1.0",
         "drupal/taxonomy_manager": "^1.0@alpha",
         "drupal/bootstrap_layouts": "^5.1",
         "drupal/components": "^1.1",

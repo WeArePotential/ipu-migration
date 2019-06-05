@@ -15,6 +15,7 @@ dependencies:
     - ds
     - image
     - smart_trim
+    - title
     - user
 id: node.section_page.highlight
 targetEntityType: node
