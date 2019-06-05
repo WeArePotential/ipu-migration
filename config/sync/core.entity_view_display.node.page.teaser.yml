@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
-    - field.field.node.page.comment_node_page
     - field.field.node.page.field_media_image
     - field.field.node.page.field_sections
     - image.style.teaser
@@ -107,7 +106,6 @@ content:
             lb-col: false
             classes: {  }
 hidden:
-  comment_node_page: true
   field_sections: true
   langcode: true
   links: true

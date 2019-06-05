@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_ipu_event.default
-    - field.field.node.ipu_event.comment_node_ipu_event
     - field.field.node.ipu_event.field_agenda_order_number
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
@@ -28,7 +26,6 @@ dependencies:
     - node.type.ipu_event
   module:
     - address
-    - comment
     - datetime
     - entity_reference_revisions
     - text
@@ -38,15 +35,6 @@ targetEntityType: node
 bundle: ipu_event
 mode: default
 content:
-  comment_node_ipu_event:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   field_agenda_order_number:
     label: above
     weight: 12

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
-    - field.field.node.article.comment_node_article
     - field.field.node.article.field_article_type
     - field.field.node.article.field_caption
     - field.field.node.article.field_contact_ipu
@@ -18,7 +17,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.article
   module:
-    - comment
     - entity_browser
     - field_group
     - field_layout
@@ -94,12 +92,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: content
-  comment_node_article:
-    type: comment_default
-    weight: 20
-    settings: {  }
     third_party_settings: {  }
     region: content
   created:

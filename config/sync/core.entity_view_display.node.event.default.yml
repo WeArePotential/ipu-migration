@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_event.default
     - field.field.node.event.body
-    - field.field.node.event.comment_node_event
     - field.field.node.event.field_country
     - field.field.node.event.field_document
     - field.field.node.event.field_event_date
@@ -18,7 +16,6 @@ dependencies:
     - node.type.event
   module:
     - address
-    - comment
     - datetime
     - ds
     - file_entity
@@ -69,15 +66,6 @@ content:
     weight: 3
     type: text_default
     settings: {  }
-    third_party_settings: {  }
-    region: content
-  comment_node_event:
-    label: hidden
-    type: comment_default
-    weight: 7
-    settings:
-      view_mode: default
-      pager_id: 0
     third_party_settings: {  }
     region: content
   field_country:

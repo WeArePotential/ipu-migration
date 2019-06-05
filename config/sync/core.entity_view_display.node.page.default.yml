@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.comment_node_page
     - field.field.node.page.field_media_image
     - field.field.node.page.field_sections
     - node.type.page
@@ -100,6 +99,5 @@ content:
     third_party_settings: {  }
     region: left
 hidden:
-  comment_node_page: true
   langcode: true
   links: true

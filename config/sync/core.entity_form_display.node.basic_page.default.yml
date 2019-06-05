@@ -5,7 +5,6 @@ dependencies:
   config:
     - entity_browser.browser.browse_files_modal
     - field.field.node.basic_page.body
-    - field.field.node.basic_page.comment_node_basic_page
     - field.field.node.basic_page.field_caption
     - field.field.node.basic_page.field_contact_ipu
     - field.field.node.basic_page.field_media_image
@@ -14,7 +13,6 @@ dependencies:
     - field.field.node.basic_page.field_sections
     - node.type.basic_page
   module:
-    - comment
     - ds
     - entity_browser
     - field_group
@@ -136,12 +134,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: ds_content
-  comment_node_basic_page:
-    type: comment_default
-    weight: 9
-    settings: {  }
     third_party_settings: {  }
     region: ds_content
   created:

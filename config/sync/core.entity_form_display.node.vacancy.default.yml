@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.vacancy.body
-    - field.field.node.vacancy.comment_node_vacancy
     - field.field.node.vacancy.field_contact_ipu
     - field.field.node.vacancy.field_deadline
     - field.field.node.vacancy.field_home_based
@@ -15,7 +14,6 @@ dependencies:
     - node.type.vacancy
   module:
     - address
-    - comment
     - datetime
     - field_group
     - field_layout
@@ -91,12 +89,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: content
-  comment_node_vacancy:
-    type: comment_default
-    weight: 20
-    settings: {  }
     third_party_settings: {  }
     region: content
   created:

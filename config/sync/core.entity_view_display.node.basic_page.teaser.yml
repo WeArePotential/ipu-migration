@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.basic_page.body
-    - field.field.node.basic_page.comment_node_basic_page
     - field.field.node.basic_page.field_caption
     - field.field.node.basic_page.field_contact_ipu
     - field.field.node.basic_page.field_media_image
@@ -109,7 +108,6 @@ content:
             lb-col: false
             classes: {  }
 hidden:
-  comment_node_basic_page: true
   field_caption: true
   field_contact_ipu: true
   field_related_content: true

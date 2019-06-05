@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
-    - field.field.node.article.comment_node_article
     - field.field.node.article.field_article_type
     - field.field.node.article.field_caption
     - field.field.node.article.field_contact_ipu
@@ -177,7 +176,6 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
-  comment_node_article: true
   field_ipu_structure: true
   field_place_of_publication: true
   field_tags: true

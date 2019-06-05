@@ -3,9 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_document.default
     - field.field.node.document.body
-    - field.field.node.document.comment_node_document
     - field.field.node.document.field_country
     - field.field.node.document.field_document_file
     - field.field.node.document.field_document_type
@@ -15,7 +13,6 @@ dependencies:
     - field.field.node.document.field_theme
     - node.type.document
   module:
-    - comment
     - file
     - image
     - link
@@ -31,15 +28,6 @@ content:
     weight: 1
     type: text_default
     settings: {  }
-    third_party_settings: {  }
-    region: content
-  comment_node_document:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
     third_party_settings: {  }
     region: content
   field_document_file:

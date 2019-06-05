@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.event.body
-    - field.field.node.event.comment_node_event
     - field.field.node.event.field_country
     - field.field.node.event.field_document
     - field.field.node.event.field_event_date
@@ -17,7 +16,6 @@ dependencies:
     - node.type.event
   module:
     - address
-    - comment
     - datetime
     - entity_browser
     - field_group
@@ -103,12 +101,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: content
-  comment_node_event:
-    type: comment_default
-    weight: 14
-    settings: {  }
     third_party_settings: {  }
     region: content
   created:

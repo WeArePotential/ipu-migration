@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.publication.body
-    - field.field.node.publication.comment_node_publication
     - field.field.node.publication.field_contact_ipu
     - field.field.node.publication.field_country
     - field.field.node.publication.field_ipu_structure
@@ -81,16 +80,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  title:
-    label: hidden
-    type: string
-    weight: 109
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
-  comment_node_publication: true
   field_contact_ipu: true
   field_country: true
   field_ipu_structure: true

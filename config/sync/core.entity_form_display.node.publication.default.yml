@@ -5,7 +5,6 @@ dependencies:
   config:
     - entity_browser.browser.browse_files_modal
     - field.field.node.publication.body
-    - field.field.node.publication.comment_node_publication
     - field.field.node.publication.field_contact_ipu
     - field.field.node.publication.field_country
     - field.field.node.publication.field_ipu_structure
@@ -17,7 +16,6 @@ dependencies:
     - field.field.node.publication.field_theme
     - node.type.publication
   module:
-    - comment
     - datetime
     - entity_browser
     - field_group
@@ -119,12 +117,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: content
-  comment_node_publication:
-    type: comment_default
-    weight: 12
-    settings: {  }
     third_party_settings: {  }
     region: content
   created:

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.section_page.body
-    - field.field.node.section_page.comment_node_section_page
     - field.field.node.section_page.field_media_image
     - field.field.node.section_page.field_sections
     - field.field.node.section_page.field_theme
@@ -129,6 +128,5 @@ content:
     type: entity_reference_label
     region: top
 hidden:
-  comment_node_section_page: true
   langcode: true
   links: true

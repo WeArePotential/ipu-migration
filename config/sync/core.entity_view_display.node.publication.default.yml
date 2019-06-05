@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.publication.body
-    - field.field.node.publication.comment_node_publication
     - field.field.node.publication.field_contact_ipu
     - field.field.node.publication.field_country
     - field.field.node.publication.field_ipu_structure
@@ -196,16 +195,7 @@ content:
       link_to_entity: false
       native_language: false
     third_party_settings: {  }
-  title:
-    label: hidden
-    type: string
-    weight: 56
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
-  comment_node_publication: true
   field_country: true
   field_ipu_structure: true
   field_theme: true

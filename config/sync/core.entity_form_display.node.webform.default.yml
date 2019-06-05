@@ -3,11 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.webform.comment_node_webform
     - field.field.node.webform.webform
     - node.type.webform
   module:
-    - comment
     - field_layout
     - layout_discovery
     - path
@@ -23,12 +21,6 @@ targetEntityType: node
 bundle: webform
 mode: default
 content:
-  comment_node_webform:
-    type: comment_default
-    weight: 20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 10

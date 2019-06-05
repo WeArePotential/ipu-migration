@@ -3,12 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_webform.default
-    - field.field.node.webform.comment_node_webform
     - field.field.node.webform.webform
     - node.type.webform
   module:
-    - comment
     - user
     - webform
 _core:
@@ -18,15 +15,6 @@ targetEntityType: node
 bundle: webform
 mode: default
 content:
-  comment_node_webform:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }

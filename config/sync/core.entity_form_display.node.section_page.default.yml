@@ -5,13 +5,11 @@ dependencies:
   config:
     - entity_browser.browser.browse_files_modal
     - field.field.node.section_page.body
-    - field.field.node.section_page.comment_node_section_page
     - field.field.node.section_page.field_media_image
     - field.field.node.section_page.field_sections
     - field.field.node.section_page.field_theme
     - node.type.section_page
   module:
-    - comment
     - entity_browser
     - field_group
     - field_layout
@@ -66,12 +64,6 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-    third_party_settings: {  }
-    region: content
-  comment_node_section_page:
-    type: comment_default
-    weight: 9
-    settings: {  }
     third_party_settings: {  }
     region: content
   created:

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ipu_event.comment_node_ipu_event
     - field.field.node.ipu_event.field_agenda_order_number
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
@@ -27,7 +26,6 @@ dependencies:
     - node.type.ipu_event
   module:
     - address
-    - comment
     - datetime
     - field_group
     - field_layout
@@ -147,12 +145,6 @@ targetEntityType: node
 bundle: ipu_event
 mode: default
 content:
-  comment_node_ipu_event:
-    type: comment_default
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 5

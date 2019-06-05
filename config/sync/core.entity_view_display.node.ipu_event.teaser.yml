@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.ipu_event.comment_node_ipu_event
     - field.field.node.ipu_event.field_agenda_order_number
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
@@ -93,7 +92,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  comment_node_ipu_event: true
   field_agenda_order_number: true
   field_do_not_display_as_link: true
   field_document_show_print: true
