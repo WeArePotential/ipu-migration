@@ -15688,3 +15688,7 @@ main {
 .paragraph--type--sections .sections__field-section-title {
   margin: 10px 0 6px 0;
 }
+
+.page__content .media img {
+  max-width: 100%;
+}

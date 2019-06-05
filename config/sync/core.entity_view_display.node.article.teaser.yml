@@ -57,16 +57,6 @@ content:
   links:
     weight: 100
     region: content
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h2
-      linked: true
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
 hidden:
   comment_node_article: true
   field_article_type: true

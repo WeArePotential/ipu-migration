@@ -42,7 +42,7 @@
         "drupal/features": "^3.8",
         "drupal/feeds": "^3.0@alpha",
         "drupal/field_collection": "^1.0@alpha",
-        "drupal/field_group": "3.0-beta1",
+        "drupal/field_group": "^3.0",
         "drupal/file_entity": "^2.0@beta",
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/flickr": "^1.0@alpha",

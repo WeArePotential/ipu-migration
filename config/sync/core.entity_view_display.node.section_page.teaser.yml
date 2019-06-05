@@ -30,18 +30,9 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  title:
-    type: linked_and_wrapped
-    settings:
-      tag: h2
-      linked: true
-      classes: ''
-    weight: -5
-    label: above
-    third_party_settings: {  }
-    region: content
 hidden:
   comment_node_section_page: true
   field_media_image: true
   field_sections: true
+  field_theme: true
   langcode: true

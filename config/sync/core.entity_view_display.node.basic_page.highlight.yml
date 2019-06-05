@@ -75,7 +75,7 @@ third_party_settings:
         formatter: default
         settings:
           link: true
-          wrapper: h2
+          wrapper: h3
           class: ''
         ft:
           id: default
@@ -118,19 +118,28 @@ content:
     type: smart_trim
     weight: 4
     region: main
-    label: above
+    label: hidden
     settings:
       trim_length: 600
       trim_type: chars
       trim_suffix: ''
-      wrap_output: false
       wrap_class: trimmed
-      more_link: false
-      more_class: more-link
       more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
       summary_handler: full
-      trim_options: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_media_image:
     type: image
     weight: 3
