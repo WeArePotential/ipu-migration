@@ -14,7 +14,6 @@
         "drupal/config_split": "^1.4",
         "drupal/admin_toolbar_content_languages": "^1.0@beta",
         "drupal/ctools": "^3.2",
-        "drupal/devel": "^2.1",
         "drupal/file_mdm": "^1.1",
         "drupal/imagemagick": "^2.4",
         "drupal/migrate_plus": "^4.1",
