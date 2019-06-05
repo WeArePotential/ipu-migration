@@ -43,7 +43,7 @@
         "drupal/features": "^3.8",
         "drupal/feeds": "^3.0@alpha",
         "drupal/field_collection": "^1.0@alpha",
-        "drupal/field_group": "3.x-dev",
+        "drupal/field_group": "3.0-beta1",
         "drupal/file_entity": "^2.0@beta",
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/flickr": "^1.0@alpha",
@@ -107,7 +107,8 @@
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/context_active_trail": "^1.0@RC",
         "drupal/admin_toolbar": "^1.26",
-        "drupal/lang_dropdown": "^2.0@beta"
+        "drupal/lang_dropdown": "^2.0@beta",
+        "drupal/module_missing_message_fixer": "^1.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
