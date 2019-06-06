@@ -343,3 +343,15 @@ main {
 .page__content .media img {
   max-width: 100%;
 }
+
+.node-readmore .nav-link {
+  border: 1px solid color("ipu-blue");
+  padding: 0px 4px;
+  border-radius: 1px;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.
