@@ -1,18 +1,17 @@
-uuid: 9f2d35b4-1d25-4f17-b3a3-315d10a07914
+uuid: e8ea39ca-14dc-49f4-afc7-e45781dfd5f7
 langcode: en
 status: true
 dependencies:
   module:
-    - date_all_day
+    - datetime_range
     - node
-id: node.field_event_dates
-field_name: field_event_dates
+id: node.field_ipu_event_dates
+field_name: field_ipu_event_dates
 entity_type: node
-type: daterange_all_day
+type: daterange
 settings:
   datetime_type: date
-  optional_end_date: 1
-module: date_all_day
+module: datetime_range
 locked: false
 cardinality: 1
 translatable: true

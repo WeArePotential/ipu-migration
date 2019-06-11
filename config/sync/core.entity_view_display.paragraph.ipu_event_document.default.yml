@@ -8,10 +8,12 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_event_document_title
     - field.field.paragraph.ipu_event_document.field_original_fc_id
     - field.field.paragraph.ipu_event_document.field_outcome
+    - field.field.paragraph.ipu_event_document.field_publication_language
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
     - file
+    - options
 id: paragraph.ipu_event_document.default
 targetEntityType: paragraph
 bundle: ipu_event_document
@@ -49,6 +51,13 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_publication_language:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_speech:
     label: hidden

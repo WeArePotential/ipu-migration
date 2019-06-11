@@ -106,7 +106,8 @@
         "drupal/context_active_trail": "^1.0@RC",
         "drupal/admin_toolbar": "^1.26",
         "drupal/lang_dropdown": "^2.0@beta",
-        "drupal/module_missing_message_fixer": "^1.0"
+        "drupal/module_missing_message_fixer": "^1.0",
+        "drupal/datetime_extras": "^1.0@alpha"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

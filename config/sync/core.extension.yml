@@ -39,6 +39,7 @@ module:
   date_all_day: 0
   date_popup: 0
   datetime: 0
+  datetime_extras: 0
   datetime_range: 0
   dblog: 0
   dropzonejs: 0

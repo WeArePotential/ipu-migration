@@ -9,12 +9,12 @@ dependencies:
     - field.field.node.ipu_event.field_document_show_print
     - field.field.node.ipu_event.field_documents_order_number
     - field.field.node.ipu_event.field_event_computed_date
-    - field.field.node.ipu_event.field_event_dates
     - field.field.node.ipu_event.field_event_sub_page
     - field.field.node.ipu_event.field_event_theme
     - field.field.node.ipu_event.field_event_type
     - field.field.node.ipu_event.field_hide_documents_menu
     - field.field.node.ipu_event.field_hide_programs_menu
+    - field.field.node.ipu_event.field_ipu_event_dates
     - field.field.node.ipu_event.field_ipu_event_right_menu
     - field.field.node.ipu_event.field_ipu_event_section
     - field.field.node.ipu_event.field_ipu_event_session_type
@@ -28,8 +28,8 @@ dependencies:
     - node.type.ipu_event
   module:
     - address
-    - date_all_day
     - datetime
+    - datetime_range
     - field_group
     - field_layout
     - layout_discovery
@@ -64,7 +64,7 @@ third_party_settings:
         - field_do_not_display_as_link
         - field_event_theme
         - field_location
-        - field_event_dates
+        - field_ipu_event_dates
         - field_date_accuracy
         - field_event_computed_date
         - field_summary
@@ -152,7 +152,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -165,7 +165,7 @@ content:
     third_party_settings: {  }
     region: content
   field_date_accuracy:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -193,16 +193,10 @@ content:
     third_party_settings: {  }
     region: content
   field_event_computed_date:
-    weight: 8
+    weight: 9
     type: datetime_default
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_event_dates:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: daterange_all_day
     region: content
   field_event_sub_page:
     type: entity_reference_paragraphs
@@ -241,6 +235,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+    region: content
+  field_ipu_event_dates:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
     region: content
   field_ipu_event_right_menu:
     type: entity_reference_paragraphs
@@ -322,7 +322,7 @@ content:
     third_party_settings: {  }
     region: content
   field_summary:
-    weight: 9
+    weight: 10
     type: text_textarea
     settings:
       rows: 3
@@ -346,7 +346,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -354,21 +354,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 9
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -380,13 +380,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -394,7 +394,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }

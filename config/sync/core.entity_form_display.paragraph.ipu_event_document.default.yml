@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_event_document_title
     - field.field.paragraph.ipu_event_document.field_original_fc_id
     - field.field.paragraph.ipu_event_document.field_outcome
+    - field.field.paragraph.ipu_event_document.field_publication_language
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
@@ -31,7 +32,7 @@ content:
     third_party_settings: {  }
     region: content
   field_event_document_description:
-    weight: 4
+    weight: 5
     type: string_textarea
     settings:
       rows: 3
@@ -47,21 +48,27 @@ content:
     third_party_settings: {  }
     region: content
   field_outcome:
-    weight: 3
+    weight: 4
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_speech:
+  field_publication_language:
     weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_speech:
+    weight: 3
     type: boolean_checkbox
     settings:
       display_label: true
     third_party_settings: {  }
     region: content
   translation:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

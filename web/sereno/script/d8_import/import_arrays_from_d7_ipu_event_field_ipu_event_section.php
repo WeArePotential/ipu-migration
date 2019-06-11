@@ -544,130 +544,61 @@ use Drupal\node\Entity\Node;
 
 
 $counter = 0;
+$fc_to_para_mapping = get_fc_to_para_mapping();
+//print_r($fc_to_para_mapping);
 
 foreach($d8_nodes as $node_id=>$new_paragraphs) {
 
-   # debug($node_id);
-  #  debug($new_paragraphs);
-  #  continue;
-
   $node = Node::load($node_id);
 
-  if (empty($node)) {
-    print_r("\rcontinuing ... ");
-    continue;
+  if (!empty($node)) {
+    print("\n - Process node $node_id \n");
+    $ns = $node->toArray();
+    print "\nNode has".print_r($ns['field_ipu_event_section'],true). "\n";
+
+    foreach ($new_paragraphs as $new_paragraph) {
+      $fc_id = $new_paragraph['field_ipu_event_document_widget'];
+      //print "\nWas " . $fc_id . " now is ";
+      $pid = $fc_to_para_mapping[$fc_id];
+      //print $pid . "\n";
+      //$paragraph->set('field_fc_session_type', $new_paragraph['field_fc_session_type']);
+      $p = entity_load('paragraph', $pid);
+      if (!empty($p)) {
+        $paras = $p->toArray();
+        //print_r($paras);
+        $revision_id = $paras['revision_id'][0]['value'];
+        $node->field_ipu_event_section[]= [
+            'target_id' => $pid,
+            'target_revision_id' => $revision_id
+        ];
+      }
+      $ns = $node->toArray();
+      print_r($ns['field_ipu_event_section']);
+      $node->save();
+      print("\n - saved node $node->id \n");
+    }
   }
-  else {
-    print_r("\rnode fine ...");
-  }
-
-
-$counter = 0;
-
-// now create the child and grandchild paragraphs
-  foreach($new_paragraphs as $new_paragraph) {
-
-#    print_r($new_paragraph);
-    $paragraph_ipu_event_document = '';
-
-
-      if (!empty($new_paragraph['field_event_document'])) { // create the grandchild
-        $paragraph_ipu_event_document = Paragraph::create(['type' => 'ipu_event_document',]);
-        print_r(' saving a file ');
-        print_r($new_paragraph['field_event_document']['fid']); // there's only one file, no need to loop
-        $file = file_load($new_paragraph['field_event_document']['fid']); // there's only one file, no need to loop
-        $paragraph_ipu_event_document->set('field_event_document', $file);
-
-        $paragraph_ipu_event_document->isNew();
-        $paragraph_ipu_event_document->save();
-      }
-      else {
-        print_r(' no document to save ');
-      }
-
-      // create child
-      $paragraph_ipu_event_document_widget = Paragraph::create(['type' => 'ipu_event_document_widget',]);
-
-      // attach grandchild to child
-      if(!empty($paragraph_ipu_event_document)) {
-        $paragraph_ipu_event_document_widget->field_ipu_event_document->appendItem($paragraph_ipu_event_document);
-      }
-
-      $paragraph_ipu_event_document_widget->isNew();
-      $paragraph_ipu_event_document_widget->save();
-
-
-      $paragraph = Paragraph::create(['type' => 'ipu_event_section',]);
-
-      $paragraph->field_ipu_event_document_widget->appendItem($paragraph_ipu_event_document_widget);
-
-      ### LONG TEXT TEMPLATE
-      if (!empty($new_paragraph['field_ie_fc_description'])) {
-        $paragraph->set('field_ie_fc_description', ['value' => htmlspecialchars_decode($new_paragraph['field_ie_fc_description']),'format'=>'full_html']);
-      }
-
-      $paragraph->isNew();
-      $paragraph->save();
-
-
-
-     ### TAXONOMY RELATION TEMPLATE
-//         if (!empty($new_paragraph['field_ipu_event_sponsor_name'])) {
-//            $paragraph->set('field_ipu_event_sponsor_name', $new_paragraph['field_ipu_event_sponsor_name']);
-//         }
-//         else {
-//           continue; // if no title, don't save...
-//         }
-
-     ### TEXT TEMPLATE
-     //    if (!empty($new_paragraph['field_fc_session_type_title'])) {
-     //      $paragraph->set('field_fc_session_type_title', ['value' => htmlspecialchars_decode($new_paragraph['field_fc_session_type_title'])]);
-     //    }
-     ////    else {
-     ////      continue; // if no title, don't save...
-     ////    }
-
-     ### BOOLEAN TEMPLATE
-     //    if (!empty($new_paragraph['field_fc_session_closed_session'])) {
-     //      $paragraph->set('field_fc_session_closed_session', ['value' => $new_paragraph['field_fc_session_closed_session']]);
-     //    }
-     //    else {
-     //      $paragraph->set('field_fc_session_closed_session', ['value' => 0]);
-     //    }
-
-     ### LINK TEMPLATE
-     //    if (!empty($new_paragraph['field_external_link'])) {
-     //      $paragraph->set('field_external_link',
-     //        ["uri" => htmlspecialchars_decode($new_paragraph['field_external_link']['uri']),
-     //          "title" => htmlspecialchars_decode($new_paragraph['field_external_link']['title']),
-     //        ]
-     //      );
-     //
-     //     # debug($new_paragraph['field_related_link']['title']);
-     //    }
-
-    ### LONG TEXT TEMPLATE
-     //    if (!empty($new_paragraph['field_event_document_description'])) {
-     //      $paragraph->set('field_event_document_description', ['value' => htmlspecialchars_decode($new_paragraph['field_event_document_description']),'format'=>'full_html']);
-     //    }
-
-     if(!empty($paragraph) && ! is_null($paragraph)) {
-
-       $node->{$node_field}->appendItem($paragraph);
-
-     }
-     //    if(!empty($node)) {
-     #      $node->set($node_field, []); // remove all paras from this node
-     #      $node->save();
-     //    }
-
-     $counter++;
-  }
-
-  print("\n - saved node $node->id \n");
-
-  $node->save();
 }
 
-
-print("\n - saved $counter paragraphs");
+function get_fc_to_para_mapping() {
+  $fc_to_para_mapping = [];
+  $pids = \Drupal::entityQuery('paragraph')
+    //->condition('id', 14190)
+    ->condition('type', ['ipu_event_section'], 'IN')
+    ->execute();
+  $paragraphs = entity_load_multiple('paragraph', $pids, TRUE);
+  foreach ($paragraphs as $pid => $paragraph) {
+    $paras = $paragraph->toArray();
+    $pid = $paras['id'][0]['value'];
+    foreach ($paras as $y => $field_fc_original_reference) {
+      if ($y == "field_fc_original_reference") {
+        //print "$y:\n". print_r($field_fc_original_reference, true)."\n";
+        foreach ($field_fc_original_reference as $target_fc_id) {
+          $fc_to_para_mapping[$target_fc_id['value']] = $pid;
+        }
+      }
+    }
+  }
+  print("We have " . count($fc_to_para_mapping) . " mappings\n");
+  return $fc_to_para_mapping;
+}

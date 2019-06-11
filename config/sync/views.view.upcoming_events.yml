@@ -1,18 +1,18 @@
 uuid: 421913d4-eb73-45ea-8b9d-6ce3755dda46
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_event_computed_date
-    - field.storage.node.field_event_dates
     - field.storage.node.field_event_theme
     - field.storage.node.field_event_type
+    - field.storage.node.field_ipu_event_dates
     - node.type.ipu_event
   module:
     - address
     - better_exposed_filters
-    - date_all_day
     - datetime
+    - datetime_range
     - node
     - user
 id: upcoming_events
@@ -91,15 +91,15 @@ display:
       row:
         type: fields
       fields:
-        title:
-          id: title
+        nid:
+          id: nid
           table: node_field_data
-          field: title
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -118,8 +118,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -140,9 +140,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: number_integer
           settings:
-            link_to_entity: true
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -154,7 +155,7 @@ display:
           separator: ', '
           field_api_classes: false
           entity_type: node
-          entity_field: title
+          entity_field: nid
           plugin_id: field
         field_event_type:
           id: field_event_type
@@ -219,10 +220,75 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_event_dates:
-          id: field_event_dates
-          table: node__field_event_dates
-          field: field_event_dates
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ title }}  ({{ nid }})'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_ipu_event_dates:
+          id: field_ipu_event_dates
+          table: node__field_ipu_event_dates
+          field: field_ipu_event_dates
           relationship: none
           group_type: group
           admin_label: ''
@@ -267,13 +333,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: daterange_all_day_default
+          click_sort_column: end_value
+          type: daterange_default
           settings:
             timezone_override: ''
-            format_type: html_date
+            format_type: date_all_day
             separator: '-'
-            date_only_format: date_all_day
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -336,69 +401,6 @@ display:
           click_sort_column: value
           type: null
           settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_event_computed_date:
-          id: field_event_computed_date
-          table: node__field_event_computed_date
-          field: field_event_computed_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_plain
-          settings:
-            timezone_override: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -667,10 +669,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_computed_date'
-        - 'config:field.storage.node.field_event_dates'
         - 'config:field.storage.node.field_event_theme'
         - 'config:field.storage.node.field_event_type'
+        - 'config:field.storage.node.field_ipu_event_dates'
   block_1:
     display_plugin: block
     id: block_1
@@ -687,10 +688,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_computed_date'
-        - 'config:field.storage.node.field_event_dates'
         - 'config:field.storage.node.field_event_theme'
         - 'config:field.storage.node.field_event_type'
+        - 'config:field.storage.node.field_ipu_event_dates'
   block_2:
     display_plugin: block
     id: block_2
@@ -1246,7 +1246,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_computed_date'
-        - 'config:field.storage.node.field_event_dates'
         - 'config:field.storage.node.field_event_theme'
         - 'config:field.storage.node.field_event_type'
+        - 'config:field.storage.node.field_ipu_event_dates'

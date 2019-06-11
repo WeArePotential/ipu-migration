@@ -2745,6 +2745,13 @@ foreach ($d8_nodes as $node_id => $dates) {
 
   if ($node = entity_load('node', $node_id)) {
 
+    $date['year'] = str_pad($date['year'], 4, '0', STR_PAD_LEFT);
+    $date['month'] = str_pad($date['month'], 2, '0', STR_PAD_LEFT);
+    $date['day'] = str_pad($date['day'], 2, '0', STR_PAD_LEFT);
+    $date['year_to'] = str_pad($date['year_to'], 4, '0', STR_PAD_LEFT);
+    $date['month_to'] = str_pad($date['month_to'], 2, '0', STR_PAD_LEFT);
+    $date['day_to'] = str_pad($date['day_to'], 2, '0', STR_PAD_LEFT);
+
     if ($granularity == 'year') {
       $value = $date['year'] . '-' . '01' . '-' . '01';
       $end_value = $date['year_to'] . '-' . '01' . '-' . '01';
@@ -2760,12 +2767,12 @@ foreach ($d8_nodes as $node_id => $dates) {
       }
     }
     //print $value.' - '.$end_value;
-    $node->set('field_event_dates', [
+    $node->set('field_ipu_event_dates', [
       [
         'value' => ($value),
         'end_value' => ($end_value),
-        'value_all_day' => TRUE,
-        'end_value_all_day' => TRUE
+        //'value_all_day' => TRUE,
+        //'end_value_all_day' => TRUE
       ]
     ]);
     $node->set('field_date_accuracy', $granularity);

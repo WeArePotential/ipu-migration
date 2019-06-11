@@ -40,10 +40,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  translation:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_fc_original_event_document: true
   field_fc_original_reference: true
   field_original_fc_id: true
   status: true
-  translation: true

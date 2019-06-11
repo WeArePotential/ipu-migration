@@ -8,7 +8,25 @@ dependencies:
   module:
     - custom_add_another
     - file
+    - filefield_paths
 third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: ''
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
@@ -19,14 +37,14 @@ bundle: ipu_event_document
 label: Document
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  description_field: false
   file_directory: ''
-  file_extensions: 'doc docx pdf'
+  file_extensions: 'doc docx pdf ppt pptx'
   max_filesize: ''
+  description_field: false
   handler: 'default:file'
   handler_settings: {  }
 field_type: file

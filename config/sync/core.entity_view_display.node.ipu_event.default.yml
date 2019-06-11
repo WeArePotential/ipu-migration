@@ -9,12 +9,12 @@ dependencies:
     - field.field.node.ipu_event.field_document_show_print
     - field.field.node.ipu_event.field_documents_order_number
     - field.field.node.ipu_event.field_event_computed_date
-    - field.field.node.ipu_event.field_event_dates
     - field.field.node.ipu_event.field_event_sub_page
     - field.field.node.ipu_event.field_event_theme
     - field.field.node.ipu_event.field_event_type
     - field.field.node.ipu_event.field_hide_documents_menu
     - field.field.node.ipu_event.field_hide_programs_menu
+    - field.field.node.ipu_event.field_ipu_event_dates
     - field.field.node.ipu_event.field_ipu_event_right_menu
     - field.field.node.ipu_event.field_ipu_event_section
     - field.field.node.ipu_event.field_ipu_event_session_type
@@ -28,8 +28,8 @@ dependencies:
     - node.type.ipu_event
   module:
     - address
-    - date_all_day
     - datetime
+    - datetime_range
     - entity_reference_revisions
     - options
     - text
@@ -81,17 +81,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     region: content
-  field_event_dates:
-    weight: 101
-    label: above
-    settings:
-      date_only_format: date_all_day
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: daterange_all_day_default
-    region: content
   field_event_sub_page:
     label: above
     weight: 4
@@ -120,6 +109,16 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+    region: content
+  field_ipu_event_dates:
+    weight: 103
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
     region: content
   field_ipu_event_right_menu:
     label: above
