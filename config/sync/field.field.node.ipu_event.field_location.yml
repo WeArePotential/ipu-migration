@@ -40,5 +40,7 @@ settings:
       override: optional
     dependentLocality:
       override: optional
+    administrativeArea:
+      override: optional
   fields: {  }
 field_type: address

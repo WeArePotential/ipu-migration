@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.ipu_event_sessions.field_fc_session_date
     - field.field.paragraph.ipu_event_sessions.field_fc_session_governing_body
     - field.field.paragraph.ipu_event_sessions.field_fc_session_room
-    - field.field.paragraph.ipu_event_sessions.field_fc_session_type
+    - field.field.paragraph.ipu_event_sessions.field_fc_session_types
     - field.field.paragraph.ipu_event_sessions.field_fc_sessions_closed_session
     - field.field.paragraph.ipu_event_sessions.field_fc_sessions_custom_label
     - field.field.paragraph.ipu_event_sessions.field_fc_sessions_description
@@ -16,10 +16,11 @@ dependencies:
     - field.field.paragraph.ipu_event_sessions.field_fc_sessions_session_title
     - field.field.paragraph.ipu_event_sessions.field_fc_sessions_theme
     - field.field.paragraph.ipu_event_sessions.field_ipu_event_document_widget
-    - field.field.paragraph.ipu_event_sessions.field_session_ends_date
+    - field.field.paragraph.ipu_event_sessions.field_ipu_event_session_dates
     - paragraphs.paragraphs_type.ipu_event_sessions
   module:
     - datetime
+    - datetime_range
     - entity_reference_revisions
     - options
 id: paragraph.ipu_event_sessions.default
@@ -53,12 +54,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     region: content
-  field_fc_session_type:
+  field_fc_session_types:
+    type: entity_reference_revisions_entity_view
+    weight: 16
     label: above
-    weight: 1
-    type: entity_reference_label
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
   field_fc_sessions_closed_session:
@@ -116,14 +118,15 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_session_ends_date:
-    weight: 13
+  field_ipu_event_session_dates:
+    weight: 15
     label: above
     settings:
+      separator: '-'
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: daterange_default
     region: content
 hidden:
   field_fc_session_governing_body: true

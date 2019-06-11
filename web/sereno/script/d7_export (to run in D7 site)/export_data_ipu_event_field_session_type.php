@@ -56,6 +56,7 @@ foreach ($result as $obj) {
         }
       }
     }
+    $output .= "\r" . '    "field_fc_original_id"=>'.$item['value'].',';
 
     if (isset($fc->field_fc_session_closed_session['und']['0']['value']) && $fc->field_fc_session_closed_session['und']['0']['value'] == 1) {
       $output .= "\r" . '    "field_fc_session_closed_session"=>1,';

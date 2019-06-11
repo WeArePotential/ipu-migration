@@ -6,6 +6,8 @@ $node_field = 'field_end_of_mandate';
 $result = db_query("SELECT nid FROM node WHERE type = :nodeType ", array(':nodeType'=>$node_type)); //<-- change 1
 
 $nids = array();
+$output = '';
+$tally = 0;
 
 $output.= '$ary_end_of_mandate=array(';
 
@@ -23,34 +25,35 @@ foreach ($result as $obj) {
   $node = node_load($nid);
   $items = field_get_items('node', $node, $node_field);
 
-//here items are having the entity id/itemid
+  //here items are having the entity id/itemid
   #print_r($item['from']['year']);
+  if (is_array($items)) {
+    foreach ($items as $item) {
 
-  foreach ($items as $item) {
+      $output .= "\r  " . '$d8_nodes[' . $nid . ']=array(';
 
-    $output .= "\r  " . '$d8_nodes[' . $nid . ']=array(';
+      if(!empty($item['timestamp'])) {
 
-    if(!empty($item['timestamp'])) {
+        $timestamp = strtotime($item['timestamp']);
+        $dt = date("Y-m-d\TH:i:s", $timestamp);
 
-      $timestamp = strtotime($item['timestamp']);
-      $dt = date("Y-m-d\TH:i:s", $timestamp);
+        $output .= "\r    \"timestamp\"=>\"" . $dt . "\",";
+      }
 
-      $output .= "\r    [\"timestamp\"]=\"" . $dt . "\",";
+      if(!empty($item['from']['year'])) {
+        $output .= "\r    \"year\"=>\"" . $item['from']['year'] . "\",";
+      }
+
+      if(!empty($item['from']['month'])) {
+        $output .= "\r    \"month\"=>\"" . $item['from']['month'] . "\",";
+      }
+
+      if(!empty($item['from']['day'])) {
+        $output .= "\r    \"day\"=>\"" . $item['from']['day'] . "\",";
+      }
+
+      $output .= "\r       );";
     }
-
-    if(!empty($item['from']['year'])) {
-      $output .= "\r    [\"year\"]=\"" . $item['from']['year'] . "\",";
-    }
-
-    if(!empty($item['from']['month'])) {
-      $output .= "\r    [\"month\"]=\"" . $item['from']['month'] . "\",";
-    }
-
-    if(!empty($item['from']['day'])) {
-      $output .= "\r    [\"day\"]=\"" . $item['from']['day'] . "\",";
-    }
-
-    $output .= "\r       );";
   }
 }
 
@@ -59,7 +62,7 @@ debug( $output );
 
 //print "IDs: " . implode("\n\r", $nids);
 print "\r\r";
-print $tally . ' NODES OF TYPE: ' . strtoupper($node_type);
+print $tally . ' NODES OF TYPE: ' . strtoupper(implode(',', $node_type));
 
 /*
 Array

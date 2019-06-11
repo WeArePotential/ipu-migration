@@ -6,12 +6,14 @@ dependencies:
     - field.field.node.committee_member.field_country_cm
     - field.field.node.committee_member.field_custom_date_range_text
     - field.field.node.committee_member.field_designation_cm
+    - field.field.node.committee_member.field_end_of_mandate
     - field.field.node.committee_member.field_parent_node_cm
     - field.field.node.committee_member.field_photo_cm
     - image.style.thumbnail
     - node.type.committee_member
   module:
     - address
+    - datetime
     - field_layout
     - image
     - layout_discovery
@@ -52,6 +54,12 @@ content:
       size: 150
       placeholder: ''
     third_party_settings: {  }
+    region: content
+  field_end_of_mandate:
+    weight: 121
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_parent_node_cm:
     weight: 10

@@ -1,17 +1,15 @@
-uuid: fde73bf1-7517-4e88-b7a8-bf2c72d6ef52
+uuid: ae73dc54-495c-4c24-a9d0-562652bc17cf
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - paragraphs
-id: paragraph.field_session_ends_date
-field_name: field_session_ends_date
+id: paragraph.field_outcome
+field_name: field_outcome
 entity_type: paragraph
-type: datetime
-settings:
-  datetime_type: datetime
-module: datetime
+type: boolean
+settings: {  }
+module: core
 locked: false
 cardinality: 1
 translatable: true

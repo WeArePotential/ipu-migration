@@ -1,0 +1,21 @@
+uuid: 9f2d35b4-1d25-4f17-b3a3-315d10a07914
+langcode: en
+status: true
+dependencies:
+  module:
+    - date_all_day
+    - node
+id: node.field_event_dates
+field_name: field_event_dates
+entity_type: node
+type: daterange_all_day
+settings:
+  datetime_type: date
+  optional_end_date: 1
+module: date_all_day
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

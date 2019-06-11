@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.ipu_event.field_agenda_order_number
+    - field.field.node.ipu_event.field_date_accuracy
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
     - field.field.node.ipu_event.field_documents_order_number
     - field.field.node.ipu_event.field_event_computed_date
+    - field.field.node.ipu_event.field_event_dates
     - field.field.node.ipu_event.field_event_sub_page
     - field.field.node.ipu_event.field_event_theme
     - field.field.node.ipu_event.field_event_type
@@ -26,8 +28,10 @@ dependencies:
     - node.type.ipu_event
   module:
     - address
+    - date_all_day
     - datetime
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.ipu_event.default
@@ -42,6 +46,13 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    region: content
+  field_date_accuracy:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_document_show_print:
     label: above
@@ -69,6 +80,17 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+    region: content
+  field_event_dates:
+    weight: 101
+    label: above
+    settings:
+      date_only_format: date_all_day
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_all_day_default
     region: content
   field_event_sub_page:
     label: above

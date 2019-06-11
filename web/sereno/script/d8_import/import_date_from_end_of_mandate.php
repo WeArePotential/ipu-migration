@@ -1,0 +1,1076 @@
+<?php
+
+
+$d8_nodes[8923] = [
+  "timestamp" => "2021-10-02T01:01:01",
+  "year" => "2021",
+  "month" => "10",
+];
+$d8_nodes[8924]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[8925]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[8926]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[8928]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8931]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8933]=array(
+  "timestamp"=>"2019-04-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"4",
+);
+$d8_nodes[8934]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[8935]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8938]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8939]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8940]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8941]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8942]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8946]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8948]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8949]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8950]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8951]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8954]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[8955]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8956]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8957]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8958]=array(
+  "timestamp"=>"2017-10-02T01:01:01",
+  "year"=>"2017",
+  "month"=>"10",
+);
+$d8_nodes[8959]=array(
+  "timestamp"=>"2017-10-02T01:01:01",
+  "year"=>"2017",
+  "month"=>"10",
+);
+$d8_nodes[8965]=array(
+  "timestamp"=>"2018-07-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"7",
+);
+$d8_nodes[8966]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8967]=array(
+  "timestamp"=>"2019-07-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"7",
+);
+$d8_nodes[8968]=array(
+  "timestamp"=>"2019-09-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"9",
+);
+$d8_nodes[8970]=array(
+  "timestamp"=>"2019-11-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"11",
+);
+$d8_nodes[8971]=array(
+  "timestamp"=>"2021-02-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"2",
+);
+$d8_nodes[8972]=array(
+  "timestamp"=>"2019-09-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"9",
+);
+$d8_nodes[8973]=array(
+  "timestamp"=>"2018-09-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"9",
+);
+$d8_nodes[8979]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8980]=array(
+  "timestamp"=>"2020-04-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"4",
+);
+$d8_nodes[8982]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[8987]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[8989]=array(
+  "timestamp"=>"2017-10-02T01:01:01",
+  "year"=>"2017",
+  "month"=>"10",
+);
+$d8_nodes[8990]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8991]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8992]=array(
+  "timestamp"=>"2021-04-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"4",
+);
+$d8_nodes[8993]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[8996]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8997]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8998]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[8999]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9000]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9001]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9002]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9003]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9004]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9005]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9006]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9007]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9008]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9010]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9011]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[9013]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9014]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9016]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9017]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9018]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9021]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9023]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9024]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9026]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9028]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9029]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9032]=array(
+  "timestamp"=>"2017-10-02T01:01:01",
+  "year"=>"2017",
+  "month"=>"10",
+);
+$d8_nodes[9034]=array(
+  "timestamp"=>"2022-04-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"4",
+);
+$d8_nodes[9035]=array(
+  "timestamp"=>"2022-04-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"4",
+);
+$d8_nodes[9036]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[9037]=array(
+  "timestamp"=>"2021-03-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"3",
+);
+$d8_nodes[9038]=array(
+  "timestamp"=>"2020-04-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"4",
+);
+$d8_nodes[9040]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9041]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9045]=array(
+  "timestamp"=>"2019-04-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"4",
+);
+$d8_nodes[9046]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9048]=array(
+  "timestamp"=>"2019-04-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"4",
+);
+$d8_nodes[9050]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9052]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9055]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9057]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9063]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9064]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9066]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9067]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9069]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9070]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9071]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9072]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9073]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9074]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9075]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9076]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9077]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9078]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9079]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9080]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9083]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9084]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9085]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9086]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9087]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9089]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9090]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9091]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9092]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9093]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9094]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9095]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9097]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9103]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9107]=array(
+  "timestamp"=>"2018-10-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"10",
+);
+$d8_nodes[9108]=array(
+  "timestamp"=>"2018-10-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"10",
+);
+$d8_nodes[9109]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9110]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9113]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9114]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9115]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9116]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9120]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9121]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9128]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9129]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9132]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9133]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9134]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9136]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9137]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[9138]=array(
+  "timestamp"=>"2018-03-02T01:01:01",
+  "year"=>"2018",
+  "month"=>"3",
+);
+$d8_nodes[9140]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9141]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9145]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[9146]=array(
+  "timestamp"=>"2019-10-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"10",
+);
+$d8_nodes[9147]=array(
+  "timestamp"=>"2021-10-02T01:01:01",
+  "year"=>"2021",
+  "month"=>"10",
+);
+$d8_nodes[9356]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9358]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9359]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9360]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9361]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9362]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9363]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9366]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9367]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9368]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9393]=array(
+  "timestamp"=>"2023-04-02T01:01:01",
+  "year"=>"2023",
+  "month"=>"4",
+);
+$d8_nodes[9399]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9400]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9401]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9402]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9403]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9404]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9405]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9407]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9409]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9410]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9411]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9412]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9413]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9414]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9415]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9416]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9418]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9419]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9420]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9426]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9427]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9428]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9429]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9430]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9431]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9432]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9433]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9434]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9435]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9440]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9441]=array(
+  "timestamp"=>"2019-03-02T01:01:01",
+  "year"=>"2019",
+  "month"=>"3",
+);
+$d8_nodes[9443]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9444]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9445]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9446]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9447]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9448]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9449]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9523]=array(
+  "timestamp"=>"2022-09-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"9",
+);
+$d8_nodes[9524]=array(
+  "timestamp"=>"2022-06-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"6",
+);
+$d8_nodes[9608]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9718]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9719]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9720]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9789]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9790]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9791]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9792]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+$d8_nodes[9796]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9797]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9798]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9799]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9800]=array(
+  "timestamp"=>"2020-10-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"10",
+);
+$d8_nodes[9801]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9802]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9803]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9804]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9807]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9808]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9809]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9810]=array(
+  "timestamp"=>"2022-10-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"10",
+);
+$d8_nodes[9811]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9812]=array(
+  "timestamp"=>"2022-03-02T01:01:01",
+  "year"=>"2022",
+  "month"=>"3",
+);
+$d8_nodes[9827]=array(
+  "timestamp"=>"2020-03-02T01:01:01",
+  "year"=>"2020",
+  "month"=>"3",
+);
+
+use Drupal\paragraphs\Entity\Paragraph;  // Don't forget to use a little Class...
+
+$counter = 0;
+
+foreach ($d8_nodes as $node_id => $date) {
+
+  $node = entity_load('node', $node_id);
+  $node->set('field_end_of_mandate', $date['year']. '-'. $date['month']. '-'. '01');
+  //$node->set('field_publication_document', []); // remove all paras from this node
+  $counter++;
+
+  $node->save();
+  print("\n - Updated node $node_id \n");
+
+}
+
+print("\n - Updated $counter nodes");

@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_event_document_description
     - field.field.paragraph.ipu_event_document.field_event_document_title
     - field.field.paragraph.ipu_event_document.field_original_fc_id
+    - field.field.paragraph.ipu_event_document.field_outcome
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
@@ -23,14 +24,14 @@ bundle: ipu_event_document
 mode: default
 content:
   field_event_document:
-    weight: 0
+    weight: 1
     type: file_generic
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     region: content
   field_event_document_description:
-    weight: 3
+    weight: 4
     type: string_textarea
     settings:
       rows: 3
@@ -38,12 +39,19 @@ content:
     third_party_settings: {  }
     region: content
   field_event_document_title:
-    weight: 1
+    weight: 0
     type: string_textfield
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
+  field_outcome:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_speech:
     weight: 2
@@ -53,7 +61,7 @@ content:
     third_party_settings: {  }
     region: content
   translation:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

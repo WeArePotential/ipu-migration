@@ -1,0 +1,26 @@
+uuid: b0aa4fae-a207-4702-8cd1-1d0f678c70cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_dates
+    - node.type.ipu_event
+  module:
+    - custom_add_another
+    - date_all_day
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.ipu_event.field_event_dates
+field_name: field_event_dates
+entity_type: node
+bundle: ipu_event
+label: 'Event Dates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange_all_day

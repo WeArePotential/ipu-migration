@@ -7,53 +7,58 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_event_document_description
     - field.field.paragraph.ipu_event_document.field_event_document_title
     - field.field.paragraph.ipu_event_document.field_original_fc_id
+    - field.field.paragraph.ipu_event_document.field_outcome
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
     - file
-    - options
 id: paragraph.ipu_event_document.default
 targetEntityType: paragraph
 bundle: ipu_event_document
 mode: default
 content:
   field_event_document:
-    label: above
-    weight: 0
+    label: hidden
+    weight: 1
     type: file_default
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
     region: content
   field_event_document_description:
-    label: above
+    label: hidden
     weight: 2
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_event_document_title:
-    label: above
-    weight: 1
+    label: hidden
+    weight: 0
     type: string
     settings:
       link_to_entity: false
     third_party_settings: {  }
     region: content
-  field_original_fc_id:
+  field_outcome:
     weight: 4
-    label: above
+    label: hidden
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: number_integer
+    type: boolean
     region: content
   field_speech:
-    label: above
+    label: hidden
     weight: 3
-    type: list_default
-    settings: {  }
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  field_original_fc_id: true
