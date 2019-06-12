@@ -11,8 +11,8 @@ dependencies:
     - entity_reference_revisions
 third_party_settings:
   custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
+    custom_add_another: 'Add session'
+    custom_remove: 'Remove session'
 id: node.ipu_event.field_ipu_event_sessions
 field_name: field_ipu_event_sessions
 entity_type: node

@@ -15,7 +15,7 @@ id: paragraph.ipu_event_document.field_outcome
 field_name: field_outcome
 entity_type: paragraph
 bundle: ipu_event_document
-label: 'Document uploaded is an Outcome document'
+label: 'Document uploaded is an outcome document'
 description: ''
 required: false
 translatable: false

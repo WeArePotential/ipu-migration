@@ -16,7 +16,7 @@ id: paragraph.ipu_event_document.field_publication_language
 field_name: field_publication_language
 entity_type: paragraph
 bundle: ipu_event_document
-label: 'Document Language'
+label: 'Document language'
 description: ''
 required: false
 translatable: false

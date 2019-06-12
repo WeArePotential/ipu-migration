@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: ipu_event_sessions
-label: 'Ipu event sessions'
+label: 'Event sessions'
 icon_uuid: null
 description: 'Migrated from field_collection field_ipu_event_sessions'
 behavior_plugins: {  }
