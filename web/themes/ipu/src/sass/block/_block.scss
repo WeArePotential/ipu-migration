@@ -147,6 +147,10 @@ h2, .sections__field-section-title {
         }
       }
     }
+    .ultimenu__item > a {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
   }
   .nav-item, .ultimenu__item {
     border-width: 0 0 0 1px;
@@ -156,6 +160,7 @@ h2, .sections__field-section-title {
     display: inline-block;
     &.active .nav-link {
       background-color: color("ipu-teal-light");
+      color: color("ipu-dark-grey");
       &:hover {
         background-color: color("ipu-teal");
         color: color("white");
@@ -166,20 +171,22 @@ h2, .sections__field-section-title {
       text-transform: uppercase;
       letter-spacing: 0.075em;
       color: color("ipu-grey");
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.8rem;
+
       &:hover {
         background-color: color("ipu-teal");
         color: color("white");
       }
+
       &.is-active {
         background-color: color("ipu-teal-light");
+
         &:hover {
           background-color: color("ipu-teal");
           color: color("white");
         }
       }
-
     }
     &:last-child {
       border-right-width: 1px;

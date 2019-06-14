@@ -15499,6 +15499,10 @@ h2, .sections__field-section-title {
   flex-wrap: nowrap;
   align-items: flex-start;
 }
+#main-nav .ultimenu .ultimenu__item > a {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
 #main-nav .nav-item, #main-nav .ultimenu__item {
   border-width: 0 0 0 1px;
   border-color: #cccccc;
@@ -15508,6 +15512,7 @@ h2, .sections__field-section-title {
 }
 #main-nav .nav-item.active .nav-link, #main-nav .ultimenu__item.active .nav-link {
   background-color: rgba(0, 168, 180, 0.3);
+  color: #333333;
 }
 #main-nav .nav-item.active .nav-link:hover, #main-nav .ultimenu__item.active .nav-link:hover {
   background-color: #00a8b4;
@@ -15518,7 +15523,7 @@ h2, .sections__field-section-title {
   text-transform: uppercase;
   letter-spacing: 0.075em;
   color: #747678;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.8rem;
 }
 #main-nav .nav-item .nav-link:hover, #main-nav .nav-item .ultimenu__link:hover, #main-nav .nav-item .dropdown-item:hover, #main-nav .ultimenu__item .nav-link:hover, #main-nav .ultimenu__item .ultimenu__link:hover, #main-nav .ultimenu__item .dropdown-item:hover {
