@@ -23,6 +23,12 @@ settings:
     -
       value: ar
       label: Arabic
+    -
+      value: ru
+      label: Russian
+    -
+      value: zh
+      label: Chinese
   allowed_values_function: ''
 module: options
 locked: false
