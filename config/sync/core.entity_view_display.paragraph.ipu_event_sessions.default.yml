@@ -22,24 +22,14 @@ dependencies:
     - datetime
     - datetime_range
     - entity_reference_revisions
-    - options
 id: paragraph.ipu_event_sessions.default
 targetEntityType: paragraph
 bundle: ipu_event_sessions
 mode: default
 content:
-  field_fc_original_reference:
-    weight: 14
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_fc_session_date:
-    label: above
-    weight: 5
+    label: inline
+    weight: 2
     type: datetime_default
     settings:
       format_type: medium
@@ -47,8 +37,8 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_session_room:
-    label: above
-    weight: 2
+    label: inline
+    weight: 6
     type: string
     settings:
       link_to_entity: false
@@ -56,7 +46,7 @@ content:
     region: content
   field_fc_session_types:
     type: entity_reference_revisions_entity_view
-    weight: 16
+    weight: 9
     label: above
     settings:
       view_mode: default
@@ -64,32 +54,38 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_closed_session:
-    label: above
-    weight: 4
-    type: list_default
-    settings: {  }
+    label: inline
+    weight: 5
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_fc_sessions_custom_label:
     label: above
-    weight: 12
+    weight: 8
     type: string
     settings:
       link_to_entity: false
     third_party_settings: {  }
     region: content
   field_fc_sessions_description:
-    label: above
-    weight: 9
+    label: hidden
+    weight: 1
     type: basic_string
     settings: {  }
     third_party_settings: {  }
     region: content
   field_fc_sessions_hide_time:
-    label: above
-    weight: 11
-    type: list_default
-    settings: {  }
+    label: inline
+    weight: 4
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_fc_sessions_session_order:
@@ -102,7 +98,7 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_sessions_session_title:
-    label: above
+    label: hidden
     weight: 0
     type: string
     settings:
@@ -111,7 +107,7 @@ content:
     region: content
   field_ipu_event_document_widget:
     label: above
-    weight: 6
+    weight: 7
     type: entity_reference_revisions_entity_view
     settings:
       view_mode: full
@@ -119,8 +115,8 @@ content:
     third_party_settings: {  }
     region: content
   field_ipu_event_session_dates:
-    weight: 15
-    label: above
+    weight: 3
+    label: inline
     settings:
       separator: '-'
       format_type: medium
@@ -129,5 +125,6 @@ content:
     type: daterange_default
     region: content
 hidden:
+  field_fc_original_reference: true
   field_fc_session_governing_body: true
   field_fc_sessions_theme: true

@@ -14,6 +14,10 @@ settings:
   uri_scheme: public
   default_image:
     uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
   target_type: file
   display_field: false
   display_default: false

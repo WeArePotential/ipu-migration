@@ -16,24 +16,6 @@ targetEntityType: paragraph
 bundle: ipu_event_document_widget
 mode: default
 content:
-  field_fc_original_event_document:
-    weight: 4
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_fc_original_reference:
-    weight: 3
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_ipu_event_document:
     label: above
     weight: 0
@@ -51,13 +33,7 @@ content:
       link: true
     third_party_settings: {  }
     region: content
-  field_original_fc_id:
-    weight: 2
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-hidden: {  }
+hidden:
+  field_fc_original_event_document: true
+  field_fc_original_reference: true
+  field_original_fc_id: true

@@ -166,7 +166,7 @@ content:
       field_widget_edit: true
       field_widget_remove: true
       selection_mode: selection_append
-      view_mode: default
+      view_mode: thumbnail
       field_widget_replace: false
       open: false
       preview_image_style: thumbnail

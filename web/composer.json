@@ -107,7 +107,8 @@
         "drupal/admin_toolbar": "^1.26",
         "drupal/lang_dropdown": "^2.0@beta",
         "drupal/module_missing_message_fixer": "^1.0",
-        "drupal/datetime_extras": "^1.0@alpha"
+        "drupal/datetime_extras": "^1.0@alpha",
+        "drupal/media_entity_browser": "^2.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
