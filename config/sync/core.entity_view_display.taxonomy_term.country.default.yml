@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.country.field_geopolitical_group
+    - field.field.taxonomy_term.country.field_human_rights_cases
     - field.field.taxonomy_term.country.field_ipu_member
     - field.field.taxonomy_term.country.field_iso_code
     - field.field.taxonomy_term.country.field_iso_code_for_parliament
     - field.field.taxonomy_term.country.field_principles_signatory
     - taxonomy.vocabulary.country
   module:
-    - options
     - text
 id: taxonomy_term.country.default
 targetEntityType: taxonomy_term
@@ -25,23 +25,35 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_geopolitical_group:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_human_rights_cases:
+    weight: 6
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_ipu_member:
-    label: above
-    weight: 0
-    type: list_default
-    settings: {  }
+    label: inline
+    weight: 1
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
     region: content
   field_iso_code:
-    label: above
-    weight: 1
+    label: inline
+    weight: 2
     type: string
     settings:
       link_to_entity: false
@@ -49,15 +61,15 @@ content:
     region: content
   field_iso_code_for_parliament:
     weight: 3
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_principles_signatory:
-    weight: 2
-    label: above
+    weight: 4
+    label: inline
     settings:
       format: default
       format_custom_false: ''
