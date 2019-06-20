@@ -15569,17 +15569,25 @@ main {
   font-size: 0.85rem;
 }
 
-.views-bootstrap-sub-content-block-1 .row .col-4 .sub-content {
-  background-color: #f99;
-  max-width: 25%;
+#views-bootstrap-sub-content-block-1 .row .sub-content > div {
+  background-color: #fff;
+  padding: 4px 6px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  height: 100%;
 }
-.views-bootstrap-sub-content-block-1 .row .col-4 .sub-content h2 {
+#views-bootstrap-sub-content-block-1 .row .sub-content > div h3 a {
   color: #00a8b4;
   margin-top: 2px;
   margin-bottom: 5px;
-  font-size: 1rem;
-  line-height: 1.1em;
   font-weight: 500;
+}
+#views-bootstrap-sub-content-block-1 .row .sub-content > div .img-thumbnail {
+  display: block;
+  padding: 0;
+  border-width: 0;
+  border-radius: 0;
+  max-width: calc(100% + 12px);
+  margin: 4px -6px;
 }
 
 .block--views-block--theme-list-block-1 .views-field-description__value,
@@ -15694,6 +15702,14 @@ main {
   margin: 10px 0 6px 0;
 }
 
+.ipu-event__field-event-sub-page .tab-pane {
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-width: 0px 1px 1px 1px;
+  box-shadow: #cccccc;
+}
+
+/* ipu event sessions */
 .page__content .media img {
   max-width: 100%;
   height: auto;
@@ -15707,4 +15723,10 @@ main {
 }
 .node-readmore .nav-link:hover {
   text-decoration: underline;
+}
+
+.ipu-map-country .ipu-map-flag img {
+  height: 80px;
+  width: auto;
+  margin-right: 10px;
 }

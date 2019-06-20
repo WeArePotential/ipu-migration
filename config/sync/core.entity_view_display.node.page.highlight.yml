@@ -17,26 +17,13 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: bs_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings:
-        layout:
-          wrapper: div
-          classes:
-            row: row
-          add_layout_class: 1
-          attributes: ''
-        regions:
-          main:
-            wrapper: div
-            classes:
-              col-sm-12: col-sm-12
-            add_region_classes: 1
-            attributes: ''
+      settings: {  }
     regions:
-      main:
+      content:
         - node_title
         - field_media_image
         - body
@@ -77,11 +64,11 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    region: main
+    region: content
   field_media_image:
     type: image
     weight: 1
-    region: main
+    region: content
     label: hidden
     settings:
       image_style: teaser

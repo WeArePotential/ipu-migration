@@ -12,7 +12,7 @@ dependencies:
     - field.field.paragraph.ipu_event_document.field_speech
     - paragraphs.paragraphs_type.ipu_event_document
   module:
-    - file
+    - ds
     - options
 id: paragraph.ipu_event_document.default
 targetEntityType: paragraph
@@ -22,10 +22,18 @@ content:
   field_event_document:
     label: hidden
     weight: 2
-    type: file_default
+    type: entity_reference_entity_view
     settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
+      view_mode: thumbnail
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     region: content
   field_event_document_description:
     label: hidden
@@ -46,10 +54,17 @@ content:
     weight: 5
     label: hidden
     settings:
-      format: default
+      format: custom
+      format_custom_true: '(Outcome document)'
       format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: boolean
     region: content
   field_publication_language:
@@ -64,10 +79,17 @@ content:
     weight: 4
     type: boolean
     settings:
-      format: default
+      format: custom
+      format_custom_true: (Speech)
       format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     region: content
 hidden:
   field_original_fc_id: true

@@ -56,7 +56,13 @@ third_party_settings:
         plugin_id: node_post_date
         weight: 4
         label: hidden
-        formatter: ds_post_date_short
+        formatter: ds_post_date_short_date_only
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
       node_title:
         plugin_id: node_title
         weight: 1

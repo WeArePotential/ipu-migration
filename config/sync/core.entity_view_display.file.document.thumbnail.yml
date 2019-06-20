@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.file.thumbnail
     - file_entity.type.document
+  module:
+    - ds
+    - file
 _core:
   default_config_hash: zlB0VonOjJywsH9sIrMlYt9bIpPdi3QysmBkBUaV1YY
 id: file.document.thumbnail
@@ -13,11 +16,18 @@ bundle: document
 mode: thumbnail
 content:
   filename:
-    type: string
+    type: file_link
     weight: 0
     settings:
-      link_to_entity: false
-    third_party_settings: {  }
+      link_to_file: true
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     label: hidden
     region: content
 hidden:

@@ -50,12 +50,14 @@ function ipu_map_get_countries() {
   return $terms;
 }
 
-function ipu_map_get_parline_data($isocode, $membership_status) {
+function ipu_map_get_country_page() {
+
+}
+function ipu_map_get_parline_data($isocode, $membership_status, $principles_signatory, $human_rights_cases) {
 
   $parline_url = 'https://data.ipu.org/api/node.json?type=country&field_country_data=' . $isocode;
   $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
-  \Drupal::messenger()
-    ->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+  // \Drupal::messenger()->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -95,16 +97,27 @@ function ipu_map_get_parline_data($isocode, $membership_status) {
         'current_women_percent' =>$chamber->current_women_percent,
         'total_younger_45_percentage' => $chamber->total_younger_45_percentage,
         'struct_parl_status' => $chamber->field_struct_parl_status->id,
-        'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? 'Upper' : 'Lower'),
+        'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower')),
         );
     }
   }
   curl_close($ch);
 
-  $element['#theme'] = 'ipu-map-parline-data';
-  $element['#membership_status'] = ($membership_status ? 'IPU member' : 'Non-IPU member');
-  $element['#parliamentary_name'] = array_unique($element['#parliamentary_name']);
+  $element['#membership_status'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
+  $element['#principles_signatory'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
+  $element['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
 
+  $element['#parliamentary_name'] = array_unique($element['#parliamentary_name']);
+  $element['#theme'] = 'ipu-map-parline-data';
+
+  return $element;
+}
+
+function ipu_map_get_flag($isocode) {
+  $flag_url = ipu_map_get_flag_url($isocode);
+  $element = [];
+  $element['#flag_url'] = $flag_url;
+  $element['#theme'] = 'ipu-map-flag';
   return $element;
 }
 
@@ -116,7 +129,7 @@ function ipu_map_get_data() {
 }
 
 /* Get a flag image url from ISO code */
-function ipu_map_get_flag($isocode) {
+function ipu_map_get_flag_url($isocode) {
   $geonames_url = 'https://img.geonames.org/flags/x/' . trim(strtolower($isocode)) . '.gif';
   return $geonames_url;
 
@@ -133,8 +146,27 @@ function ipu_map_theme($existing, $type, $theme, $path) {
         'members_per_country' => '',
         'structure_of_parliament' => '',
         'membership_status' => '',
+        'human_rights_cases' => '',
+        'principles_signatory' => '',
         'chambers' => '',
+        'flag' => '',
+      ),
+    ),
+    'ipu-map-flag' => array(
+      'template' => 'ipu-map-flag',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'flag_url' => '',
+      ),
+    ),
+    'ipu-map-country' => array(
+      'template' => 'ipu-map-country',
+      'render element' => 'build',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'content' => '',
       ),
     ),
   );
 }
+

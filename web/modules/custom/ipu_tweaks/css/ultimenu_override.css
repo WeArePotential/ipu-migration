@@ -1,0 +1,16 @@
+/* Override some Ultimenu CSS to remove the :hover functionality and use click instead.
+ * @see /themes/basic/js/ultimenu-override.js
+*/
+
+.ultimenu li.hover > .ultimenu__flyout,
+.ultimenu li:hover > .ultimenu__flyout {
+  display: inherit;
+  margin-top: inherit;
+  opacity: 0;
+  visibility: hidden;
+}
+.ultimenu--htb li.hover > .ultimenu__flyout,
+.ultimenu--htb li:hover > .ultimenu__flyout {
+  -webkit-transform: none;
+  transform: none;
+}

@@ -55,23 +55,32 @@ class IpuMapController extends ControllerBase {
 
     $country = $this->getCountryTerm($iso_code);
     // TODO: Remove styling and add to css. This will mean we can remove the use of #children
-    $flag = '<img style="height: 50px; width: auto; position:absolute; right: 0; top: 0;" src="' . ipu_map_get_flag($iso_code) . '" />';
-    $markup = Markup::create($flag);
-    $content = ipu_map_get_parline_data($iso_code, $this->getMembershipStatus());
-    $markup .= \Drupal::service('renderer')->render($content);
-
-    $content = [
-      '#type' => 'markup',
-      '#children' => $markup,
-      '#title' => $this->title,
+    $markup = '';
+    $flag = ipu_map_get_flag($iso_code);
+    //$flag_markup = Markup::create($flag);
+    $flag_markup = \Drupal::service('renderer')->render($flag);
+    $data = ipu_map_get_parline_data($iso_code, $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases());
+    // This is done in the theming: $markup .= \Drupal::service('renderer')->render($content);
+    $page = [
+      '#theme' => 'ipu-map-country',
+      '#content' => [
+        'title' => $this->title,
+        'flag' => $flag,
+        'parline_data'=> $data,
+        ],
     ];
-    return $content;
+    return $page;
   }
 
   public function getMembershipStatus() {
     return $this->member;
   }
-
+  public function getPrinciplesSignatoryStatus() {
+    return $this->principlessignatory;
+  }
+  public function getHumanRightsCases() {
+  return $this->humanrightscases;
+}
   public function getCountryTitle( $iso_code) {
     // This will set the breadcrumb and html page title. The content title is set
     // in the #title of the content
@@ -99,6 +108,9 @@ class IpuMapController extends ControllerBase {
     }
     if ($country) {
       $this->member = $country->field_ipu_member->value;
+      $this->principlessignatory = $country->field_principles_signatory->value;
+      $this->humanrightscases = $country->field_human_rights_cases->value;
+
       $this->title = $country->name->value;
       return $country;
     } else {

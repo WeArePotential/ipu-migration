@@ -10,6 +10,8 @@
  * @ingroup themeable
  */
 #}
+
+
 <div class="ipu-map-parline-data">
     <ul class=".list-inline" style="padding: 0;">
         <li class="list-inline-item">{{ population_in_millions }} million people</li>
@@ -17,16 +19,34 @@
         <li class="list-inline-item">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})
         </li>
         <li class="list-inline-item">{{ membership_status }}</li>
-
     </ul>
 </div>
 
-<div class="ipu-map-parline-data"><h2>Data points:</h2>
-    <ul class=".list-inline" style="padding: 0;">
+<div class="ipu-map-parline-data">
+    <h2>Data points:</h2>
+    <div class="container-fluid">
         {% for chamber in chambers %}
-            <li class="list-inline-item"><strong>{{ chamber.parliament_house }} chamber: </strong></li>
-            <li class="list-inline-item">{{ chamber.current_women_percent }}% are women</li>
-            <li class="list-inline-item">{{ chamber.total_younger_45_percentage }}% of MPs are under 45</li>
+        <div class="row">
+            <div class="col-md-3">
+                <strong>{{ chamber.parliament_house }} chamber: </strong>
+            </div>
+            <div class="col-md-3">
+                <div class="data-point-title">Women in Parliament</div>
+                <strong>{{ chamber.current_women_percent }}%</strong> are women
+                <a href="">Our work on Gender</a>
+            </div>
+            <div class="col-md-3">
+                <div class="data-point-title">Youth Participation</div>
+                <div><strong>{{ chamber.total_younger_45_percentage }}% </strong> of MPs are under 45</div>
+                <a href="">Our work on Youth</a>
+            </div>
+            <div class="col-md-3">
+                <div class="data-point-title">Human Rights</div>
+                <div><strong>{{ human_rights_cases }}% </strong> current cases</div>
+                <a href="">Our work on Human Rights of MPs</a>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
+
