@@ -53,11 +53,11 @@ function ipu_map_get_countries() {
 function ipu_map_get_country_page() {
 
 }
-function ipu_map_get_parline_data($isocode, $membership_status, $principles_signatory, $human_rights_cases) {
+function ipu_map_get_parline_data($isocode, $description, $membership_status, $principles_signatory, $human_rights_cases) {
 
   $parline_url = 'https://data.ipu.org/api/node.json?type=country&field_country_data=' . $isocode;
   $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
-  // \Drupal::messenger()->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+  //\Drupal::messenger()->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -68,17 +68,23 @@ function ipu_map_get_parline_data($isocode, $membership_status, $principles_sign
   $decoded = json_decode($result);
   $element = [];
   $chamber_nids = [];
+  $element['#parliamentary_name'] = array();
+  if (sizeof($decoded->list) == 0) {
+    \Drupal::messenger()->addStatus(t('No data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+  }
   foreach ($decoded->list as $chamber) {
     // TODO Multilingual
     // TODO Add fields from https://data.ipu.org/node/53/basic-information/contact-details?chamber_id=13379
     if ($chamber->language == 'en') {
-      //print '<pre>'.print_r($chamber,TRUE).'</pre>';
+      // print '<pre>'.print_r($chamber,TRUE).'</pre>';
+
+      $element['#url'] = $chamber->url;
       // Some fields are common across languages...as they are non-lang specific.
       $element['#population_in_millions'] = number_format(round($chamber->field_population_in_thousands / 1000, 4), 2, '.', '');
       $element['#members_per_country'] = $chamber->members_per_country;
       // Some have multiple values and so are passed as an arrey
       $element['#structure_of_parliament'] = $chamber->field_structure_of_parliament;
-      $element['#parliamentary_name'][] = $chamber->parliamentary_name;
+      $element['#parliamentary_name'][] = ($chamber->parliamentary_name ? $chamber->parliamentary_name : 'Name of parliament not available');
       $chamber_nids[] = $chamber->nid;
     }
   }
@@ -92,25 +98,64 @@ function ipu_map_get_parline_data($isocode, $membership_status, $principles_sign
     curl_setopt($ch, CURLOPT_URL, $chamber_url);
     $result = curl_exec($ch);
     $decoded = json_decode($result);
+    $link = Link::fromTextAndUrl($parline_url, Url::fromUri($chamber_url));
+    //\Drupal::messenger()->addStatus(t('Secondary Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+    $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
+
+
+    
     foreach ($decoded->list as $chamber) {
+
+      // TODO: Forbidden, cannot use
+      /* $gen_sec_id = $chamber->field_general_secretary->id;
+      e.g. 3162.
+      $gen_sec_url = 'https://data.ipu.org/api/field_collection_item.json?item_id=' . $gen_sec_id;
+      curl_setopt($ch, CURLOPT_URL, $gen_sec_url);
+      */
+
       $element['#chambers'][] = array(
         'current_women_percent' =>$chamber->current_women_percent,
         'total_younger_45_percentage' => $chamber->total_younger_45_percentage,
         'struct_parl_status' => $chamber->field_struct_parl_status->id,
-        'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower')),
-        );
-    }
+        'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower'))
+      );
+    };
   }
   curl_close($ch);
 
   $element['#membership_status'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
   $element['#principles_signatory'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
   $element['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
+  $element['#description'] = $description;
 
   $element['#parliamentary_name'] = array_unique($element['#parliamentary_name']);
   $element['#theme'] = 'ipu-map-parline-data';
 
   return $element;
+}
+
+function ipu_map_get_country_news($country_term_id) {
+  // Uses an in-built view. We use the pre_reneder below to change the sort order here.
+  return views_embed_view('articles', 'latest_4_news_pr_country', $country_term_id);
+}
+
+function ipu_map_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  // Change the order of the news items; show the features first, if there are any, in the last 4 items.
+  if ($view->id() == 'articles') {
+    if ($view->current_display == 'latest_4_news_pr_country') {
+      $sorted_view = [];
+      foreach ($view->result as $key => $result) {
+        //print_r($result->_entity->toArray());
+        $type = $result->_entity->get('field_article_type')->entity->name->value;
+        $type .= $result->_entity->get('created')->value;
+        $sorted_view[$type] = $result;
+      }
+
+      krsort($sorted_view);
+      $view->result = $sorted_view; //$update_view;
+    }
+    //return $view;
+  }
 }
 
 function ipu_map_get_flag($isocode) {
@@ -148,8 +193,10 @@ function ipu_map_theme($existing, $type, $theme, $path) {
         'membership_status' => '',
         'human_rights_cases' => '',
         'principles_signatory' => '',
+        'description' => '',
         'chambers' => '',
         'flag' => '',
+        'url' => '',
       ),
     ),
     'ipu-map-flag' => array(

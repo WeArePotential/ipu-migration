@@ -18,7 +18,9 @@ function ipu_tweaks_page_attachments(array &$attachments) {
   /* Override ultimenu as per https://www.drupal.org/project/ultimenu/issues/2682125
    * Tweak the js to target the relevant menu
   */
-  $attachments['#attached']['library'][] = 'ipu_tweaks/ultimenu-override';
+  if ($theme == 'ipu') {
+    $attachments['#attached']['library'][] = 'ipu_tweaks/ultimenu-override';
+  }
 }
 
 function ipu_tweaks_preprocess_paragraph(&$variables) {

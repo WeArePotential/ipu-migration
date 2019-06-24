@@ -59,6 +59,27 @@ class SettingsForm extends ConfigFormBase {
       '#required' => TRUE,
       ];
 
+    $form['ipu_map_average_percent_women'] = [
+      '#type' => 'number',
+      '#min' => 0,
+      '#max' => 100,
+      '#size' => 6,
+      '#step' => 'any',
+      '#title' => $this->t('Global average women in parliament (%).'),
+      '#default_value' => $config->get('ipu_map_average_percent_women', 100),
+      '#required' => TRUE,
+    ];
+
+    $form['ipu_map_average_percent_under45'] = [
+      '#type' => 'number',
+      '#min' => 0,
+      '#max' => 100,
+      '#size' => 6,
+      '#step' => 'any',
+      '#title' => $this->t('Global average MPs under 35 (%).'),
+      '#default_value' => $config->get('ipu_map_average_percent_under45', 0),
+      '#required' => TRUE,
+    ];
     /*$ipu_map_origin_dir = $config->get('origin_dir');
     if (!$ipu_map_origin_dir) {
       $ipu_map_origin_dir = $config->get('file_public_path');
@@ -118,6 +139,8 @@ class SettingsForm extends ConfigFormBase {
     $keys = [
       'vocabulary_id',
       'ipu_map_parliaments_page',
+      'ipu_map_average_percent_under45',
+      'ipu_map_average_percent_women',
     ];
     foreach ($keys as $key) {
       $config->set($key, $form_state->getValue($key));

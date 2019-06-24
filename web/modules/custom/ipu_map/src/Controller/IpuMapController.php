@@ -3,6 +3,7 @@
 namespace Drupal\ipu_map\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Lock\NullLockBackend;
 use Drupal\views\Views;
 use Drupal\Core\Render\Markup;
 
@@ -54,19 +55,34 @@ class IpuMapController extends ControllerBase {
   public function countryContent($iso_code) {
 
     $country = $this->getCountryTerm($iso_code);
+    if ($country == Null) {
+      throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+    }
     // TODO: Remove styling and add to css. This will mean we can remove the use of #children
     $markup = '';
     $flag = ipu_map_get_flag($iso_code);
     //$flag_markup = Markup::create($flag);
     $flag_markup = \Drupal::service('renderer')->render($flag);
-    $data = ipu_map_get_parline_data($iso_code, $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases());
+
+    if (!empty($country->field_iso_code_for_parliament->value)) {
+      $parliament_iso_code = $country->get('field_iso_code_for_parliament')->value;
+    }
+    else {
+      $parliament_iso_code = $iso_code;
+    }
+    $data = ipu_map_get_parline_data($parliament_iso_code, $this->getDescription(), $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases());
+
+    // Get a view with news and stories
+    $news_block = ipu_map_get_country_news($country->get('tid')->value);
+
     // This is done in the theming: $markup .= \Drupal::service('renderer')->render($content);
     $page = [
       '#theme' => 'ipu-map-country',
       '#content' => [
         'title' => $this->title,
         'flag' => $flag,
-        'parline_data'=> $data,
+        'parline_data' => $data,
+        'news_and_stories' => $news_block,
         ],
     ];
     return $page;
@@ -79,8 +95,11 @@ class IpuMapController extends ControllerBase {
     return $this->principlessignatory;
   }
   public function getHumanRightsCases() {
-  return $this->humanrightscases;
-}
+    return $this->humanrightscases;
+  }
+  public function getDescription() {
+    return $this->description;
+  }
   public function getCountryTitle( $iso_code) {
     // This will set the breadcrumb and html page title. The content title is set
     // in the #title of the content
@@ -110,11 +129,13 @@ class IpuMapController extends ControllerBase {
       $this->member = $country->field_ipu_member->value;
       $this->principlessignatory = $country->field_principles_signatory->value;
       $this->humanrightscases = $country->field_human_rights_cases->value;
+      $this->description = $country->description->value;
 
       $this->title = $country->name->value;
       return $country;
     } else {
       $this->title = 'No country found for '.$iso_code;
+      return Null;
     }
   }
 }

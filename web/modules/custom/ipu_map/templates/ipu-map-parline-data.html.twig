@@ -13,22 +13,15 @@
 
 
 <div class="ipu-map-parline-data">
-    <ul class=".list-inline" style="padding: 0;">
-        <li class="list-inline-item">{{ population_in_millions }} million people</li>
-        <li class="list-inline-item">{{ members_per_country }} MPs</li>
-        <li class="list-inline-item">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})
-        </li>
-        <li class="list-inline-item">{{ membership_status }}</li>
-    </ul>
-</div>
-
-<div class="ipu-map-parline-data">
     <h2>Data points:</h2>
     <div class="container-fluid">
-        {% for chamber in chambers %}
+        {# NOTE ONLY OUTPUT THE FIRST CHAMBER!!! #}
+        {#% for chamber in chambers %#}
+        {% set chamber = chambers[0] %}
         <div class="row">
             <div class="col-md-3">
-                <strong>{{ chamber.parliament_house }} chamber: </strong>
+                <p>{{  description }}</p>
+                <strong>{{ chamber.parliament_house }} chamber statistics: </strong>
             </div>
             <div class="col-md-3">
                 <div class="data-point-title">Women in Parliament</div>
@@ -46,7 +39,21 @@
                 <a href="">Our work on Human Rights of MPs</a>
             </div>
         </div>
-        {% endfor %}
+        {#% endfor %#}
     </div>
 </div>
 
+<div class="ipu-map-parline-data">
+    <ul class=".list-inline" style="padding: 0;">
+        <li class="list-inline-item">{{ population_in_millions }} million people</li>
+        <li class="list-inline-item">{{ members_per_country }} MPs</li>
+        <li class="list-inline-item">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})</li>
+
+        <li class="list-inline-item">Last election {{ chamber.last_election }}</li>
+        <li class="list-inline-item">IPU Membership {{ membership_status }}</li>
+        <li class="list-inline-item">Common principles signatory {{ prin_status }}</li>
+        <li class="list-inline-item">{{ membership_status }}</li>
+
+        <li class="list-inline-item"><a href="{{ url }}">More data at {{ url }}</a></li>
+    </ul>
+</div>

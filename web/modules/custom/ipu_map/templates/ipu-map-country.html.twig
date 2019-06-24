@@ -1,12 +1,19 @@
 <div class="container ipu-map-country">
     {#}{ dump() }#}
-
     <h1>
         <div class="d-flex align-items-end">
             <div>{{ content.flag }}</div>
             <div>{{ content.title }}</div>
         </div>
     </h1>
-    {{ content.parline_data }}
+            {{ content.parline_data }}
 
+    <div class="row">
+        <div class="col-md-4">
+            Left col.
+        </div>
+        <div class="col-md-8">
+            {{ content.news_and_stories }}
+        </div>
+    </div>
 </div>
