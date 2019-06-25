@@ -7,7 +7,7 @@
  | for your application. See https://github.com/JeffreyWay/laravel-mix.
  |
  */
-const proxy = 'http://ipu.local';
+const proxy = 'http://ipu.site';
 const mix = require('laravel-mix');
 
 /*
