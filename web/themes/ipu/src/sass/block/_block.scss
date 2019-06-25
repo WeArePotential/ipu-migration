@@ -14,13 +14,13 @@ h1,
   border-bottom: 4px solid color("ipu-teal");
 }
 
-h2, .sections__field-section-title {
+h2,
+.sections__field-section-title {
   color: color("ipu-teal");
   font-size: 1.6rem;
   line-height: 1.6rem;
   font-weight: 300;
 }
-
 
 .page__footer {
   background-color: theme-color("secondary");
@@ -134,7 +134,7 @@ h2, .sections__field-section-title {
     z-index: 5000;
     .ultimenu__flyout {
       background-color: #fff;
-      box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
       z-index: 2102;
       margin-right: -50%;
       width: 200%;
@@ -152,7 +152,8 @@ h2, .sections__field-section-title {
       letter-spacing: 0.1em;
     }
   }
-  .nav-item, .ultimenu__item {
+  .nav-item,
+  .ultimenu__item {
     border-width: 0 0 0 1px;
     border-color: color("ipu-light-grey");
     border-style: solid;
@@ -166,8 +167,10 @@ h2, .sections__field-section-title {
         color: color("white");
       }
     }
-    .nav-link, .ultimenu__link, .dropdown-item {
-      padding: 0.25rem .75rem;
+    .nav-link,
+    .ultimenu__link,
+    .dropdown-item {
+      padding: 0.25rem 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.075em;
       color: color("ipu-grey");
@@ -199,7 +202,8 @@ h2, .sections__field-section-title {
     display: inline-block;
   }
 }
-main, ol.breadcrumb {
+main,
+ol.breadcrumb {
   background-color: gray("100");
 }
 .cta-link {
@@ -266,40 +270,43 @@ main, ol.breadcrumb {
   }
 }
 
-.term-icon a::before {
-  content: '';
-  width: 1.4rem;
-  height: 1.4rem;
-  display: block;
-  float: left;
-  margin-right: 0.4rem;
-  background: url('../img/theme_icons/gender%20equality.svg');
-}
-.term-icon-88 a::before {
-  background: url('../img/theme_icons/gender%20equality.svg');
-}
-.term-icon-139 a::before {
-  background: url('../img/theme_icons/peace%20building.svg');
-}
-.term-icon-82 a::before {
-  background: url('../img/theme_icons/human%20rights.svg');
-}
-.term-icon-198 a::before {
-  background: url('../img/theme_icons/global%20development.svg');
-}
-.term-icon-231 a::before {
-  background: url('../img/theme_icons/parliamentary%20dialogue.svg');
-}
-.term-icon-139 a::before {
-  background: url('../img/theme_icons/peace%20building.svg');
-}
-.term-icon-19 a::before {
-  background: url('../img/theme_icons/strong%20parliaments.svg');
-}
-.term-icon-117 a::before {
-  background: url('../img/theme_icons/youth.svg');
-}
+a::before,
+span::before {
+  .term-icon & {
+    content: "";
+    width: 22px;
+    height: 22px;
+    display: block;
+    float: left;
+    margin-right: 0.4rem;
+  }
 
+  .term-icon-88 & {
+    background: url("../img/theme_icons/gender%20equality.svg");
+  }
+
+  .term-icon-139 & {
+    background: url("../img/theme_icons/peace%20building.svg");
+  }
+  .term-icon-82 & {
+    background: url("../img/theme_icons/human%20rights.svg");
+  }
+  .term-icon-198 & {
+    background: url("../img/theme_icons/global%20development.svg");
+  }
+  .term-icon-231 & {
+    background: url("../img/theme_icons/parliamentary%20dialogue.svg");
+  }
+  .term-icon-139 & {
+    background: url("../img/theme_icons/peace%20building.svg");
+  }
+  .term-icon-19 & {
+    background: url("../img/theme_icons/strong%20parliaments.svg");
+  }
+  .term-icon-117 & {
+    background: url("../img/theme_icons/youth.svg");
+  }
+}
 
 /* Mega menu Parliaments dropdown */
 .ipu-map-country-select-form .form-item-isocode {
@@ -359,8 +366,7 @@ main, ol.breadcrumb {
   }
 }
 
-
-  /* ipu event sessions */
+/* ipu event sessions */
 .page__content .media img {
   max-width: 100%;
   height: auto;
@@ -402,6 +408,78 @@ main, ol.breadcrumb {
 
 // List styles
 
-ul, ol, dl {
+ul,
+ol,
+dl {
   padding-left: 20px;
+}
+
+// Breadcrumb styles
+.breadcrumb {
+  font-size: $font-size-sm;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "|";
+}
+
+// Flag map
+
+.ipu-map-flag {
+  height: 2.5rem;
+}
+
+// Data points
+.data-point-title {
+  font-weight: $font-weight-bold;
+}
+
+// Statistics components
+
+.stats {
+  font-size: $font-size-sm;
+}
+
+.stats-item {
+  min-height: 30px;
+}
+
+.stats-women {
+  background-color: darkgrey;
+  z-index: 1000;
+}
+
+.stats-men {
+  background-color: grey;
+}
+
+.stats-circle {
+  border-radius: 50%;
+  background-color: $primary;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  color: $white;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  margin-right: 10px;
+}
+
+.stats-title {
+  color: $ipu-grey;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+}
+
+// Borders
+.ipu-border-bottom {
+  border-bottom: 1px solid $ipu-grey;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+// Cards
+.card {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
