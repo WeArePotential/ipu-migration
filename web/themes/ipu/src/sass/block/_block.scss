@@ -7,7 +7,7 @@ h1,
 .page__node-title h2,
 .section-page__node-title h2 {
   color: color("ipu-dark-grey");
-  font-size: 2.5rem;
+  font-size: $h1-font-size;
   line-height: 1.25em;
   font-weight: 400;
   padding-bottom: 4px;
@@ -191,6 +191,9 @@ h2, .sections__field-section-title {
     &:last-child {
       border-right-width: 1px;
     }
+  }
+  .nav-item + .nav-item {
+    margin-left: -4px;
   }
   #main-nav-right .navbar-nav {
     display: inline-block;
