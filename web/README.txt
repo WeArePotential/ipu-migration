@@ -8,6 +8,7 @@ CONTENTS OF THIS FILE
  * Appearance
  * Developing for Drupal
  * More information
+ * Set up
 
 ABOUT DRUPAL
 ------------
@@ -137,3 +138,11 @@ MORE INFORMATION
  * For information about the wide range of available support options, visit
    https://www.drupal.org and click on Community and Support in the top or
    bottom navigation.
+
+SET UP
+----------------
+
+Front end
+* Navigate to `/themes/ipu` and run `npm install`
+* Then run `npm run watch` to start watching for file changes
+* SASS overrides are in `/themes/ipu/src/sass`
