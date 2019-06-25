@@ -123,8 +123,10 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   }
   curl_close($ch);
 
-  $element['#membership_status'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
-  $element['#principles_signatory'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
+  $element['#membership_status'] = ($membership_status ? true : false);
+  $element['#membership_status_text'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
+  $element['#principles_signatory'] = ($principles_signatory ? true : false);
+  $element['#principles_signatory_text'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
   $element['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
   $element['#description'] = $description;
 
@@ -194,8 +196,10 @@ function ipu_map_theme($existing, $type, $theme, $path) {
         'members_per_country' => '',
         'structure_of_parliament' => '',
         'membership_status' => '',
+        'membership_status_text' => '',
         'human_rights_cases' => '',
         'principles_signatory' => '',
+        'principles_signatory_text' => '',
         'description' => '',
         'chambers' => '',
         'flag' => '',
