@@ -64,12 +64,12 @@ h2, .sections__field-section-title {
         display: none;
       }
     }
-    &.follow-facebook::before {
-      @include icon-brand("facebook");
-    }
-    &.follow-twitter::before {
-      @include icon-brand("twitter");
-    }
+    // &.follow-facebook::before {
+    //   @include icon-brand("facebook");
+    // }
+    // &.follow-twitter::before {
+    //   @include icon-brand("twitter");
+    // }
   }
 
   .col-6.text-left .region-inner {
@@ -382,4 +382,26 @@ main, ol.breadcrumb {
     width: auto;
     margin-right: 10px;
   }
+}
+
+// Block quote styles
+.blockquote {
+  width: 75%;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  margin-left: auto;
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  border-style: solid none;
+  border-width: 1px;
+  border-color: $tertiary;
+  color: $ipu-grey;
+  line-height: 1.25em;
+  font-style: italic;
+}
+
+// List styles
+
+ul, ol, dl {
+  padding-left: 20px;
 }
