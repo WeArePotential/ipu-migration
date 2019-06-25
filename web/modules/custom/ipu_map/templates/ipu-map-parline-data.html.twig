@@ -22,6 +22,7 @@
                 <p>{{  description }}</p>
                 <strong>{{ chamber.parliament_house }} chamber statistics: </strong>
             </div>
+            {% if chamber.current_women_percent is not same as(null) %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-88 card-header">
@@ -38,6 +39,9 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+
+            {% if chamber.total_younger_45_percentage is not same as(null) %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-117 card-header">
@@ -52,6 +56,9 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+
+            {% if human_rights_cases is not same as(null) %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-82 card-header">
@@ -68,6 +75,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
         {#% endfor %#}
     </div>
@@ -81,8 +89,8 @@
                 <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Legislature</span> <span class="stats-content">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})</span></li>
 
                 <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Last election</span> <span class="stats-content">{{ chamber.last_election }}</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">IPU Membership</span> <span class="stats-content">{{ membership_status }}</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Common principles signatory</span> <span class="stats-content">{{ principles_signatory }} {{ principles_signatory_text }}</span></li>
+                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">IPU Membership</span> <span class="stats-content">{{ membership_status }} | {{ membership_status_text }}</span></li>
+                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Common principles signatory</span> <span class="stats-content">{{ principles_signatory }} | {{ principles_signatory_text }}</span></li>
                 <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Population</span> <span class="stats-content">{{ membership_status }}</span></li>
 
                 <li><a href="{{ url }}">More data at {{ url }}</a></li>
