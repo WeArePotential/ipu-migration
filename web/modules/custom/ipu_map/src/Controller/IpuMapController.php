@@ -86,7 +86,8 @@ class IpuMapController extends ControllerBase {
         'flag' => $flag,
         'parline_data' => $data,
         'news_and_stories' => $news_block,
-        ],
+        'case_studies' => $case_studies_block,
+      ],
     ];
     return $page;
   }
