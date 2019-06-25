@@ -75,6 +75,9 @@ class IpuMapController extends ControllerBase {
     // Get a view with news and stories
     $news_block = ipu_map_get_country_news($country->get('tid')->value);
 
+    $case_studies_block = ipu_map_get_country_case_studies($country->get('tid')->value);
+
+
     // This is done in the theming: $markup .= \Drupal::service('renderer')->render($content);
     $page = [
       '#theme' => 'ipu-map-country',
@@ -83,7 +86,8 @@ class IpuMapController extends ControllerBase {
         'flag' => $flag,
         'parline_data' => $data,
         'news_and_stories' => $news_block,
-        ],
+        'case_studies' => $case_studies_block,
+      ],
     ];
     return $page;
   }
