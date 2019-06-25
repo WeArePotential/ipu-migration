@@ -15724,3 +15724,11 @@ main, ol.breadcrumb {
 ul, ol, dl {
   padding-left: 20px;
 }
+
+.breadcrumb {
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "|";
+}

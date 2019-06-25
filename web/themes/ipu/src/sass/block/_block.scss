@@ -405,3 +405,12 @@ main, ol.breadcrumb {
 ul, ol, dl {
   padding-left: 20px;
 }
+
+// Breadcrumb styles
+.breadcrumb {
+  font-size: $font-size-sm;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "|";
+}
