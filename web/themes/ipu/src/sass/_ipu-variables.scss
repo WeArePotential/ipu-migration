@@ -3,6 +3,8 @@ $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:       $font-family-sans-serif !default;
 
+$font-size-base: 1rem;
+
 /* Colours */
 $ipu-blue:        #0066a1;
 $ipu-teal:        #00a8b4;
@@ -32,6 +34,7 @@ $colors: map-merge(
 );
 
 $primary:       $ipu-blue;
+$secondary:     $ipu-teal;
 
 $input-btn-padding-y:         .125rem !default;
 $input-btn-padding-x:         .125rem !default;
