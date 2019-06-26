@@ -499,6 +499,29 @@ a.btn {
   .article__node-post-date {
     font-size: $font-size-sm;
   }
+
+  // Article type for all highlight cards
+  .article__type {
+    @extend .badge;
+    @extend .badge-tertiary;
+    position: absolute;
+    top: -3px;
+    left: -3px;;
+    background-color: $tertiary;
+    font-size: 0.6rem;
+  }
+
+  // Article content for all highlight cards
+  .article__type-content {
+    @extend .card-body;
+  }
+
+  .article__node-link a {
+    &:hover,
+    &:focus {
+      background-color: $tertiary;
+    }
+  }
 }
 
 // Read more link base styles
@@ -520,13 +543,10 @@ a.btn {
     line-height: 1;
   }
 
-  &:hover,
-  &:focus {
-    background-color: $tertiary;
-  }
+  
 }
 
-// New specific (Brand blue)
+// News specific (Brand blue)
 .articles-card-news {
   .node--view-mode-highlight {
     @extend .text-white;
@@ -535,15 +555,6 @@ a.btn {
     a {
       @extend .text-white;
     }
-  }
-  .article__type {
-    @extend .badge;
-    @extend .badge-tertiary;
-    position: absolute;
-    top: -3px;
-    left: -3px;;
-    background-color: $tertiary;
-    font-size: 0.6rem;
   }
 
   .article__field-media-image + .article__type-content {
@@ -567,16 +578,14 @@ a.btn {
   }
   
   .article__type {
-    @extend .card-header;
-    font-size: $font-size-sm;
+    @extend .bg-secondary;
   }
 }
 
-.article__type-content {
-  @extend .card-body;
-}
-
-.node--view-mode-highlight {
+// Currently removing row and column styles
+// NOTE: May want to try and remove these in Drupal
+// NOTE: Display suite is using Bootstrap 1 column layout
+.node--view-mode-highlight.row {
   margin-left: 0;
   margin-right: 0;
 }
