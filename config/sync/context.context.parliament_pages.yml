@@ -1,0 +1,26 @@
+uuid: 6aeed39d-4bc0-4149-a0bd-165be818cdaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+name: parliament_pages
+label: 'Parliament pages'
+group: null
+description: 'Add country pages to Parliaments menu item'
+requireAllConditions: false
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: '/parliament/*'
+    negate: 0
+    uuid: e088df7e-aced-463f-84df-0182e641724e
+    context_mapping: {  }
+reactions:
+  menu:
+    id: menu
+    menu:
+      - 'mega-menu:menu_link_content:038d5d6f-eb9a-4994-848c-9968d13111b0'
+    saved: false
+weight: 0
