@@ -240,12 +240,6 @@ EOTXT;
         $expectedTimeType = $var->getTimeType();
         $expectedDateType = $var->getDateType();
 
-        $expectedTimeZone = $var->getTimeZone();
-        $expectedTimeZoneDisplayName = $expectedTimeZone->getDisplayName();
-        $expectedTimeZoneID = $expectedTimeZone->getID();
-        $expectedTimeZoneRawOffset = $expectedTimeZone->getRawOffset();
-        $expectedTimeZoneDSTSavings = $expectedTimeZone->useDaylightTime() ? "\n    dst_savings: ".$expectedTimeZone->getDSTSavings() : '';
-
         $expectedCalendarObject = $var->getCalendarObject();
         $expectedCalendarObjectType = $expectedCalendarObject->getType();
         $expectedCalendarObjectFirstDayOfWeek = $expectedCalendarObject->getFirstDayOfWeek();
@@ -260,7 +254,13 @@ EOTXT;
         $expectedCalendarObjectTimeZoneDisplayName = $expectedCalendarObjectTimeZone->getDisplayName();
         $expectedCalendarObjectTimeZoneID = $expectedCalendarObjectTimeZone->getID();
         $expectedCalendarObjectTimeZoneRawOffset = $expectedCalendarObjectTimeZone->getRawOffset();
-        $expectedCalendarObjectTimeZoneDSTSavings = $expectedTimeZone->useDaylightTime() ? "\n      dst_savings: ".$expectedCalendarObjectTimeZone->getDSTSavings() : '';
+        $expectedCalendarObjectTimeZoneDSTSavings = $expectedCalendarObjectTimeZone->getDSTSavings();
+
+        $expectedTimeZone = $var->getTimeZone();
+        $expectedTimeZoneDisplayName = $expectedTimeZone->getDisplayName();
+        $expectedTimeZoneID = $expectedTimeZone->getID();
+        $expectedTimeZoneRawOffset = $expectedTimeZone->getRawOffset();
+        $expectedTimeZoneDSTSavings = $expectedTimeZone->getDSTSavings();
 
         $expected = <<<EOTXT
 IntlDateFormatter {
@@ -282,13 +282,15 @@ IntlDateFormatter {
     time_zone: IntlTimeZone {
       display_name: "$expectedCalendarObjectTimeZoneDisplayName"
       id: "$expectedCalendarObjectTimeZoneID"
-      raw_offset: $expectedCalendarObjectTimeZoneRawOffset$expectedCalendarObjectTimeZoneDSTSavings
+      raw_offset: $expectedCalendarObjectTimeZoneRawOffset
+      dst_savings: $expectedCalendarObjectTimeZoneDSTSavings
     }
   }
   time_zone: IntlTimeZone {
     display_name: "$expectedTimeZoneDisplayName"
     id: "$expectedTimeZoneID"
-    raw_offset: $expectedTimeZoneRawOffset$expectedTimeZoneDSTSavings
+    raw_offset: $expectedTimeZoneRawOffset
+    dst_savings: $expectedTimeZoneDSTSavings
   }
 }
 EOTXT;
