@@ -14,8 +14,8 @@ dependencies:
     - taxonomy.vocabulary.ipu_structure
     - taxonomy.vocabulary.theme
   content:
-    - 'taxonomy_term:article:35ca1fe5-7434-4ada-ab21-10b551b87036'
     - 'taxonomy_term:article:8e9c6cea-89d4-433e-90e3-9902c0124c59'
+    - 'taxonomy_term:article:93a613db-c200-4acb-85b4-dc4c93c81378'
     - 'taxonomy_term:article:eea30751-1398-4ebf-b123-67829e882a63'
   module:
     - ds
@@ -794,7 +794,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            336: 336
+            337: 337
           group: 1
           exposed: false
           expose:

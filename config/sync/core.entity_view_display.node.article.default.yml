@@ -69,10 +69,10 @@ third_party_settings:
       left:
         - body
       right:
-        - field_media_image
         - field_contact_ipu
-        - field_caption
+        - field_media_image
         - group_image
+        - field_caption
         - field_country
     fields:
       node_post_date:

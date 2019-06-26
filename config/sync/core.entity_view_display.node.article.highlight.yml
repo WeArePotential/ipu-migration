@@ -44,9 +44,9 @@ third_party_settings:
       region: hidden
     group_content:
       children:
+        - node_post_date
         - node_title
         - body
-        - node_post_date
         - node_link
       parent_name: ''
       weight: 2
@@ -86,11 +86,11 @@ third_party_settings:
     regions:
       main:
         - field_article_type
-        - node_title
         - field_media_image
-        - body
         - node_post_date
         - group_content
+        - node_title
+        - body
         - node_link
     fields:
       node_post_date:
@@ -100,12 +100,12 @@ third_party_settings:
         formatter: ds_post_date_long
       node_link:
         plugin_id: node_link
-        weight: 3
+        weight: 5
         label: hidden
         formatter: default
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 3
         label: hidden
         formatter: default
         settings:
@@ -127,7 +127,7 @@ mode: highlight
 content:
   body:
     label: hidden
-    weight: 1
+    weight: 4
     type: smart_trim
     settings:
       trim_length: 40
