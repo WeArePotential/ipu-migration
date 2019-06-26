@@ -18,19 +18,13 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="articles-card articles-card-news row">
+<div class="articles-card articles-card-case-study row">
 {% for row in rows %}
   {%
     set row_classes = [
-      default_row_class ? 'views-row',
+      default_row_class ? 'views-row col-md-4 view-mode-highlight-sm',
     ]
   %}
-
-  {% if loop.index == 1 %}
-    {% set row_classes = row_classes|merge(['col-md-12']) %}
-  {% else %}
-    {% set row_classes = row_classes|merge(['col-md-6', 'view-mode-highlight-sm']) %}
-  {% endif %}
   
   <div{{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}

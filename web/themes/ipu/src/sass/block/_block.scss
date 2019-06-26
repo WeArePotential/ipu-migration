@@ -414,6 +414,11 @@ dl {
   padding-left: 20px;
 }
 
+// Link styles
+a.btn {
+  text-decoration: none;
+}
+
 // Breadcrumb styles
 .breadcrumb {
   font-size: $font-size-sm;
@@ -484,44 +489,18 @@ dl {
   // box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
-// Highlight cards
-// NOTE: Currently on country page, may be abstracted out to use elsewhere
+// Highlight cards base styles
 .node--view-mode-highlight {
   position: relative;
   @extend .card;
-  @extend .text-white;
-  @extend .bg-primary;
-
-  a {
-    @extend .text-white;
-  }
 
   margin-bottom: $spacer;
 }
 
-.article__type {
-  @extend .badge;
-  @extend .badge-tertiary;
-  position: absolute;
-  top: -3px;
-  left: -3px;;
-  background-color: $tertiary;
-  font-size: 0.6rem;
-}
-
-a.btn {
-  text-decoration: none;
-}
-
+// Read more link base styles
 .article__node-link a {
   @extend .btn;
   @extend .btn-sm;
-  @extend .btn-outline-light;
-
-  &:hover,
-  &:focus {
-    background-color: $tertiary;
-  }
 
   &:after {
     padding-left: 5px;
@@ -536,10 +515,61 @@ a.btn {
     text-rendering: auto;
     line-height: 1;
   }
+
+  &:hover,
+  &:focus {
+    background-color: $tertiary;
+  }
+}
+
+// New specific (Brand blue)
+.articles-card-news {
+  .node--view-mode-highlight {
+    @extend .text-white;
+    @extend .bg-primary;
+
+    a {
+      @extend .text-white;
+    }
+  }
+  .article__type {
+    @extend .badge;
+    @extend .badge-tertiary;
+    position: absolute;
+    top: -3px;
+    left: -3px;;
+    background-color: $tertiary;
+    font-size: 0.6rem;
+  }
+
+  .article__field-media-image + .article__type-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba($primary, 0.8);
+  }
+
+  .article__node-link a {
+    @extend .btn-outline-light;
+  }
+  
+}
+
+// Case study specific styles
+.articles-card-case-study {
+
+  .article__node-link a {
+    @extend .btn-outline-primary;
+  }
+  
+  .article__type {
+    @extend .card-header;
+    font-size: $font-size-sm;
+  }
 }
 
 .article__type-content {
-  padding: $spacer;
+  @extend .card-body;
 }
 
 .node--view-mode-highlight .col-sm-12 {
@@ -547,13 +577,12 @@ a.btn {
   padding-right: 0;
 }
 
+.articles-card-case-study h3,
 .view-mode-highlight-sm h3 {
   font-size: $font-size-base;
 }
 
-.article__field-media-image + .article__type-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba($primary, 0.8);
+// Hide some things for now, where it would need a whole new template
+.articles-card-case-study .article__node-post-date {
+  display: none;
 }
