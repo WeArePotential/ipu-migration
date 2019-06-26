@@ -51,7 +51,24 @@ third_party_settings:
         - node_title
         - field_media_image
         - body
+        - node_link
     fields:
+      node_link:
+        plugin_id: node_link
+        weight: 5
+        label: hidden
+        formatter: default
+        settings:
+          'link text': 'Find out more'
+          'link class': ''
+          wrapper: ''
+          class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
       node_post_date:
         plugin_id: node_post_date
         weight: 1
