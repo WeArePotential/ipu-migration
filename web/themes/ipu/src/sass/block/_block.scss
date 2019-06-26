@@ -574,11 +574,14 @@ a.btn {
 .articles-card-case-study {
 
   .article__node-link a {
-    @extend .btn-outline-primary;
+    @extend .btn-outline-dark;
   }
   
   .article__type {
     @extend .bg-secondary;
+  }
+  .article__node-title a {
+    @extend .text-secondary;
   }
 }
 

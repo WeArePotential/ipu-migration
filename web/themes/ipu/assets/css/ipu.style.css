@@ -2638,28 +2638,28 @@ fieldset:disabled .article__node-link a,
   box-shadow: 0 0 0 0.2rem rgba(236, 150, 38, 0.5);
 }
 
-.btn-outline-primary, .articles-card-case-study .article__node-link a {
+.btn-outline-primary {
   color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:hover, .articles-card-case-study .article__node-link a:hover {
+.btn-outline-primary:hover {
   color: #fff;
   background-color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:focus, .articles-card-case-study .article__node-link a:focus, .btn-outline-primary.focus, .articles-card-case-study .article__node-link a.focus {
+.btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 102, 161, 0.5);
 }
-.btn-outline-primary.disabled, .articles-card-case-study .article__node-link a.disabled, .btn-outline-primary:disabled, .articles-card-case-study .article__node-link a:disabled {
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
   color: #0066a1;
   background-color: transparent;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle, .articles-card-case-study .article__node-link .show > a.dropdown-toggle {
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
   background-color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus, .articles-card-case-study .article__node-link .show > a.dropdown-toggle:focus {
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 102, 161, 0.5);
 }
 
@@ -2813,28 +2813,28 @@ fieldset:disabled .article__node-link a,
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
 }
 
-.btn-outline-dark {
+.btn-outline-dark, .articles-card-case-study .article__node-link a {
   color: #343a40;
   border-color: #343a40;
 }
-.btn-outline-dark:hover {
+.btn-outline-dark:hover, .articles-card-case-study .article__node-link a:hover {
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
 }
-.btn-outline-dark:focus, .btn-outline-dark.focus {
+.btn-outline-dark:focus, .articles-card-case-study .article__node-link a:focus, .btn-outline-dark.focus, .articles-card-case-study .article__node-link a.focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
-.btn-outline-dark.disabled, .btn-outline-dark:disabled {
+.btn-outline-dark.disabled, .articles-card-case-study .article__node-link a.disabled, .btn-outline-dark:disabled, .articles-card-case-study .article__node-link a:disabled {
   color: #343a40;
   background-color: transparent;
 }
-.btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
+.btn-outline-dark:not(:disabled):not(.disabled):active, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle, .articles-card-case-study .article__node-link .show > a.dropdown-toggle {
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
 }
-.btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-dark.dropdown-toggle:focus {
+.btn-outline-dark:not(:disabled):not(.disabled):active:focus, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus, .articles-card-case-study .article__node-link a:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-dark.dropdown-toggle:focus, .articles-card-case-study .article__node-link .show > a.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 
@@ -9661,11 +9661,11 @@ a.text-primary:hover, a.text-primary:focus {
   color: #003655 !important;
 }
 
-.text-secondary {
+.text-secondary, .articles-card-case-study .article__node-title a {
   color: #00a8b4 !important;
 }
 
-a.text-secondary:hover, a.text-secondary:focus {
+a.text-secondary:hover, .articles-card-case-study .article__node-title a:hover, a.text-secondary:focus, .articles-card-case-study .article__node-title a:focus {
   color: #006168 !important;
 }
 
