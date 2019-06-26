@@ -483,3 +483,40 @@ dl {
 .card {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
+
+.node--view-mode-highlight {
+  @extend .card;
+  @extend .text-white;
+  @extend .bg-primary;
+
+  a {
+    @extend .text-white;
+  }
+
+  margin-bottom: $spacer;
+}
+
+.article__type {
+  @extend .badge;
+  @extend .badge-tertiary;
+  margin-top: -2px;
+  margin-left: -3px;
+  background-color: #e98300;
+  font-size: 0.6rem;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+a.article__node-link,
+a.more-link {
+  @extend .btn;
+  @extend .btn-sm;
+  @extend .btn-outline-light;
+
+  &:hover,
+  &:focus {
+    background-color: $tertiary;
+  }
+}
