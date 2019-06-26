@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation
+ *
+ * Available variables:
+ *
+ * @see template_preprocess_ipu_map()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="ipu-map-parline-data">
+    <ul class="list-unstyled">
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Population</span> <span class="stats-content">{{ population_in_millions }} million people</span></li>
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Number of MPs</span> <span class="stats-content">{{ members_per_country }} MPs</span></li>
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Legislature</span> <span class="stats-content">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})</span></li>
+
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Last election</span> <span class="stats-content">{{ chamber.last_election }}</span></li>
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">IPU Membership</span> <span class="stats-content">{{ membership_status }} | {{ membership_status_text }}</span></li>
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Common principles signatory</span> <span class="stats-content">{{ principles_signatory }} | {{ principles_signatory_text }}</span></li>
+        <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Population</span> <span class="stats-content">{{ membership_status }}</span></li>
+
+        <li><a href="{{ url }}">More data at {{ url }}</a></li>
+    </ul>
+</div>

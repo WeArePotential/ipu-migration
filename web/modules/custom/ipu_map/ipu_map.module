@@ -55,6 +55,9 @@ function ipu_map_get_country_page() {
 }
 function ipu_map_get_parline_data($isocode, $description, $membership_status, $principles_signatory, $human_rights_cases) {
 
+  $data = [];
+  $stats = [];
+
   $parline_url = 'https://data.ipu.org/api/node.json?type=country&field_country_data=' . $isocode;
   $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
   //\Drupal::messenger()->addStatus(t('Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
@@ -66,9 +69,9 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   $result = curl_exec($ch);
 
   $decoded = json_decode($result);
-  $element = [];
+
   $chamber_nids = [];
-  $element['#parliamentary_name'] = array();
+  $stats['#parliamentary_name'] = array();
   if (sizeof($decoded->list) == 0) {
     \Drupal::messenger()->addStatus(t('No data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
   }
@@ -78,20 +81,20 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
     if ($chamber->language == 'en') {
       // print '<pre>'.print_r($chamber,TRUE).'</pre>';
 
-      $element['#url'] = $chamber->url;
+      $stats['#url'] = $chamber->url;
       // Some fields are common across languages...as they are non-lang specific.
-      $element['#population_in_millions'] = number_format(round($chamber->field_population_in_thousands / 1000, 4), 2, '.', '');
-      $element['#members_per_country'] = $chamber->members_per_country;
+      $stats['#population_in_millions'] = number_format(round($chamber->field_population_in_thousands / 1000, 4), 2, '.', '');
+      $stats['#members_per_country'] = $chamber->members_per_country;
       // Some have multiple values and so are passed as an arrey
-      $element['#structure_of_parliament'] = $chamber->field_structure_of_parliament;
-      $element['#parliamentary_name'][] = ($chamber->parliamentary_name ? $chamber->parliamentary_name : 'Name of parliament not available');
+      $stats['#structure_of_parliament'] = $chamber->field_structure_of_parliament;
+      $stats['#parliamentary_name'][] = ($chamber->parliamentary_name ? $chamber->parliamentary_name : 'Name of parliament not available');
       $chamber_nids[] = $chamber->nid;
     }
   }
 
   // Now get the data from the chamber. We only need one language version
   // of these, as they are the same figures in both.
-  $element['#chambers'] = [];
+  $stats['#chambers'] = [];
 
   foreach ($chamber_nids as $chamber_nid) {
     $chamber_url = 'https://data.ipu.org/api/node.json?type=chamber&field_country=' . $chamber_nid;
@@ -102,20 +105,17 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
     //\Drupal::messenger()->addStatus(t('Secondary Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
     $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
 
-
-    
-    foreach ($decoded->list as $chamber) {
-
-      // TODO: Forbidden, cannot use
+    foreach ($decoded->list as $key => $chamber) {
+      // TODO: Get contact details (of secretary general?) Forbidden, cannot use
       /* $gen_sec_id = $chamber->field_general_secretary->id;
       e.g. 3162.
       $gen_sec_url = 'https://data.ipu.org/api/field_collection_item.json?item_id=' . $gen_sec_id;
       curl_setopt($ch, CURLOPT_URL, $gen_sec_url);
       */
+      $data['#current_women_percent'] = $chamber->current_women_percent;
+      $data['#total_younger_45_percentage'] = $chamber->total_younger_45_percentage;
 
-      $element['#chambers'][] = array(
-        'current_women_percent' =>$chamber->current_women_percent,
-        'total_younger_45_percentage' => $chamber->total_younger_45_percentage,
+      $stats['#chambers'][] = array(
         'struct_parl_status' => $chamber->field_struct_parl_status->id,
         'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower'))
       );
@@ -123,17 +123,19 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   }
   curl_close($ch);
 
-  $element['#membership_status'] = ($membership_status ? true : false);
-  $element['#membership_status_text'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
-  $element['#principles_signatory'] = ($principles_signatory ? true : false);
-  $element['#principles_signatory_text'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
-  $element['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
-  $element['#description'] = $description;
+  $stats['#membership_status'] = ($membership_status ? true : false);
+  $stats['#membership_status_text'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
+  $stats['#principles_signatory'] = ($principles_signatory ? true : false);
+  $stats['#principles_signatory_text'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
 
-  $element['#parliamentary_name'] = array_unique($element['#parliamentary_name']);
-  $element['#theme'] = 'ipu-map-parline-data';
+  $data['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
+  $data['#description'] = $description;
 
-  return $element;
+  $stats['#parliamentary_name'] = array_unique($stats['#parliamentary_name']);
+
+  $data['#theme'] = 'ipu-map-parline-data';
+  $stats['#theme'] = 'ipu-map-country-stats';
+  return ['data' => $data, 'country_stats' => $stats];
 }
 
 function ipu_map_get_country_news($country_term_id) {
@@ -191,17 +193,26 @@ function ipu_map_theme($existing, $type, $theme, $path) {
       'template' => 'ipu-map-parline-data',
       'path' => $path . '/templates',
       'variables' => array(
+        'human_rights_cases' => '',
+        'description' => '',
+        'current_women_percent' => '',
+        'total_younger_45_percentage' => '',
+      ),
+    ),
+    'ipu-map-country-stats' => array(
+      'template' => 'ipu-map-country-stats',
+      'path' => $path . '/templates',
+      'variables' => array(
         'population_in_millions' => '',
         'parliamentary_name' => '',
         'members_per_country' => '',
         'structure_of_parliament' => '',
         'membership_status' => '',
         'membership_status_text' => '',
-        'human_rights_cases' => '',
         'principles_signatory' => '',
         'principles_signatory_text' => '',
         'description' => '',
-        'chambers' => '',
+        'chambers' => [],
         'flag' => '',
         'url' => '',
       ),

@@ -70,6 +70,8 @@ class IpuMapController extends ControllerBase {
     else {
       $parliament_iso_code = $iso_code;
     }
+
+    // Build arrays of data from parline and the taxonomy term fields
     $data = ipu_map_get_parline_data($parliament_iso_code, $this->getDescription(), $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases());
 
     // Get a view with news and stories
@@ -84,7 +86,8 @@ class IpuMapController extends ControllerBase {
       '#content' => [
         'title' => $this->title,
         'flag' => $flag,
-        'parline_data' => $data,
+        'parline_data' => $data['data'],
+        'country_stats' => $data['country_stats'],
         'news_and_stories' => $news_block,
         'case_studies' => $case_studies_block,
       ],

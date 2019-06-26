@@ -10,19 +10,14 @@
  * @ingroup themeable
  */
 #}
-
 <div class="ipu-map-parline-data">
     <h2>Data points:</h2>
     <div class="container-fluid">
-        {# NOTE ONLY OUTPUT THE FIRST CHAMBER!!! #}
-        {#% for chamber in chambers %#}
-        {% set chamber = chambers[0] %}
         <div class="row">
             <div class="col-md-3">
                 <p>{{  description }}</p>
-                <strong>{{ chamber.parliament_house }} chamber statistics: </strong>
             </div>
-            {% if chamber.current_women_percent is not same as(null) %}
+            {% if current_women_percent is not same as(null) %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-88 card-header">
@@ -30,18 +25,18 @@
                     </div>
                     <div class="card-body stats">
                         <div class="d-flex">
-                            <div style="width: {{ chamber.current_women_percent }}%" class="stats-item stats-women"></div>
-                            <div style="width: {{ 100 - chamber.current_women_percent }}%" class="stats-item stats-men"></div>
+                            <div style="width: {{ current_women_percent }}%" class="stats-item stats-women"></div>
+                            <div style="width: {{ 100 - current_women_percent }}%" class="stats-item stats-men"></div>
                         </div>
                         
-                        <strong>{{ chamber.current_women_percent }}%</strong> are women
-                        <a href="#">Our work on Gender</a>
+                        <strong>{{ current_women_percent }}%</strong> are women
+                        <a href="/our-work/gender-equality">Our work on Gender</a>
                     </div>
                 </div>
             </div>
             {% endif %}
 
-            {% if chamber.total_younger_45_percentage is not same as(null) %}
+            {% if total_younger_45_percentage is not same as(null) %}
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-117 card-header">
@@ -49,10 +44,10 @@
                     </div>
                     <div class="card-body stats">
                         <div class="d-flex">
-                            <div style="width: {{ chamber.total_younger_45_percentage }}%" class="stats-item stats-women"></div>
-                            <div style="width: {{ 100 - chamber.total_younger_45_percentage }}%" class="stats-item stats-men"></div>
+                            <div style="width: {{ total_younger_45_percentage }}%" class="stats-item stats-women"></div>
+                            <div style="width: {{ 100 - total_younger_45_percentage }}%" class="stats-item stats-men"></div>
                         </div>
-                        <div><strong>{{ chamber.total_younger_45_percentage }}% </strong> of MPs are under 45</div>
+                        <div><strong>{{ total_younger_45_percentage }}% </strong> of MPs are under 45</div>
                     </div>
                 </div>
             </div>
@@ -68,7 +63,7 @@
                         <div class="d-flex">
                             <div><div class="stats-circle">{{ human_rights_cases }}</div></div>
                             <div class="stats-content">
-                                <div><strong>{{ human_rights_cases }}% </strong> current cases</div>
+                                <div><strong>{{ human_rights_cases }} </strong> current cases</div>
                                 <a href="#">Our work on Human Rights of MPs</a>
                             </div>
                         </div>
@@ -79,23 +74,4 @@
         </div>
         {#% endfor %#}
     </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="ipu-map-parline-data">
-            <ul class="list-unstyled">
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Population</span> <span class="stats-content">{{ population_in_millions }} million people</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Number of MPs</span> <span class="stats-content">{{ members_per_country }} MPs</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Legislature</span> <span class="stats-content">{{ structure_of_parliament }} legislature ({{ parliamentary_name|join(', ') }})</span></li>
-
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Last election</span> <span class="stats-content">{{ chamber.last_election }}</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">IPU Membership</span> <span class="stats-content">{{ membership_status }} | {{ membership_status_text }}</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Common principles signatory</span> <span class="stats-content">{{ principles_signatory }} | {{ principles_signatory_text }}</span></li>
-                <li class="d-flex justify-content-between ipu-border-bottom"><span class="stats-title">Population</span> <span class="stats-content">{{ membership_status }}</span></li>
-
-                <li><a href="{{ url }}">More data at {{ url }}</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-8"></div>
 </div>
