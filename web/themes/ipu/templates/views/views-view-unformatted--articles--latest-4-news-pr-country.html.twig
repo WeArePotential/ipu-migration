@@ -29,7 +29,7 @@
   {% if loop.index == 1 %}
     {% set row_classes = row_classes|merge(['col-md-12']) %}
   {% else %}
-    {% set row_classes = row_classes|merge(['col-md-6']) %}
+    {% set row_classes = row_classes|merge(['col-md-6', 'view-mode-highlight-sm']) %}
   {% endif %}
   
   <div{{ row.attributes.addClass(row_classes) }}>

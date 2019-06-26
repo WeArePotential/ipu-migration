@@ -15,7 +15,7 @@ dependencies:
     - field.field.node.article.field_place_of_publication
     - field.field.node.article.field_tags
     - field.field.node.article.field_theme
-    - image.style.teaser
+    - image.style.large
     - node.type.article
   module:
     - ds
@@ -24,6 +24,45 @@ dependencies:
     - smart_trim
     - user
 third_party_settings:
+  field_group:
+    group_image:
+      children: {  }
+      parent_name: ''
+      weight: 19
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: image
+      region: hidden
+    group_content:
+      children:
+        - node_title
+        - body
+        - node_post_date
+        - node_link
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: article__type-content
+      label: Content
+      region: hidden
   ds:
     layout:
       id: bs_1col
@@ -47,42 +86,26 @@ third_party_settings:
     regions:
       main:
         - field_article_type
-        - node_post_date
         - node_title
         - field_media_image
         - body
+        - node_post_date
+        - group_content
         - node_link
     fields:
-      node_link:
-        plugin_id: node_link
-        weight: 5
-        label: hidden
-        formatter: default
-        settings:
-          'link text': 'Find out more'
-          'link class': ''
-          wrapper: ''
-          class: ''
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
       node_post_date:
         plugin_id: node_post_date
-        weight: 1
+        weight: 2
         label: hidden
-        formatter: ds_post_date_short_date_only
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
+        formatter: ds_post_date_long
+      node_link:
+        plugin_id: node_link
+        weight: 3
+        label: hidden
+        formatter: default
       node_title:
         plugin_id: node_title
-        weight: 2
+        weight: 0
         label: hidden
         formatter: default
         settings:
@@ -95,25 +118,6 @@ third_party_settings:
             lb: ''
             lb-col: false
             classes: {  }
-  field_group:
-    group_image:
-      children:
-        - field_caption
-      parent_name: ''
-      weight: 21
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: ''
-        element: div
-        show_label: false
-        label_element: h3
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-      label: image
-      region: hidden
 _core:
   default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
 id: node.article.highlight
@@ -123,7 +127,7 @@ mode: highlight
 content:
   body:
     label: hidden
-    weight: 4
+    weight: 1
     type: smart_trim
     settings:
       trim_length: 40
@@ -164,11 +168,11 @@ content:
             classes: {  }
   field_media_image:
     type: image
-    weight: 3
+    weight: 1
     region: main
     label: hidden
     settings:
-      image_style: teaser
+      image_style: large
       image_link: content
     third_party_settings:
       ds:
