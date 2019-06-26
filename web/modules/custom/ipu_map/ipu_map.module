@@ -124,9 +124,9 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   curl_close($ch);
 
   $stats['#membership_status'] = ($membership_status ? true : false);
-  $stats['#membership_status_text'] = ($membership_status ? t('IPU member') : t('Non-IPU member'));
+  $stats['#membership_status_text'] = ($membership_status ? t('Is an IPU member') : t('Is not an PU member'));
   $stats['#principles_signatory'] = ($principles_signatory ? true : false);
-  $stats['#principles_signatory_text'] = ($principles_signatory ? t('Principles signatory') : t('Not a signatory'));
+  $stats['#principles_signatory_text'] = ($principles_signatory ? t('Is a principles signatory') : t('Not a principles signatory'));
 
   $data['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
   $data['#description'] = $description;

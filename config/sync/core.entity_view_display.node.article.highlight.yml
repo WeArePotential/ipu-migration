@@ -47,14 +47,14 @@ third_party_settings:
     regions:
       main:
         - field_article_type
+        - node_post_date
         - node_title
         - field_media_image
         - body
-        - node_post_date
     fields:
       node_post_date:
         plugin_id: node_post_date
-        weight: 4
+        weight: 1
         label: hidden
         formatter: ds_post_date_short_date_only
         ft:
@@ -65,12 +65,12 @@ third_party_settings:
             classes: {  }
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 2
         label: hidden
         formatter: default
         settings:
           link: true
-          wrapper: h4
+          wrapper: h3
           class: ''
         ft:
           id: default
@@ -83,7 +83,7 @@ third_party_settings:
       children:
         - field_caption
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: html_element
       format_settings:
         id: ''
@@ -106,14 +106,13 @@ mode: highlight
 content:
   body:
     label: hidden
-    weight: 3
+    weight: 4
     type: smart_trim
     settings:
       trim_length: 40
       trim_type: words
       trim_suffix: ''
-      wrap_class: trimmed
-      more_link: true
+      wrap_class: ''
       more_text: More
       more_class: more-link
       summary_handler: full
@@ -121,6 +120,7 @@ content:
         text: true
         trim_zero: false
       wrap_output: false
+      more_link: false
     third_party_settings:
       ds:
         ft:
@@ -147,7 +147,7 @@ content:
             classes: {  }
   field_media_image:
     type: image
-    weight: 2
+    weight: 3
     region: main
     label: hidden
     settings:
