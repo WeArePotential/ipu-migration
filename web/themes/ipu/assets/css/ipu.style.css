@@ -4310,11 +4310,11 @@ input[type=button].btn-block {
 }
 
 .card-title {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .card-subtitle {
-  margin-top: -2.5px;
+  margin-top: -5px;
   margin-bottom: 0;
 }
 
@@ -4330,7 +4330,7 @@ input[type=button].btn-block {
 }
 
 .card-header, .articles-card-case-study .article__type {
-  padding: 5px 10px;
+  padding: 10px 10px;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -4343,7 +4343,7 @@ input[type=button].btn-block {
 }
 
 .card-footer {
-  padding: 5px 10px;
+  padding: 10px 10px;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4353,7 +4353,7 @@ input[type=button].btn-block {
 
 .card-header-tabs {
   margin-right: -5px;
-  margin-bottom: -5px;
+  margin-bottom: -10px;
   margin-left: -5px;
   border-bottom: 0;
 }
@@ -4470,7 +4470,7 @@ input[type=button].btn-block {
 }
 
 .card-columns .card, .card-columns .node--view-mode-highlight {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 @media (min-width: 576px) {
   .card-columns {
@@ -16005,6 +16005,9 @@ a.btn, .article__node-link a {
   position: relative;
   margin-bottom: 1rem;
 }
+.node--view-mode-highlight .article__node-post-date {
+  font-size: 0.875rem;
+}
 
 .article__node-link a:after {
   padding-left: 5px;
@@ -16040,6 +16043,11 @@ a.btn, .article__node-link a {
   font-size: 0.875rem;
 }
 
+.node--view-mode-highlight {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .node--view-mode-highlight .col-sm-12 {
   padding-left: 0;
   padding-right: 0;
@@ -16048,6 +16056,10 @@ a.btn, .article__node-link a {
 .articles-card-case-study h3,
 .view-mode-highlight-sm h3 {
   font-size: 1rem;
+}
+
+.view-mode-highlight-sm .article__body {
+  display: none;
 }
 
 .articles-card-case-study .article__node-post-date {
