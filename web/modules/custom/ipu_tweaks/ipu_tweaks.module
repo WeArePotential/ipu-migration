@@ -22,6 +22,10 @@ function ipu_tweaks_page_attachments(array &$attachments) {
     $attachments['#attached']['library'][] = 'ipu_tweaks/ultimenu-override';
   }
 }
+function ipu_tweaks_preprocess(&$variables) {
+  $variables['language_id'] = \Drupal::languageManager()->getCurrentLanguage('language_content')->getId();
+}
+
 
 function ipu_tweaks_preprocess_paragraph(&$variables) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */

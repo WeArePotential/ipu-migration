@@ -5,6 +5,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\taxonomy\Entity\Vocabulary;
+//use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_help().
@@ -28,24 +29,37 @@ function ipu_map_get_countries() {
   $default_language_id = \Drupal::languageManager()->getDefaultLanguage()->getId();
   $vocab = \Drupal\taxonomy\Entity\Vocabulary::load($vid);
 
-  /*$terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
-    'vid' => $vid,
-    'langcode' => $language_id, // This doesn't work for some reason
-  ]);
-  */
   $query = \Drupal::entityQuery('taxonomy_term');
   $query->condition('vid', $vid);
-  $query->condition('langcode', $language_id);
+  $query->condition('langcode', $language_id); // This only works in that it get all terms with value in current lang.
   $query->sort('name');
   $tids = $query->execute();
-  $terms = \Drupal\taxonomy\Entity\Term::loadMultiple($tids);
 
-  if ($language_id != $default_language_id) {
-    foreach ($terms as &$term) {
-      if ($term->hasTranslation($language_id) ) {
+  $terms = \Drupal\taxonomy\Entity\Term::loadMultiple($tids);
+  $count = 0;
+
+  // Need to get translations, and sort by name
+  $term_names = [];
+  $terms_sorted = [];
+  foreach ($terms as &$term) {
+    if ($language_id != $term->langcode) {
+      if ($term->hasTranslation($language_id)) {
         $term = $term->getTranslation($language_id);
       }
     }
+    $terms_sorted[$term->getName()] = $term;
+    $term_names[] = $term->getName();
+  }
+  // We need to sort French a little differently, to accommodate accents.
+  if ($language_id == 'fr') {
+    $coll = collator_create( 'fr_FR' );
+    collator_sort($coll, $term_names);
+  } else {
+    asort($term_names);
+  }
+  $terms = [];
+  foreach($term_names as $term_name) {
+    $terms[] = $terms_sorted[$term_name];
   }
   return $terms;
 }

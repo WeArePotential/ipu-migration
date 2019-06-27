@@ -4,6 +4,7 @@
  * Default theme implementation
  *
  * Available variables:
+ *  - language_id : current language
  *
  * @see template_preprocess_ipu_map()
  *
@@ -22,7 +23,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="term-icon term-icon-88 card-header">
-                        <span class="data-point-title">Women in Parliament</span>
+                        <span class="data-point-title">{{ language_id == 'fr' ? 'Femmes dans les parlements' : 'Women in Parliament' }}</span>
                     </div>
                     <div class="card-body stats">
                         <div class="d-flex">

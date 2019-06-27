@@ -19,8 +19,10 @@ class IpuCountrySelectForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $options = ['XX'=>t('All parliaments')];
+    $all_parliaments = t('All parliaments')->render();
+    $options = ['XX'=>$all_parliaments];
     $country_terms = ipu_map_get_countries();
+
     $i = 0;
     $language =  \Drupal::languageManager()->getCurrentLanguage()->getId();
     foreach ($country_terms as $country_term) {
@@ -29,19 +31,13 @@ class IpuCountrySelectForm extends FormBase {
         if (!$country_term->get('field_iso_code')->isEmpty()) {
           $iso_code = $country_term->get('field_iso_code')
             ->getValue()[0]['value'];
-          if ($language != 'en') {
-            $translated_term = \Drupal::service('entity.repository')->getTranslationFromContext($country_term, $language);
-            $options[$iso_code] = $translated_term->getName();
-          } else {
-            $options[$iso_code] = $country_term->getName();
-          }
+          $options[$iso_code] = $country_term->getName();
         } else {
           // TODO: Decide what to do with countries which have no ISO code
           // $options[$i++] = $country_term->getName();
         }
       }
     }
-
     $form['isocode'] = array(
       '#type' => 'select',
       '#options'=> $options,
