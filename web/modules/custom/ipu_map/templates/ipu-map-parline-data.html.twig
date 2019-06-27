@@ -15,7 +15,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <p>{{  description }}</p>
+                <div class="data-parliament-name">{{ parliamentary_name|join(', ') }}</div>
+                <p>{{ description }}</p>
             </div>
             {% if current_women_percent is not same as(null) %}
             <div class="col-md-3">

@@ -53,7 +53,7 @@ function ipu_map_get_countries() {
 function ipu_map_get_country_page() {
 
 }
-function ipu_map_get_parline_data($isocode, $description, $membership_status, $principles_signatory, $human_rights_cases) {
+function ipu_map_get_parline_data($isocode, $description, $membership_status, $principles_signatory, $human_rights_cases, $current_language_id = 'en') {
 
   $data = [];
   $stats = [];
@@ -71,15 +71,16 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   $decoded = json_decode($result);
 
   $chamber_nids = [];
-  $stats['#parliamentary_name'] = array();
+  $data['#parliamentary_name'] = array();
   if (sizeof($decoded->list) == 0) {
-    \Drupal::messenger()->addStatus(t('No data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
+    \Drupal::messenger()->addStatus(t('No data available from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
   }
   foreach ($decoded->list as $chamber) {
     // TODO Multilingual
     // TODO Add fields from https://data.ipu.org/node/53/basic-information/contact-details?chamber_id=13379
-    if ($chamber->language == 'en') {
-      // print '<pre>'.print_r($chamber,TRUE).'</pre>';
+
+    if ($chamber->language == $current_language_id) {
+      //print '<pre>'.print_r($chamber,TRUE).'</pre>';
 
       $stats['#url'] = $chamber->url;
       // Some fields are common across languages...as they are non-lang specific.
@@ -87,7 +88,9 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
       $stats['#members_per_country'] = $chamber->members_per_country;
       // Some have multiple values and so are passed as an arrey
       $stats['#structure_of_parliament'] = $chamber->field_structure_of_parliament;
-      $stats['#parliamentary_name'][] = ($chamber->parliamentary_name ? $chamber->parliamentary_name : 'Name of parliament not available');
+      if ($chamber->parliamentary_name) {
+        $data['#parliamentary_name'][] = $chamber->parliamentary_name;
+      }
       $chamber_nids[] = $chamber->nid;
     }
   }
@@ -95,7 +98,7 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   // Now get the data from the chamber. We only need one language version
   // of these, as they are the same figures in both.
   $stats['#chambers'] = [];
-
+  $election_nid = 0;
   foreach ($chamber_nids as $chamber_nid) {
     $chamber_url = 'https://data.ipu.org/api/node.json?type=chamber&field_country=' . $chamber_nid;
     curl_setopt($ch, CURLOPT_URL, $chamber_url);
@@ -103,7 +106,6 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
     $decoded = json_decode($result);
     $link = Link::fromTextAndUrl($parline_url, Url::fromUri($chamber_url));
     //\Drupal::messenger()->addStatus(t('Secondary Data from Parline: @s', ['@s' => new FormattableMarkup($link->toString(), [])]));
-    $link = Link::fromTextAndUrl($parline_url, Url::fromUri($parline_url));
 
     foreach ($decoded->list as $key => $chamber) {
       // TODO: Get contact details (of secretary general?) Forbidden, cannot use
@@ -114,14 +116,33 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
       */
       $data['#current_women_percent'] = $chamber->current_women_percent;
       $data['#total_younger_45_percentage'] = $chamber->total_younger_45_percentage;
-
+      if ($chamber->field_chamber_name) {
+        $data['#parliamentary_name'][] = $chamber->field_chamber_name;
+      }
       $stats['#chambers'][] = array(
         'struct_parl_status' => $chamber->field_struct_parl_status->id,
         'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower'))
       );
+      if ($chamber->field_struct_parl_status->id != 17) {
+        $election_nid = $chamber->latest_election->id;
+      }
     };
   }
-  curl_close($ch);
+
+  // Get election data
+  if ($election_nid != 0) {
+    $election_url = 'https://data.ipu.org/api/node.json?nid=' . $election_nid;
+    curl_setopt($ch, CURLOPT_URL, $election_url);
+    $result = curl_exec($ch);
+    $decoded = json_decode($result);
+    foreach ($decoded->list as $key => $election_date) {
+      if ($election_date->field_election_date->value) {
+        $stats['#last_election_date'] = date('M Y', $election_date->field_election_date->value);
+      }
+    }
+    curl_close($ch);
+  }
+
 
   $stats['#membership_status'] = ($membership_status ? true : false);
   $stats['#membership_status_text'] = ($membership_status ? t('Is an IPU member') : t('Is not an PU member'));
@@ -131,7 +152,7 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
   $data['#human_rights_cases'] = ($human_rights_cases ? $human_rights_cases : 0);
   $data['#description'] = $description;
 
-  $stats['#parliamentary_name'] = array_unique($stats['#parliamentary_name']);
+  $data['#parliamentary_name'] = array_unique($data['#parliamentary_name']);
 
   $data['#theme'] = 'ipu-map-parline-data';
   $stats['#theme'] = 'ipu-map-country-stats';
@@ -194,6 +215,7 @@ function ipu_map_theme($existing, $type, $theme, $path) {
       'path' => $path . '/templates',
       'variables' => array(
         'human_rights_cases' => '',
+        'parliamentary_name' => '',
         'description' => '',
         'current_women_percent' => '',
         'total_younger_45_percentage' => '',
@@ -204,7 +226,6 @@ function ipu_map_theme($existing, $type, $theme, $path) {
       'path' => $path . '/templates',
       'variables' => array(
         'population_in_millions' => '',
-        'parliamentary_name' => '',
         'members_per_country' => '',
         'structure_of_parliament' => '',
         'membership_status' => '',
@@ -215,6 +236,7 @@ function ipu_map_theme($existing, $type, $theme, $path) {
         'chambers' => [],
         'flag' => '',
         'url' => '',
+        'last_election_date' => '',
       ),
     ),
     'ipu-map-flag' => array(

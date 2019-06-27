@@ -15,6 +15,11 @@ class IpuMapController extends ControllerBase {
 
   private $title = '';
   private $member = false;
+  private $current_language_id = 'en';
+
+  public function __construct() {
+    $this->current_language_id =  \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+  }
   /**
    * Display the markup.
    *
@@ -72,15 +77,14 @@ class IpuMapController extends ControllerBase {
     }
 
     // Build arrays of data from parline and the taxonomy term fields
-    $data = ipu_map_get_parline_data($parliament_iso_code, $this->getDescription(), $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases());
+    $data = ipu_map_get_parline_data($parliament_iso_code, $this->getDescription(), $this->getMembershipStatus(), $this->getPrinciplesSignatoryStatus(),$this->getHumanRightsCases(), $this->current_language_id);
 
     // Get a view with news and stories
     $news_block = ipu_map_get_country_news($country->get('tid')->value);
 
     $case_studies_block = ipu_map_get_country_case_studies($country->get('tid')->value);
+    // Rendering of the block is done in the theming, so no need to run $markup .= \Drupal::service('renderer')->render($content);
 
-
-    // This is done in the theming: $markup .= \Drupal::service('renderer')->render($content);
     $page = [
       '#theme' => 'ipu-map-country',
       '#content' => [
@@ -116,18 +120,18 @@ class IpuMapController extends ControllerBase {
 
   private function getCountryTerm( $iso_code) {
     $country = Null;
-    $langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+
     $query = \Drupal::entityQuery('taxonomy_term');
     $tids = $query
       ->condition('field_iso_code.value', $iso_code, '=')
-      //->condition(langcode)
+      //->condition($this->current_language_id)
       ->condition('status', 1)  // Once we have our conditions specified we use the execute() method to run the query
       ->execute();
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($tids);
     foreach ($terms as $term) {
-      if($term->hasTranslation($langcode)) {
+      if($term->hasTranslation($this->current_language_id)) {
         $country = \Drupal::service('entity.repository')
-          ->getTranslationFromContext($term, $langcode);
+          ->getTranslationFromContext($term, $this->current_language_id);
       } else {
         $country = $term; //return title of term
       }

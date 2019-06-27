@@ -585,6 +585,15 @@ a.btn {
   }
 }
 
+.more-data-parline {
+  @extend .btn;
+  @extend .btn-sm;
+  @extend .btn-outline-primary;
+  width: 100%;
+  span::before {
+    padding-right: 5px;
+  }
+}
 // Currently removing row and column styles
 // NOTE: May want to try and remove these in Drupal
 // NOTE: Display suite is using Bootstrap 1 column layout
