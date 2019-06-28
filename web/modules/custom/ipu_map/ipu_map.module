@@ -181,6 +181,10 @@ function ipu_map_get_country_case_studies($country_term_id) {
   // Uses an in-built view. We use the pre_reneder below to change the sort order here.
   return views_embed_view('articles', 'latest_3_case_country', $country_term_id);
 }
+function ipu_map_get_events($country_term_id) {
+  // Uses an in-built view. We use the pre_reneder below to change the sort order here.
+  return views_embed_view('events', 'latest_2_events_country', $country_term_id);
+}
 function ipu_map_views_pre_render(\Drupal\views\ViewExecutable $view) {
   // Change the order of the news items; show the features first, if there are any, in the last 4 items.
   if ($view->id() == 'articles') {

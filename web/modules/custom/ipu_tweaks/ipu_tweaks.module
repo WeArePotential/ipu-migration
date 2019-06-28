@@ -22,6 +22,8 @@ function ipu_tweaks_page_attachments(array &$attachments) {
     $attachments['#attached']['library'][] = 'ipu_tweaks/ultimenu-override';
   }
 }
+
+/* Add current language to all templates */
 function ipu_tweaks_preprocess(&$variables) {
   $variables['language_id'] = \Drupal::languageManager()->getCurrentLanguage('language_content')->getId();
 }
@@ -77,6 +79,9 @@ function ipu_tweaks_preprocess_field(&$variables) {
     // Placeholder for field preprocess.
   }
   if (($variables['element']['#field_name'] == 'field_ipu_event_sessions')) {
+  }
+  if (($variables['element']['#field_name'] == 'field_ipu_event_dates')) {
+
   }
 }
 /**

@@ -30,11 +30,11 @@
             event.preventDefault();
 
             if ($(this).closest('.ultimenu__item').find('.ultimenu__flyout').css('opacity') == '1') {
-              /*$('.ultimenu__flyout').css({
+              $('.ultimenu__flyout').css({
                 "visibility":"hidden",
                 "opacity":"0",
                 "margin-top":"20px",
-              });*/
+              });
             } else{
               // Clears the megamenu if click another link in the menu.
               $('.ultimenu__flyout').css({
@@ -42,7 +42,6 @@
                 "opacity":"0",
                 "margin-top":"20px",
               });
-
 
               // Add the CSS to make the megamenu appear.
               $(this).closest('.ultimenu__item').find('.ultimenu__flyout').css({

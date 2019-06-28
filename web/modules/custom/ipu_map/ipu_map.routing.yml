@@ -22,3 +22,12 @@ ipu_map.country:
     country_name: ''
   requirements:
     _permission: 'access content'
+
+ipu_map.country_fr:
+  path: '/parlement/{iso_code}/{country_name}'
+  defaults:
+    _controller: '\Drupal\ipu_map\Controller\IpuMapController::countryContent'
+    _title_callback: '\Drupal\ipu_map\Controller\IpuMapController::getCountryTitle'
+    country_name: ''
+  requirements:
+    _permission: 'access content'
