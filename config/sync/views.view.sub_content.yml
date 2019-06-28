@@ -9,7 +9,6 @@ dependencies:
   module:
     - image
     - node
-    - views_bootstrap
     - views_menu_children_filter
 id: sub_content
 label: 'Sub Content'
@@ -69,16 +68,11 @@ display:
             offset_label: Offset
           quantity: 9
       style:
-        type: views_bootstrap_grid
+        type: default
         options:
-          row_class: 'panel sub-content '
-          default_row_class: false
+          row_class: 'sub-content col-md-4 card card'
+          default_row_class: true
           uses_fields: false
-          alignment: horizontal
-          col_xs: col-12
-          col_sm: col-sm-6
-          col_md: col-md-3
-          col_lg: col-lg-3
       row:
         type: 'entity:node'
         options:
@@ -321,6 +315,7 @@ display:
           not: false
           target_menus:
             main: main
+            mega-menu: mega-menu
           entity_type: node
           plugin_id: menu_children
         nid:
@@ -361,6 +356,7 @@ display:
           plugin_id: node_nid
       display_extenders:
         metatag_display_extender: {  }
+      css_class: row
     cache_metadata:
       max-age: -1
       contexts:

@@ -86,8 +86,6 @@ third_party_settings:
       weight: 1
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
         element: div
         show_label: false
         label_element: h3
@@ -95,6 +93,8 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: ''
       label: Content
       region: content
 id: node.ipu_event.highlight
