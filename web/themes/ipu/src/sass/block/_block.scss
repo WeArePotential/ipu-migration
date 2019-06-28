@@ -34,10 +34,18 @@ h2,
   background-color: theme-color("secondary");
 }
 
-#topbar {
-  background-color: theme-color("secondary");
-  padding: 0 0 4px 0;
+.topbar {
+  background-color: theme-color("dark");
+  padding: 1px 0 1px 0;
   font-size: 0.8rem;
+
+  .custom-select {
+    height: 28px;
+  }
+
+  a {
+    font-weight: $font-weight-normal;
+  }
   ul {
     margin-bottom: 0;
   }
@@ -72,12 +80,6 @@ h2,
         display: none;
       }
     }
-    // &.follow-facebook::before {
-    //   @include icon-brand("facebook");
-    // }
-    // &.follow-twitter::before {
-    //   @include icon-brand("twitter");
-    // }
   }
 
   .col-6.text-left .region-inner {
@@ -109,16 +111,39 @@ h2,
 #branding .block--ipu-search {
   display: inline-block;
 }
+
+// Font awesome icons
+.example-download {
+  &::after,
+  &::before {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 1;
+  }
+}
+
+.follow-facebook,
+.follow-twitter {
+  &::after,
+  &::before {
+    font-family: "Font Awesome 5 Brands";
+  }
+}
+
 .example-download::after {
-  font-family: "Font Awesome 5 Free", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  content: "\F093" !important;
+  content: "\f093" !important;
+}
+
+.follow-facebook::before {
+  content: "\f39e" !important;
+}
+.follow-twitter::before {
+  content: "\f099" !important;
 }
 
 #main-nav {
