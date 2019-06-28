@@ -7,12 +7,13 @@
 <div class="page">
 
   <div id="topbar" class="topbar container-fluid" >
-    <div class="row">{% block topbar %}
+    <div class="d-flex justify-content-between">
+    {% block topbar %}
       {% if page.topbar_left %}
-          <div class="col-6 text-left">{{ page.topbar_left }}</div>
+          <div class="text-left">{{ page.topbar_left }}</div>
       {% endif %}
       {% if page.topbar_right %}
-      <div class="col-6 text-right">{{ page.topbar_right }}</div>
+      <div class="text-right">{{ page.topbar_right }}</div>
       {% endif %}
       {% endblock %}
     </div>
@@ -21,16 +22,16 @@
   <div id="#top">
     <div id="branding">
       <div class="container">
-        <div class="row">
+        <div class="d-flex justify-content-between">
           {% block branding %}
             {% if page.navbar_branding %}
-              <div class="col-6">
+              <div class="text-left">
                 <a href="/"><img class="logo" src="{{ base_path ~ directory }}/assets/img/IPU-logo.svg" /></a>
                 {# page.navbar_branding #}
               </div>
             {% endif %}
             {% if page.navbar_branding_right %}
-              <div class="col-6 text-right">
+              <div class="text-right">
                 {{ page.navbar_branding_right }}
               </div>
             {% endif %}
@@ -43,7 +44,7 @@
         <div class="row">
           {% block left %}
             {% if page.navbar_left %}
-              <div id="main-nav-left" class="col-6 mr-auto">
+              <div id="main-nav-left" class="mr-auto">
                 {{ page.navbar_left }}
               </div>
             {% endif %}
@@ -51,7 +52,7 @@
 
           {% block right %}
             {% if page.navbar_right %}
-              <div id="main-nav-right" class="col-6 text-right d-inline">
+              <div id="main-nav-right" class="text-right d-inline">
                 {{ page.navbar_right }}
               </div>
             {% endif %}
