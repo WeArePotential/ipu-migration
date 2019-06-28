@@ -250,6 +250,7 @@ main,
 ol.breadcrumb {
   background-color: gray("100");
 }
+
 .cta-link {
   font-size: 0.65rem;
   letter-spacing: 0.075em;
@@ -553,7 +554,10 @@ a.btn {
 
   // Article content for all highlight cards
   .article__type-content,
-  .layout__region--content {
+  .layout__region--content,
+  .event__type-content,
+  .bs-region--main,
+  .group-event-wrapper {
     @extend .card-body;
   }
 
@@ -575,11 +579,15 @@ a.btn {
     color: $white;
     font-weight: $font-weight-bold;
     // font-size: $font-size-lg;
-    margin-right: 10px;
     border: 4px solid #f2f2f2;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: #e98300;
+    background-image: url(../img/icons/calendar.png);
+    background-position: 100% 50%;
+    background-size: 36px;
 
     // time {
     //   display: flex;
@@ -588,10 +596,18 @@ a.btn {
     //   border-radius: 50%;
     // }
   }
+  .group-event-date {
+    position: absolute;
+    right: -25px;
+    top: -20px;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 // Read more link base styles
-.article__node-link a {
+.article__node-link a,
+.ipu-event__node-link a {
   @extend .btn;
   @extend .btn-sm;
 
@@ -651,11 +667,12 @@ a.btn {
   }
 }
 
+.ipu-event__node-link a,
 .more-data-parline {
   @extend .btn;
   @extend .btn-sm;
   @extend .btn-outline-primary;
-  width: 100%;
+  
   span::before {
     padding-right: 5px;
   }
@@ -716,4 +733,14 @@ a.btn {
   border: 0;
   position: absolute;
   color: transparent;
+}
+
+// Event styles
+.group-event-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.group-event-wrapper > div:not(.group-event-date) {
+  width: 80%;
 }

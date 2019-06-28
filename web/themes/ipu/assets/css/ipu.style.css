@@ -2355,7 +2355,9 @@ textarea.form-control {
   }
 }
 
-.btn, .more-data-parline, .article__node-link a {
+.btn,
+.more-data-parline, .article__node-link a,
+.ipu-event__node-link a {
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -2374,26 +2376,42 @@ textarea.form-control {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .more-data-parline, .article__node-link a {
+  .btn,
+.more-data-parline, .article__node-link a,
+.ipu-event__node-link a {
     transition: none;
   }
 }
-.btn:hover, .more-data-parline:hover, .article__node-link a:hover {
+.btn:hover,
+.more-data-parline:hover, .article__node-link a:hover,
+.ipu-event__node-link a:hover {
   color: #212529;
   text-decoration: none;
 }
-.btn:focus, .more-data-parline:focus, .article__node-link a:focus, .btn.focus, .focus.more-data-parline, .article__node-link a.focus {
+.btn:focus,
+.more-data-parline:focus, .article__node-link a:focus,
+.ipu-event__node-link a:focus, .btn.focus,
+.focus.more-data-parline, .article__node-link a.focus,
+.ipu-event__node-link a.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 102, 161, 0.25);
 }
-.btn.disabled, .disabled.more-data-parline, .article__node-link a.disabled, .btn:disabled, .more-data-parline:disabled, .article__node-link a:disabled {
+.btn.disabled,
+.disabled.more-data-parline, .article__node-link a.disabled,
+.ipu-event__node-link a.disabled, .btn:disabled,
+.more-data-parline:disabled, .article__node-link a:disabled,
+.ipu-event__node-link a:disabled {
   opacity: 0.65;
 }
-a.btn.disabled, a.disabled.more-data-parline, .article__node-link a.disabled,
+a.btn.disabled,
+a.disabled.more-data-parline, .article__node-link a.disabled,
+.ipu-event__node-link a.disabled,
 fieldset:disabled a.btn,
 fieldset:disabled a.more-data-parline,
 fieldset:disabled .article__node-link a,
-.article__node-link fieldset:disabled a {
+.article__node-link fieldset:disabled a,
+fieldset:disabled .ipu-event__node-link a,
+.ipu-event__node-link fieldset:disabled a {
   pointer-events: none;
 }
 
@@ -2640,28 +2658,40 @@ fieldset:disabled .article__node-link a,
   box-shadow: 0 0 0 0.2rem rgba(236, 150, 38, 0.5);
 }
 
-.btn-outline-primary, .more-data-parline {
+.btn-outline-primary, .ipu-event__node-link a,
+.more-data-parline {
   color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:hover, .more-data-parline:hover {
+.btn-outline-primary:hover, .ipu-event__node-link a:hover,
+.more-data-parline:hover {
   color: #fff;
   background-color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:focus, .more-data-parline:focus, .btn-outline-primary.focus, .focus.more-data-parline {
+.btn-outline-primary:focus, .ipu-event__node-link a:focus,
+.more-data-parline:focus, .btn-outline-primary.focus, .ipu-event__node-link a.focus,
+.focus.more-data-parline {
   box-shadow: 0 0 0 0.2rem rgba(0, 102, 161, 0.5);
 }
-.btn-outline-primary.disabled, .disabled.more-data-parline, .btn-outline-primary:disabled, .more-data-parline:disabled {
+.btn-outline-primary.disabled, .ipu-event__node-link a.disabled,
+.disabled.more-data-parline, .btn-outline-primary:disabled, .ipu-event__node-link a:disabled,
+.more-data-parline:disabled {
   color: #0066a1;
   background-color: transparent;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active, .more-data-parline:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .more-data-parline:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle, .show > .dropdown-toggle.more-data-parline {
+.btn-outline-primary:not(:disabled):not(.disabled):active, .ipu-event__node-link a:not(:disabled):not(.disabled):active,
+.more-data-parline:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .ipu-event__node-link a:not(:disabled):not(.disabled).active,
+.more-data-parline:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle, .ipu-event__node-link .show > a.dropdown-toggle,
+.show > .dropdown-toggle.more-data-parline {
   color: #fff;
   background-color: #0066a1;
   border-color: #0066a1;
 }
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .more-data-parline:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .more-data-parline:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus, .show > .dropdown-toggle.more-data-parline:focus {
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .ipu-event__node-link a:not(:disabled):not(.disabled):active:focus,
+.more-data-parline:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .ipu-event__node-link a:not(:disabled):not(.disabled).active:focus,
+.more-data-parline:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus, .ipu-event__node-link .show > a.dropdown-toggle:focus,
+.show > .dropdown-toggle.more-data-parline:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 102, 161, 0.5);
 }
 
@@ -2883,14 +2913,20 @@ fieldset:disabled .article__node-link a,
   pointer-events: none;
 }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .more-data-parline, .article__node-link .btn-group-lg > a {
+.btn-lg, .btn-group-lg > .btn,
+.btn-group-lg > .more-data-parline, .article__node-link .btn-group-lg > a,
+.ipu-event__node-link .btn-group-lg > a {
   padding: 0.5rem 1rem;
   font-size: 1.75rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
 
-.btn-sm, .more-data-parline, .article__node-link a, .btn-group-sm > .btn, .btn-group-sm > .more-data-parline, .article__node-link .btn-group-sm > a {
+.btn-sm,
+.more-data-parline, .article__node-link a,
+.ipu-event__node-link a, .btn-group-sm > .btn,
+.btn-group-sm > .more-data-parline, .article__node-link .btn-group-sm > a,
+.ipu-event__node-link .btn-group-sm > a {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -3178,29 +3214,44 @@ input[type=button].btn-block {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn, .btn-group > .more-data-parline, .article__node-link .btn-group > a,
+.btn-group > .btn,
+.btn-group > .more-data-parline, .article__node-link .btn-group > a,
+.ipu-event__node-link .btn-group > a,
 .btn-group-vertical > .btn,
 .btn-group-vertical > .more-data-parline,
-.article__node-link .btn-group-vertical > a {
+.article__node-link .btn-group-vertical > a,
+.ipu-event__node-link .btn-group-vertical > a {
   position: relative;
   flex: 1 1 auto;
 }
-.btn-group > .btn:hover, .btn-group > .more-data-parline:hover, .article__node-link .btn-group > a:hover,
+.btn-group > .btn:hover,
+.btn-group > .more-data-parline:hover, .article__node-link .btn-group > a:hover,
+.ipu-event__node-link .btn-group > a:hover,
 .btn-group-vertical > .btn:hover,
 .btn-group-vertical > .more-data-parline:hover,
-.article__node-link .btn-group-vertical > a:hover {
+.article__node-link .btn-group-vertical > a:hover,
+.ipu-event__node-link .btn-group-vertical > a:hover {
   z-index: 1;
 }
-.btn-group > .btn:focus, .btn-group > .more-data-parline:focus, .article__node-link .btn-group > a:focus, .btn-group > .btn:active, .btn-group > .more-data-parline:active, .article__node-link .btn-group > a:active, .btn-group > .btn.active, .btn-group > .active.more-data-parline, .article__node-link .btn-group > a.active,
+.btn-group > .btn:focus,
+.btn-group > .more-data-parline:focus, .article__node-link .btn-group > a:focus,
+.ipu-event__node-link .btn-group > a:focus, .btn-group > .btn:active,
+.btn-group > .more-data-parline:active, .article__node-link .btn-group > a:active,
+.ipu-event__node-link .btn-group > a:active, .btn-group > .btn.active,
+.btn-group > .active.more-data-parline, .article__node-link .btn-group > a.active,
+.ipu-event__node-link .btn-group > a.active,
 .btn-group-vertical > .btn:focus,
 .btn-group-vertical > .more-data-parline:focus,
 .article__node-link .btn-group-vertical > a:focus,
+.ipu-event__node-link .btn-group-vertical > a:focus,
 .btn-group-vertical > .btn:active,
 .btn-group-vertical > .more-data-parline:active,
 .article__node-link .btn-group-vertical > a:active,
+.ipu-event__node-link .btn-group-vertical > a:active,
 .btn-group-vertical > .btn.active,
 .btn-group-vertical > .active.more-data-parline,
-.article__node-link .btn-group-vertical > a.active {
+.article__node-link .btn-group-vertical > a.active,
+.ipu-event__node-link .btn-group-vertical > a.active {
   z-index: 1;
 }
 
@@ -3213,21 +3264,29 @@ input[type=button].btn-block {
   width: auto;
 }
 
-.btn-group > .btn:not(:first-child), .btn-group > .more-data-parline:not(:first-child), .article__node-link .btn-group > a:not(:first-child),
+.btn-group > .btn:not(:first-child),
+.btn-group > .more-data-parline:not(:first-child), .article__node-link .btn-group > a:not(:first-child),
+.ipu-event__node-link .btn-group > a:not(:first-child),
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .more-data-parline:not(:last-child):not(.dropdown-toggle), .article__node-link .btn-group > a:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .more-data-parline:not(:last-child):not(.dropdown-toggle), .article__node-link .btn-group > a:not(:last-child):not(.dropdown-toggle),
+.ipu-event__node-link .btn-group > a:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn-group:not(:last-child) > .btn,
 .btn-group > .btn-group:not(:last-child) > .more-data-parline,
-.article__node-link .btn-group > .btn-group:not(:last-child) > a {
+.article__node-link .btn-group > .btn-group:not(:last-child) > a,
+.ipu-event__node-link .btn-group > .btn-group:not(:last-child) > a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.btn-group > .btn:not(:first-child), .btn-group > .more-data-parline:not(:first-child), .article__node-link .btn-group > a:not(:first-child),
+.btn-group > .btn:not(:first-child),
+.btn-group > .more-data-parline:not(:first-child), .article__node-link .btn-group > a:not(:first-child),
+.ipu-event__node-link .btn-group > a:not(:first-child),
 .btn-group > .btn-group:not(:first-child) > .btn,
 .btn-group > .btn-group:not(:first-child) > .more-data-parline,
-.article__node-link .btn-group > .btn-group:not(:first-child) > a {
+.article__node-link .btn-group > .btn-group:not(:first-child) > a,
+.ipu-event__node-link .btn-group > .btn-group:not(:first-child) > a {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3243,12 +3302,18 @@ input[type=button].btn-block {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .more-data-parline + .dropdown-toggle-split, .article__node-link a + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .btn-group-sm > .more-data-parline + .dropdown-toggle-split, .article__node-link .btn-group-sm > a + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split,
+.more-data-parline + .dropdown-toggle-split, .article__node-link a + .dropdown-toggle-split,
+.ipu-event__node-link a + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split,
+.btn-group-sm > .more-data-parline + .dropdown-toggle-split, .article__node-link .btn-group-sm > a + .dropdown-toggle-split,
+.ipu-event__node-link .btn-group-sm > a + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .btn-group-lg > .more-data-parline + .dropdown-toggle-split, .article__node-link .btn-group-lg > a + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split,
+.btn-group-lg > .more-data-parline + .dropdown-toggle-split, .article__node-link .btn-group-lg > a + .dropdown-toggle-split,
+.ipu-event__node-link .btn-group-lg > a + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -3258,39 +3323,55 @@ input[type=button].btn-block {
   align-items: flex-start;
   justify-content: center;
 }
-.btn-group-vertical > .btn, .btn-group-vertical > .more-data-parline, .article__node-link .btn-group-vertical > a,
+.btn-group-vertical > .btn,
+.btn-group-vertical > .more-data-parline, .article__node-link .btn-group-vertical > a,
+.ipu-event__node-link .btn-group-vertical > a,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .more-data-parline:not(:first-child), .article__node-link .btn-group-vertical > a:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child),
+.btn-group-vertical > .more-data-parline:not(:first-child), .article__node-link .btn-group-vertical > a:not(:first-child),
+.ipu-event__node-link .btn-group-vertical > a:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
-.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .more-data-parline:not(:last-child):not(.dropdown-toggle), .article__node-link .btn-group-vertical > a:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .more-data-parline:not(:last-child):not(.dropdown-toggle), .article__node-link .btn-group-vertical > a:not(:last-child):not(.dropdown-toggle),
+.ipu-event__node-link .btn-group-vertical > a:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
 .btn-group-vertical > .btn-group:not(:last-child) > .more-data-parline,
-.article__node-link .btn-group-vertical > .btn-group:not(:last-child) > a {
+.article__node-link .btn-group-vertical > .btn-group:not(:last-child) > a,
+.ipu-event__node-link .btn-group-vertical > .btn-group:not(:last-child) > a {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .more-data-parline:not(:first-child), .article__node-link .btn-group-vertical > a:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child),
+.btn-group-vertical > .more-data-parline:not(:first-child), .article__node-link .btn-group-vertical > a:not(:first-child),
+.ipu-event__node-link .btn-group-vertical > a:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
 .btn-group-vertical > .btn-group:not(:first-child) > .more-data-parline,
-.article__node-link .btn-group-vertical > .btn-group:not(:first-child) > a {
+.article__node-link .btn-group-vertical > .btn-group:not(:first-child) > a,
+.ipu-event__node-link .btn-group-vertical > .btn-group:not(:first-child) > a {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.btn-group-toggle > .btn, .btn-group-toggle > .more-data-parline, .article__node-link .btn-group-toggle > a,
+.btn-group-toggle > .btn,
+.btn-group-toggle > .more-data-parline, .article__node-link .btn-group-toggle > a,
+.ipu-event__node-link .btn-group-toggle > a,
 .btn-group-toggle > .btn-group > .btn,
 .btn-group-toggle > .btn-group > .more-data-parline,
-.article__node-link .btn-group-toggle > .btn-group > a {
+.article__node-link .btn-group-toggle > .btn-group > a,
+.ipu-event__node-link .btn-group-toggle > .btn-group > a {
   margin-bottom: 0;
 }
-.btn-group-toggle > .btn input[type=radio], .btn-group-toggle > .more-data-parline input[type=radio], .article__node-link .btn-group-toggle > a input[type=radio],
+.btn-group-toggle > .btn input[type=radio],
+.btn-group-toggle > .more-data-parline input[type=radio], .article__node-link .btn-group-toggle > a input[type=radio],
+.ipu-event__node-link .btn-group-toggle > a input[type=radio],
 .btn-group-toggle > .btn input[type=checkbox],
 .btn-group-toggle > .more-data-parline input[type=checkbox],
 .article__node-link .btn-group-toggle > a input[type=checkbox],
+.ipu-event__node-link .btn-group-toggle > a input[type=checkbox],
 .btn-group-toggle > .btn-group > .btn input[type=radio],
 .btn-group-toggle > .btn-group > .btn input[type=checkbox] {
   position: absolute;
@@ -3363,31 +3444,62 @@ input[type=button].btn-block {
 .input-group-append {
   display: flex;
 }
-.input-group-prepend .btn, .input-group-prepend .more-data-parline, .input-group-prepend .article__node-link a, .article__node-link .input-group-prepend a,
+.input-group-prepend .btn,
+.input-group-prepend .more-data-parline, .input-group-prepend .article__node-link a, .article__node-link .input-group-prepend a,
+.input-group-prepend .ipu-event__node-link a,
+.ipu-event__node-link .input-group-prepend a,
 .input-group-append .btn,
 .input-group-append .more-data-parline,
 .input-group-append .article__node-link a,
-.article__node-link .input-group-append a {
+.article__node-link .input-group-append a,
+.input-group-append .ipu-event__node-link a,
+.ipu-event__node-link .input-group-append a {
   position: relative;
   z-index: 2;
 }
-.input-group-prepend .btn:focus, .input-group-prepend .more-data-parline:focus, .input-group-prepend .article__node-link a:focus, .article__node-link .input-group-prepend a:focus,
+.input-group-prepend .btn:focus,
+.input-group-prepend .more-data-parline:focus, .input-group-prepend .article__node-link a:focus, .article__node-link .input-group-prepend a:focus,
+.input-group-prepend .ipu-event__node-link a:focus,
+.ipu-event__node-link .input-group-prepend a:focus,
 .input-group-append .btn:focus,
 .input-group-append .more-data-parline:focus,
 .input-group-append .article__node-link a:focus,
-.article__node-link .input-group-append a:focus {
+.article__node-link .input-group-append a:focus,
+.input-group-append .ipu-event__node-link a:focus,
+.ipu-event__node-link .input-group-append a:focus {
   z-index: 3;
 }
-.input-group-prepend .btn + .btn, .input-group-prepend .more-data-parline + .btn, .input-group-prepend .btn + .more-data-parline, .input-group-prepend .more-data-parline + .more-data-parline, .input-group-prepend .article__node-link a + .btn, .input-group-prepend .article__node-link a + .more-data-parline, .article__node-link .input-group-prepend a + .btn, .article__node-link .input-group-prepend a + .more-data-parline, .input-group-prepend .article__node-link .btn + a, .input-group-prepend .article__node-link .more-data-parline + a, .article__node-link .input-group-prepend .btn + a, .article__node-link .input-group-prepend .more-data-parline + a, .input-group-prepend .article__node-link a + a, .article__node-link .input-group-prepend a + a,
+.input-group-prepend .btn + .btn,
+.input-group-prepend .more-data-parline + .btn,
+.input-group-prepend .btn + .more-data-parline,
+.input-group-prepend .more-data-parline + .more-data-parline, .input-group-prepend .article__node-link a + .btn,
+.input-group-prepend .article__node-link a + .more-data-parline, .article__node-link .input-group-prepend a + .btn,
+.article__node-link .input-group-prepend a + .more-data-parline,
+.input-group-prepend .ipu-event__node-link a + .btn,
+.input-group-prepend .ipu-event__node-link a + .more-data-parline,
+.ipu-event__node-link .input-group-prepend a + .btn,
+.ipu-event__node-link .input-group-prepend a + .more-data-parline, .input-group-prepend .article__node-link .btn + a,
+.input-group-prepend .article__node-link .more-data-parline + a, .article__node-link .input-group-prepend .btn + a,
+.article__node-link .input-group-prepend .more-data-parline + a, .input-group-prepend .article__node-link a + a, .article__node-link .input-group-prepend a + a,
+.input-group-prepend .ipu-event__node-link .btn + a,
+.input-group-prepend .ipu-event__node-link .more-data-parline + a,
+.ipu-event__node-link .input-group-prepend .btn + a,
+.ipu-event__node-link .input-group-prepend .more-data-parline + a,
+.input-group-prepend .ipu-event__node-link a + a,
+.ipu-event__node-link .input-group-prepend a + a,
 .input-group-prepend .btn + .input-group-text,
 .input-group-prepend .more-data-parline + .input-group-text,
 .input-group-prepend .article__node-link a + .input-group-text,
 .article__node-link .input-group-prepend a + .input-group-text,
+.input-group-prepend .ipu-event__node-link a + .input-group-text,
+.ipu-event__node-link .input-group-prepend a + .input-group-text,
 .input-group-prepend .input-group-text + .input-group-text,
 .input-group-prepend .input-group-text + .btn,
 .input-group-prepend .input-group-text + .more-data-parline,
 .input-group-prepend .article__node-link .input-group-text + a,
 .article__node-link .input-group-prepend .input-group-text + a,
+.input-group-prepend .ipu-event__node-link .input-group-text + a,
+.ipu-event__node-link .input-group-prepend .input-group-text + a,
 .input-group-append .btn + .btn,
 .input-group-append .more-data-parline + .btn,
 .input-group-append .btn + .more-data-parline,
@@ -3396,21 +3508,35 @@ input[type=button].btn-block {
 .input-group-append .article__node-link a + .more-data-parline,
 .article__node-link .input-group-append a + .btn,
 .article__node-link .input-group-append a + .more-data-parline,
+.input-group-append .ipu-event__node-link a + .btn,
+.input-group-append .ipu-event__node-link a + .more-data-parline,
+.ipu-event__node-link .input-group-append a + .btn,
+.ipu-event__node-link .input-group-append a + .more-data-parline,
 .input-group-append .article__node-link .btn + a,
 .input-group-append .article__node-link .more-data-parline + a,
 .article__node-link .input-group-append .btn + a,
 .article__node-link .input-group-append .more-data-parline + a,
 .input-group-append .article__node-link a + a,
 .article__node-link .input-group-append a + a,
+.input-group-append .ipu-event__node-link .btn + a,
+.input-group-append .ipu-event__node-link .more-data-parline + a,
+.ipu-event__node-link .input-group-append .btn + a,
+.ipu-event__node-link .input-group-append .more-data-parline + a,
+.input-group-append .ipu-event__node-link a + a,
+.ipu-event__node-link .input-group-append a + a,
 .input-group-append .btn + .input-group-text,
 .input-group-append .more-data-parline + .input-group-text,
 .input-group-append .article__node-link a + .input-group-text,
 .article__node-link .input-group-append a + .input-group-text,
+.input-group-append .ipu-event__node-link a + .input-group-text,
+.ipu-event__node-link .input-group-append a + .input-group-text,
 .input-group-append .input-group-text + .input-group-text,
 .input-group-append .input-group-text + .btn,
 .input-group-append .input-group-text + .more-data-parline,
 .input-group-append .article__node-link .input-group-text + a,
-.article__node-link .input-group-append .input-group-text + a {
+.article__node-link .input-group-append .input-group-text + a,
+.input-group-append .ipu-event__node-link .input-group-text + a,
+.ipu-event__node-link .input-group-append .input-group-text + a {
   margin-left: -1px;
 }
 
@@ -3454,9 +3580,11 @@ input[type=button].btn-block {
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-prepend > .more-data-parline,
 .article__node-link .input-group-lg > .input-group-prepend > a,
+.ipu-event__node-link .input-group-lg > .input-group-prepend > a,
 .input-group-lg > .input-group-append > .btn,
 .input-group-lg > .input-group-append > .more-data-parline,
-.article__node-link .input-group-lg > .input-group-append > a {
+.article__node-link .input-group-lg > .input-group-append > a,
+.ipu-event__node-link .input-group-lg > .input-group-append > a {
   padding: 0.5rem 1rem;
   font-size: 1.75rem;
   line-height: 1.5;
@@ -3475,9 +3603,11 @@ input[type=button].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-prepend > .more-data-parline,
 .article__node-link .input-group-sm > .input-group-prepend > a,
+.ipu-event__node-link .input-group-sm > .input-group-prepend > a,
 .input-group-sm > .input-group-append > .btn,
 .input-group-sm > .input-group-append > .more-data-parline,
-.article__node-link .input-group-sm > .input-group-append > a {
+.article__node-link .input-group-sm > .input-group-append > a,
+.ipu-event__node-link .input-group-sm > .input-group-append > a {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -3489,29 +3619,37 @@ input[type=button].btn-block {
   padding-right: 1.125rem;
 }
 
-.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .more-data-parline, .article__node-link .input-group > .input-group-prepend > a,
+.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .more-data-parline, .article__node-link .input-group > .input-group-prepend > a,
+.ipu-event__node-link .input-group > .input-group-prepend > a,
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
 .input-group > .input-group-append:not(:last-child) > .more-data-parline,
 .article__node-link .input-group > .input-group-append:not(:last-child) > a,
+.ipu-event__node-link .input-group > .input-group-append:not(:last-child) > a,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .more-data-parline:not(:last-child):not(.dropdown-toggle),
 .article__node-link .input-group > .input-group-append:last-child > a:not(:last-child):not(.dropdown-toggle),
+.ipu-event__node-link .input-group > .input-group-append:last-child > a:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.input-group > .input-group-append > .btn, .input-group > .input-group-append > .more-data-parline, .article__node-link .input-group > .input-group-append > a,
+.input-group > .input-group-append > .btn,
+.input-group > .input-group-append > .more-data-parline, .article__node-link .input-group > .input-group-append > a,
+.ipu-event__node-link .input-group > .input-group-append > a,
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .more-data-parline,
 .article__node-link .input-group > .input-group-prepend:not(:first-child) > a,
+.ipu-event__node-link .input-group > .input-group-prepend:not(:first-child) > a,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .more-data-parline:not(:first-child),
 .article__node-link .input-group > .input-group-prepend:first-child > a:not(:first-child),
+.ipu-event__node-link .input-group > .input-group-prepend:first-child > a:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -4339,7 +4477,10 @@ input[type=button].btn-block {
 }
 
 .card-body, .node--view-mode-highlight .article__type-content,
-.node--view-mode-highlight .layout__region--content {
+.node--view-mode-highlight .layout__region--content,
+.node--view-mode-highlight .event__type-content,
+.node--view-mode-highlight .bs-region--main,
+.node--view-mode-highlight .group-event-wrapper {
   flex: 1 1 auto;
   padding: 10px;
 }
@@ -4677,14 +4818,24 @@ a.badge:hover, .node--view-mode-highlight a.article__type:hover,
   display: none;
 }
 
-.btn .badge, .more-data-parline .badge, .article__node-link a .badge, .btn .node--view-mode-highlight .article__type, .more-data-parline .node--view-mode-highlight .article__type, .article__node-link a .node--view-mode-highlight .article__type, .node--view-mode-highlight .btn .article__type, .node--view-mode-highlight .more-data-parline .article__type, .node--view-mode-highlight .article__node-link a .article__type, .article__node-link .node--view-mode-highlight a .article__type,
+.btn .badge,
+.more-data-parline .badge, .article__node-link a .badge,
+.ipu-event__node-link a .badge, .btn .node--view-mode-highlight .article__type,
+.more-data-parline .node--view-mode-highlight .article__type, .article__node-link a .node--view-mode-highlight .article__type,
+.ipu-event__node-link a .node--view-mode-highlight .article__type, .node--view-mode-highlight .btn .article__type,
+.node--view-mode-highlight .more-data-parline .article__type, .node--view-mode-highlight .article__node-link a .article__type, .article__node-link .node--view-mode-highlight a .article__type,
+.node--view-mode-highlight .ipu-event__node-link a .article__type,
+.ipu-event__node-link .node--view-mode-highlight a .article__type,
 .btn .node--view-mode-highlight .ipu-event__field-event-type,
 .more-data-parline .node--view-mode-highlight .ipu-event__field-event-type,
 .article__node-link a .node--view-mode-highlight .ipu-event__field-event-type,
+.ipu-event__node-link a .node--view-mode-highlight .ipu-event__field-event-type,
 .node--view-mode-highlight .btn .ipu-event__field-event-type,
 .node--view-mode-highlight .more-data-parline .ipu-event__field-event-type,
 .node--view-mode-highlight .article__node-link a .ipu-event__field-event-type,
-.article__node-link .node--view-mode-highlight a .ipu-event__field-event-type {
+.article__node-link .node--view-mode-highlight a .ipu-event__field-event-type,
+.node--view-mode-highlight .ipu-event__node-link a .ipu-event__field-event-type,
+.ipu-event__node-link .node--view-mode-highlight a .ipu-event__field-event-type {
   position: relative;
   top: -1px;
 }
@@ -16019,7 +16170,9 @@ dl {
   padding-left: 20px;
 }
 
-a.btn, a.more-data-parline, .article__node-link a {
+a.btn,
+a.more-data-parline, .article__node-link a,
+.ipu-event__node-link a {
   text-decoration: none;
 }
 
@@ -16103,14 +16256,25 @@ a.btn, a.more-data-parline, .article__node-link a {
   text-align: center;
   color: #fff;
   font-weight: 500;
-  margin-right: 10px;
   border: 4px solid #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e98300;
+  background-image: url(../img/icons/calendar.png);
+  background-position: 100% 50%;
+  background-size: 36px;
+}
+.node--view-mode-highlight .group-event-date {
+  position: absolute;
+  right: -25px;
+  top: -20px;
+  display: flex;
+  justify-content: center;
 }
 
-.article__node-link a:after {
+.article__node-link a:after,
+.ipu-event__node-link a:after {
   padding-left: 5px;
   font-family: "Font Awesome 5 Free";
   content: "\F061";
@@ -16130,9 +16294,7 @@ a.btn, a.more-data-parline, .article__node-link a {
   width: 100%;
   background-color: rgba(0, 102, 161, 0.8);
 }
-.more-data-parline {
-  width: 100%;
-}
+.ipu-event__node-link a span::before,
 .more-data-parline span::before {
   padding-right: 5px;
 }
@@ -16186,4 +16348,13 @@ a.btn, a.more-data-parline, .article__node-link a {
   border: 0;
   position: absolute;
   color: transparent;
+}
+
+.group-event-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.group-event-wrapper > div:not(.group-event-date) {
+  width: 80%;
 }
