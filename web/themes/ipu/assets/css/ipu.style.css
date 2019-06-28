@@ -15653,7 +15653,9 @@ h2,
   display: inline-block;
 }
 
-.example-download::after, .example-download::before {
+.example-download::after, .example-download::before,
+#branding .form-actions::after,
+#branding .form-actions::before {
   font-family: "Font Awesome 5 Free", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16130,4 +16132,28 @@ a.btn, a.more-data-parline, .article__node-link a {
 
 .text-white a, .articles-card-news .node--view-mode-highlight a {
   color: #fff;
+}
+
+.form-search {
+  border: 0;
+}
+
+.form-inline {
+  border-bottom: 1px solid #747678;
+}
+
+#branding .form-actions::after {
+  content: "\F002" !important;
+}
+
+#branding .form-actions:hover::after,
+#branding .form-actions:focus::after {
+  color: #e98300;
+}
+
+#branding .form-submit {
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  color: transparent;
 }

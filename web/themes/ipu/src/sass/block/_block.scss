@@ -111,7 +111,8 @@ h2,
 }
 
 // Font awesome icons
-.example-download {
+.example-download,
+#branding .form-actions {
   &::after,
   &::before {
     font-family: "Font Awesome 5 Free", sans-serif;
@@ -668,4 +669,29 @@ a.btn {
 
 .text-white a {
   color: $white;
+}
+
+// Search styles
+.form-search {
+  border: 0;
+}
+
+.form-inline {
+  border-bottom: 1px solid $dark;
+}
+
+#branding .form-actions::after {
+  content: "\f002" !important;
+}
+
+#branding .form-actions:hover::after,
+#branding .form-actions:focus::after {
+  color: $tertiary;
+}
+
+#branding .form-submit {
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  color: transparent;
 }
