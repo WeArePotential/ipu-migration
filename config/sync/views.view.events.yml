@@ -17,6 +17,7 @@ dependencies:
     - address
     - datetime
     - datetime_range
+    - ds
     - node
     - taxonomy
     - user
@@ -883,15 +884,25 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
           uses_fields: false
       row:
-        type: 'entity:node'
+        type: 'ds_entity:node'
         options:
           relationship: none
           view_mode: highlight
+          alternating_fieldset:
+            alternating: false
+            allpages: false
+            item_0: teaser
+            item_1: teaser
+          grouping_fieldset:
+            group: false
+            group_field: node__field_ipu_event_dates|field_ipu_event_dates_end_value
+            group_field_function: ''
+          advanced_fieldset:
+            advanced: false
       arguments:
         tid:
           id: tid
