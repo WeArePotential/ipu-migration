@@ -2,15 +2,14 @@
  * @see /themes/basic/js/ultimenu-override.js
 */
 
-.ultimenu li.hover > .ultimenu__flyout,
-.ultimenu li:hover > .ultimenu__flyout {
-  display: inherit;
-  margin-top: inherit;
-  opacity: 0;
-  visibility: hidden;
-}
-.ultimenu--htb li.hover > .ultimenu__flyout,
-.ultimenu--htb li:hover > .ultimenu__flyout {
-  -webkit-transform: none;
-  transform: none;
+@media screen and (min-width: 992px) {
+  /* Force hover to stay hidden */
+  .ultimenu--hover > li:hover > .ultimenu__flyout {
+    visibility: hidden !important;
+  }
+
+  /* Force focus anywhere in li to show  */
+  .ultimenu--hover > li:focus-within > .ultimenu__flyout {
+    visibility: visible !important;
+  }
 }

@@ -7,5 +7,5 @@ ultimenu-override:
     theme:
       css/ultimenu_override.css: {}
   js:
-    js/ultimenu_override_new.js: {}
+    js/ultimenu_override.js: {}
 

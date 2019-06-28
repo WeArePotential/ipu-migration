@@ -1,47 +1,28 @@
 /**
  * @file
  * Open ultimenu items with a click rather than the default hover.
+ * Also see ultimenu_override.css
  */
 
-(function ($, Drupal, window) {
-  Drupal.ultimenuOverrides = Drupal.ultimenuOverrides || {};
-
-  Drupal.behaviors.ultimenuOverrides = {
-    attach: function (context) {
-
-      $(document).click(function () {
-        // Clears the mega menu if click anywhere on the site.
-        $('.ultimenu__flyout').css({
-          "visibility":"hidden",
-          "opacity":"0",
-          "transform":"translateY(-1000%)",
-        })
-      });
-
-      $('.ultimenu > li > a.ultimenu__link').click(function (event) {
-        // This stops the previous statement so that this click works.
-        event.stopPropagation();
-
+(function ($) {
+  const menuLinks = $('.ultimenu__link');
+  function overrideMenuClick() {
+    // Desktop upwards disables ultimenu link clicks
+    if ($(window).width() > 992) {
+      menuLinks.on('click', function(event) {
         event.preventDefault();
-
-        // Clears the megamenu if click another link in the menu.
-        $('.ultimenu__flyout').css({
-          "visibility":"hidden",
-          "opacity":"0",
-          "transform":"translateY(-1000%)",
-        });
-
-        // Add the CSS to make the megamenu appear.
-        $(this).closest('.ultimenu__item').find('.ultimenu__flyout').css({
-          "visibility":"visible",
-          "opacity":"1",
-          "display":"block",
-          "transform":"translateY(0)",
-          "margin-top": "0",
-          "transition-delay": "0s"
-        });
       });
-
+    } else {
+      menuLinks.off('click');
     }
-  };
-})(jQuery, Drupal, this);
+  }
+
+  // Run on page load
+  overrideMenuClick();
+
+  // Run if browser is resized
+  // NOTE: Probably for tablet portrait to landscape
+  window.addEventListener("resize", overrideMenuClick);
+
+
+})(jQuery);
