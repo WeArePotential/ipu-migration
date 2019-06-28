@@ -66,7 +66,8 @@ h3 {
     display: none;
   }
 
-  .badge, .node--view-mode-highlight .article__type {
+  .badge, .node--view-mode-highlight .article__type,
+.node--view-mode-highlight .ipu-event__field-event-type {
     border: 1px solid #000;
   }
 
@@ -4337,7 +4338,8 @@ input[type=button].btn-block {
   border-bottom-left-radius: 0;
 }
 
-.card-body, .node--view-mode-highlight .article__type-content {
+.card-body, .node--view-mode-highlight .article__type-content,
+.node--view-mode-highlight .layout__region--content {
   flex: 1 1 auto;
   padding: 10px;
 }
@@ -4645,7 +4647,8 @@ input[type=button].btn-block {
   border-bottom-right-radius: 0.2rem;
 }
 
-.badge, .node--view-mode-highlight .article__type {
+.badge, .node--view-mode-highlight .article__type,
+.node--view-mode-highlight .ipu-event__field-event-type {
   display: inline-block;
   padding: 0.25em 0.4em;
   font-size: 75%;
@@ -4658,19 +4661,30 @@ input[type=button].btn-block {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .badge, .node--view-mode-highlight .article__type {
+  .badge, .node--view-mode-highlight .article__type,
+.node--view-mode-highlight .ipu-event__field-event-type {
     transition: none;
   }
 }
-a.badge:hover, .node--view-mode-highlight a.article__type:hover, a.badge:focus, .node--view-mode-highlight a.article__type:focus {
+a.badge:hover, .node--view-mode-highlight a.article__type:hover,
+.node--view-mode-highlight a.ipu-event__field-event-type:hover, a.badge:focus, .node--view-mode-highlight a.article__type:focus,
+.node--view-mode-highlight a.ipu-event__field-event-type:focus {
   text-decoration: none;
 }
 
-.badge:empty, .node--view-mode-highlight .article__type:empty {
+.badge:empty, .node--view-mode-highlight .article__type:empty,
+.node--view-mode-highlight .ipu-event__field-event-type:empty {
   display: none;
 }
 
-.btn .badge, .more-data-parline .badge, .article__node-link a .badge, .btn .node--view-mode-highlight .article__type, .more-data-parline .node--view-mode-highlight .article__type, .article__node-link a .node--view-mode-highlight .article__type, .node--view-mode-highlight .btn .article__type, .node--view-mode-highlight .more-data-parline .article__type, .node--view-mode-highlight .article__node-link a .article__type, .article__node-link .node--view-mode-highlight a .article__type {
+.btn .badge, .more-data-parline .badge, .article__node-link a .badge, .btn .node--view-mode-highlight .article__type, .more-data-parline .node--view-mode-highlight .article__type, .article__node-link a .node--view-mode-highlight .article__type, .node--view-mode-highlight .btn .article__type, .node--view-mode-highlight .more-data-parline .article__type, .node--view-mode-highlight .article__node-link a .article__type, .article__node-link .node--view-mode-highlight a .article__type,
+.btn .node--view-mode-highlight .ipu-event__field-event-type,
+.more-data-parline .node--view-mode-highlight .ipu-event__field-event-type,
+.article__node-link a .node--view-mode-highlight .ipu-event__field-event-type,
+.node--view-mode-highlight .btn .ipu-event__field-event-type,
+.node--view-mode-highlight .more-data-parline .ipu-event__field-event-type,
+.node--view-mode-highlight .article__node-link a .ipu-event__field-event-type,
+.article__node-link .node--view-mode-highlight a .ipu-event__field-event-type {
   position: relative;
   top: -1px;
 }
@@ -4785,15 +4799,20 @@ a.badge-dark:focus, a.badge-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(116, 118, 120, 0.5);
 }
 
-.badge-tertiary, .node--view-mode-highlight .article__type {
+.badge-tertiary, .node--view-mode-highlight .article__type,
+.node--view-mode-highlight .ipu-event__field-event-type {
   color: #fff;
   background-color: #e98300;
 }
-a.badge-tertiary:hover, .node--view-mode-highlight a.article__type:hover, a.badge-tertiary:focus, .node--view-mode-highlight a.article__type:focus {
+a.badge-tertiary:hover, .node--view-mode-highlight a.article__type:hover,
+.node--view-mode-highlight a.ipu-event__field-event-type:hover, a.badge-tertiary:focus, .node--view-mode-highlight a.article__type:focus,
+.node--view-mode-highlight a.ipu-event__field-event-type:focus {
   color: #fff;
   background-color: #b66600;
 }
-a.badge-tertiary:focus, .node--view-mode-highlight a.article__type:focus, a.badge-tertiary.focus, .node--view-mode-highlight a.focus.article__type {
+a.badge-tertiary:focus, .node--view-mode-highlight a.article__type:focus,
+.node--view-mode-highlight a.ipu-event__field-event-type:focus, a.badge-tertiary.focus, .node--view-mode-highlight a.focus.article__type,
+.node--view-mode-highlight a.focus.ipu-event__field-event-type {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(233, 131, 0, 0.5);
 }
@@ -15974,7 +15993,7 @@ ol.breadcrumb {
 }
 
 .ipu-map-country .ipu-map-flag img {
-  height: 80px;
+  height: 2.5rem;
   width: auto;
   margin-right: 10px;
 }
@@ -16010,10 +16029,6 @@ a.btn, a.more-data-parline, .article__node-link a {
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: "|";
-}
-
-.ipu-map-flag {
-  height: 2.5rem;
 }
 
 .data-point-title {
@@ -16069,7 +16084,8 @@ a.btn, a.more-data-parline, .article__node-link a {
 .node--view-mode-highlight .article__node-post-date {
   font-size: 0.875rem;
 }
-.node--view-mode-highlight .article__type {
+.node--view-mode-highlight .article__type,
+.node--view-mode-highlight .ipu-event__field-event-type {
   position: absolute;
   top: -3px;
   left: -3px;
@@ -16078,6 +16094,20 @@ a.btn, a.more-data-parline, .article__node-link a {
 }
 .node--view-mode-highlight .article__node-link a:hover, .node--view-mode-highlight .article__node-link a:focus {
   background-color: #e98300;
+}
+.node--view-mode-highlight .ipu-event__dates {
+  border-radius: 50%;
+  background-color: #e98300;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  margin-right: 10px;
+  border: 4px solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .article__node-link a:after {
