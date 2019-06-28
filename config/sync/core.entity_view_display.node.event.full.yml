@@ -1,8 +1,9 @@
-uuid: 80ac0c80-aef0-44c2-b5bc-7b3beff8a20b
+uuid: c42ca05b-52f4-4142-b056-e2644f597281
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.event.body
     - field.field.node.event.field_country
     - field.field.node.event.field_document
@@ -76,10 +77,10 @@ third_party_settings:
         - field_ipu_structure
         - field_theme
         - links
-id: node.event.default
+id: node.event.full
 targetEntityType: node
 bundle: event
-mode: default
+mode: full
 content:
   body:
     label: above

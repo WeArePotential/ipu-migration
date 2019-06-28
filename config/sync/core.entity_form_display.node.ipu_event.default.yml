@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ipu_event.field_agenda_order_number
+    - field.field.node.ipu_event.field_country
     - field.field.node.ipu_event.field_date_accuracy
     - field.field.node.ipu_event.field_do_not_display_as_link
     - field.field.node.ipu_event.field_document_show_print
@@ -64,6 +65,7 @@ third_party_settings:
         - field_do_not_display_as_link
         - field_event_theme
         - field_location
+        - field_country
         - field_ipu_event_dates
         - field_date_accuracy
         - field_event_computed_date
@@ -101,7 +103,7 @@ third_party_settings:
         - field_documents_order_number
         - field_document_show_print
       parent_name: group_tabs
-      weight: 22
+      weight: 23
       format_type: tab
       format_settings:
         id: ''
@@ -118,7 +120,7 @@ third_party_settings:
         - field_agenda_order_number
         - field_programme_show_print
       parent_name: group_tabs
-      weight: 23
+      weight: 24
       format_type: tab
       format_settings:
         id: ''
@@ -135,7 +137,7 @@ third_party_settings:
         - field_twitter_order
         - field_ipu_event_right_menu
       parent_name: group_tabs
-      weight: 24
+      weight: 25
       format_type: tab
       format_settings:
         id: ''
@@ -152,7 +154,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -163,6 +165,15 @@ content:
       size: 20
       placeholder: ''
     third_party_settings: {  }
+    region: content
+  field_country:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
     region: content
   field_date_accuracy:
     weight: 8
@@ -346,7 +357,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -354,21 +365,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 6
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -380,7 +391,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -394,7 +405,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

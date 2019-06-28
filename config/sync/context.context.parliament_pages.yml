@@ -13,7 +13,7 @@ disabled: false
 conditions:
   request_path:
     id: request_path
-    pages: '/parliament/*'
+    pages: "/parliament/*\r\n/parlement/*"
     negate: 0
     uuid: e088df7e-aced-463f-84df-0182e641724e
     context_mapping: {  }

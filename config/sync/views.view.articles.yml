@@ -15,7 +15,7 @@ dependencies:
     - taxonomy.vocabulary.theme
   content:
     - 'taxonomy_term:article:8e9c6cea-89d4-433e-90e3-9902c0124c59'
-    - 'taxonomy_term:article:93a613db-c200-4acb-85b4-dc4c93c81378'
+    - 'taxonomy_term:article:9f510790-8599-433d-80a2-8286183fd66d'
     - 'taxonomy_term:article:eea30751-1398-4ebf-b123-67829e882a63'
   module:
     - ds
