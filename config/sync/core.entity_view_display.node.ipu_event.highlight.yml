@@ -60,12 +60,14 @@ third_party_settings:
       main:
         - group_content
         - field_ipu_event_dates
-        - field_do_not_display_as_link
+        - group_date
         - field_event_type
+        - group_wrapper
         - node_title
         - field_location
         - field_summary
         - node_link
+        - field_do_not_display_as_link
     fields:
       node_link:
         plugin_id: node_link
@@ -95,7 +97,8 @@ third_party_settings:
         - field_location
         - field_summary
         - node_link
-      parent_name: ''
+        - field_do_not_display_as_link
+      parent_name: group_wrapper
       weight: 0
       format_type: html_element
       format_settings:
@@ -110,6 +113,43 @@ third_party_settings:
         classes: ''
       label: Content
       region: hidden
+    group_wrapper:
+      children:
+        - group_content
+        - group_date
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: group-event-wrapper
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Wrapper
+      region: hidden
+    group_date:
+      children:
+        - field_ipu_event_dates
+      parent_name: group_wrapper
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: group-event-date
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Date
+      region: hidden
 id: node.ipu_event.highlight
 targetEntityType: node
 bundle: ipu_event
@@ -117,7 +157,7 @@ mode: highlight
 content:
   field_do_not_display_as_link:
     type: boolean
-    weight: 2
+    weight: 7
     region: main
     label: inline
     settings:
