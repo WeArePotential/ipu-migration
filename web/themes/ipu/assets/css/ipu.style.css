@@ -15551,13 +15551,17 @@ readers do not read off random characters that represent icons */
 h1,
 .basic-page__node-title h2,
 .page__node-title h2,
+.ipu-map-country h2,
 .section-page__node-title h2 {
-  color: #333333;
-  font-size: 2.5rem;
   line-height: 1.25em;
   font-weight: 400;
   padding-bottom: 4px;
   border-bottom: 4px solid #00a8b4;
+}
+
+h1 {
+  color: #333333;
+  font-size: 2.5rem;
 }
 
 h2,
@@ -16094,4 +16098,8 @@ a.btn, a.more-data-parline, .article__node-link a {
 
 .articles-card-case-study .article__node-post-date {
   display: none;
+}
+
+.text-white a, .articles-card-news .node--view-mode-highlight a {
+  color: #fff;
 }

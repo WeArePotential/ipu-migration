@@ -2,16 +2,22 @@ body {
   background-color: theme-color("grey-100");
 }
 
+// Basic styling for h1 and h2 headings
 h1,
 .basic-page__node-title h2,
 .page__node-title h2,
+.ipu-map-country h2,
 .section-page__node-title h2 {
-  color: color("ipu-dark-grey");
-  font-size: $h1-font-size;
   line-height: 1.25em;
   font-weight: 400;
   padding-bottom: 4px;
   border-bottom: 4px solid color("ipu-teal");
+}
+
+// h2's are 
+h1 {
+  color: color("ipu-dark-grey");
+  font-size: $h1-font-size;
 }
 
 h2,
@@ -621,4 +627,8 @@ a.btn {
 
 .articles-card-case-study .article__node-post-date {
   display: none;
+}
+
+.text-white a {
+  color: $white;
 }
