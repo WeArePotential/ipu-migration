@@ -15946,13 +15946,15 @@ h2,
   border-right-width: 0;
   display: inline-block;
 }
-#main-nav .nav-item.active .nav-link,
-#main-nav .ultimenu__item.active .nav-link {
+#main-nav .nav-item.active .nav-link, #main-nav .nav-item.is-active-trail,
+#main-nav .ultimenu__item.active .nav-link,
+#main-nav .ultimenu__item.is-active-trail {
   background-color: rgba(0, 168, 180, 0.3);
   color: #333333;
 }
-#main-nav .nav-item.active .nav-link:hover,
-#main-nav .ultimenu__item.active .nav-link:hover {
+#main-nav .nav-item.active .nav-link:hover, #main-nav .nav-item.is-active-trail:hover,
+#main-nav .ultimenu__item.active .nav-link:hover,
+#main-nav .ultimenu__item.is-active-trail:hover {
   background-color: #00a8b4;
   color: #fff;
 }

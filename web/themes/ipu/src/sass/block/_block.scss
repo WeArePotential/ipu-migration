@@ -191,7 +191,8 @@ h2,
     border-style: solid;
     border-right-width: 0;
     display: inline-block;
-    &.active .nav-link {
+    &.active .nav-link,
+    &.is-active-trail {
       background-color: color("ipu-teal-light");
       color: color("ipu-dark-grey");
       &:hover {
