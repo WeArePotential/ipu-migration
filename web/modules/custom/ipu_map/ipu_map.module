@@ -128,8 +128,6 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
       $gen_sec_url = 'https://data.ipu.org/api/field_collection_item.json?item_id=' . $gen_sec_id;
       curl_setopt($ch, CURLOPT_URL, $gen_sec_url);
       */
-      $data['#current_women_percent'] = $chamber->current_women_percent;
-      $data['#total_younger_45_percentage'] = $chamber->total_younger_45_percentage;
       if ($chamber->field_chamber_name) {
         $data['#parliamentary_name'][] = $chamber->field_chamber_name;
       }
@@ -138,6 +136,8 @@ function ipu_map_get_parline_data($isocode, $description, $membership_status, $p
         'parliament_house' => (($chamber->field_struct_parl_status->id == 17) ? t('Upper') : t('Lower'))
       );
       if ($chamber->field_struct_parl_status->id != 17) {
+        $data['#current_women_percent'] = $chamber->current_women_percent;
+        $data['#total_younger_45_percentage'] = $chamber->total_younger_45_percentage;
         $election_nid = $chamber->latest_election->id;
       }
     };
