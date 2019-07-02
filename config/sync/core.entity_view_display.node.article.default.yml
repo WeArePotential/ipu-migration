@@ -69,10 +69,10 @@ third_party_settings:
       left:
         - body
       right:
-        - field_contact_ipu
         - field_media_image
-        - group_image
+        - field_contact_ipu
         - field_caption
+        - group_image
         - field_country
     fields:
       node_post_date:
@@ -85,6 +85,16 @@ third_party_settings:
         weight: 1
         label: hidden
         formatter: default
+        settings:
+          wrapper: h1
+          class: ''
+          link: false
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_group:
     group_image:
       children:

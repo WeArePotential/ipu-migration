@@ -15,7 +15,7 @@
  * @see template_preprocess_views_view_unformatted()
  */
 #}
-{% if title %}
+{% if title and rows|length %}
   <h3>{{ title }}</h3>
 {% endif %}
 <div class="events-card row">

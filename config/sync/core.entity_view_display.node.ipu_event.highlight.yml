@@ -110,7 +110,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: ''
+        classes: event__type-content
       label: Content
       region: hidden
     group_wrapper:

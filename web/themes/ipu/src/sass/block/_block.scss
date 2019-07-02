@@ -31,7 +31,7 @@ h2,
 }
 
 .page__footer {
-  background-color: theme-color("secondary");
+  background-color: theme-color("dark");
 }
 
 .topbar {
@@ -224,6 +224,9 @@ h2,
         }
       }
     }
+    .nav-link {
+      padding: 0.45rem 0.75rem 0.05rem 0.75rem;
+    }
 
     
     // Uncomment to turn on dropdown arrows
@@ -313,6 +316,18 @@ ol.breadcrumb {
     color: color("ipu-orange");
     text-decoration: none;
   }
+}
+
+/* Generic override due to this issues:
+https://www.drupal.org/project/drupal/issues/2929888
+*/
+.img-thumbnail {
+  display: block;
+  padding: 0;
+  border-width: 0;
+  border-radius: 0;
+  max-width: 100%;
+  margin: 0;
 }
 
 a::before,
@@ -484,18 +499,56 @@ a.btn {
 .stats {
   font-size: $font-size-sm;
 }
-
 .stats-item {
   min-height: 30px;
 }
 
+.data-parliament-name {
+  font-weight: $font-weight-bold;
+  border-bottom: 1px solid $secondary;
+}
+.stats-number {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+}
+.stats-content {
+  padding-left: $spacer;
+}
+.stats-age {
+  border: 1px solid $ipu-light-grey;
+}
+.card-current-women-percent .stats-item {
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+.stats-more-link {
+  @extend .btn;
+  @extend .btn-sm;
+  @extend .btn-outline-dark;
+  text-transform: uppercase;
+  font-size: $font-size-xs;
+  letter-spacing: 0.05rem;
+  padding: 0.125rem 0.5rem;
+  width: 100%;
+}
 .stats-women {
-  background-color: darkgrey;
+  background-color: transparent;
   z-index: 1000;
+  background-position: 0 0;
+  background-image: url("../img/icons/woman.png");
 }
 
 .stats-men {
-  background-color: grey;
+  background-color: transparent;
+  background-position: 100% 0;
+  background-image: url("../img/icons/man.png");
+}
+
+.stats-under-45 {
+  background-color: $tertiary;
+}
+.stats-not-under-45 {
+  background-color: $light;
 }
 
 .stats-circle {
@@ -533,11 +586,13 @@ a.btn {
 .node--view-mode-highlight {
   position: relative;
   @extend .card;
-
   margin-bottom: $spacer;
 
   .article__node-post-date {
     font-size: $font-size-sm;
+  }
+  .article__field-media-image {
+    margin-top: -10px;
   }
 
   // Article type for all highlight cards
@@ -556,8 +611,7 @@ a.btn {
   .article__type-content,
   .layout__region--content,
   .event__type-content,
-  .bs-region--main,
-  .group-event-wrapper {
+  .bs-region--main {
     @extend .card-body;
   }
 
@@ -568,8 +622,12 @@ a.btn {
     }
   }
 
+  .group-event-wrapper {
+    margin-top: -10px;
+  }
   // Styling date element
-  .ipu-event__dates {
+  .ipu-event__dates,
+  .event__date{
     border-radius: 50%;
     background-color: $tertiary;
     width: 100px;
@@ -581,20 +639,28 @@ a.btn {
     // font-size: $font-size-lg;
     border: 4px solid #f2f2f2;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    background-color: #e98300;
+    justify-content: space-evenly;
     background-image: url(../img/icons/calendar.png);
     background-position: 100% 50%;
     background-size: 36px;
-
+    line-height: 1.1em;
     // time {
     //   display: flex;
     //   height: 100%;
     //   background-color: $tertiary;
     //   border-radius: 50%;
     // }
+    .event-dates-part {
+      display: block;
+    }
+    .event-dates-day {
+      font-size: $font-size-lg;
+    }
+  }
+  .event__date {
+    background-color: $ipu-grey;
   }
   .group-event-date {
     position: absolute;
@@ -672,10 +738,12 @@ a.btn {
   @extend .btn;
   @extend .btn-sm;
   @extend .btn-outline-primary;
-  
   span::before {
     padding-right: 5px;
   }
+}
+.more-data-parline {
+  width: 100%;
 }
 // Currently removing row and column styles
 // NOTE: May want to try and remove these in Drupal
@@ -721,11 +789,12 @@ a.btn {
 
 #branding .form-actions::after {
   content: "\f002" !important;
+  color: $tertiary;
 }
 
 #branding .form-actions:hover::after,
 #branding .form-actions:focus::after {
-  color: $tertiary;
+  color: $secondary;
 }
 
 #branding .form-submit {
@@ -739,8 +808,11 @@ a.btn {
 .group-event-wrapper {
   display: flex;
   position: relative;
+  .event__type-content {
+    max-width: calc(100% - 60px);
+  }
+  .ipu-event__field-location {
+    font-size: $font-size-sm;
+  }
 }
 
-.group-event-wrapper > div:not(.group-event-date) {
-  width: 80%;
-}

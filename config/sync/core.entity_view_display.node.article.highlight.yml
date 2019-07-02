@@ -15,20 +15,19 @@ dependencies:
     - field.field.node.article.field_place_of_publication
     - field.field.node.article.field_tags
     - field.field.node.article.field_theme
-    - image.style.large
     - node.type.article
+    - responsive_image.styles.wide
   module:
     - ds
     - field_group
-    - image
-    - smart_trim
+    - responsive_image
     - user
 third_party_settings:
   field_group:
     group_image:
       children: {  }
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: html_element
       format_settings:
         id: ''
@@ -46,7 +45,6 @@ third_party_settings:
       children:
         - node_post_date
         - node_title
-        - body
         - node_link
       parent_name: ''
       weight: 2
@@ -87,22 +85,21 @@ third_party_settings:
       main:
         - field_article_type
         - field_media_image
-        - node_post_date
         - group_content
+        - node_post_date
         - node_title
-        - body
         - node_link
     fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 2
-        label: hidden
-        formatter: ds_post_date_long
       node_link:
         plugin_id: node_link
         weight: 5
         label: hidden
         formatter: default
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 2
+        label: hidden
+        formatter: ds_post_date_short_date_only
       node_title:
         plugin_id: node_title
         weight: 3
@@ -125,32 +122,6 @@ targetEntityType: node
 bundle: article
 mode: highlight
 content:
-  body:
-    label: hidden
-    weight: 4
-    type: smart_trim
-    settings:
-      trim_length: 40
-      trim_type: words
-      trim_suffix: ''
-      wrap_class: ''
-      more_text: More
-      more_class: more-link
-      summary_handler: full
-      trim_options:
-        text: true
-        trim_zero: false
-      wrap_output: false
-      more_link: false
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    region: main
   field_article_type:
     type: entity_reference_label
     weight: 0
@@ -167,12 +138,12 @@ content:
             lb-col: false
             classes: {  }
   field_media_image:
-    type: image
+    type: responsive_image
     weight: 1
     region: main
     label: hidden
     settings:
-      image_style: large
+      responsive_image_style: wide
       image_link: content
     third_party_settings:
       ds:
@@ -183,6 +154,7 @@ content:
             lb-col: false
             classes: {  }
 hidden:
+  body: true
   field_caption: true
   field_contact_ipu: true
   field_country: true
