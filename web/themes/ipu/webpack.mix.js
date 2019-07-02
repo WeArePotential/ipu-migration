@@ -27,11 +27,11 @@ mix
  | Browsersync
  |--------------------------------------------------------------------------
  */
-mix.browserSync({
-  proxy: proxy,
-  files: ['assets/js/**/*.js', 'assets/css/**/*.css'],
-  stream: true,
-});
+// mix.browserSync({
+//   proxy: proxy,
+//   files: ['assets/js/**/*.js', 'assets/css/**/*.css'],
+//   stream: true,
+// });
 
 /*
  |--------------------------------------------------------------------------

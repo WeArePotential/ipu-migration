@@ -23,4 +23,13 @@ import 'bootstrap';
     }
   };
 
+  Drupal.behaviors.equalHeights = {
+    attach: function (context) {
+      /*
+      * Only go to the link when dropdown is already open (if the dropdown is a link)
+      */
+      $('.node--view-mode-highlight .bs-region').matchHeight();
+    }
+  };
+
 })(jQuery, Drupal);
