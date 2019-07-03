@@ -145,116 +145,6 @@ h2,
   content: "\f099" !important;
 }
 
-#main-nav {
-  background-color: color("white");
-  border-width: 1px 0 4px 0;
-  border-top-color: color("ipu-light-grey");
-  border-bottom-color: color("ipu-blue");
-  border-style: solid;
-  .navbar-nav {
-    flex-direction: row;
-  }
-  .dropdown-menu {
-    padding: 0.25rem 0;
-    margin: 0;
-    border-radius: 1px;
-  }
-  .ultimenu {
-    min-height: auto;
-    padding: 0;
-    /* Expand menu so it's twice as wide as parent (which is col-6)*/
-    z-index: 5000;
-    .ultimenu__flyout {
-      background-color: #fff;
-      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-      z-index: 2102;
-      margin-right: -50%;
-      width: 200%;
-      .region-inner {
-        padding: 20px;
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        & > .block {
-        }
-      }
-    }
-    .ultimenu__item > a {
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-    }
-  }
-  .nav-item,
-  .ultimenu__item {
-    border-width: 0 0 0 1px;
-    border-color: color("ipu-light-grey");
-    border-style: solid;
-    border-right-width: 0;
-    display: inline-block;
-    &.active .nav-link,
-    &.is-active-trail {
-      background-color: color("ipu-teal-light");
-      color: color("ipu-dark-grey");
-      &:hover {
-        background-color: color("ipu-teal");
-        color: color("white");
-      }
-    }
-    .nav-link,
-    .ultimenu__link,
-    .dropdown-item {
-      padding: 0.25rem 0.75rem;
-      min-height: 33px;
-      text-transform: uppercase;
-      letter-spacing: 0.075em;
-      color: color("ipu-grey");
-      font-weight: 400;
-      font-size: 0.8rem;
-
-      &:hover {
-        background-color: color("ipu-teal");
-        color: color("white");
-      }
-
-      &.is-active {
-        background-color: color("ipu-teal-light");
-
-        &:hover {
-          background-color: color("ipu-teal");
-          color: color("white");
-        }
-      }
-    }
-    .nav-link {
-      padding: 0.45rem 0.75rem 0.05rem 0.75rem;
-    }
-
-    
-    // Uncomment to turn on dropdown arrows
-    // .ultimenu__link {
-    //   @extend .dropdown-toggle;
-    // }
-
-    // Comment out to turn on dropdown arrows
-    .dropdown-toggle::after {
-      content: none;
-    }
-    &:last-child {
-      border-right-width: 1px;
-    }
-  }
-  .nav-item + .nav-item {
-    margin-left: -4px;
-  }
-  #main-nav-right .navbar-nav {
-    display: inline-block;
-  }
-}
-main,
-ol.breadcrumb {
-  background-color: gray("100");
-}
-
 .cta-link {
   font-size: 0.65rem;
   letter-spacing: 0.075em;
@@ -818,6 +708,9 @@ a.btn {
 
 /* News styles */
 .node-article {
+  .article__node-post-date {
+    font-weight: $font-weight-bold;
+  }
   .group-news-image {
     position: relative;
     margin: 10px 0;
@@ -835,4 +728,39 @@ a.btn {
       margin-bottom: 0;
     }
   }
+  .article__body {
+    margin: 30px 0;
+  }
+  @include media-breakpoint-up(md) {
+  .article__body {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+      -webkit-column-gap: 30px;
+      -moz-column-gap: 30px;
+      column-gap: 30px;
+    }
+  }
+
+  .group-related {
+    margin: 0 -15px;
+    background-color: $ipu-light-grey;
+    padding: 20px 0;
+    & .field__label {
+      @extend h2;
+      font-weight: $font-weight-light;
+      margin: 30px 0;
+    }
+    & > div {
+      @extend .container;
+      .field__item .views-element-container > div {
+        @extend .row;
+        .views-row {
+          @extend .col-lg-4;
+          @extend .col-md-6;
+        }
+      }
+    }
+  }
+
 }

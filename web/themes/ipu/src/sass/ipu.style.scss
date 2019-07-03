@@ -82,6 +82,7 @@ $spacers: map-merge(
 // Other
 // -----------------------------------------------------------------------------
 @import "block/block";
+@import "navigation/nav";
 @import "content/node.page";
 @import "content/node.article";
 
