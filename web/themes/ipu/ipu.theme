@@ -16,6 +16,6 @@ foreach (glob($includes_path) as $filename) {
 function ipu_preprocess_html(&$variables) {
   if (isset($variables['node_type'])) {
     // Add node-TYPE class to the <body> element.
-    $variables['attributes']->addClass('node-' . $variables['node_type']);
+    $variables['attributes']['class'][] = ('node-' . $variables['node_type']);
   }
 }
