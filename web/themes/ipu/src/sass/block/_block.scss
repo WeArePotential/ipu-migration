@@ -816,3 +816,23 @@ a.btn {
   }
 }
 
+/* News styles */
+.node-article {
+  .group-news-image {
+    position: relative;
+    margin: 10px 0;
+  }
+  /* Put caption over image */
+  .article__field-caption {
+    position: absolute;
+    bottom: 0;
+    background-color: $ipu-blue-light;
+    color: $ipu-white;
+    padding: 0.5rem;
+    font-size: $font-size-sm;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

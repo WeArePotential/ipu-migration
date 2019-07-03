@@ -1,5 +1,5 @@
-uuid: 22c5aa09-41c3-4d02-95fc-b27f4b4b55fd
-langcode: fr
+uuid: 76c8afe4-664b-4a41-9e6b-dc8f7b23c0fd
+langcode: en
 status: true
 dependencies:
   config:
@@ -8,9 +8,9 @@ dependencies:
     - menu_block
   theme:
     - ipu
-id: megamenu
+id: megamenu_2
 theme: ipu
-region: ultimenu_mega_b7d13355
+region: ultimenu_mega_fb9f2222
 weight: 0
 provider: null
 plugin: 'menu_block:mega-menu'
@@ -22,6 +22,6 @@ settings:
   level: 1
   depth: 1
   expand: 0
-  parent: 'mega-menu:menu_link_content:d6891800-b362-4edc-87c7-5f04a5708a27'
+  parent: 'mega-menu:menu_link_content:3310ff71-4264-4d76-818f-13e0826d43d1'
   suggestion: mega_menu
 visibility: {  }

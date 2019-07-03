@@ -10,3 +10,12 @@ foreach (glob($includes_path) as $filename) {
   require_once dirname(__FILE__) . '/includes/' . basename($filename);
 }
 
+/**
+ * Implements template_preprocess_html().
+ */
+function ipu_preprocess_html(&$variables) {
+  if (isset($variables['node_type'])) {
+    // Add node-TYPE class to the <body> element.
+    $variables['attributes']->addClass('node-' . $variables['node_type']);
+  }
+}

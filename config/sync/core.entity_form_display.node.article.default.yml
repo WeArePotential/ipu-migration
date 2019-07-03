@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.article.field_theme
     - node.type.article
   module:
+    - chosen_field
     - entity_browser
     - field_group
     - field_layout
@@ -37,13 +38,12 @@ third_party_settings:
         - field_ipu_structure
       parent_name: ''
       weight: 1
-      label: Taxonomy
+      label: Categories
       format_settings:
-        formatter: open
+        description: ''
         required_fields: true
         id: ''
         classes: node-taxonomy
-        description: ''
       format_type: fieldset
       region: content
     group_media:
@@ -123,13 +123,13 @@ content:
     region: content
   field_country:
     weight: 23
-    type: options_select
+    type: chosen_select
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ipu_structure:
     weight: 24
-    type: options_select
+    type: chosen_select
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -166,7 +166,7 @@ content:
     third_party_settings: {  }
   field_theme:
     weight: 22
-    type: options_select
+    type: chosen_select
     settings: {  }
     third_party_settings: {  }
     region: content

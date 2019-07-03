@@ -16491,3 +16491,23 @@ a.more-data-parline, .article__node-link a,
 .group-event-wrapper .ipu-event__field-location {
   font-size: 0.875rem;
 }
+
+/* News styles */
+.node-article {
+  /* Put caption over image */
+}
+.node-article .group-news-image {
+  position: relative;
+  margin: 10px 0;
+}
+.node-article .article__field-caption {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 102, 161, 0.6);
+  color: #ffffff;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+.node-article .article__field-caption p {
+  margin-bottom: 0;
+}
