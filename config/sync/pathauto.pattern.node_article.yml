@@ -3,20 +3,31 @@ langcode: en
 status: true
 dependencies:
   module:
+    - language
     - node
 id: node_article
 label: 'Content - News and Stories'
 type: 'canonical_entities:node'
 pattern: 'news/[node:field_article_type:entity:parents:join-path]/[node:field_article_type]/[node:created:custom:Y-m]/[node:title]'
 selection_criteria:
-  9f332179-ddee-45b0-8355-c3519e5c76a4:
+  d0b4dc8f-caf6-4936-a0f6-2235c4913fcf:
     id: node_type
     bundles:
       article: article
     negate: false
     context_mapping:
       node: node
-    uuid: 9f332179-ddee-45b0-8355-c3519e5c76a4
+    uuid: d0b4dc8f-caf6-4936-a0f6-2235c4913fcf
+  cc38f9e5-a468-4bbd-9f0c-b498787d73ed:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: cc38f9e5-a468-4bbd-9f0c-b498787d73ed
 selection_logic: and
-weight: -6
-relationships: {  }
+weight: -9
+relationships:
+  'node:langcode:language':
+    label: Language

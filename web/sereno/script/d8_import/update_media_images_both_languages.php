@@ -47,7 +47,7 @@ foreach ($nodes as $nid=>$node) {
 
         // Update the
         $node->set('field_media_image', $image[0]['target_id']);
-        print $alt;
+        //print $alt;
         if ($alt != '') {
           $tn->field_media_image->alt = $alt;
         }
